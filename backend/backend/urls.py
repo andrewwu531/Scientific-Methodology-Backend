@@ -23,11 +23,12 @@ from course_videos import views as course_videos_views
 from member import views as member_views
 
 router = routers.DefaultRouter()
-router.register(r'course_videos', course_videos_views.CourseView, 'course_videos')
+# router.register(r'course_videos', course_videos_views.CourseView, 'course_videos')
 router.register(r'member', member_views.MemberView, 'member')
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path('api/courses/', course_videos_views.CourseListCreateView.as_view(), name="course_videos"),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)       
