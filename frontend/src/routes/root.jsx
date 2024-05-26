@@ -1,12 +1,40 @@
-function Root() {
+import { Outlet } from "react-router-dom";
+import SectionContainer from "../components/SectionContainer";
+import SecondaryButton from "../components/Buttons/SecondaryButton";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer/Footer";
+import Sidebar from "../components/Sidebar";
 
-  return ( 
-    <div>
-        <h1 className="text-2xl font-bold underline">
-            Hello world!
-        </h1>
+export default function Root() {
+  return (
+    <div className="h-screen min-w-[50rem] grid overflow-hidden grid-cols-[min-content_auto] gap-y-2 p-2 bg-black">
+      <Sidebar /> 
+
+      <SectionContainer className="relative overflow-auto bg-local bg-gradient-to-b from-neutral-800 via-neutral-900 to-neutral-900">
+        <header className="sticky top-0 px-7 py-5 bg-[hsla(0,0%,7%,0.7)] mb-[-4rem] z-50">
+          <Navbar /> 
+        </header>
+
+        <main>
+          <Outlet />
+        </main>
+
+        <Footer />
+      </SectionContainer>
+
+      <aside className="flex items-center justify-between col-span-2 px-4 py-3 bg-gradient-to-r from-accent-1 to-accent-2">
+        <p>
+          <span className="block text-sm tracking-wider">
+            PREVIEW OF SPOTIFY
+          </span>
+          Sign up to get unlimited songs and podcasts with occasional ads. No
+          credit card needed. AAAAAAAAA
+        </p>
+
+        <SecondaryButton href="#" className="px-8 py-3">
+          Sign up free BBBBBBBBBB
+        </SecondaryButton>
+      </aside>
     </div>
   );
 }
-
-export default Root;

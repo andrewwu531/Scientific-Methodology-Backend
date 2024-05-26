@@ -1,18 +1,33 @@
-import * as React from "react";
-import * as ReactDOM from "react-dom/client";
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Root from "./routes/root";
+import Login from "./routes/login";
+import { paths } from "./shared/routes";
 import "./index.css";
-import Root from "./routes/root"; 
-import ErrorPage from "./routes/error-page";
+import Home from "./routes/home";
+import Playlist from "./routes/playlist";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: paths.LOGIN,
+    element: <Login />,
+  },
+
+  {
+    path: paths.HOME,
     element: <Root />,
-    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: paths.HOME,
+        element: <Home />,
+      },
+
+      {
+        path: paths.PLAYLIST,
+        element: <Playlist />,
+      },
+    ],
   },
 ]);
 
