@@ -38,12 +38,12 @@ export default function Sidebar() {
   }, [width]);
 
   return (
-    <div className="flex relative overflow-y-hidden select-none">
+    <div className="relative flex overflow-y-hidden select-none">
       <aside
         className="relative flex flex-col gap-2"
         style={{ width: `${width / 16}rem` }}
       >
-        <SideMenu />
+        {/* <SideMenu /> */}
 
         <SideLibrary />
       </aside>

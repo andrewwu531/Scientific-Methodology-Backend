@@ -1,29 +1,27 @@
-import NavButton from "./Buttons/NavButton";
 import FlatButton from "./Buttons/FlatButton";
-import SecondaryButton from "./Buttons/SecondaryButton";
+import RegisterButton from "./Buttons/RegisterButton";
 import { routes } from "../shared/routes";
 
 export default function Navbar() {
   return (
-    <nav className="flex justify-between">
-      <div className="flex gap-3 justify-center items-center">
-        <NavButton back />
-        <NavButton disabled />
+    <nav className="flex justify-between pb-5 px-9 pt-7">
+      <div className="flex items-center justify-center gap-2 text-3xl font-bold">
+        M
       </div>
 
-      <ul role="menu" className="flex items-center gap-10">
+      <ul role="menu" className="flex items-center gap-7">
         <li>
           <FlatButton
             href="#"
-            className="text-neutral-400 hover:text-white font-bold hover:scale-105"
+            className="text-lg font-bold text-neutral-400 hover:text-white hover:scale-105"
           >
-            Sign up
+            Try for Free
           </FlatButton>
         </li>
         <li>
-          <SecondaryButton href={routes.LOGIN} className="px-8 py-3">
-            Log in
-          </SecondaryButton>
+          <RegisterButton href={routes.LOGIN} className="px-6 py-3">
+            Register/ Log in
+          </RegisterButton>
         </li>
       </ul>
     </nav>
