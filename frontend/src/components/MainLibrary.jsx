@@ -1,23 +1,17 @@
 import SectionContainer from "./SectionContainer";
 import VerticalCard from "./Cards/VerticalCard";
 import SecondaryButton from "./Buttons/SecondaryButton";
+import RoundedButton from "./Buttons/RoundedButton";
+import CircularButton from  "./Buttons/CircularButton";
 import FlatButton from "./Buttons/FlatButton";
 
-export default function SideLibrary() {
+export default function MainLibrary() {
   return (
+   
     <SectionContainer>
-      {/* <div className="relative flex items-center justify-between px-5 py-4 shadow-lg shadow-neutral-950">
-        <RoundedButton className="flex items-center gap-3 px-2 py-1 transition-colors duration-300 text-neutral-400 hover:text-white">
-          <FontAwesomeIcon icon={faListDots} />
-          Your Library
-        </RoundedButton>
 
-        <CircularButton className="w-8 transition-colors hover:bg-neutral-800 text-neutral-400 hover:text-white">
-          <FontAwesomeIcon icon={faPlus} />
-        </CircularButton>
-      </div> */}
 
-      <div className="flex flex-col gap-1 px-2 overflow-auto h-[87vh]">
+      <div className="flex flex-col gap-1 px-2 overflow-auto h-[80vh]">
         <VerticalCard className="flex flex-col items-start justify-start gap-3 p-4 pb-5 rounded-lg bg-neutral-800">
           <p className="pt-2 pb-1 text-lg font-bold">Academics & Language Learning</p>
            <div className="flex flex-wrap gap-2.5">
@@ -127,7 +121,27 @@ export default function SideLibrary() {
   
       </div>
 
-  
+      <div className="flex flex-col items-start justify-between gap-5 px-6 pt-5 mb-10 h-[5vh]">
+        <ul className="flex flex-wrap text-[0.7rem] text-neutral-400 gap-3">
+          <li>
+            <FlatButton href="#">About</FlatButton>
+          </li>
+          <li>
+            <FlatButton href="#">Customer Support</FlatButton>
+          </li>
+          <li>
+            <FlatButton href="#">Legal</FlatButton>
+          </li>
+          <li>
+            <FlatButton href="#">Privacy Policy</FlatButton>
+          </li>
+          <li>
+            <FlatButton href="#">Cookies</FlatButton>
+          </li>
+        </ul>
+
+
+      </div>
     </SectionContainer>
   );
 }
