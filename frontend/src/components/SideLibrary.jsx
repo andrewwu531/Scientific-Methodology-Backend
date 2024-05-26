@@ -22,8 +22,8 @@ export default function SideLibrary() {
         </CircularButton>
       </div> */}
 
-      <div className="flex flex-col gap-1 px-2 pb-10 overflow-auto h-[70vh]">
-        <VerticalCard className="flex flex-col items-start justify-start gap-3 p-4 rounded-lg bg-neutral-800">
+      <div className="flex flex-col gap-1 px-2 overflow-auto h-[80vh]">
+        <VerticalCard className="flex flex-col items-start justify-start gap-3 p-4 pb-5 rounded-lg bg-neutral-800">
           <p className="pt-2 pb-1 text-lg font-bold">Academics & Language Learning</p>
            <div className="flex flex-wrap gap-2.5">
             <SecondaryButton className="flex flex-wrap px-4 py-2">
@@ -125,18 +125,23 @@ export default function SideLibrary() {
               Tech Knowledge
             </SecondaryButton>
           </div>
+
+          <div className="pb-2"></div>
         </VerticalCard>
 
   
       </div>
 
-      <div className="flex flex-col items-start justify-between gap-5 px-6">
+      <div className="flex flex-col items-start justify-between gap-5 px-6 pt-5 mb-10 h-[5vh]">
         <ul className="flex flex-wrap text-[0.7rem] text-neutral-400 gap-3">
           <li>
-            <FlatButton href="#">Legal</FlatButton>
+            <FlatButton href="#">About</FlatButton>
           </li>
           <li>
-            <FlatButton href="#">Privacy Center</FlatButton>
+            <FlatButton href="#">Customer Support</FlatButton>
+          </li>
+          <li>
+            <FlatButton href="#">Legal</FlatButton>
           </li>
           <li>
             <FlatButton href="#">Privacy Policy</FlatButton>
@@ -144,21 +149,9 @@ export default function SideLibrary() {
           <li>
             <FlatButton href="#">Cookies</FlatButton>
           </li>
-          <li>
-            <FlatButton href="#">About Ads</FlatButton>
-          </li>
-          <li>
-            <FlatButton href="#">Accessibilty</FlatButton>
-          </li>
-          <li>
-            <FlatButton href="#">Cookies</FlatButton>
-          </li>
         </ul>
 
-        <BorderedButton className="flex items-center gap-1 px-4 py-1 text-sm font-bold hover:scale-105">
-          <FontAwesomeIcon icon={faGlobe} size="sm" />
-          English
-        </BorderedButton>
+
       </div>
     </SectionContainer>
   );
