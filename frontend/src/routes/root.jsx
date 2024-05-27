@@ -4,7 +4,6 @@ import Sidebar from "../components/Sidebar";
 import MainContents from "../components/MainContents/MuscleBuilding";
 import RegisterButton from "../components/Buttons/RegisterButton";
 import { routes } from "../shared/routes";
-import TesterPage from "../components/MainContents/TesterPage";
 
 export default function Root() {
   return (
@@ -12,10 +11,10 @@ export default function Root() {
       <div>
         <Navbar />
       </div>
-      <div className="relative z-10 h-[90vh] min-w-[50rem] grid overflow-hidden grid-cols-[min-content_auto] gap-y-2 p-2 bg-black-2">
+      <div className="h-[90vh] min-w-[50rem] grid overflow-hidden grid-cols-[min-content_auto] gap-y-2 p-2 bg-black-2">
         <Sidebar />
 
-        <SectionContainer className="relative overflow-auto z-25 bg-black-1">
+        <SectionContainer className="overflow-auto bg-black-1">
           {/* <TesterPage /> */}
           <MainContents />
         </SectionContainer>
