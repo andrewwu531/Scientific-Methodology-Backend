@@ -1,7 +1,6 @@
 import SectionContainer from "./SectionContainer";
 import VerticalCard from "./Cards/VerticalCard";
 import SecondaryButton from "./Buttons/SecondaryButton";
-import FlatButton from "./Buttons/FlatButton";
 
 export default function SideLibrary() {
   return (

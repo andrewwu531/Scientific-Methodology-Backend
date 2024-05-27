@@ -1,9 +1,8 @@
-import { Outlet } from "react-router-dom";
 import SectionContainer from "../components/SectionContainer";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer/Footer";
 import Sidebar from "../components/Sidebar";
-import MainContents from "../components/MainContents";
+import MainContents from "../components/MainContents/MuscleBuilding";
 
 export default function Root() {
   return (
