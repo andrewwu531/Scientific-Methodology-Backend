@@ -17,7 +17,9 @@ export default {
         "accent-2": "#0C63E7",
         "black-1": "#1E1E1E",
         "black-2": "#0E0E0E",
+        "black-3": "#101010",
         "button-1": "#3B3939",
+        "gray-1": "#E5E4E2",
       },
       fontFamily: {
         sans: ["Inter", "sans-serif"],

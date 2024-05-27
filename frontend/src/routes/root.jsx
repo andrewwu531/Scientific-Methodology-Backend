@@ -4,6 +4,7 @@ import Sidebar from "../components/Sidebar";
 import MainContents from "../components/MainContents/MuscleBuilding";
 import RegisterButton from "../components/Buttons/RegisterButton";
 import { routes } from "../shared/routes";
+import TesterPage from "../components/MainContents/TesterPage";
 
 export default function Root() {
   return (
@@ -15,6 +16,7 @@ export default function Root() {
         <Sidebar />
 
         <SectionContainer className="relative overflow-auto z-25 bg-black-1">
+          {/* <TesterPage /> */}
           <MainContents />
         </SectionContainer>
 
