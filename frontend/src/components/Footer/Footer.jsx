@@ -23,7 +23,7 @@ const socialIcons = [faInstagram, faTwitter, faFacebook];
 
 export default function Footer() {
   return (
-    <footer className="flex flex-col gap-9 px-7 pb-20 mt-16">
+    <footer className="flex flex-col pb-20 mt-16 gap-9 px-7">
       <div className="flex justify-between gap-10">
         <div className="flex flex-wrap gap-x-28 gap-y-10">
           <FooterList title="Company" links={companyLinks} />
@@ -49,7 +49,7 @@ export default function Footer() {
 
       <hr className="border-t-neutral-600" />
 
-      <p className="text-sm text-neutral-400">&copy; 2023 Spotify AB</p>
+      <p className="flex justify-end pr-5 text-sm text-neutral-400">&copy; M 2024</p>
     </footer>
   );
 }

@@ -22,6 +22,9 @@ export default {
       fontFamily: {
         sans: ["Inter", "sans-serif"],
       },
+      fontSize: {
+        tiny: "0.87rem", // This is the custom font size between text-xs and text-sm
+      },
     },
   },
   plugins: [

@@ -5,11 +5,11 @@ import MainContents from "../components/MainContents/MuscleBuilding";
 
 export default function Root() {
   return (
-    <div className="h-screen">
+    <div className="h-screen bg-black-2">
       <div>
         <Navbar />
       </div>
-      <div className="h-[87vh] min-w-[50rem] grid overflow-hidden grid-cols-[min-content_auto] gap-y-2 p-2 bg-black-2">
+      <div className="h-[90vh] min-w-[50rem] grid overflow-hidden grid-cols-[min-content_auto] gap-y-2 p-2 bg-black-2">
         <Sidebar />
         
 
@@ -17,7 +17,7 @@ export default function Root() {
 
 
           <MainContents />
-  
+         
          
         </SectionContainer>
 

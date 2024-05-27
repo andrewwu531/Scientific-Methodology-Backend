@@ -4,7 +4,7 @@ import { routes } from "../shared/routes";
 
 export default function Navbar() {
   return (
-    <nav className="bg-black-1 flex justify-between px-9 h-[10vh]">
+    <nav className="bg-black-1 flex justify-between px-9 pt-1.5 h-[9vh]">
       <div className="flex items-center justify-center gap-2 text-3xl font-bold">
         M
       </div>
@@ -13,7 +13,7 @@ export default function Navbar() {
         <li>
           <FlatButton
             href="#"
-            className="text-lg font-bold text-neutral-400 hover:text-white hover:scale-105"
+            className="text-base font-bold text-neutral-400 hover:text-white hover:scale-105"
           >
             Try for Free
           </FlatButton>

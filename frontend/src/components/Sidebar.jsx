@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import SideLibrary from "./SideLibrary";
 
-const [minWidth, maxWidth, defaultWidth] = [380, 400, 380];
+const [minWidth, maxWidth, defaultWidth] = [320, 400, 480];
 
 export default function Sidebar() {
   const [width, setWidth] = useState(
