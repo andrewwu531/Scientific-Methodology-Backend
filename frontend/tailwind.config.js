@@ -13,8 +13,8 @@ export default {
     extend: {
       colors: {
         brand: "#1ed760",
-        "accent-1": "#ae2997",
-        "accent-2": "#519af4",
+        "accent-1": "#5CB270",
+        "accent-2": "#0C63E7",
         "black-1": "#1E1E1E",
         "black-2": "#0E0E0E",
         "button-1": "#3B3939",

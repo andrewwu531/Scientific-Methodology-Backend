@@ -16,7 +16,7 @@ export default function SideLibrary() {
         </CircularButton>
       </div> */}
 
-      <div className="flex flex-col overflow-auto h-[90vh] scrollbar-thin scrollbar-thumb-rounded scrollbar-thumb-gray-800 scrollbar-thumb-hover-gray-600">
+      <div className="flex flex-col overflow-auto h-[80vh] scrollbar-thin scrollbar-thumb-rounded scrollbar-thumb-gray-800 scrollbar-thumb-hover-gray-600">
         <VerticalCard className="flex flex-col items-start justify-start gap-3 p-3.5 pb-5 rounded-lg bg-black-1">
           <p className="pt-2 pb-1 pl-2 text-base font-bold text-sans">Academics & Language Learning</p>
            <div className="flex flex-wrap gap-2.5 ">
