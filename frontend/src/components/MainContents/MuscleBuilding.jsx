@@ -1,5 +1,10 @@
 import mb_banner from "../../static/images/Muscle_Building_Image_6.jpg";
 import Footer from "../../components/Footer/Footer";
+import mb_icon1 from "../../static/images/Muscle_Building_Video_Icon_1.jpg";
+import mb_icon2 from "../../static/images/Muscle_Building_Video_Icon_2.jpg";
+import mb_icon3 from "../../static/images/Muscle_Building_Video_Icon_3.jpg";
+import mb_icon4 from "../../static/images/Muscle_Building_Video_Icon_4.jpg";
+import mb_icon5 from "../../static/images/Muscle_Building_Video_Icon_5.jpg";
 
 export default function MuscleBuilding() {
   return (
@@ -29,8 +34,17 @@ export default function MuscleBuilding() {
       </div>
 
       <div className="flex flex-row items-center justify-between pt-3 mr-10 bg-black-3 ">
-        <div className="px-5 py-2 mr-20 font-sans text-sm text-gray-1">
-          S1 E1 &nbsp; &nbsp; Bodybuilding is 80% diet and 20% workout
+        <div className="flex flex-row items-center justify-start">
+          <div className="ml-5 h-7">
+            <img
+              src={mb_icon1}
+              alt="icon"
+              className="object-cover w-full h-full rounded-md"
+            />
+          </div>
+          <div className="px-5 py-2 mr-10 font-sans text-sm text-gray-1">
+            S1 E1 &nbsp; &nbsp; Bodybuilding is 80% diet and 20% workout
+          </div>
         </div>
         <div className="flex flex-row items-center">
           {/* <div className="h-1 bg-gray-200 rounded-full"> */}
@@ -39,10 +53,19 @@ export default function MuscleBuilding() {
         </div>
       </div>
 
-      <div className="flex flex-row items-center justify-between mr-10 bg-black-3">
-        <div className="px-5 py-2 mr-20 font-sans text-sm text-gray-1">
-          S1 E2 &nbsp; &nbsp; Why the medium calories, medium carbs, low fat and
-          high protein diet
+      <div className="flex flex-row items-center justify-between mr-10 bg-black-3 ">
+        <div className="flex flex-row items-center justify-start">
+          <div className="ml-5 h-7">
+            <img
+              src={mb_icon2}
+              alt="icon"
+              className="object-cover w-full h-full rounded-md"
+            />
+          </div>
+          <div className="px-5 py-2 mr-10 font-sans text-sm text-gray-1">
+            S1 E2 &nbsp; &nbsp; Why the medium calories, medium carbs, low fat
+            and high protein diet
+          </div>
         </div>
         <div className="flex flex-row items-center">
           {/* <div className="h-1 bg-gray-200 rounded-full"> */}
@@ -51,10 +74,19 @@ export default function MuscleBuilding() {
         </div>
       </div>
 
-      <div className="flex flex-row items-center justify-between mr-10 bg-black-3">
-        <div className="px-5 py-2 mr-20 font-sans text-sm text-gray-1">
-          S1 E3 &nbsp; &nbsp; Calculating your personalised recommended
-          calories, protein, carbohydrates and fat intake
+      <div className="flex flex-row items-center justify-between mr-10 bg-black-3 ">
+        <div className="flex flex-row items-center justify-start">
+          <div className="ml-5 h-7">
+            <img
+              src={mb_icon3}
+              alt="icon"
+              className="object-cover w-full h-full rounded-md"
+            />
+          </div>
+          <div className="px-5 py-2 mr-10 font-sans text-sm text-gray-1">
+            S1 E3 &nbsp; &nbsp; Calculating your personalised recommended
+            calories, protein, carbohydrates and fat intake
+          </div>
         </div>
         <div className="flex flex-row items-center">
           {/* <div className="h-1 bg-gray-200 rounded-full"> */}
@@ -63,10 +95,19 @@ export default function MuscleBuilding() {
         </div>
       </div>
 
-      <div className="flex flex-row items-center justify-between mr-10 bg-black-3">
-        <div className="px-5 py-2 mr-20 font-sans text-sm text-gray-1">
-          S1 E4 &nbsp; &nbsp; The importance of food choices: meat, pasta, veg,
-          sauce and oil
+      <div className="flex flex-row items-center justify-between mr-10 bg-black-3 ">
+        <div className="flex flex-row items-center justify-start">
+          <div className="ml-5 h-7">
+            <img
+              src={mb_icon4}
+              alt="icon"
+              className="object-cover w-full h-full rounded-md"
+            />
+          </div>
+          <div className="px-5 py-2 mr-10 font-sans text-sm text-gray-1">
+            S1 E4 &nbsp; &nbsp; The importance of food choices: meat, pasta,
+            veg, sauce and oil
+          </div>
         </div>
         <div className="flex flex-row items-center">
           {/* <div className="h-1 bg-gray-200 rounded-full"> */}
@@ -75,9 +116,18 @@ export default function MuscleBuilding() {
         </div>
       </div>
 
-      <div className="flex flex-row items-center justify-between pb-3 mr-10 bg-black-3">
-        <div className="px-5 py-2 mr-20 font-sans text-sm text-gray-1">
-          S1 E5 &nbsp; &nbsp; Carb cycling & the front-heavy approach dieting
+      <div className="flex flex-row items-center justify-between pb-3 mr-10 bg-black-3 ">
+        <div className="flex flex-row items-center justify-start">
+          <div className="ml-5 h-7">
+            <img
+              src={mb_icon5}
+              alt="icon"
+              className="object-cover w-full h-full rounded-md"
+            />
+          </div>
+          <div className="px-5 py-2 text-sm mr-10font-sans text-gray-1">
+            S1 E5 &nbsp; &nbsp; Carb cycling & the front-heavy approach dieting
+          </div>
         </div>
         <div className="flex flex-row items-center">
           {/* <div className="h-1 bg-gray-200 rounded-full"> */}
@@ -91,8 +141,17 @@ export default function MuscleBuilding() {
       </div>
 
       <div className="flex flex-row items-center justify-between pt-3 mr-10 bg-black-3 ">
-        <div className="px-5 py-2 mr-20 font-sans text-sm text-gray-1">
-          S1 E1 &nbsp; &nbsp; Bodybuilding is 80% diet and 20% workout
+        <div className="flex flex-row items-center justify-start">
+          <div className="ml-5 h-7">
+            <img
+              src={mb_icon1}
+              alt="icon"
+              className="object-cover w-full h-full rounded-md"
+            />
+          </div>
+          <div className="px-5 py-2 mr-10 font-sans text-sm text-gray-1">
+            S1 E1 &nbsp; &nbsp; Bodybuilding is 80% diet and 20% workout
+          </div>
         </div>
         <div className="flex flex-row items-center">
           {/* <div className="h-1 bg-gray-200 rounded-full"> */}
@@ -101,10 +160,19 @@ export default function MuscleBuilding() {
         </div>
       </div>
 
-      <div className="flex flex-row items-center justify-between mr-10 bg-black-3">
-        <div className="px-5 py-2 mr-20 font-sans text-sm text-gray-1">
-          S1 E2 &nbsp; &nbsp; Why the medium calories, medium carbs, low fat and
-          high protein diet
+      <div className="flex flex-row items-center justify-between mr-10 bg-black-3 ">
+        <div className="flex flex-row items-center justify-start">
+          <div className="ml-5 h-7">
+            <img
+              src={mb_icon2}
+              alt="icon"
+              className="object-cover w-full h-full rounded-md"
+            />
+          </div>
+          <div className="px-5 py-2 mr-10 font-sans text-sm text-gray-1">
+            S1 E2 &nbsp; &nbsp; Why the medium calories, medium carbs, low fat
+            and high protein diet
+          </div>
         </div>
         <div className="flex flex-row items-center">
           {/* <div className="h-1 bg-gray-200 rounded-full"> */}
@@ -113,10 +181,19 @@ export default function MuscleBuilding() {
         </div>
       </div>
 
-      <div className="flex flex-row items-center justify-between mr-10 bg-black-3">
-        <div className="px-5 py-2 mr-20 font-sans text-sm text-gray-1">
-          S1 E3 &nbsp; &nbsp; Calculating your personalised recommended
-          calories, protein, carbohydrates and fat intake
+      <div className="flex flex-row items-center justify-between mr-10 bg-black-3 ">
+        <div className="flex flex-row items-center justify-start">
+          <div className="ml-5 h-7">
+            <img
+              src={mb_icon3}
+              alt="icon"
+              className="object-cover w-full h-full rounded-md"
+            />
+          </div>
+          <div className="px-5 py-2 mr-10 font-sans text-sm text-gray-1">
+            S1 E3 &nbsp; &nbsp; Calculating your personalised recommended
+            calories, protein, carbohydrates and fat intake
+          </div>
         </div>
         <div className="flex flex-row items-center">
           {/* <div className="h-1 bg-gray-200 rounded-full"> */}
@@ -125,10 +202,19 @@ export default function MuscleBuilding() {
         </div>
       </div>
 
-      <div className="flex flex-row items-center justify-between mr-10 bg-black-3">
-        <div className="px-5 py-2 mr-20 font-sans text-sm text-gray-1">
-          S1 E4 &nbsp; &nbsp; The importance of food choices: meat, pasta, veg,
-          sauce and oil
+      <div className="flex flex-row items-center justify-between mr-10 bg-black-3 ">
+        <div className="flex flex-row items-center justify-start">
+          <div className="ml-5 h-7">
+            <img
+              src={mb_icon4}
+              alt="icon"
+              className="object-cover w-full h-full rounded-md"
+            />
+          </div>
+          <div className="px-5 py-2 mr-10 font-sans text-sm text-gray-1">
+            S1 E4 &nbsp; &nbsp; The importance of food choices: meat, pasta,
+            veg, sauce and oil
+          </div>
         </div>
         <div className="flex flex-row items-center">
           {/* <div className="h-1 bg-gray-200 rounded-full"> */}
@@ -137,9 +223,18 @@ export default function MuscleBuilding() {
         </div>
       </div>
 
-      <div className="flex flex-row items-center justify-between pb-3 mr-10 bg-black-3">
-        <div className="px-5 py-2 mr-20 font-sans text-sm text-gray-1">
-          S1 E5 &nbsp; &nbsp; Carb cycling & the front-heavy approach dieting
+      <div className="flex flex-row items-center justify-between pb-3 mr-10 bg-black-3 ">
+        <div className="flex flex-row items-center justify-start">
+          <div className="ml-5 h-7">
+            <img
+              src={mb_icon5}
+              alt="icon"
+              className="object-cover w-full h-full rounded-md"
+            />
+          </div>
+          <div className="px-5 py-2 text-sm mr-10font-sans text-gray-1">
+            S1 E5 &nbsp; &nbsp; Carb cycling & the front-heavy approach dieting
+          </div>
         </div>
         <div className="flex flex-row items-center">
           {/* <div className="h-1 bg-gray-200 rounded-full"> */}
