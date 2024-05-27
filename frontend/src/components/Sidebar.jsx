@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import SideLibrary from "./SideLibrary";
 
-const [minWidth, maxWidth, defaultWidth] = [275, 400, 380];
+const [minWidth, maxWidth, defaultWidth] = [380, 400, 380];
 
 export default function Sidebar() {
   const [width, setWidth] = useState(
@@ -49,7 +49,7 @@ export default function Sidebar() {
 
       {/* Handle */}
       <div
-        className="w-2 bg-transparent cursor-col-resize"
+        className="w-2.5 bg-transparent cursor-col-resize"
         onMouseDown={() => {
           isDragged.current = true;
         }}

@@ -4,7 +4,7 @@ import { routes } from "../shared/routes";
 
 export default function Navbar() {
   return (
-    <nav className="flex justify-between px-9 h-[10vh]">
+    <nav className="bg-black-1 flex justify-between px-9 h-[10vh]">
       <div className="flex items-center justify-center gap-2 text-3xl font-bold">
         M
       </div>

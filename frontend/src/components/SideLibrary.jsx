@@ -16,111 +16,111 @@ export default function SideLibrary() {
         </CircularButton>
       </div> */}
 
-      <div className="flex flex-col gap-1 px-2 overflow-auto h-[87vh]">
-        <VerticalCard className="flex flex-col items-start justify-start gap-3 p-4 pb-5 rounded-lg bg-neutral-800">
-          <p className="pt-2 pb-1 text-lg font-bold">Academics & Language Learning</p>
-           <div className="flex flex-wrap gap-2.5">
-            <SecondaryButton className="flex flex-wrap px-4 py-2">
+      <div className="flex flex-col overflow-auto h-[87vh] scrollbar-thin scrollbar-thumb-rounded scrollbar-thumb-gray-800 scrollbar-thumb-hover-gray-600">
+        <VerticalCard className="flex flex-col items-start justify-start gap-3 p-3.5 pb-5 rounded-lg bg-black-1">
+          <p className="pt-2 pb-1 pl-2 text-lg font-bold text-sans">Academics & Language Learning</p>
+           <div className="flex flex-wrap gap-2.5 ">
+            <SecondaryButton className="px-5 py-2 pt-2.5 text-lg text-white text-sans font-regular">
               University 1st Class Honour Guide
             </SecondaryButton>
-            <SecondaryButton className="flex flex-wrap px-4 py-2">
+            <SecondaryButton className="px-5 py-2 pt-2.5 text-lg text-white text-sans font-regular">
               High School Past Paper Q&A 
             </SecondaryButton>
-            <SecondaryButton className="flex flex-wrap px-4 py-2">
+            <SecondaryButton className="px-5 py-2 pt-2.5 text-lg text-white text-sans font-regular">
               Sample Topic Essays
             </SecondaryButton>
-            <SecondaryButton className="flex flex-wrap px-4 py-2">
+            <SecondaryButton className="px-5 py-2 pt-2.5 text-lg text-white text-sans font-regular">
               English Pronunication 
             </SecondaryButton>
-            <SecondaryButton className="flex flex-wrap px-4 py-2">
+            <SecondaryButton className="px-5 py-2 pt-2.5 text-lg text-white text-sans font-regular">
               Accents & Speech Delivery
             </SecondaryButton>
-            <SecondaryButton className="flex flex-wrap px-4 py-2">
+            <SecondaryButton className="px-5 py-2 pt-2.5 text-lg text-white text-sans font-regular">
               Business English
             </SecondaryButton>
-            <SecondaryButton className="flex flex-wrap px-4 py-2">
+            <SecondaryButton className="px-5 py-2 pt-2.5 text-lg text-white text-sans font-regular">
               Storytelling Principles
             </SecondaryButton>
-            <SecondaryButton className="flex flex-wrap px-4 py-2">
+            <SecondaryButton className="px-5 py-2 pt-2.5 text-lg text-white text-sans font-regular">
               Comedy Writing
             </SecondaryButton>
           </div>
-            <p className="pt-5 pb-1 text-lg font-bold">Health & Lifestyle</p>
+            <p className="pt-5 pb-1 pl-2 text-lg font-bold">Health & Lifestyle</p>
            <div className="flex flex-wrap gap-2.5">
-           <SecondaryButton className="flex flex-wrap px-4 py-2">
+            <SecondaryButton className="px-5 py-2 pt-2.5 text-lg text-white text-sans font-regular">
               Dating
             </SecondaryButton>
-            <SecondaryButton className="flex flex-wrap px-4 py-2">
+            <SecondaryButton className="px-5 py-2 pt-2.5 text-lg text-white text-sans font-regular">
               Muscle Building
             </SecondaryButton>
-            <SecondaryButton className="flex flex-wrap px-4 py-2">
+            <SecondaryButton className="px-5 py-2 pt-2.5 text-lg text-white text-sans font-regular">
               Weight Loss 
             </SecondaryButton>
-            <SecondaryButton className="flex flex-wrap px-4 py-2">
+            <SecondaryButton className="px-5 py-2 pt-2.5 text-lg text-white text-sans font-regular">
               Meal Recipes
             </SecondaryButton>
-            <SecondaryButton className="flex flex-wrap px-4 py-2">
+            <SecondaryButton className="px-5 py-2 pt-2.5 text-lg text-white text-sans font-regular">
               Fashion
             </SecondaryButton>
-            <SecondaryButton className="flex flex-wrap px-4 py-2">
+            <SecondaryButton className="px-5 py-2 pt-2.5 text-lg text-white text-sans font-regular">
               Makeup
             </SecondaryButton>
-            <SecondaryButton className="flex flex-wrap px-4 py-2">
+            <SecondaryButton className="px-5 py-2 pt-2.5 text-lg text-white text-sans font-regular">
               Hairstyles
             </SecondaryButton>
           </div>
 
-           <p className="pt-5 pb-1 text-lg font-bold">Social & Entertainment</p>
+           <p className="pt-5 pb-1 pl-2 text-lg font-bold">Social & Entertainment</p>
            <div className="flex flex-wrap gap-2.5">
-           <SecondaryButton className="flex flex-wrap px-4 py-2">
+           <SecondaryButton className="px-5 py-2 pt-2.5 text-lg text-white text-sans font-regular">
               Movies & TV Shows
             </SecondaryButton>
-            <SecondaryButton className="flex flex-wrap px-4 py-2">
+            <SecondaryButton className="px-5 py-2 pt-2.5 text-lg text-white text-sans font-regular">
               Travel Journals
             </SecondaryButton>
-            <SecondaryButton className="flex flex-wrap px-4 py-2">
+            <SecondaryButton className="px-5 py-2 pt-2.5 text-lg text-white text-sans font-regular">
               Martial Arts
             </SecondaryButton>
-            <SecondaryButton className="flex flex-wrap px-4 py-2">
+            <SecondaryButton className="px-5 py-2 pt-2.5 text-lg text-white text-sans font-regular">
               Basketball
             </SecondaryButton>
-            <SecondaryButton className="flex flex-wrap px-4 py-2">
+            <SecondaryButton className="px-5 py-2 pt-2.5 text-lg text-white text-sans font-regular">
               Football
             </SecondaryButton>
-            <SecondaryButton className="flex flex-wrap px-4 py-2">
+            <SecondaryButton className="px-5 py-2 pt-2.5 text-lg text-white text-sans font-regular">
               Pets
             </SecondaryButton>
-            <SecondaryButton className="flex flex-wrap px-4 py-2">
+            <SecondaryButton className="px-5 py-2 pt-2.5 text-lg text-white text-sans font-regular">
               Cars & Driving Licence Test
             </SecondaryButton>
           </div>
 
-          <p className="pt-5 pb-1 text-lg font-bold">Career & Finance</p>
+          <p className="pt-5 pb-1 pl-2 text-lg font-bold">Career & Finance</p>
            <div className="flex flex-wrap gap-2.5">
-           <SecondaryButton className="flex flex-wrap px-4 py-2">
+           <SecondaryButton className="px-5 py-2 pt-2.5 text-lg text-white text-sans font-regular">
               Sample CVs & Cover Letters
             </SecondaryButton>
-            <SecondaryButton className="flex flex-wrap px-4 py-2">
+            <SecondaryButton className="px-5 py-2 pt-2.5 text-lg text-white text-sans font-regular">
               Interview Techniques
             </SecondaryButton>
-            <SecondaryButton className="flex flex-wrap px-4 py-2">
+            <SecondaryButton className="px-5 py-2 pt-2.5 text-lg text-white text-sans font-regular">
               Job Searching Guide
             </SecondaryButton>
-             <SecondaryButton className="flex flex-wrap px-4 py-2">
+             <SecondaryButton className="px-5 py-2 pt-2.5 text-lg text-white text-sans font-regular">
               Dress Codes
             </SecondaryButton>
-            <SecondaryButton className="flex flex-wrap px-4 py-2">
+            <SecondaryButton className="px-5 py-2 pt-2.5 text-lg text-white text-sans font-regular">
               Investing - Stocks & Crypto  
             </SecondaryButton>
-            <SecondaryButton className="flex flex-wrap px-4 py-2">
+            <SecondaryButton className="px-5 py-2 pt-2.5 text-lg text-white text-sans font-regular">
               Investing - Real Estates 
             </SecondaryButton>
-            <SecondaryButton className="flex flex-wrap px-4 py-2">
+            <SecondaryButton className="px-5 py-2 pt-2.5 text-lg text-white text-sans font-regular">
               Tech Knowledge
             </SecondaryButton>
           </div>
 
-          <div className="pb-2"></div>
+          <div className="pb-3"></div>
         </VerticalCard>
 
   

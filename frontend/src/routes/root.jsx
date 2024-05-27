@@ -1,6 +1,5 @@
 import SectionContainer from "../components/SectionContainer";
 import Navbar from "../components/Navbar";
-import Footer from "../components/Footer/Footer";
 import Sidebar from "../components/Sidebar";
 import MainContents from "../components/MainContents/MuscleBuilding";
 
@@ -10,15 +9,16 @@ export default function Root() {
       <div>
         <Navbar />
       </div>
-      <div className="h-[87vh] min-w-[50rem] grid overflow-hidden grid-cols-[min-content_auto] gap-y-2 p-2 bg-black">
+      <div className="h-[87vh] min-w-[50rem] grid overflow-hidden grid-cols-[min-content_auto] gap-y-2 p-2 bg-black-2">
         <Sidebar />
         
 
-        <SectionContainer className="relative overflow-auto bg-local bg-gradient-to-b from-neutral-800 via-neutral-900 to-neutral-900">
+        <SectionContainer className="relative overflow-auto bg-black-1">
 
 
           <MainContents />
-          <Footer />
+  
+         
         </SectionContainer>
 
       </div>
