@@ -30,8 +30,8 @@ export default function Login() {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen flex flex-col items-stretch font-body bg-black md:bg-gradient-to-b md:from-zinc-900 md:to-black">
-      <header className="py-12 md:py-8 px-8 md:px-12 md:mb-8 bg-black">
+    <div className="flex flex-col items-stretch min-h-screen bg-black font-body md:bg-gradient-to-b md:from-zinc-900 md:to-black">
+      <header className="px-8 py-12 bg-black md:py-8 md:px-12 md:mb-8">
         <nav>
           <a href={routes.HOME} className="outline-none">
             <Logo className="w-20 md:w-28" />
@@ -82,7 +82,7 @@ export default function Login() {
           </PrimaryButton>
         </form>
 
-        <div className="flex flex-col gap-5 items-center text-center">
+        <div className="flex flex-col items-center gap-5 text-center">
           <Link to="#" text="Forgot your password ?" />
 
           <hr className="hidden md:block w-full border-t-[1px] mb-6 border-zinc-800" />

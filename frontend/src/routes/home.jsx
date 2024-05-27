@@ -8,7 +8,7 @@ export default function Home() {
   const featuredPlaylists = useFeaturedPlaylists(5);
 
   return (
-    <div className="px-7 mt-20">
+    <div className="mt-20 px-7">
       <h1 className="sr-only">Home</h1>
 
       {!featuredPlaylists ? (

@@ -18,19 +18,21 @@ export default function SideLibrary() {
 
       <div className="flex flex-col overflow-auto h-[80vh] scrollbar-thin scrollbar-thumb-rounded scrollbar-thumb-gray-800 scrollbar-thumb-hover-gray-600">
         <VerticalCard className="flex flex-col items-start justify-start gap-3 p-3.5 pb-5 rounded-lg bg-black-1">
-          <p className="pt-2 pb-1 pl-2 text-base font-bold text-sans">Academics & Language Learning</p>
-           <div className="flex flex-wrap gap-2.5 ">
+          <p className="pt-2 pb-1 pl-2 text-base font-bold text-sans">
+            Academics & Language Learning
+          </p>
+          <div className="flex flex-wrap gap-2.5 ">
             <SecondaryButton className="px-4 py-2 pt-2 text-white text-tiny text-sans font-regular">
               University 1st Class Honour Guide
             </SecondaryButton>
             <SecondaryButton className="px-4 py-2 pt-2.5 text-tiny text-white text-sans font-regular">
-              High School Past Paper Q&A 
+              High School Past Paper Q&A
             </SecondaryButton>
             <SecondaryButton className="px-4 py-2 pt-2.5 text-tiny text-white text-sans font-regular">
               Sample Topic Essays
             </SecondaryButton>
             <SecondaryButton className="px-4 py-2 pt-2.5 text-tiny text-white text-sans font-regular">
-              English Pronunication 
+              English Pronunication
             </SecondaryButton>
             <SecondaryButton className="px-4 py-2 pt-2.5 text-tiny text-white text-sans font-regular">
               Accents & Speech Delivery
@@ -45,8 +47,10 @@ export default function SideLibrary() {
               Comedy Writing
             </SecondaryButton>
           </div>
-            <p className="pt-5 pb-1 pl-2 text-base font-bold">Health & Lifestyle</p>
-           <div className="flex flex-wrap gap-2.5">
+          <p className="pt-5 pb-1 pl-2 text-base font-bold">
+            Health & Lifestyle
+          </p>
+          <div className="flex flex-wrap gap-2.5">
             <SecondaryButton className="px-4 py-2 pt-2.5 text-tiny text-white text-sans font-regular">
               Dating
             </SecondaryButton>
@@ -54,7 +58,7 @@ export default function SideLibrary() {
               Muscle Building
             </SecondaryButton>
             <SecondaryButton className="px-4 py-2 pt-2.5 text-tiny text-white text-sans font-regular">
-              Weight Loss 
+              Weight Loss
             </SecondaryButton>
             <SecondaryButton className="px-4 py-2 pt-2.5 text-tiny text-white text-sans font-regular">
               Meal Recipes
@@ -68,11 +72,16 @@ export default function SideLibrary() {
             <SecondaryButton className="px-4 py-2 pt-2.5 text-tiny text-white text-sans font-regular">
               Hairstyles
             </SecondaryButton>
+            <SecondaryButton className="px-4 py-2 pt-2.5 text-tiny text-white text-sans font-regular">
+              Psychology
+            </SecondaryButton>
           </div>
 
-           <p className="pt-5 pb-1 pl-2 text-base font-bold">Social & Entertainment</p>
-           <div className="flex flex-wrap gap-2.5">
-           <SecondaryButton className="px-4 py-2 pt-2.5 text-tiny text-white text-sans font-regular">
+          <p className="pt-5 pb-1 pl-2 text-base font-bold">
+            Social & Entertainment
+          </p>
+          <div className="flex flex-wrap gap-2.5">
+            <SecondaryButton className="px-4 py-2 pt-2.5 text-tiny text-white text-sans font-regular">
               Movies & TV Shows
             </SecondaryButton>
             <SecondaryButton className="px-4 py-2 pt-2.5 text-tiny text-white text-sans font-regular">
@@ -96,8 +105,8 @@ export default function SideLibrary() {
           </div>
 
           <p className="pt-5 pb-1 pl-2 text-base font-bold">Career & Finance</p>
-           <div className="flex flex-wrap gap-2.5">
-           <SecondaryButton className="px-4 py-2 pt-2.5 text-tiny text-white text-sans font-regular">
+          <div className="flex flex-wrap gap-2.5">
+            <SecondaryButton className="px-4 py-2 pt-2.5 text-tiny text-white text-sans font-regular">
               Sample CVs & Cover Letters
             </SecondaryButton>
             <SecondaryButton className="px-4 py-2 pt-2.5 text-tiny text-white text-sans font-regular">
@@ -106,14 +115,14 @@ export default function SideLibrary() {
             <SecondaryButton className="px-4 py-2 pt-2.5 text-tiny text-white text-sans font-regular">
               Job Searching Guide
             </SecondaryButton>
-             <SecondaryButton className="px-4 py-2 pt-2.5 text-tiny text-white text-sans font-regular">
+            <SecondaryButton className="px-4 py-2 pt-2.5 text-tiny text-white text-sans font-regular">
               Dress Codes
             </SecondaryButton>
             <SecondaryButton className="px-4 py-2 pt-2.5 text-tiny text-white text-sans font-regular">
-              Investing - Stocks & Crypto  
+              Investing - Stocks & Crypto
             </SecondaryButton>
             <SecondaryButton className="px-4 py-2 pt-2.5 text-tiny text-white text-sans font-regular">
-              Investing - Real Estates 
+              Investing - Real Estates
             </SecondaryButton>
             <SecondaryButton className="px-4 py-2 pt-2.5 text-tiny text-white text-sans font-regular">
               Tech Knowledge
@@ -122,11 +131,7 @@ export default function SideLibrary() {
 
           <div className="pb-3"></div>
         </VerticalCard>
-
-  
       </div>
-
-  
     </SectionContainer>
   );
 }

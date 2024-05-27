@@ -5,25 +5,24 @@ import FlatButton from "./Buttons/FlatButton";
 
 export default function MainLibrary() {
   return (
-   
     <SectionContainer>
-
-
       <div className="flex flex-col gap-1 px-2 overflow-auto h-[80vh]">
         <VerticalCard className="flex flex-col items-start justify-start gap-3 p-4 pb-5 rounded-lg bg-neutral-800">
-          <p className="pt-2 pb-1 text-lg font-bold">Academics & Language Learning</p>
-           <div className="flex flex-wrap gap-2.5">
+          <p className="pt-2 pb-1 text-lg font-bold">
+            Academics & Language Learning
+          </p>
+          <div className="flex flex-wrap gap-2.5">
             <SecondaryButton className="flex flex-wrap px-4 py-2">
               University 1st Class Honour Guide
             </SecondaryButton>
             <SecondaryButton className="flex flex-wrap px-4 py-2">
-              High School Past Paper Q&A 
+              High School Past Paper Q&A
             </SecondaryButton>
             <SecondaryButton className="flex flex-wrap px-4 py-2">
               Sample Topic Essays
             </SecondaryButton>
             <SecondaryButton className="flex flex-wrap px-4 py-2">
-              English Pronunication 
+              English Pronunication
             </SecondaryButton>
             <SecondaryButton className="flex flex-wrap px-4 py-2">
               Accents & Speech Delivery
@@ -38,16 +37,16 @@ export default function MainLibrary() {
               Comedy Writing
             </SecondaryButton>
           </div>
-            <p className="pt-5 pb-1 text-lg font-bold">Health & Lifestyle</p>
-           <div className="flex flex-wrap gap-2.5">
-           <SecondaryButton className="flex flex-wrap px-4 py-2">
+          <p className="pt-5 pb-1 text-lg font-bold">Health & Lifestyle</p>
+          <div className="flex flex-wrap gap-2.5">
+            <SecondaryButton className="flex flex-wrap px-4 py-2">
               Dating
             </SecondaryButton>
             <SecondaryButton className="flex flex-wrap px-4 py-2">
               Muscle Building
             </SecondaryButton>
             <SecondaryButton className="flex flex-wrap px-4 py-2">
-              Weight Loss 
+              Weight Loss
             </SecondaryButton>
             <SecondaryButton className="flex flex-wrap px-4 py-2">
               Meal Recipes
@@ -63,9 +62,9 @@ export default function MainLibrary() {
             </SecondaryButton>
           </div>
 
-           <p className="pt-5 pb-1 text-lg font-bold">Social & Entertainment</p>
-           <div className="flex flex-wrap gap-2.5">
-           <SecondaryButton className="flex flex-wrap px-4 py-2">
+          <p className="pt-5 pb-1 text-lg font-bold">Social & Entertainment</p>
+          <div className="flex flex-wrap gap-2.5">
+            <SecondaryButton className="flex flex-wrap px-4 py-2">
               Movies & TV Shows
             </SecondaryButton>
             <SecondaryButton className="flex flex-wrap px-4 py-2">
@@ -89,8 +88,8 @@ export default function MainLibrary() {
           </div>
 
           <p className="pt-5 pb-1 text-lg font-bold">Career & Finance</p>
-           <div className="flex flex-wrap gap-2.5">
-           <SecondaryButton className="flex flex-wrap px-4 py-2">
+          <div className="flex flex-wrap gap-2.5">
+            <SecondaryButton className="flex flex-wrap px-4 py-2">
               Sample CVs & Cover Letters
             </SecondaryButton>
             <SecondaryButton className="flex flex-wrap px-4 py-2">
@@ -99,14 +98,14 @@ export default function MainLibrary() {
             <SecondaryButton className="flex flex-wrap px-4 py-2">
               Job Searching Guide
             </SecondaryButton>
-             <SecondaryButton className="flex flex-wrap px-4 py-2">
+            <SecondaryButton className="flex flex-wrap px-4 py-2">
               Dress Codes
             </SecondaryButton>
             <SecondaryButton className="flex flex-wrap px-4 py-2">
-              Investing - Stocks & Crypto  
+              Investing - Stocks & Crypto
             </SecondaryButton>
             <SecondaryButton className="flex flex-wrap px-4 py-2">
-              Investing - Real Estates 
+              Investing - Real Estates
             </SecondaryButton>
             <SecondaryButton className="flex flex-wrap px-4 py-2">
               Tech Knowledge
@@ -115,8 +114,6 @@ export default function MainLibrary() {
 
           <div className="pb-2"></div>
         </VerticalCard>
-
-  
       </div>
 
       <div className="flex flex-col items-start justify-between gap-5 px-6 pt-5 mb-10 h-[5vh]">
@@ -137,8 +134,6 @@ export default function MainLibrary() {
             <FlatButton href="#">Cookies</FlatButton>
           </li>
         </ul>
-
-
       </div>
     </SectionContainer>
   );
