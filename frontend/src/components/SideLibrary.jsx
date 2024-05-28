@@ -26,13 +26,13 @@ export default function SideLibrary() {
             <SecondaryButton className="px-4 py-2 pt-2 border-2 border-yellow-400 text-neutral-100 text-tiny text-sans font-regular">
               University 1st Class Honour Guide
             </SecondaryButton>
-            <SecondaryButton className="px-4 py-2 pt-2.5 text-tiny text-neutral-100  text-sans font-regular">
+            <SecondaryButton className="border-2 border-yellow-400 px-4 py-2 pt-2.5 text-tiny text-neutral-100  text-sans font-regular">
               High School Past Paper Q&A
             </SecondaryButton>
             <SecondaryButton className="px-4 py-2 pt-2.5 text-tiny text-neutral-100  text-sans font-regular">
               Sample Topic Essays
             </SecondaryButton>
-            <SecondaryButton className="px-4 py-2 pt-2.5 text-tiny text-neutral-100  text-sans font-regular">
+            <SecondaryButton className="border-2 border-yellow-400 px-4 py-2 pt-2.5 text-tiny text-neutral-100  text-sans font-regular">
               English Pronunication
             </SecondaryButton>
             <SecondaryButton className="px-4 py-2 pt-2.5 text-tiny text-neutral-100  text-sans font-regular">
@@ -58,7 +58,7 @@ export default function SideLibrary() {
             <SecondaryButton className=" border-2 border-yellow-400 px-4 py-2 pt-2.5 text-tiny text-neutral-100  text-sans font-regular">
               Muscle Building
             </SecondaryButton>
-            <SecondaryButton className="px-4 py-2 pt-2.5 text-tiny text-neutral-100  text-sans font-regular">
+            <SecondaryButton className="px-4 py-2 pt-2.5 text-tiny border-2 border-yellow-400 text-neutral-100  text-sans font-regular">
               Weight Loss
             </SecondaryButton>
             <SecondaryButton className="px-4 py-2 pt-2.5 text-tiny text-neutral-100  text-sans font-regular">
@@ -109,7 +109,7 @@ export default function SideLibrary() {
             Career & Finance
           </p>
           <div className="flex flex-wrap gap-2.5">
-            <SecondaryButton className="px-4 py-2 pt-2.5 text-tiny text-neutral-100  text-sans font-regular">
+            <SecondaryButton className="border-2 border-yellow-400 px-4 py-2 pt-2.5 text-tiny text-neutral-100  text-sans font-regular">
               Sample CVs & Cover Letters
             </SecondaryButton>
             <SecondaryButton className="px-4 py-2 pt-2.5 text-tiny text-neutral-100  text-sans font-regular">
