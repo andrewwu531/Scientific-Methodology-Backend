@@ -41,17 +41,17 @@ export default function MuscleBuilding() {
               <img
                 src={mb_icon1}
                 alt="icon"
-                className="object-cover w-full h-full rounded-md"
+                className="object-cover w-full h-full rounded-md "
               />
             </div>
-            <div className="px-5 py-2 font-sans text-sm text-neutral-300">
+            <div className="px-5 py-2 font-sans text-yellow-600 text-small">
               S1 E1 &nbsp; &nbsp; Bodybuilding is 80% diet and 20% workout
             </div>
           </div>
           <div className="flex flex-row items-center">
             {/* <div className="h-1 bg-gray-200 rounded-full"> */}
-            <div className="w-32 mr-7 h-0.5 bg-teal-500 rounded-full"></div>
-            <div className="text-sm text-neutral-300 mr-7">32:51</div>
+            <div className="w-32 mr-7 h-0.5 bg-yellow-600 rounded-full"></div>
+            <div className="text-sm text-yellow-600 mr-7">32:51</div>
           </div>
         </div>
 
@@ -64,7 +64,7 @@ export default function MuscleBuilding() {
                 className="object-cover w-full h-full rounded-md"
               />
             </div>
-            <div className="px-5 py-2 mr-10 font-sans text-sm text-neutral-300">
+            <div className="px-5 py-2 mr-10 font-sans text-small text-neutral-300">
               S1 E2 &nbsp; &nbsp; Why the medium calories, medium carbs, low fat
               and high protein diet
             </div>
@@ -85,7 +85,7 @@ export default function MuscleBuilding() {
                 className="object-cover w-full h-full rounded-md"
               />
             </div>
-            <div className="px-5 py-2 mr-10 font-sans text-sm text-neutral-300">
+            <div className="px-5 py-2 mr-10 font-sans text-small text-neutral-300">
               S1 E3 &nbsp; &nbsp; Calculating your personalised recommended
               calories, protein, carbohydrates and fat intake
             </div>
@@ -106,7 +106,7 @@ export default function MuscleBuilding() {
                 className="object-cover w-full h-full rounded-md"
               />
             </div>
-            <div className="px-5 py-2 mr-10 font-sans text-sm text-neutral-300">
+            <div className="px-5 py-2 mr-10 font-sans text-small text-neutral-300">
               S1 E4 &nbsp; &nbsp; The importance of food choices: meat, pasta,
               veg, sauce and oil
             </div>
@@ -127,7 +127,7 @@ export default function MuscleBuilding() {
                 className="object-cover w-full h-full rounded-md"
               />
             </div>
-            <div className="px-5 py-2 mr-10 font-sans text-sm text-neutral-300">
+            <div className="px-5 py-2 mr-10 font-sans text-small text-neutral-300">
               S1 E5 &nbsp; &nbsp; Carb cycling & the front-heavy approach
               dieting
             </div>
@@ -152,7 +152,7 @@ export default function MuscleBuilding() {
                 className="object-cover w-full h-full rounded-md"
               />
             </div>
-            <div className="px-5 py-2 mr-10 font-sans text-sm text-neutral-300">
+            <div className="px-5 py-2 mr-10 font-sans text-small text-neutral-300">
               S1 E1 &nbsp; &nbsp; Bodybuilding is 80% diet and 20% workout
             </div>
           </div>
@@ -172,7 +172,7 @@ export default function MuscleBuilding() {
                 className="object-cover w-full h-full rounded-md"
               />
             </div>
-            <div className="px-5 py-2 mr-10 font-sans text-sm text-neutral-300">
+            <div className="px-5 py-2 mr-10 font-sans text-small text-neutral-300">
               S1 E2 &nbsp; &nbsp; Why the medium calories, medium carbs, low fat
               and high protein diet
             </div>
@@ -193,7 +193,7 @@ export default function MuscleBuilding() {
                 className="object-cover w-full h-full rounded-md"
               />
             </div>
-            <div className="px-5 py-2 mr-10 font-sans text-sm text-neutral-300">
+            <div className="px-5 py-2 mr-10 font-sans text-small text-neutral-300">
               S1 E3 &nbsp; &nbsp; Calculating your personalised recommended
               calories, protein, carbohydrates and fat intake
             </div>
@@ -214,7 +214,7 @@ export default function MuscleBuilding() {
                 className="object-cover w-full h-full rounded-md"
               />
             </div>
-            <div className="px-5 py-2 mr-10 font-sans text-sm text-neutral-300">
+            <div className="px-5 py-2 mr-10 font-sans text-small text-neutral-300">
               S1 E4 &nbsp; &nbsp; The importance of food choices: meat, pasta,
               veg, sauce and oil
             </div>
@@ -235,7 +235,7 @@ export default function MuscleBuilding() {
                 className="object-cover w-full h-full rounded-md"
               />
             </div>
-            <div className="px-5 py-2 text-sm mr-10font-sans text-neutral-300">
+            <div className="px-5 py-2 text-small mr-10font-sans text-neutral-300">
               S1 E5 &nbsp; &nbsp; Carb cycling & the front-heavy approach
               dieting
             </div>

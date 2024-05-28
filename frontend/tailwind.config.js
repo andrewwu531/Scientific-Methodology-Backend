@@ -27,6 +27,7 @@ export default {
       },
       fontSize: {
         tiny: "0.88rem", // This is the custom font size between text-xs and text-sm
+        small: "0.95rem",
         medium: "1.1rem",
       },
     },

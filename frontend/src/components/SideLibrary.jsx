@@ -94,7 +94,7 @@ export default function SideLibrary() {
             <SecondaryButton className="px-4 py-2 pt-2.5 text-tiny text-neutral-100  text-sans font-regular">
               Basketball
             </SecondaryButton>
-            <SecondaryButton className="px-4 py-2 pt-2.5 text-tiny text-neutral-100  text-sans font-regular">
+            <SecondaryButton className="border-2 border-yellow-400 px-4 py-2 pt-2.5 text-tiny text-neutral-100  text-sans font-regular">
               Football
             </SecondaryButton>
             <SecondaryButton className="px-4 py-2 pt-2.5 text-tiny text-neutral-100  text-sans font-regular">
