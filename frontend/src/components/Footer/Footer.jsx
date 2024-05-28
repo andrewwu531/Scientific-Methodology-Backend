@@ -9,13 +9,7 @@ import FooterList from "./FooterList";
 
 const companyLinks = ["About", "Jobs", "For the record"];
 
-const communityLinks = [
-  "For Artists",
-  "Developers",
-  "Advertising",
-  "Investors",
-  "Vendors",
-];
+const communityLinks = ["Advertising", "Investors", "Vendors"];
 
 const usefulLinks = ["Support", "Free Mobile App"];
 
@@ -49,7 +43,9 @@ export default function Footer() {
 
       <hr className="border-t-neutral-600" />
 
-      <p className="flex justify-end pr-5 text-sm text-neutral-400">&copy; M 2024</p>
+      <p className="flex justify-end pr-5 text-sm text-neutral-400">
+        &copy; M 2024
+      </p>
     </footer>
   );
 }

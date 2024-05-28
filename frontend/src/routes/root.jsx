@@ -1,22 +1,20 @@
 import SectionContainer from "../components/SectionContainer";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
-import MainContents from "../components/MainContents/MuscleBuilding";
-import RegisterButton from "../components/Buttons/RegisterButton";
-import { routes } from "../shared/routes";
+import MuscleBuilding from "../components/MainContents/MuscleBuilding";
 
 export default function Root() {
   return (
-    <div className="h-screen bg-black-2">
+    <div className="h-screen">
       <div>
         <Navbar />
       </div>
-      <div className="h-[90vh] min-w-[50rem] grid overflow-hidden grid-cols-[min-content_auto] gap-y-2 p-2 bg-black-2">
+      <div className="h-[90vh] min-w-[50rem] grid overflow-hidden grid-cols-[min-content_auto] gap-y-2 p-1.5 bg-black-2">
         <Sidebar />
 
         <SectionContainer className="overflow-auto bg-black-1">
           {/* <TesterPage /> */}
-          <MainContents />
+          <MuscleBuilding />
         </SectionContainer>
 
         <aside className="flex items-center justify-between col-span-2 px-4 py-3 bg-gradient-to-r from-accent-1 to-accent-2">
@@ -31,9 +29,9 @@ export default function Root() {
             </span>
           </p>
 
-          <RegisterButton href={routes.LOGIN} className="px-8 py-3 mr-4">
+          {/* <RegisterButton href={routes.LOGIN} className="px-8 py-3 mr-4">
             Register/ Log in
-          </RegisterButton>
+          </RegisterButton> */}
         </aside>
       </div>
     </div>

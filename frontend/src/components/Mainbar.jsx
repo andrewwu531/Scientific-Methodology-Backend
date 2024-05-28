@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
-import MainLibrary from "./MainLibrary";
+import MuscleBuilding from "../components/MainContents/MuscleBuilding";
 
-const [minWidth, maxWidth, defaultWidth] = [825, 1275, 1050];
+const [minWidth, maxWidth, defaultWidth] = [1600, 1600, 1600];
 
 export default function Sidebar() {
   const [width, setWidth] = useState(
@@ -44,7 +44,9 @@ export default function Sidebar() {
       >
         {/* <SideMenu /> */}
 
-        <MainLibrary />
+        {/* <MainLibrary /> */}
+
+        <MuscleBuilding />
       </aside>
 
       {/* Handle */}

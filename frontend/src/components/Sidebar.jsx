@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import SideLibrary from "./SideLibrary";
+import SideMenu from "./SideMenu";
 
 const [minWidth, maxWidth, defaultWidth] = [32, 400, 400];
 
@@ -42,8 +43,6 @@ export default function Sidebar() {
         className="relative flex flex-col gap-2"
         style={{ width: `${width / 16}rem` }}
       >
-        {/* <SideMenu /> */}
-
         <SideLibrary />
       </aside>
 

@@ -5,7 +5,7 @@ export default function RegisterButton({ type, href, className, children }) {
     <MainButton
       type={type}
       href={href}
-      className={`text-base font-bold bg-white  ${className}`}
+      className={`text-base font-bold bg-yellow-400  ${className}`}
     >
       {children}
     </MainButton>

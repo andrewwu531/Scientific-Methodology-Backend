@@ -18,6 +18,7 @@ export default {
         "black-1": "#1E1E1E",
         "black-2": "#0E0E0E",
         "black-3": "#101010",
+        "black-4": "#100c08",
         "button-1": "#3B3939",
         "gray-1": "#E5E4E2",
       },
@@ -25,7 +26,7 @@ export default {
         sans: ["Inter", "sans-serif"],
       },
       fontSize: {
-        tiny: "0.87rem", // This is the custom font size between text-xs and text-sm
+        tiny: "0.88rem", // This is the custom font size between text-xs and text-sm
       },
     },
   },

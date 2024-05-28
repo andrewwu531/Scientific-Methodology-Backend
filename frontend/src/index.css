@@ -15,17 +15,17 @@
 
   /* width */
   ::-webkit-scrollbar {
-    width: 10px;
+    width: 2px;
   }
 
   /* Track */
   ::-webkit-scrollbar-track {
-    @apply rounded-lg bg-zinc-500;
+    @apply bg-zinc-800;
   }
 
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    @apply rounded-lg bg-zinc-300 hover:bg-zinc-200;
+    @apply bg-zinc-700 hover:bg-zinc-900;
   }
 }
 
@@ -36,7 +36,7 @@
 
 .scrollbar-thin::-webkit-scrollbar-thumb {
   background-color: #f8f8f8;
-  border-radius: 6px;
+  border-radius: 2px;
 }
 
 .scrollbar-thin::-webkit-scrollbar-thumb:hover {

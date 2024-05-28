@@ -6,7 +6,7 @@ import FlatButton from "./Buttons/FlatButton";
 export default function MainLibrary() {
   return (
     <SectionContainer>
-      <div className="flex flex-col gap-1 px-2 overflow-auto h-[80vh]">
+      <div className="flex flex-col gap-1 px-2 overflow-auto h-[90vh]">
         <VerticalCard className="flex flex-col items-start justify-start gap-3 p-4 pb-5 rounded-lg bg-neutral-800">
           <p className="pt-2 pb-1 text-lg font-bold">
             Academics & Language Learning
@@ -116,7 +116,7 @@ export default function MainLibrary() {
         </VerticalCard>
       </div>
 
-      <div className="flex flex-col items-start justify-between gap-5 px-6 pt-5 mb-10 h-[5vh]">
+      <div className="flex flex-col items-start justify-between gap-5 px-6 pt-5 mb-10 h-[10vh]">
         <ul className="flex flex-wrap text-[0.7rem] text-neutral-400 gap-3">
           <li>
             <FlatButton href="#">About</FlatButton>
