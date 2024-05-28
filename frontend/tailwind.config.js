@@ -31,25 +31,5 @@ export default {
       },
     },
   },
-  plugins: [
-    function ({ addUtilities }) {
-      addUtilities(
-        {
-          ".scrollbar-thin": {
-            "::-webkit-scrollbar": {
-              width: "4px",
-            },
-            "::-webkit-scrollbar-thumb": {
-              "background-color": "#888",
-              "border-radius": "4px",
-            },
-            "::-webkit-scrollbar-thumb:hover": {
-              "background-color": "#555",
-            },
-          },
-        },
-        ["responsive", "hover"]
-      );
-    },
-  ],
+  plugins: [],
 };

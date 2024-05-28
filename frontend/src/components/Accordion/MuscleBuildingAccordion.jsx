@@ -58,13 +58,17 @@ export default function NutritionCourseAccordion() {
       title:
         "Q4 - How This Programme Stands Out From The Other Leading Courses?",
       contentType: "text",
-      content: "",
+      content:
+        "With a 1st class masters degree in Biology at the University of Glasgow, I possessed the theoretical background in sport nutrition and mechanisms.\
+        Throughout my 10 year professional career, I have trained over 10k bodybuilders and athletics to achieve optimal sport performance.",
       pk: "4",
     },
     {
       title: "Q5 - Social Media",
       contentType: "text",
-      content: "Good",
+      content:
+        "With a 1st class masters degree in Biology at the University of Glasgow, I possessed the theoretical background \
+        in sport nutrition and mechanisms. Throughout my 10 year professional career, I have trained over 10k bodybuilders and athletics to achieve optimal sport performance.",
       pk: "5",
     },
   ];
@@ -102,11 +106,11 @@ export default function NutritionCourseAccordion() {
 
   return (
     <div
-      className="flex flex-col items-center justify-center pb-20 mt-12 bg-neutral-900 mx-atuo"
+      className="flex flex-col items-center justify-center py-4 mt-12 bg-neutral-900 mx-atuo"
       style={{ marginBottom: "10vh" }}
     >
       <div
-        className="flex justify-center pt-10 text-4xl font-bold text-center text-neutral-300"
+        className="flex justify-center pt-10 pb-4 text-4xl font-bold text-center text-neutral-300"
         style={{ marginBottom: "5vh" }}
       >
         Team FAQ
@@ -133,7 +137,7 @@ export default function NutritionCourseAccordion() {
         ))}
       </div>
 
-      <div className="mt-8">
+      <div className="pb-12 mt-12">
         <RegisterButton href={routes.LOGIN} className="px-6 py-3">
           Register/ Log In
         </RegisterButton>
