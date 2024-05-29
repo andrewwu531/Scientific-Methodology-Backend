@@ -5,7 +5,7 @@ export default function SecondaryButton({ type, href, className, children }) {
     <MainButton
       type={type}
       href={href}
-      className={`text-sm bg-zinc-600 ${className}`}
+      className={`text-sm bg-zinc-800 ${className}`}
     >
       {children}
     </MainButton>

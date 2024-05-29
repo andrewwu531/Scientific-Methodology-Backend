@@ -1,14 +1,16 @@
 from django.contrib import admin
-from .models import Course, Video
+from .models import Course, Videos, FAQs
 
 class CourseAdmin(admin.ModelAdmin):
-    list_display = ('id', 'course_name', 'course_category', 'course_title', 'course_image', 'course_sub_image')
+    list_display = ('pk', 'course_name', 'course_category', 'course_title', 'course_banner')
 
 class VideosAdmin(admin.ModelAdmin):
-    list_display = ('id', 'course_name', 'video_title', 'video_essay', 'video_series', 'video_episode', 'video_image', 'video_video', 'video_watched_duration_current_month_minutes', 'video_watched_duration_last_month_minutes')
+    list_display = ('course_name', 'video_title', 'video_subscription_type', 'video_series_name' \
+                  , 'video_series', 'video_episode', 'video_image', 'video_video', 'video_essay')
 
-
-# Register your models here.
+class FAQsAdmin(admin.ModelAdmin):
+    list_display = ('course_name', 'faq_question_num', 'faq_question', 'faq_answer')
 
 admin.site.register(Course, CourseAdmin)
-admin.site.register(Video, VideosAdmin)
+admin.site.register(Videos, VideosAdmin)
+admin.site.register(FAQs, FAQsAdmin)
