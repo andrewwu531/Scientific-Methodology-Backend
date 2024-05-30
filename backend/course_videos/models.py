@@ -22,7 +22,6 @@ class Videos(models.Model):
         FREE = "1", "Free"
         BASIC = "2", "Basic"
         PREMIUM = "3", "Premium"
-        ONEOFF = "4", "One Off"
 
     course_name = models.ForeignKey(Course, on_delete=models.CASCADE)
     video_title = models.CharField(max_length=100, default="default_title")
