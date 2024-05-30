@@ -10,7 +10,7 @@ class Course(models.Model):
     course_name = models.CharField(max_length=100)
     course_category = models.CharField(max_length=2, choices=Course_Category.choices, default=Course_Category.ALL)
     course_title = models.CharField(max_length=100, default="default_title")
-    course_banner = models.ImageField(upload_to='course_image', null=True, default='course_image/Muscle_Building_Image_1.jpg')
+    course_banner = models.ImageField(upload_to='Muscle_Building/Course_Banner', null=True, default='Muscle_Building/Course_Banner/Muscle_Building_Course_Banner_1.jpg')
     def _str_(self):
         return self.course_name
     
@@ -30,8 +30,8 @@ class Videos(models.Model):
     video_series_name = models.CharField(max_length=20, default="default_series_name")
     video_series = models.CharField(max_length=2, default="0")
     video_episode = models.CharField(max_length=2, default="0")
-    video_image = models.ImageField(upload_to='video_image', null=True, default='video_image/Muscle_Building_Image_2.jpg')
-    video_video = models.FileField(upload_to='video_video', null=True, default='video_video/Muscle_Building_Video_1.mp4')
+    video_icon = models.ImageField(upload_to='Muscle_Building/Video_Icon', default='Muscle_Building/Video_Icon/Muscle_Building_Video_Icon_2.jpg')
+    video_video = models.FileField(upload_to='Muscle_Building/Video_Video', null=True, default='Muscle_Building/Video_Video/Muscle_Building_Video_Video_1.mp4')
     video_essay = models.TextField(default="default_video_essay")         
     def _str_(self):
         return self.video_title
