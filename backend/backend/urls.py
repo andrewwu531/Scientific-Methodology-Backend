@@ -31,5 +31,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
     path('api/courses/', course_videos_views.CourseListCreateView.as_view(), name="courses"),
-    path('api/course<int:pk>/', course_videos_views.CourseVideosListCreateView.as_view(), name="course_videos"),
+    path('api/<str:course_name>/', course_videos_views.CourseVideosListCreateView.as_view(), name="course_videos"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)       

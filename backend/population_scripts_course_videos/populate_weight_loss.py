@@ -16,15 +16,15 @@ def read_video_essay(file_path):
     with open(file_path, 'r', encoding="utf8") as file:
         return file.read().strip()
 
-def populate_course_muscle_building():
+def populate_course_weight_loss():
     
-    essays_directory = 'video_essays_docs/Muscle_Building'
+    essays_directory = 'video_essays_docs/Weight_Loss'
 
     data = {
-        'muscle_building': {
+        'weight_loss': {
             'course_category': Course.Course_Category.HL,
             'course_title': 'The Science of Shredded Muscle Building',
-            'course_banner': 'Muscle_Building/Course_Banner/Muscle_Building_Course_Banner.jpg',
+            'course_banner': 'Weight_Loss/Course_Banner/Muscle_Building_Course_Banner.jpg',
             'videos': [
                 {
                     'video_title': 'Qualifications & Professional Career',
@@ -32,8 +32,8 @@ def populate_course_muscle_building():
                     'video_series_name': 'Introduction',
                     'video_series': '1',
                     'video_episode': '1',
-                    'video_icon': 'Muscle_Building/Video_Icon/Muscle_Building_Video_Icon_1_1.jpg',
-                    'video_video': 'Muscle_Building/Video_Video/Muscle_Building_Video_Video_1_1.mp4',
+                    'video_icon': 'Weight_Loss/Video_Icon/Muscle_Building_Video_Icon_1_1.jpg',
+                    'video_video': 'Weight_Loss/Video_Video/Muscle_Building_Video_Video_1_1.mp4',
                     'video_essay': read_video_essay(os.path.join(essays_directory, 'Muscle_Building_Video_1_1.txt')),
                 },
                 {
@@ -42,8 +42,8 @@ def populate_course_muscle_building():
                     'video_series_name': 'Introduction',
                     'video_series': '1',
                     'video_episode': '2',
-                    'video_icon': 'Muscle_Building/Video_Icon/Muscle_Building_Video_Icon_1_2.jpg',
-                    'video_video': 'Muscle_Building/Video_Video/Muscle_Building_Video_Video_1_2.mp4',
+                    'video_icon': 'Weight_Loss/Video_Icon/Muscle_Building_Video_Icon_1_2.jpg',
+                    'video_video': 'Weight_Loss/Video_Video/Muscle_Building_Video_Video_1_2.mp4',
                     'video_essay': read_video_essay(os.path.join(essays_directory, 'Muscle_Building_Video_1_2.txt')),
                 },
                 {
@@ -52,8 +52,8 @@ def populate_course_muscle_building():
                     'video_series_name': 'Introduction',
                     'video_series': '1',
                     'video_episode': '3',
-                    'video_icon': 'Muscle_Building/Video_Icon/Muscle_Building_Video_Icon_1_3.jpg',
-                    'video_video': 'Muscle_Building/Video_Video/Muscle_Building_Video_Video_1_3.mp4',
+                    'video_icon': 'Weight_Loss/Video_Icon/Muscle_Building_Video_Icon_1_3.jpg',
+                    'video_video': 'Weight_Loss/Video_Video/Muscle_Building_Video_Video_1_3.mp4',
                     'video_essay': read_video_essay(os.path.join(essays_directory, 'Muscle_Building_Video_1_3.txt')),
                 },
                 {
@@ -62,8 +62,8 @@ def populate_course_muscle_building():
                     'video_series_name': 'Introduction',
                     'video_series': '1',
                     'video_episode': '4',
-                    'video_icon': 'Muscle_Building/Video_Icon/Muscle_Building_Video_Icon_1_4.jpg',
-                    'video_video': 'Muscle_Building/Video_Video/Muscle_Building_Video_Video_1_4.mp4',
+                    'video_icon': 'Weight_Loss/Video_Icon/Muscle_Building_Video_Icon_1_4.jpg',
+                    'video_video': 'Weight_Loss/Video_Video/Muscle_Building_Video_Video_1_4.mp4',
                     'video_essay': read_video_essay(os.path.join(essays_directory, 'Muscle_Building_Video_1_4.txt')),
                 },
                 {
@@ -72,8 +72,8 @@ def populate_course_muscle_building():
                     'video_series_name': 'Introduction',
                     'video_series': '1',
                     'video_episode': '5',
-                    'video_icon': 'Muscle_Building/Video_Icon/Muscle_Building_Video_Icon_1_5.jpg',
-                    'video_video': 'Muscle_Building/Video_Video/Muscle_Building_Video_Video_1_5.mp4',
+                    'video_icon': 'Weight_Loss/Video_Icon/Muscle_Building_Video_Icon_1_5.jpg',
+                    'video_video': 'Weight_Loss/Video_Video/Muscle_Building_Video_Video_1_5.mp4',
                     'video_essay': read_video_essay(os.path.join(essays_directory, 'Muscle_Building_Video_1_5.txt')),
                 },
                 {
@@ -82,8 +82,8 @@ def populate_course_muscle_building():
                     'video_series_name': 'Nutrition Theory',
                     'video_series': '2',
                     'video_episode': '1',
-                    'video_icon': 'Muscle_Building/Video_Icon/Muscle_Building_Video_Icon_2_1.jpg',
-                    'video_video': 'Muscle_Building/Video_Video/Muscle_Building_Video_Video_2_1.mp4',
+                    'video_icon': 'Weight_Loss/Video_Icon/Muscle_Building_Video_Icon_2_1.jpg',
+                    'video_video': 'Weight_Loss/Video_Video/Muscle_Building_Video_Video_2_1.mp4',
                     'video_essay': read_video_essay(os.path.join(essays_directory, 'Muscle_Building_Video_2_1.txt')),
                 },
                 {
@@ -92,8 +92,8 @@ def populate_course_muscle_building():
                     'video_series_name': 'Nutrition Theory',
                     'video_series': '2',
                     'video_episode': '2',
-                    'video_icon': 'Muscle_Building/Video_Icon/Muscle_Building_Video_Icon_2_2.jpg',
-                    'video_video': 'Muscle_Building/Video_Video/Muscle_Building_Video_Video_2_2.mp4',
+                    'video_icon': 'Weight_Loss/Video_Icon/Muscle_Building_Video_Icon_2_2.jpg',
+                    'video_video': 'Weight_Loss/Video_Video/Muscle_Building_Video_Video_2_2.mp4',
                     'video_essay': read_video_essay(os.path.join(essays_directory, 'Muscle_Building_Video_2_2.txt')),
                 },
                 {
@@ -102,8 +102,8 @@ def populate_course_muscle_building():
                     'video_series_name': 'Nutrition Theory',
                     'video_series': '2',
                     'video_episode': '3',
-                    'video_icon': 'Muscle_Building/Video_Icon/Muscle_Building_Video_Icon_2_3.jpg',
-                    'video_video': 'Muscle_Building/Video_Video/Muscle_Building_Video_Video_2_3.mp4',
+                    'video_icon': 'Weight_Loss/Video_Icon/Muscle_Building_Video_Icon_2_3.jpg',
+                    'video_video': 'Weight_Loss/Video_Video/Muscle_Building_Video_Video_2_3.mp4',
                     'video_essay': read_video_essay(os.path.join(essays_directory, 'Muscle_Building_Video_2_3.txt')),
                 },
                 {
@@ -112,8 +112,8 @@ def populate_course_muscle_building():
                     'video_series_name': 'Nutrition Theory',
                     'video_series': '2',
                     'video_episode': '4',
-                    'video_icon': 'Muscle_Building/Video_Icon/Muscle_Building_Video_Icon_2_4.jpg',
-                    'video_video': 'Muscle_Building/Video_Video/Muscle_Building_Video_Video_2_4.mp4',
+                    'video_icon': 'Weight_Loss/Video_Icon/Muscle_Building_Video_Icon_2_4.jpg',
+                    'video_video': 'Weight_Loss/Video_Video/Muscle_Building_Video_Video_2_4.mp4',
                     'video_essay': read_video_essay(os.path.join(essays_directory, 'Muscle_Building_Video_2_4.txt')),
                 },
                 {
@@ -122,8 +122,8 @@ def populate_course_muscle_building():
                     'video_series_name': 'Nutrition Theory',
                     'video_series': '2',
                     'video_episode': '5',
-                    'video_icon': 'Muscle_Building/Video_Icon/Muscle_Building_Video_Icon_2_5.jpg',
-                    'video_video': 'Muscle_Building/Video_Video/Muscle_Building_Video_Video_2_5.mp4',
+                    'video_icon': 'Weight_Loss/Video_Icon/Muscle_Building_Video_Icon_2_5.jpg',
+                    'video_video': 'Weight_Loss/Video_Video/Muscle_Building_Video_Video_2_5.mp4',
                     'video_essay': read_video_essay(os.path.join(essays_directory, 'Muscle_Building_Video_2_5.txt')),
                 },
                 {
@@ -132,8 +132,8 @@ def populate_course_muscle_building():
                     'video_series_name': 'Weightlifting Mechanisms',
                     'video_series': '3',
                     'video_episode': '1',
-                    'video_icon': 'Muscle_Building/Video_Icon/Muscle_Building_Video_Icon_3_1.jpg',
-                    'video_video': 'Muscle_Building/Video_Video/Muscle_Building_Video_Video_3_1.mp4',
+                    'video_icon': 'Weight_Loss/Video_Icon/Muscle_Building_Video_Icon_3_1.jpg',
+                    'video_video': 'Weight_Loss/Video_Video/Muscle_Building_Video_Video_3_1.mp4',
                     'video_essay': read_video_essay(os.path.join(essays_directory, 'Muscle_Building_Video_3_1.txt')),
                 },
                 {
@@ -142,8 +142,8 @@ def populate_course_muscle_building():
                     'video_series_name': 'Weightlifting Mechanisms',
                     'video_series': '3',
                     'video_episode': '2',
-                    'video_icon': 'Muscle_Building/Video_Icon/Muscle_Building_Video_Icon_3_2.jpg',
-                    'video_video': 'Muscle_Building/Video_Video/Muscle_Building_Video_Video_3_2.mp4',
+                    'video_icon': 'Weight_Loss/Video_Icon/Muscle_Building_Video_Icon_3_2.jpg',
+                    'video_video': 'Weight_Loss/Video_Video/Muscle_Building_Video_Video_3_2.mp4',
                     'video_essay': read_video_essay(os.path.join(essays_directory, 'Muscle_Building_Video_3_2.txt')),
                 },
                 {
@@ -152,8 +152,8 @@ def populate_course_muscle_building():
                     'video_series_name': 'Weightlifting Mechanisms',
                     'video_series': '3',
                     'video_episode': '3',
-                    'video_icon': 'Muscle_Building/Video_Icon/Muscle_Building_Video_Icon_3_3.jpg',
-                    'video_video': 'Muscle_Building/Video_Video/Muscle_Building_Video_Video_3_3.mp4',
+                    'video_icon': 'Weight_Loss/Video_Icon/Muscle_Building_Video_Icon_3_3.jpg',
+                    'video_video': 'Weight_Loss/Video_Video/Muscle_Building_Video_Video_3_3.mp4',
                     'video_essay': read_video_essay(os.path.join(essays_directory, 'Muscle_Building_Video_3_3.txt')),
                 },
                 {
@@ -162,8 +162,8 @@ def populate_course_muscle_building():
                     'video_series_name': 'Weightlifting Mechanisms',
                     'video_series': '3',
                     'video_episode': '4',
-                    'video_icon': 'Muscle_Building/Video_Icon/Muscle_Building_Video_Icon_3_4.jpg',
-                    'video_video': 'Muscle_Building/Video_Video/Muscle_Building_Video_Video_3_4.mp4',
+                    'video_icon': 'Weight_Loss/Video_Icon/Muscle_Building_Video_Icon_3_4.jpg',
+                    'video_video': 'Weight_Loss/Video_Video/Muscle_Building_Video_Video_3_4.mp4',
                     'video_essay': read_video_essay(os.path.join(essays_directory, 'Muscle_Building_Video_3_4.txt')),
                 },
                 {
@@ -172,8 +172,8 @@ def populate_course_muscle_building():
                     'video_series_name': 'Weightlifting Mechanisms',
                     'video_series': '3',
                     'video_episode': '5',
-                    'video_icon': 'Muscle_Building/Video_Icon/Muscle_Building_Video_Icon_3_5.jpg',
-                    'video_video': 'Muscle_Building/Video_Video/Muscle_Building_Video_Video_3_5.mp4',
+                    'video_icon': 'Weight_Loss/Video_Icon/Muscle_Building_Video_Icon_3_5.jpg',
+                    'video_video': 'Weight_Loss/Video_Video/Muscle_Building_Video_Video_3_5.mp4',
                     'video_essay': read_video_essay(os.path.join(essays_directory, 'Muscle_Building_Video_3_5.txt')),
                 },
                 {
@@ -182,8 +182,8 @@ def populate_course_muscle_building():
                     'video_series_name': 'Weightlifting Mechanisms',
                     'video_series': '3',
                     'video_episode': '6',
-                    'video_icon': 'Muscle_Building/Video_Icon/Muscle_Building_Video_Icon_3_6.jpg',
-                    'video_video': 'Muscle_Building/Video_Video/Muscle_Building_Video_Video_3_6.mp4',
+                    'video_icon': 'Weight_Loss/Video_Icon/Muscle_Building_Video_Icon_3_6.jpg',
+                    'video_video': 'Weight_Loss/Video_Video/Muscle_Building_Video_Video_3_6.mp4',
                     'video_essay': read_video_essay(os.path.join(essays_directory, 'Muscle_Building_Video_3_6.txt')),
                 }
             ]
@@ -200,7 +200,7 @@ def populate_course_muscle_building():
         for video_data in course_data['videos']:
             add_video(course_name=course, **video_data)
 
-    print('Starting Project M muscle building population script...')
+    print('Starting Project M weight loss population script...')
 
 def add_video(course_name, video_title, video_subscription_type, video_series_name, 
               video_series, video_episode, video_icon, video_video, video_essay):
@@ -225,4 +225,5 @@ def add_course(course_name, course_category, course_title, course_banner):
 
 # Start execution here!
 if __name__ == '__main__':
-    populate_course_muscle_building()
+    populate_course_weight_loss()
+
