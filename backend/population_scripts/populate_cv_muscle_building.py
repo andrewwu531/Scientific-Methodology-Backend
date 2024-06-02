@@ -1,5 +1,11 @@
 import os
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'backend.settings')
+# os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'backend.settings')
+import sys
+
+sys.path.append(os.path.abspath(os.path.join(__file__, *[os.pardir] * 2)))
+
+os.environ['DJANGO_SETTINGS_MODULE'] = 'backend.settings'
+
 
 import django
 django.setup()
@@ -9,7 +15,7 @@ from course_videos.models import Course, Videos
 def populate():
 
     data = {
-        'Muscle Building': {
+        'Muscle_Building': {
             'course_category': Course.Course_Category.HL,
             'course_title': 'The Science of Shredded Muscle Building',
             'course_banner': 'Muscle_Building/Course_Banner/Muscle_Building_Course_Banner.jpg',
