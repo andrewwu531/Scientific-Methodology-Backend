@@ -88,17 +88,6 @@ export default function NutritionCourseAccordion() {
             Your browser does not support the video tag.
           </video>
         );
-      // case "link":
-      //   return (
-      //     <a
-      //       href={content}
-      //       target="_blank"
-      //       rel="noopener noreferrer"
-      //       className="mx-10 mb-5 text-lg text-medium text-grey-800 hover:text-grey-900"
-      //     >
-      //       {content}
-      //     </a>
-      //   );
       default:
         return <p className="mx-10 mb-5 text-lg text-medium">{content}</p>;
     }
@@ -106,12 +95,12 @@ export default function NutritionCourseAccordion() {
 
   return (
     <div
-      className="flex flex-col items-center justify-center py-4 mt-12 bg-neutral-900 mx-atuo"
+      className="flex flex-col items-center justify-center pt-4 bg-neutral-900 mx-atuo"
       style={{ marginBottom: "10vh" }}
     >
       <div
         className="flex justify-center pt-10 pb-4 text-4xl font-bold text-center text-neutral-300"
-        style={{ marginBottom: "5vh" }}
+        style={{ marginBottom: "3vh" }}
       >
         Team FAQ
       </div>
@@ -137,7 +126,7 @@ export default function NutritionCourseAccordion() {
         ))}
       </div>
 
-      <div className="pb-12 mt-12">
+      <div className="mt-12 ">
         <RegisterButton href={routes.LOGIN} className="px-6 py-3">
           Register/ Log In
         </RegisterButton>

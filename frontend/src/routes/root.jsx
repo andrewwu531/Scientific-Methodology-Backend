@@ -12,7 +12,7 @@ export default function Root() {
       <div className="h-[90vh] min-w-[50rem] grid overflow-hidden grid-cols-[min-content_auto] gap-y-2 p-1.5 bg-black-2">
         <Sidebar />
 
-        <SectionContainer className="overflow-auto bg-black-1">
+        <SectionContainer className="overflow-auto bg-neutral-900">
           {/* <TesterPage /> */}
           <MuscleBuilding />
         </SectionContainer>

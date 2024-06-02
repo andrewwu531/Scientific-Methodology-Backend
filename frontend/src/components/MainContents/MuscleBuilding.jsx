@@ -10,7 +10,7 @@ import MuscleBuildingAccordion from "../Accordion/MuscleBuildingAccordion";
 export default function MuscleBuilding() {
   return (
     <div>
-      <div className="flex flex-col pl-8 overflow-auto pt-7 scrollbar-thin scrollbar-thumb-rounded scrollbar-thumb-gray-800 scrollbar-thumb-hover-gray-600">
+      <div className="flex flex-col pb-16 pl-8 overflow-auto pt-7 scrollbar-thin scrollbar-thumb-rounded bg-black-1 scrollbar-thumb-gray-800 scrollbar-thumb-hover-gray-600">
         <div className="pb-6 text-2xl font-bold text-neutral-100">
           The Science of Shredded Muscle Building
         </div>
@@ -31,7 +31,7 @@ export default function MuscleBuilding() {
           />
         </div>
 
-        <div className="pb-3 pl-3 text-lg font-bold pt-7 text-neutral-300">
+        <div className="pb-4 pl-3 text-lg font-bold pt-9 text-neutral-300">
           Series 1: Nutrition Theory
         </div>
 
@@ -139,7 +139,7 @@ export default function MuscleBuilding() {
           </div>
         </div>
 
-        <div className="pb-3 pl-3 text-lg font-bold pt-7 text-neutral-300">
+        <div className="pb-4 pl-3 text-lg font-bold pt-9 text-neutral-300">
           Series 2: Weightlifting Mechanisms
         </div>
 
