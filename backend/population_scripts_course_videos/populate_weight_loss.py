@@ -21,9 +21,10 @@ def populate_course_weight_loss():
     essays_directory = 'video_essays_docs/Weight_Loss'
 
     data = {
-        'weight_loss': {
+        'Weight Loss': {
+            'course_url': 'weight_loss',
             'course_category': Course.Course_Category.HL,
-            'course_title': 'The Science of Shredded Muscle Building',
+            'course_title': 'The Science of Sustainable Weight Loss',
             'course_banner': 'Weight_Loss/Course_Banner/Muscle_Building_Course_Banner.jpg',
             'videos': [
                 {
@@ -193,6 +194,7 @@ def populate_course_weight_loss():
     for course_name, course_data in data.items():
         course = add_course(
             course_name=course_name,
+            course_url=course_data['course_url'],
             course_category=course_data['course_category'],
             course_title=course_data['course_title'],
             course_banner=course_data['course_banner']
@@ -200,7 +202,7 @@ def populate_course_weight_loss():
         for video_data in course_data['videos']:
             add_video(course_name=course, **video_data)
 
-    print('Starting Project M weight loss population script...')
+    print('Starting Project M Weight Loss population script...')
 
 def add_video(course_name, video_title, video_subscription_type, video_series_name, 
               video_series, video_episode, video_icon, video_video, video_essay):
@@ -215,8 +217,9 @@ def add_video(course_name, video_title, video_subscription_type, video_series_na
     v.save()
     return v
 
-def add_course(course_name, course_category, course_title, course_banner):
+def add_course(course_name, course_url, course_category, course_title, course_banner):
     c = Course.objects.get_or_create(course_name=course_name)[0]
+    c.course_url = course_url
     c.course_category = course_category
     c.course_title = course_title
     c.course_banner = course_banner

@@ -8,7 +8,15 @@ import sys
 
 from populate_muscle_building import populate_course_muscle_building
 from populate_weight_loss import  populate_course_weight_loss
+from populate_uni import populate_course_uni
+from populate_uni_pp import populate_course_uni_pp
+from populate_english_pronunciation import populate_course_english_pronunciation
+from populate_topic_essays import populate_course_topic_essays
 
 if __name__ == '__main__':
     populate_course_muscle_building()
     populate_course_weight_loss()
+    populate_course_uni()
+    populate_course_uni_pp()
+    populate_course_english_pronunciation()
+    populate_course_topic_essays()

@@ -4,7 +4,7 @@ from .models import Course, Videos, FAQs
 class CourseSerializer(serializers.ModelSerializer):
     class Meta:
         model = Course
-        fields = ('course_name', 'course_category', 'course_title', 'course_banner')
+        fields = ('course_name', 'course_url', 'course_category', 'course_title', 'course_banner')
 
 
 class VideosSerializer(serializers.ModelSerializer):
