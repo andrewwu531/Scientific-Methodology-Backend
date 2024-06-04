@@ -251,8 +251,6 @@ export default function MuscleBuilding() {
       <div>
         <MuscleBuildingAccordion />
       </div>
-
-      <Footer />
     </div>
   );
 }
