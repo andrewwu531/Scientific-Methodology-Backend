@@ -1,11 +1,3 @@
-# run_all_population_scripts.py
-
-import os
-import sys
-
-# # Ensure the scripts can be found in the import path
-# sys.path.append(os.path.abspath(os.path.join(__file__, os.pardir, 'all_population_scripts')))
-
 from populate_muscle_building import populate_course_muscle_building
 from populate_weight_loss import  populate_course_weight_loss
 from populate_uni import populate_course_uni
@@ -20,6 +12,13 @@ from populate_fashion import populate_course_fashion
 from populate_meal_recipes import populate_course_meal_recipes
 from populate_social_skills import populate_course_social_skills
 from populate_makeup import populate_course_makeup
+from populate_hairstyles import populate_course_hairstyles
+from populate_psychology import populate_course_psychology
+from populate_tv_movies import populate_course_tv_movies
+from populate_travel import populate_course_travel
+from populate_martial_arts import populate_course_martial_arts
+from populate_basketball import populate_course_basketball
+from populate_football import populate_course_football
 
 if __name__ == '__main__':
     populate_course_muscle_building()
@@ -36,3 +35,10 @@ if __name__ == '__main__':
     populate_course_meal_recipes()
     populate_course_social_skills()
     populate_course_makeup()
+    populate_course_hairstyles()
+    populate_course_psychology()
+    populate_course_tv_movies()
+    populate_course_travel()
+    populate_course_martial_arts()
+    populate_course_basketball()
+    populate_course_football()
