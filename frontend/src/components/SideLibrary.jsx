@@ -52,9 +52,6 @@ export default function SideLibrary() {
             Health & Lifestyle
           </p>
           <div className="flex flex-wrap gap-2.5">
-            <SecondaryButton className="px-4 py-2 pt-2.5 text-tiny text-neutral-100  text-sans font-regular">
-              Dating
-            </SecondaryButton>
             <SecondaryButton className=" border-2 border-yellow-400 px-4 py-2 pt-2.5 text-tiny text-neutral-100  text-sans font-regular">
               Muscle Building
             </SecondaryButton>
@@ -62,10 +59,13 @@ export default function SideLibrary() {
               Weight Loss
             </SecondaryButton>
             <SecondaryButton className="px-4 py-2 pt-2.5 text-tiny text-neutral-100  text-sans font-regular">
+              Fashion
+            </SecondaryButton>
+            <SecondaryButton className="px-4 py-2 pt-2.5 text-tiny text-neutral-100  text-sans font-regular">
               Meal Recipes
             </SecondaryButton>
             <SecondaryButton className="px-4 py-2 pt-2.5 text-tiny text-neutral-100  text-sans font-regular">
-              Fashion
+              Social Skills
             </SecondaryButton>
             <SecondaryButton className="px-4 py-2 pt-2.5 text-tiny text-neutral-100  text-sans font-regular">
               Makeup

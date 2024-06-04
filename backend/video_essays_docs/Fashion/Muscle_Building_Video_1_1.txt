@@ -1,0 +1,5 @@
+Nutrition Theory
+Macro Calculator
+A macro calculator computes a person’s daily recommended macronutrient intake - calories, protein, carbohydrates and fat. It helps to achieve a specific muscle building goal, such as muscle mass or definition building.
+A person’s recommended macronutrient requirements vary in terms of age, gender, weight, height, activity level, and goals. A bodybuilder must adjust their macronutrient intake based on these variables. For example, if they reduce their exercise frequency by one day a week, their macronutrient requirements will be lower.
+As a rule of thumb, you should aim to consume a high level of protein; medium level of carbohydrates and low level of fat. 

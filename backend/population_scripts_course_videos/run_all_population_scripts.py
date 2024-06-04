@@ -16,6 +16,10 @@ from populate_accents import populate_course_accents
 from populate_business_english import populate_course_business_english
 from populate_storytelling import populate_course_storytelling
 from populate_comedy_writing import populate_course_comedy_writing
+from populate_fashion import populate_course_fashion
+from populate_meal_recipes import populate_course_meal_recipes
+from populate_social_skills import populate_course_social_skills
+from populate_makeup import populate_course_makeup
 
 if __name__ == '__main__':
     populate_course_muscle_building()
@@ -28,3 +32,7 @@ if __name__ == '__main__':
     populate_course_business_english()
     populate_course_storytelling()
     populate_course_comedy_writing()
+    populate_course_fashion()
+    populate_course_meal_recipes()
+    populate_course_social_skills()
+    populate_course_makeup()
