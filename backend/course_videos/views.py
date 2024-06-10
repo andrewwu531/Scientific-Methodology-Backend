@@ -11,29 +11,29 @@ class CourseListCreateView(generics.ListCreateAPIView):             # 1.
     queryset = Course.objects.all()
 
 
-class CourseVideosListCreateView(generics.ListCreateAPIView):             # 1. + Filtered by course_name
+class CourseVideosListCreateView(generics.ListCreateAPIView):             # 1. + Filtered by course_url
     serializer_class = VideosSerializer
     queryset = Videos.objects.all()
 
     def get_queryset(self):
-        course_name = self.kwargs['course_name']
+        course_url = self.kwargs['course_url']
         try:
-            course = Course.objects.get(course_name=course_name)
+            course = Course.objects.get(course_url=course_url)
         except Course.DoesNotExist:
             raise NotFound(detail="Course not found")
-        return Videos.objects.filter(course_name=course)
+        return Videos.objects.filter(course_url=course)
 
     def perform_create(self, serializer):
-        course_name = self.kwargs['course_name']
+        course_url = self.kwargs['course_url']
         try:
-            course = Course.objects.get(course_name=course_name)
+            course = Course.objects.get(course_url=course_url)
         except Course.DoesNotExist:
             raise NotFound(detail="Course not found")
-        serializer.save(course_name=course)
+        serializer.save(course_url=course)
     
-class CourseFAQsListCreateView(generics.ListCreateAPIView):             # 1. + Filtered by course_name
+class CourseFAQsListCreateView(generics.ListCreateAPIView):             # 1. + Filtered by course_url
     serializer_class = FAQsSerializer
     queryset = FAQs.objects.all()
 
     def get_queryset(self):
-        return self.queryset.filter(course_name=self.kwargs['pk'])
+        return self.queryset.filter(course_url=self.kwargs['pk'])
