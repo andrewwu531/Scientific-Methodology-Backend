@@ -48,18 +48,20 @@ export default function MainSection({ categoryData }) {
                 <div className="flex flex-row items-center justify-start">
                   <div className="ml-5 h-7">
                     <img
-                      src="../../../"
+                      src={`${backendURL}/${video.video_icon}`}
                       alt="icon"
                       className="object-cover w-full h-full rounded-md"
                     />
                   </div>
-                  <div className="px-5 py-2 font-sans text-yellow-600 text-small">
-                    {`S${video.video_series} E${video.video_episode} ${video.video_title}`}
+                  <div className="px-5 py-1 font-sans text-small">
+                    {`S${video.video_series}`} <span>&nbsp;</span>
+                    {`S${video.video_episode}`} <span>&nbsp; &nbsp;</span>
+                    {`${video.video_title}`}
                   </div>
                 </div>
                 <div className="flex flex-row items-center">
-                  <div className="w-32 mr-7 h-0.5 bg-yellow-600 rounded-full"></div>
-                  <div className="text-sm text-yellow-600 mr-7">32:51</div>
+                  <div className="w-32 mr-7 h-0.5 bg-green-600 rounded-full"></div>
+                  <div className="text-sm mr-7">32:51</div>
                 </div>
               </div>
             ))}
