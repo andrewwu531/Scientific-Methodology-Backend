@@ -1,7 +1,7 @@
 import SectionContainer from "../components/SectionContainer";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
-import MuscleBuilding from "../components/MainContents/MuscleBuilding";
+import MainContainer from "../components/MainContents/MainContainer";
 
 export default function Root() {
   return (
@@ -10,11 +10,11 @@ export default function Root() {
         <Navbar />
       </div>
       <div className="h-[90vh] min-w-[50rem] grid overflow-hidden grid-cols-[min-content_auto] gap-y-2 p-1.5 bg-black-2">
-        <Sidebar />
+        {/* <Sidebar /> */}
 
         <SectionContainer className="overflow-auto bg-neutral-900">
           {/* <TesterPage /> */}
-          <MuscleBuilding />
+          <MainContainer />
         </SectionContainer>
 
         <aside className="flex items-center justify-between col-span-2 px-4 py-3 bg-gradient-to-r from-accent-1 to-accent-2">
