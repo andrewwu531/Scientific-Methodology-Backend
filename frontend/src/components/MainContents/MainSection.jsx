@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import Footer from "../../components/Footer/Footer";
 
 export default function MainSection({ categoryData }) {
+  const backendURL = "http://localhost:8000"; // URL of your Django server
   if (!categoryData || categoryData.length === 0) {
     return <div>Loading...</div>;
   }
@@ -28,7 +29,7 @@ export default function MainSection({ categoryData }) {
         </div>
         <div className="h-40 mr-60">
           <img
-            src={firstItem.video_icon} // Use the first video icon as banner
+            src={`${backendURL}/${firstItem.video_icon}`}
             alt="banner"
             className="object-cover w-full h-full rounded-lg"
           />
@@ -47,7 +48,7 @@ export default function MainSection({ categoryData }) {
                 <div className="flex flex-row items-center justify-start">
                   <div className="ml-5 h-7">
                     <img
-                      src={video.video_icon}
+                      src="../../../"
                       alt="icon"
                       className="object-cover w-full h-full rounded-md"
                     />

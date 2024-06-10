@@ -37,4 +37,8 @@ urlpatterns = [
     # path('api/courses', course_videos_views.CourseVideosListCreateView.as_view(), name='get_courses_by_category'),
 
     # path('api/<str:course_url>/', course_videos_views.CourseVideosListCreateView.as_view(), name="course_videos"),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)       
+# ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)    
+]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
