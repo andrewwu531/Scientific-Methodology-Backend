@@ -131,9 +131,9 @@ function SideLibrary({ onCourseSelect }) {
                     <button
                       type="button"
                       key={index}
-                      className={`px-4 py-2 pt-2.5 text-tiny text-neutral-100 text-sans font-regular ${
-                        item.border ? "border-2 border-yellow-400" : ""
-                      }`}
+                      className={`px-4 py-2 pt-2.5 text-tiny text-neutral-100 text-sans font-regular 
+                        text-sm bg-zinc-800 text-black justify-center hover:scale-105
+                        ${item.border ? "border-2 border-yellow-400" : ""}`}
                       onClick={() => handleCourseSelect(item.course_url)}
                     >
                       {item.text}

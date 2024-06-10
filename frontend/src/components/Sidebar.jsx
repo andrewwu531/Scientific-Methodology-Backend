@@ -4,7 +4,7 @@ import SideMenu from "./SideMenu";
 
 const [minWidth, maxWidth, defaultWidth] = [32, 400, 400];
 
-export default function Sidebar() {
+export default function Sidebar({ setSelectedCategory }) {
   const [width, setWidth] = useState(
     parseInt(localStorage.getItem("sidebarWidth")) || defaultWidth
   );
@@ -43,7 +43,7 @@ export default function Sidebar() {
         className="relative flex flex-col gap-2"
         style={{ width: `${width / 16}rem` }}
       >
-        <SideLibrary />
+        <SideLibrary onCourseSelect={setSelectedCategory} />
       </aside>
 
       {/* Handle */}
