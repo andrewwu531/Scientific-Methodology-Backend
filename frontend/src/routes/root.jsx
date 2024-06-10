@@ -21,11 +21,12 @@ export default function Root() {
           <p className="pl-3">
             <span className="block text-base tracking-wider ">
               We are M. Our mission is to provide the highest standard
-              programmes for all through AI and qualified experts, from boosting
+              programmes for all through AI and qualified experts,
             </span>
             <span className="text-base tracking-wider">
-              your academic performance and language skills to accelerating your
-              bodybuilding progress and career prospect.{" "}
+              from boosting your academic performance, general knowledge and
+              language skills to accelerating your bodybuilding progress and
+              career prospect.{" "}
             </span>
           </p>
 
