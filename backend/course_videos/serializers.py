@@ -2,9 +2,14 @@ from rest_framework import serializers
 from .models import Course, Videos, FAQs
 
 class CourseSerializer(serializers.ModelSerializer):
+    course_banner = serializers.SerializerMethodField()
+
     class Meta:
         model = Course
         fields = ('course_url', 'course_name', 'course_category', 'course_title', 'course_banner')
+    
+    def get_course_banner(self, obj):
+        return obj.course_banner.url
 
     
 class VideosSerializer(serializers.ModelSerializer):

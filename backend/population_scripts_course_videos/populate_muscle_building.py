@@ -25,7 +25,7 @@ def populate_course_muscle_building():
             'course_url': 'muscle_building',
             'course_category': Course.Course_Category.HL,
             'course_title': 'The Science of Shredded Muscle Building',
-            'course_banner': 'Muscle_Building/Course_Banner/Muscle_Building_Course_Banner.jpg',
+            'course_banner': 'Muscle_Building/Course_Banner/Muscle_Building_Course_Banner_1.jpg',
             'videos': [
                 {
                     'video_title': 'Qualifications & Professional Career',
@@ -200,13 +200,13 @@ def populate_course_muscle_building():
             course_banner=course_data['course_banner']
         )
         for video_data in course_data['videos']:
-            add_video(course_name=course, **video_data)
+            add_video(course_url=course, **video_data)
 
     print('Starting Project M Muscle Building population script...')
 
-def add_video(course_name, video_title, video_subscription_type, video_series_name, 
+def add_video(course_url, video_title, video_subscription_type, video_series_name, 
               video_series, video_episode, video_icon, video_video, video_essay):
-    v = Videos.objects.get_or_create(course_name=course_name, video_title=video_title)[0]
+    v = Videos.objects.get_or_create(course_url=course_url, video_title=video_title)[0]
     v.video_subscription_type = video_subscription_type
     v.video_series_name = video_series_name
     v.video_series = video_series
@@ -218,8 +218,8 @@ def add_video(course_name, video_title, video_subscription_type, video_series_na
     return v
 
 def add_course(course_name, course_url, course_category, course_title, course_banner):
-    c = Course.objects.get_or_create(course_name=course_name)[0]
-    c.course_url = course_url
+    c = Course.objects.get_or_create(course_url=course_url)[0]
+    c.course_name = course_name
     c.course_category = course_category
     c.course_title = course_title
     c.course_banner = course_banner

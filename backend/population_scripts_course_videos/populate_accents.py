@@ -25,7 +25,7 @@ def populate_course_accents():
             'course_url': 'accents',
             'course_category': Course.Course_Category.ALL,
             'course_title': 'By Qualified Speech Therapist - Accents & Speech Delivery',
-            'course_banner': 'Accents/Course_Banner/Muscle_Building_Course_Banner.jpg',
+            'course_banner': 'Accents/Course_Banner/Muscle_Building_Course_Banner_1.jpg',
             'videos': [
                 {
                     'video_title': 'Accents Qualifications & Professional Career',

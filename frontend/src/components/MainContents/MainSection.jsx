@@ -1,9 +1,9 @@
 import PropTypes from "prop-types";
 import Footer from "../../components/Footer/Footer";
 
-export default function MainSection({ categoryData }) {
+export default function MainSection({ categoryData, courseData }) {
   const backendURL = "http://localhost:8000"; // URL of your Django server
-  if (!categoryData || categoryData.length === 0) {
+  if (!categoryData || categoryData.length === 0 || courseData.length === 0) {
     return <div>Loading...</div>;
   }
 
@@ -18,6 +18,9 @@ export default function MainSection({ categoryData }) {
       acc[video.video_series_name] = [];
     }
     acc[video.video_series_name].push(video);
+    console.log("seriesMap:", acc);
+    console.log("seriesMap.video_icon", courseData.course_banner);
+    console.log("courseData.course_banner", courseData.course_banner);
     return acc;
   }, {});
 
@@ -25,11 +28,11 @@ export default function MainSection({ categoryData }) {
     <div>
       <div className="flex flex-col pb-16 pl-8 overflow-auto pt-7 scrollbar-thin scrollbar-thumb-rounded bg-black-1 scrollbar-thumb-gray-800 scrollbar-thumb-hover-gray-600">
         <div className="pb-6 text-2xl font-bold text-neutral-100">
-          {firstItem.course_url.replace(/_/g, " ")}
+          {courseData.course_title}
         </div>
         <div className="h-40 mr-60">
           <img
-            src={`${backendURL}/${firstItem.video_icon}`}
+            src={`${backendURL}/${courseData.course_banner}`}
             alt="banner"
             className="object-cover w-full h-full rounded-lg"
           />
@@ -38,7 +41,7 @@ export default function MainSection({ categoryData }) {
         {Object.keys(seriesMap).map((seriesName, seriesIndex) => (
           <div key={seriesIndex}>
             <div className="pb-4 pl-3 text-lg font-bold pt-9 text-neutral-300">
-              {seriesName}
+              Series {seriesIndex + 1} : {seriesName}
             </div>
             {seriesMap[seriesName].map((video, index) => (
               <div
@@ -77,6 +80,15 @@ export default function MainSection({ categoryData }) {
 }
 
 MainSection.propTypes = {
+  courseData: PropTypes.arrayOf(
+    PropTypes.shape({
+      course_url: PropTypes.string.isRequired,
+      course_name: PropTypes.string.isRequired,
+      course_category: PropTypes.string.isRequired,
+      course_title: PropTypes.string.isRequired,
+      course_banner: PropTypes.string.isRequired,
+    })
+  ),
   categoryData: PropTypes.arrayOf(
     PropTypes.shape({
       course_url: PropTypes.string.isRequired,

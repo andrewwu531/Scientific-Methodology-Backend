@@ -25,7 +25,7 @@ def populate_course_basketball():
             'course_url': 'basketball',
             'course_category': Course.Course_Category.SE,
             'course_title': 'The Michael Jordon Secret Book',
-            'course_banner': 'basketball/Course_Banner/Muscle_Building_Course_Banner.jpg',
+            'course_banner': 'basketball/Course_Banner/Muscle_Building_Course_Banner_1.jpg',
             'videos': [
                 {
                     'video_title': 'Accents Qualifications & Professional Career',

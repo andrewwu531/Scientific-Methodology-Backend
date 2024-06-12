@@ -15,6 +15,12 @@ class Course(models.Model):
     def _str_(self):
         return self.course_url
     
+    @property
+    def course_banner_url(self):
+        if self.course_banner:
+            return self.course_banner.url
+        return ''
+    
     class Meta:
         verbose_name_plural = "Course"
 

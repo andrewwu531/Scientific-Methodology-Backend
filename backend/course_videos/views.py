@@ -1,8 +1,10 @@
 from rest_framework import generics
 from .serializers import CourseSerializer, VideosSerializer, FAQsSerializer
-from .models import Course, Videos, FAQs
-from rest_framework.exceptions import NotFound
-from django.http import JsonResponse
+from .models import Course, Videos
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
+
+
 
 
 
@@ -11,11 +13,6 @@ from django.http import JsonResponse
 class CourseListCreateView(generics.ListCreateAPIView):             # 1.
     serializer_class = CourseSerializer
     queryset = Course.objects.all()
-
-from rest_framework.response import Response
-from rest_framework.decorators import api_view
-from .models import Videos
-from .serializers import VideosSerializer
 
 @api_view(['GET'])
 def get_course_videos(request, course_url):
