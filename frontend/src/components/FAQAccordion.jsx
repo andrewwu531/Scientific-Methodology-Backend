@@ -6,8 +6,8 @@ import {
   Button,
 } from "@material-tailwind/react";
 import PropTypes from "prop-types";
-import RegisterButton from "../Buttons/RegisterButton";
-import { routes } from "../../shared/routes";
+import RegisterButton from "./Buttons/RegisterButton";
+import { routes } from "../shared/routes";
 
 function Icon({ id, open }) {
   return (

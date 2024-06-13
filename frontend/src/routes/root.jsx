@@ -8,6 +8,7 @@ export default function Root() {
   const [selectedCategory, setSelectedCategory] = useState("uni_guide");
   const [courseData, setCourseData] = useState(null);
   const [categoryData, setCategoryData] = useState(null);
+  const [selectedVideo, setSelectedVideo] = useState(null);
 
   useEffect(() => {
     fetch(`http://127.0.0.1:8000/api/courses/`)
@@ -47,13 +48,29 @@ export default function Root() {
     }
   }, [selectedCategory]);
 
+  const handleCourseSelect = (course_url) => {
+    if (course_url === selectedCategory && selectedVideo) {
+      setSelectedVideo(null); // Reset selected video if same category is clicked
+    } else {
+      setSelectedCategory(course_url);
+    }
+  };
+
   return (
     <div className="h-screen">
       <NavBar />
       <div className="h-[80vh] min-w-[50rem] grid overflow-hidden grid-cols-[min-content_auto] gap-y-2 p-1.5 bg-black-2">
-        <Sidebar onCourseSelect={setSelectedCategory} />
+        <Sidebar
+          onCourseSelect={handleCourseSelect}
+          selectedCategory={selectedCategory}
+        />
         <SectionContainer className="overflow-auto bg-neutral-900">
-          <MainSection categoryData={categoryData} courseData={courseData} />
+          <MainSection
+            categoryData={categoryData}
+            courseData={courseData}
+            selectedVideo={selectedVideo}
+            setSelectedVideo={setSelectedVideo}
+          />
         </SectionContainer>
       </div>
       <aside className="flex items-center justify-between col-span-2 px-4 py-3 bg-gradient-to-r from-accent-1 to-accent-2">

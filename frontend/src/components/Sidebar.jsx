@@ -111,7 +111,7 @@ const categories = [
   },
 ];
 
-export default function Sidebar({ onCourseSelect }) {
+export default function Sidebar({ onCourseSelect, selectedCategory }) {
   const handleCourseSelect = (course_url) => {
     console.log("Course selected:", course_url); // Log the course_url
     onCourseSelect(course_url);
@@ -169,7 +169,7 @@ export default function Sidebar({ onCourseSelect }) {
                         type="button"
                         key={index}
                         className={`px-4 py-2 pt-2.5 text-tiny text-neutral-100 text-sans font-regular 
-                        text-sm bg-zinc-800 text-black justify-center hover:scale-105
+                        text-sm bg-zinc-800 text-black justify-center hover:scale-105 rounded-full
                         ${item.border ? "border-2 border-yellow-400" : ""}`}
                         onClick={() => handleCourseSelect(item.course_url)}
                       >
@@ -207,4 +207,5 @@ export default function Sidebar({ onCourseSelect }) {
 
 Sidebar.propTypes = {
   onCourseSelect: PropTypes.func.isRequired,
+  selectedCategory: PropTypes.string.isRequired,
 };

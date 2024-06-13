@@ -1,10 +1,14 @@
 import PropTypes from "prop-types";
 import Footer from "../../components/Footer/Footer";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 
-export default function MainSection({ categoryData, courseData }) {
+export default function MainSection({
+  categoryData,
+  courseData,
+  selectedVideo,
+  setSelectedVideo,
+}) {
   const backendURL = "http://localhost:8000"; // URL of your Django server
-  const [selectedVideo, setSelectedVideo] = useState(null);
 
   useEffect(() => {
     setSelectedVideo(null); // Reset selected video when categoryData changes
@@ -76,7 +80,7 @@ export default function MainSection({ categoryData, courseData }) {
             {seriesMap[seriesName].map((video, index) => (
               <div
                 key={index}
-                className="flex flex-row items-center justify-between pt-3 mr-8 rounded-tl-lg rounded-tr-lg bg-neutral-900"
+                className="flex flex-row items-center justify-between pt-3 mr-8 rounded-tl-lg rounded-tr-lg cursor-pointer bg-neutral-900"
                 onClick={() => handleVideoClick(video)}
               >
                 <div className="flex flex-row items-center justify-start">
@@ -131,4 +135,6 @@ MainSection.propTypes = {
       video_essay: PropTypes.string.isRequired,
     })
   ).isRequired,
+  selectedVideo: PropTypes.object,
+  setSelectedVideo: PropTypes.func.isRequired,
 };
