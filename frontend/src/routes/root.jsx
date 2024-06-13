@@ -46,6 +46,7 @@ export default function Root() {
         );
     }
   }, [selectedCategory]);
+
   return (
     <div className="h-screen">
       <NavBar />

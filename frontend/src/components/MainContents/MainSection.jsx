@@ -1,28 +1,58 @@
 import PropTypes from "prop-types";
 import Footer from "../../components/Footer/Footer";
+import { useState, useEffect } from "react";
 
 export default function MainSection({ categoryData, courseData }) {
   const backendURL = "http://localhost:8000"; // URL of your Django server
-  if (!categoryData || categoryData.length === 0 || courseData.length === 0) {
+  const [selectedVideo, setSelectedVideo] = useState(null);
+
+  useEffect(() => {
+    setSelectedVideo(null); // Reset selected video when categoryData changes
+  }, [categoryData]);
+
+  if (!categoryData || categoryData.length === 0 || !courseData) {
     return <div>Loading...</div>;
   }
 
-  const firstItem = categoryData[0];
-  if (!firstItem || typeof firstItem.course_url !== "string") {
-    console.error("Data format is incorrect:", categoryData); // Log incorrect data format
-    return <div>Error: Data format is incorrect</div>;
-  }
+  const handleVideoClick = (video) => {
+    setSelectedVideo(video);
+  };
+
+  const handleBackClick = () => {
+    setSelectedVideo(null);
+  };
 
   const seriesMap = categoryData.reduce((acc, video) => {
     if (!acc[video.video_series_name]) {
       acc[video.video_series_name] = [];
     }
     acc[video.video_series_name].push(video);
-    console.log("seriesMap:", acc);
-    console.log("seriesMap.video_icon", courseData.course_banner);
-    console.log("courseData.course_banner", courseData.course_banner);
     return acc;
   }, {});
+
+  if (selectedVideo) {
+    return (
+      <div className="flex flex-col pb-16 pl-8 overflow-auto pt-7 scrollbar-thin scrollbar-thumb-rounded bg-black-1 scrollbar-thumb-gray-800 scrollbar-thumb-hover-gray-600">
+        <div className="pb-6 text-2xl font-bold text-neutral-100">
+          {selectedVideo.video_title}
+        </div>
+        <div className="h-40 mr-60">
+          <video controls className="object-cover w-full h-full rounded-lg">
+            <source
+              src={`${backendURL}/${selectedVideo.video_video}`}
+              type="video/mp4"
+            />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div className="pt-4 text-neutral-300">{selectedVideo.video_essay}</div>
+        <button onClick={handleBackClick} className="mt-4 text-neutral-100">
+          Back to Course
+        </button>
+        <Footer />
+      </div>
+    );
+  }
 
   return (
     <div>
@@ -47,6 +77,7 @@ export default function MainSection({ categoryData, courseData }) {
               <div
                 key={index}
                 className="flex flex-row items-center justify-between pt-3 mr-8 rounded-tl-lg rounded-tr-lg bg-neutral-900"
+                onClick={() => handleVideoClick(video)}
               >
                 <div className="flex flex-row items-center justify-start">
                   <div className="ml-5 h-7">
@@ -80,15 +111,13 @@ export default function MainSection({ categoryData, courseData }) {
 }
 
 MainSection.propTypes = {
-  courseData: PropTypes.arrayOf(
-    PropTypes.shape({
-      course_url: PropTypes.string.isRequired,
-      course_name: PropTypes.string.isRequired,
-      course_category: PropTypes.string.isRequired,
-      course_title: PropTypes.string.isRequired,
-      course_banner: PropTypes.string.isRequired,
-    })
-  ),
+  courseData: PropTypes.shape({
+    course_url: PropTypes.string.isRequired,
+    course_name: PropTypes.string.isRequired,
+    course_category: PropTypes.string.isRequired,
+    course_title: PropTypes.string.isRequired,
+    course_banner: PropTypes.string.isRequired,
+  }).isRequired,
   categoryData: PropTypes.arrayOf(
     PropTypes.shape({
       course_url: PropTypes.string.isRequired,
@@ -101,5 +130,5 @@ MainSection.propTypes = {
       video_video: PropTypes.string.isRequired,
       video_essay: PropTypes.string.isRequired,
     })
-  ),
+  ).isRequired,
 };
