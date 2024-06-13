@@ -62,7 +62,7 @@ export default function Root() {
       <div className="h-[80vh] min-w-[50rem] grid overflow-hidden grid-cols-[min-content_auto] gap-y-2 p-1.5 bg-black-2">
         <Sidebar
           onCourseSelect={handleCourseSelect}
-          selectedCategory={selectedCategory}
+          setSelectedCategory={setSelectedCategory}
         />
         <SectionContainer className="overflow-auto bg-neutral-900">
           <MainSection

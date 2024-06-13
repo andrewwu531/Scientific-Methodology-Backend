@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import Footer from "../../components/Footer/Footer";
 import { useEffect } from "react";
+import FAQAccordion from "../FAQAccordion";
 
 export default function MainSection({
   categoryData,
@@ -12,7 +13,7 @@ export default function MainSection({
 
   useEffect(() => {
     setSelectedVideo(null); // Reset selected video when categoryData changes
-  }, [categoryData]);
+  }, [setSelectedVideo]);
 
   if (!categoryData || categoryData.length === 0 || !courseData) {
     return <div>Loading...</div>;
@@ -74,13 +75,16 @@ export default function MainSection({
 
         {Object.keys(seriesMap).map((seriesName, seriesIndex) => (
           <div key={seriesIndex}>
-            <div className="pb-4 pl-3 text-lg font-bold pt-9 text-neutral-300">
+            <div className="pb-3.5 pl-3 text-xl font-bold pt-9 text-neutral-300">
               Series {seriesIndex + 1} : {seriesName}
             </div>
-            {seriesMap[seriesName].map((video, index) => (
+            {seriesMap[seriesName].map((video, index, array) => (
               <div
                 key={index}
-                className="flex flex-row items-center justify-between pt-3 mr-8 rounded-tl-lg rounded-tr-lg cursor-pointer bg-neutral-900"
+                className={`flex flex-row items-center justify-between pt-1.5 mr-8 cursor-pointer bg-neutral-900
+                ${index === 0 ? "pt-3 rounded-tl-md rounded-tr-md" : ""}
+                ${seriesIndex === 0 && index === 0 ? "text-yellow-400 " : ""}
+                ${index === array.length - 1 ? "pb-3 rounded-bl-md rounded-br-md" : ""}`}
                 onClick={() => handleVideoClick(video)}
               >
                 <div className="flex flex-row items-center justify-start">
@@ -91,14 +95,21 @@ export default function MainSection({
                       className="object-cover w-full h-full rounded-md"
                     />
                   </div>
-                  <div className="px-5 py-1 font-sans text-small">
+                  <div
+                    className={`px-5 py-1 font-sans text-small text-neutral-300
+                  ${index === 0 ? " rounded-tl-md rounded-tr-md" : ""}
+                  ${seriesIndex === 0 && index === 0 ? "text-yellow-400 " : ""}`}
+                  >
                     {`S${video.video_series}`} <span>&nbsp;</span>
                     {`S${video.video_episode}`} <span>&nbsp; &nbsp;</span>
                     {`${video.video_title}`}
                   </div>
                 </div>
                 <div className="flex flex-row items-center">
-                  <div className="w-32 mr-7 h-0.5 bg-green-600 rounded-full"></div>
+                  <div
+                    className={`w-32 mr-7 h-0.5 bg-green-600 rounded-full 
+                   ${seriesIndex === 0 && index === 0 ? " bg-yellow-400 " : ""}`}
+                  ></div>
                   <div className="text-sm mr-7">32:51</div>
                 </div>
               </div>
@@ -106,8 +117,8 @@ export default function MainSection({
           </div>
         ))}
       </div>
-
       <div>
+        <FAQAccordion />
         <Footer />
       </div>
     </div>
