@@ -7,6 +7,7 @@ import {
   AccordionBody,
 } from "@material-tailwind/react";
 import FAQAccordion from "../FAQAccordion";
+import VideoDurationComponent from "../VideoDurationComponent"; // Adjust the import path accordingly
 
 export default function MainSection({
   categoryData,
@@ -17,19 +18,37 @@ export default function MainSection({
   const backendURL = "http://localhost:8000"; // URL of your Django server
 
   const [open, setOpen] = useState(null);
+  const [videoDurations, setVideoDurations] = useState({});
 
   useEffect(() => {
     setSelectedVideo(null); // Reset selected video when categoryData changes
   }, [categoryData, setSelectedVideo]);
 
-  if (!categoryData || categoryData.length === 0 || !courseData) {
-    return <div>Loading...</div>;
-  }
+  const handleDurationLoaded = (videoId, duration) => {
+    setVideoDurations((prevDurations) => ({
+      ...prevDurations,
+      [videoId]: duration,
+    }));
+  };
 
   const handleVideoClick = (video, value) => {
     setSelectedVideo(video);
     setOpen(open === value ? null : value);
   };
+
+  const formatDuration = (duration) => {
+    if (isNaN(duration) || duration === undefined) {
+      return "0:00";
+    }
+    const minutes = Math.floor(duration / 60);
+    const seconds = Math.floor(duration % 60);
+    return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+  };
+
+  // Ensure categoryData is not null or undefined
+  if (!categoryData || categoryData.length === 0 || !courseData) {
+    return <div>Loading...</div>;
+  }
 
   const seriesMap = categoryData.reduce((acc, video) => {
     if (!acc[video.video_series_name]) {
@@ -38,17 +57,6 @@ export default function MainSection({
     acc[video.video_series_name].push(video);
     return acc;
   }, {});
-
-  const renderVideoContent = (video) => (
-    <div className="pt-4 pl-8 text-neutral-300">
-      <div className="h-100 mr-60">
-        <video controls className="object-cover w-full h-full rounded-lg">
-          <source src={`${backendURL}/${video.video_video}`} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-    </div>
-  );
 
   return (
     <div>
@@ -70,7 +78,7 @@ export default function MainSection({
               Series {seriesIndex + 1} : {seriesName}
             </div>
             {seriesMap[seriesName].map((video, index) => (
-              <div key={index}>
+              <div key={video.pk}>
                 <div
                   className={`flex flex-row items-center justify-between pt-1.5 mr-8 cursor-pointer bg-neutral-900
                     ${index === 0 ? "pt-3 rounded-tl-md rounded-tr-md" : ""}
@@ -105,7 +113,18 @@ export default function MainSection({
                         className={`w-32 mr-7 h-0.5 bg-green-600 rounded-full 
                          ${seriesIndex === 0 && index === 0 ? " bg-yellow-400 " : ""}`}
                       ></div>
-                      <div className="text-sm mr-7">32:51</div>
+                      <div className="text-sm mr-7">
+                        {videoDurations[video.pk] !== undefined ? (
+                          formatDuration(videoDurations[video.pk])
+                        ) : (
+                          <VideoDurationComponent
+                            key={video.pk} // Ensure unique key for each video
+                            videoSrc={`${backendURL}/${video.video_video}`}
+                            videoId={video.pk}
+                            onDurationLoaded={handleDurationLoaded}
+                          />
+                        )}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -125,8 +144,22 @@ export default function MainSection({
                     {video.video_title}
                   </AccordionHeader>
                   <AccordionBody className="text-xs">
-                    {open === video.video_series_name + video.video_episode &&
-                      renderVideoContent(video)}
+                    {open === video.video_series_name + video.video_episode && (
+                      <div className="pt-4 pl-8 text-neutral-300">
+                        <div className="h-100 mr-60">
+                          <video
+                            controls
+                            className="object-cover w-full h-full rounded-lg"
+                          >
+                            <source
+                              src={`${backendURL}/${video.video_video}`}
+                              type="video/mp4"
+                            />
+                            Your browser does not support the video tag.
+                          </video>
+                        </div>
+                      </div>
+                    )}
                   </AccordionBody>
                 </Accordion>
               </div>
@@ -160,6 +193,7 @@ MainSection.propTypes = {
       video_episode: PropTypes.string.isRequired,
       video_icon: PropTypes.string.isRequired,
       video_video: PropTypes.string.isRequired,
+      pk: PropTypes.number.isRequired, // Use pk as the unique identifier
       video_essay: PropTypes.string.isRequired,
     })
   ).isRequired,

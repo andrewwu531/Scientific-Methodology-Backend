@@ -17,7 +17,7 @@ class VideosSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Videos
-        fields = ('course_url', 'video_title', 'video_subscription_type', 'video_series_name', 
+        fields = ('pk', 'course_url', 'video_title', 'video_subscription_type', 'video_series_name', 
                   'video_series', 'video_episode', 'video_icon', 'video_video', 'video_essay')
 
     def get_course_url(self, obj):

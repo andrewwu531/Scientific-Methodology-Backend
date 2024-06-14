@@ -5,7 +5,7 @@ class CourseAdmin(admin.ModelAdmin):
     list_display = ('pk', 'course_url', 'course_name', 'course_category', 'course_title', 'course_banner')
 
 class VideosAdmin(admin.ModelAdmin):
-    list_display = ('get_course_url', 'video_title', 'video_subscription_type', 'video_series_name' 
+    list_display = ('pk', 'get_course_url', 'video_title', 'video_subscription_type', 'video_series_name' 
                   , 'video_series', 'video_episode', 'video_icon', 'video_video', 'video_essay')
     
     def get_course_url(self, obj):

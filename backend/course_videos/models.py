@@ -38,12 +38,14 @@ class Videos(models.Model):
     video_episode = models.CharField(max_length=2, default="0")
     video_icon = models.ImageField(upload_to='Muscle_Building/Video_Icon', default='Muscle_Building/Video_Icon/Muscle_Building_Video_Icon_2.jpg')
     video_video = models.FileField(upload_to='Muscle_Building/Video_Video', null=True, default='Muscle_Building/Video_Video/Muscle_Building_Video_Video_1.mp4')
-    video_essay = models.TextField(default="default_video_essay")         
+    video_essay = models.TextField(default="default_video_essay")
+    
     def _str_(self):
         return self.video_title
     
     class Meta:
         verbose_name_plural = "Videos"
+
 
 class FAQs(models.Model):
 
