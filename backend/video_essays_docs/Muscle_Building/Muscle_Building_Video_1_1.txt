@@ -1,5 +1,13 @@
-Nutrition Theory
-Macro Calculator
-A macro calculator computes a person’s daily recommended macronutrient intake - calories, protein, carbohydrates and fat. It helps to achieve a specific muscle building goal, such as muscle mass or definition building.
-A person’s recommended macronutrient requirements vary in terms of age, gender, weight, height, activity level, and goals. A bodybuilder must adjust their macronutrient intake based on these variables. For example, if they reduce their exercise frequency by one day a week, their macronutrient requirements will be lower.
-As a rule of thumb, you should aim to consume a high level of protein; medium level of carbohydrates and low level of fat. 
+Calories 
+Calories are a measure of the amount of energy the body obtains from consuming a specific food. There are three types of calorie controlled diets: caloric deficit, maintenance and caloric surplus diet.
+Caloric deficit diet
+A caloric deficit diet involves consuming fewer calories than a person’s recommended caloric intake. This dietary strategy is ideal for bodybuilders who want to build lean or high definition muscle and have a six pack. This is the goal for many taller bodybuilders as tall and lean is a more ideal figure than tall and wide.
+Below are the main features of a caloric deficit diet:
+Fat loss - The only condition to achieve fat loss is following a caloric deficit diet. If you want to have a six pack, you must lose your abdominal fat to reveal the six pack muscles. 
+Limit muscle gain and recovery - When in a caloric deficit diet, the body does not have sufficient calories and looks for muscle tissues for energy, impairing muscle growth and recovery.
+Decreased energy levels - Caloric restriction can lead to decreased energy levels and feelings of fatigue, which can make it difficult to perform intense workouts and hinder muscle building.
+Increased hunger and food cravings - When in a caloric deficit diet, the body expends more calories than it consumes. This produces more hunger hormones, such as ghrelin, which can increase appetite and food cravings. 
+This means that it is more difficult to stick to a caloric deficit diet in long term. To counteract food craving, you can substitute un-satiating food with satiating food. For example, from yoghurt and protein drinks to chicken and pasta as they are solid food rather than liquid food that takes more time to digest.
+Decreased metabolic rate - Caloric restriction leads to decreased metabolic rate as the body adapts to lower caloric intake and energy expenditure. This makes it harder to lose and maintain weight over time.
+Nutritional deficiencies - In a caloric deficit diet, you aim to consume calories below the recommended intake. This means you must choose your food options wisely.
+Decreased muscle strength and performance - Caloric restriction leads to decreased muscle strength and performance as your macronutrient intake quantity is stricter than a caloric surplus diet.
