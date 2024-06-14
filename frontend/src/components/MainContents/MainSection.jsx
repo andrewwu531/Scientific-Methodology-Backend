@@ -13,7 +13,7 @@ export default function MainSection({
 
   useEffect(() => {
     setSelectedVideo(null); // Reset selected video when categoryData changes
-  }, [setSelectedVideo]);
+  }, [categoryData, setSelectedVideo]);
 
   if (!categoryData || categoryData.length === 0 || !courseData) {
     return <div>Loading...</div>;
