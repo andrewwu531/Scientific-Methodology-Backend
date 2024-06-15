@@ -6,7 +6,7 @@ class CourseAdmin(admin.ModelAdmin):
 
 class VideosAdmin(admin.ModelAdmin):
     list_display = ('pk', 'get_course_url', 'video_title', 'video_subscription_type', 'video_series_name' 
-                  , 'video_series', 'video_episode', 'video_icon', 'video_video', 'video_essay')
+                  , 'video_series', 'video_episode', 'video_icon', 'video_video', 'video_duration')
     
     def get_course_url(self, obj):
         return obj.course_url.course_url

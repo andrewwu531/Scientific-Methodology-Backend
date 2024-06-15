@@ -1,4 +1,8 @@
 from django.db import models
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+import os
+from moviepy.editor import VideoFileClip
 
 class Course(models.Model):
     class Course_Category(models.TextChoices):
@@ -12,15 +16,16 @@ class Course(models.Model):
     course_category = models.CharField(max_length=2, choices=Course_Category.choices, default=Course_Category.ALL)
     course_title = models.CharField(max_length=100, default="default_title")
     course_banner = models.ImageField(upload_to='Muscle_Building/Course_Banner', null=True, default='Muscle_Building/Course_Banner/Muscle_Building_Course_Banner_1.jpg')
-    def _str_(self):
+
+    def __str__(self):
         return self.course_url
-    
+
     @property
     def course_banner_url(self):
         if self.course_banner:
             return self.course_banner.url
         return ''
-    
+
     class Meta:
         verbose_name_plural = "Course"
 
@@ -38,23 +43,23 @@ class Videos(models.Model):
     video_episode = models.CharField(max_length=2, default="0")
     video_icon = models.ImageField(upload_to='Muscle_Building/Video_Icon', default='Muscle_Building/Video_Icon/Muscle_Building_Video_Icon_2.jpg')
     video_video = models.FileField(upload_to='Muscle_Building/Video_Video', null=True, default='Muscle_Building/Video_Video/Muscle_Building_Video_Video_1.mp4')
-    video_essay = models.TextField(default="default_video_essay")
-    
-    def _str_(self):
+    video_duration = models.CharField(max_length=5, null=True, blank=True)  # Add this field to store MM:SS format
+
+    def __str__(self):
         return self.video_title
-    
+
     class Meta:
         verbose_name_plural = "Videos"
 
 
 class FAQs(models.Model):
-
     course_url = models.ForeignKey(Course, on_delete=models.CASCADE)
     faq_question_num = models.CharField(max_length=2, default="0")
     faq_question = models.CharField(max_length=100, default="default_faq_question")
     faq_answer = models.CharField(max_length=500, default="default_faq_answer")
-    def _str_(self):
+
+    def __str__(self):
         return self.course_url
-    
+
     class Meta:
         verbose_name_plural = "FAQs"
