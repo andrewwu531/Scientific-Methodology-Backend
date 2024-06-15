@@ -8,7 +8,7 @@ os.environ['DJANGO_SETTINGS_MODULE'] = 'backend.settings'
 import django
 django.setup()
 
-from course_videos.models import Course, Videos
+from course_videos.models import Course, Videos, FAQs
 
 def populate_course_muscle_building():
     essays_directory = 'video_essays_docs/Muscle_Building'
@@ -19,6 +19,23 @@ def populate_course_muscle_building():
             'course_category': Course.Course_Category.HL,
             'course_title': 'The Science of Shredded Muscle Building',
             'course_banner': 'Muscle_Building/Course_Banner/Muscle_Building_Course_Banner.jpg',
+            'faqs': [
+                {
+                    'faq_question_num': '1',
+                    'faq_question': 'Qualifications & Experience',
+                    'faq_answer': """With a 1st class masters degree in Biology at the University of Glasgow, 
+                                    I possessed the theoretical background in sport nutrition and mechanisms. 
+                                    Throughout my 10 year professional career, I have trained over 10k bodybuilders 
+                                    and athletics to achieve optimal sport performance.""",
+                },
+                {
+                    'faq_question_num': '2',
+                    'faq_question': 'How easy is the diet',
+                    'faq_answer': """Our professional team designed the diet carefully in a way that 
+                                    keeps in mind of long-term sustainability in terms taste, cost, 
+                                    cooking complexity and time.""",
+                },
+            ],
             'videos': [
                 {
                     'video_title': 'Qualifications & Professional Career',
@@ -178,6 +195,9 @@ def populate_course_muscle_building():
         )
         for video_data in course_data['videos']:
             add_video(course_url=course, **video_data)
+        
+        for faq_data in course_data['faqs']:
+            add_faq(course_url=course, **faq_data)
 
     print('Starting Project M Muscle Building population script...')
 
@@ -208,6 +228,14 @@ def add_video(course_url, video_title, video_subscription_type, video_series_nam
 
     v.save()
     return v
+
+def add_faq(course_url, faq_question_num, faq_question, faq_answer):
+    f = FAQs.objects.get_or_create(course_url=course_url, faq_question=faq_question)[0]
+    f.faq_question_num = faq_question_num
+    f.faq_answer = faq_answer
+    f.save()
+    return f
+
 
 def add_course(course_name, course_url, course_category, course_title, course_banner):
     c = Course.objects.get_or_create(course_url=course_url)[0]

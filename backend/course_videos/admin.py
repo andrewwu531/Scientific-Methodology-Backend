@@ -15,8 +15,15 @@ class VideosAdmin(admin.ModelAdmin):
     get_course_url.short_description = 'Course Url' 
 
 class FAQsAdmin(admin.ModelAdmin):
-    list_display = ('course_url', 'faq_question_num', 'faq_question', 'faq_answer')
+    list_display = ('pk','get_course_url', 'faq_question_num', 'faq_question', 'faq_answer')
+
+    def get_course_url(self, obj):
+        return obj.course_url.course_url
+    
+    get_course_url.admin_order_field = 'course_url'
+    get_course_url.short_description = 'Course Url' 
 
 admin.site.register(Course, CourseAdmin)
 admin.site.register(Videos, VideosAdmin)
 admin.site.register(FAQs, FAQsAdmin)
+

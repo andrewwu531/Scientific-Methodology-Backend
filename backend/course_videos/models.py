@@ -59,7 +59,7 @@ class FAQs(models.Model):
     faq_answer = models.CharField(max_length=500, default="default_faq_answer")
 
     def __str__(self):
-        return self.course_url
+        return f"{self.faq_question_num}: {self.faq_question}"
 
     class Meta:
         verbose_name_plural = "FAQs"
