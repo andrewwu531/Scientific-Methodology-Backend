@@ -198,7 +198,11 @@ def add_video(course_url, video_title, video_subscription_type, video_series_nam
         with VideoFileClip(video_path) as clip:
             duration_seconds = int(clip.duration)
             minutes, seconds = divmod(duration_seconds, 60)
-            v.video_duration = f"{minutes:02}-{seconds:02}"
+            minutes_str = f"{minutes}"
+            seconds_str = f"{seconds:02}"
+            if minutes_str.startswith('0'):
+                minutes_str = minutes_str[1:]
+            v.video_duration = f"{minutes_str}:{seconds_str}"
     except Exception as e:
         print(f"Error computing duration for {video_title}: {e}")
 

@@ -113,18 +113,7 @@ export default function MainSection({
                         className={`w-32 mr-7 h-0.5 bg-green-600 rounded-full 
                          ${seriesIndex === 0 && index === 0 ? " bg-yellow-400 " : ""}`}
                       ></div>
-                      <div className="text-sm mr-7">
-                        {videoDurations[video.pk] !== undefined ? (
-                          formatDuration(videoDurations[video.pk])
-                        ) : (
-                          <VideoDurationComponent
-                            key={video.pk} // Ensure unique key for each video
-                            videoSrc={`${backendURL}/${video.video_video}`}
-                            videoId={video.pk}
-                            onDurationLoaded={handleDurationLoaded}
-                          />
-                        )}
-                      </div>
+                      <div className="text-sm mr-7">{video.video_duration}</div>
                     </div>
                   </div>
                 </div>
