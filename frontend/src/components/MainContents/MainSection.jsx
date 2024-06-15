@@ -21,7 +21,19 @@ export default function MainSection({
   const [videoDurations, setVideoDurations] = useState({});
 
   useEffect(() => {
-    setSelectedVideo(null); // Reset selected video when categoryData changes
+    if (categoryData && categoryData.length > 0) {
+      const seriesMap = categoryData.reduce((acc, video) => {
+        if (!acc[video.video_series_name]) {
+          acc[video.video_series_name] = [];
+        }
+        acc[video.video_series_name].push(video);
+        return acc;
+      }, {});
+
+      const firstSeries = Object.keys(seriesMap)[0];
+      const firstVideo = seriesMap[firstSeries][0];
+      setSelectedVideo(firstVideo);
+    }
   }, [categoryData, setSelectedVideo]);
 
   const handleDurationLoaded = (videoId, duration) => {
@@ -82,8 +94,8 @@ export default function MainSection({
                 <div
                   className={`flex flex-row items-center justify-between pt-1.5 mr-8 cursor-pointer bg-neutral-900
                     ${index === 0 ? "pt-3 rounded-tl-md rounded-tr-md" : ""}
-                    ${seriesIndex === 0 && index === 0 ? "text-yellow-400 " : ""}
-                    ${index === seriesMap[seriesName].length - 1 ? "pb-3 rounded-bl-md rounded-br-md" : ""}`}
+                    ${index === seriesMap[seriesName].length - 1 ? "pb-3 rounded-bl-md rounded-br-md" : ""}
+                    ${selectedVideo && selectedVideo.pk === video.pk ? "text-yellow-400" : ""}`}
                   onClick={() =>
                     handleVideoClick(
                       video,
@@ -100,9 +112,9 @@ export default function MainSection({
                       />
                     </div>
                     <div
-                      className={`px-5 py-1 font-sans text-small text-neutral-300
-                        ${index === 0 ? "rounded-tl-md rounded-tr-md" : ""}
-                        ${seriesIndex === 0 && index === 0 ? "text-yellow-400 " : ""}`}
+                      className={`px-5 py-1 font-sans text-small 
+                        ${selectedVideo && selectedVideo.pk === video.pk ? "text-yellow-400" : "text-neutral-300"}
+                        ${index === 0 ? "rounded-tl-md rounded-tr-md" : ""}`}
                     >
                       {`S${video.video_series}`} <span>&nbsp;</span>
                       {`E${video.video_episode}`} <span>&nbsp; &nbsp;</span>
@@ -111,7 +123,7 @@ export default function MainSection({
                     <div className="flex flex-row items-center ml-auto">
                       <div
                         className={`w-32 mr-7 h-0.5 bg-green-600 rounded-full 
-                         ${seriesIndex === 0 && index === 0 ? " bg-yellow-400 " : ""}`}
+                         ${selectedVideo && selectedVideo.pk === video.pk ? "bg-yellow-400" : "bg-green-600 "}`}
                       ></div>
                       <div className="text-sm mr-7">{video.video_duration}</div>
                     </div>
@@ -183,7 +195,6 @@ MainSection.propTypes = {
       video_icon: PropTypes.string.isRequired,
       video_video: PropTypes.string.isRequired,
       pk: PropTypes.number.isRequired, // Use pk as the unique identifier
-      video_essay: PropTypes.string.isRequired,
     })
   ).isRequired,
   selectedVideo: PropTypes.object,
