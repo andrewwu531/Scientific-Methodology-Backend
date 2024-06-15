@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { useEffect, useState, useRef } from "react";
 import PropTypes from "prop-types";
 import SectionContainer from "./SectionContainer";
@@ -112,10 +113,12 @@ const categories = [
 ];
 
 export default function Sidebar({ onCourseSelect, setSelectedCategory }) {
+  const navigate = useNavigate();
   const handleCourseSelect = (course_url) => {
     console.log("Course selected:", course_url); // Log the course_url
     onCourseSelect(course_url);
     setSelectedCategory(course_url);
+    navigate(`/${course_url}`);
   };
 
   const [width, setWidth] = useState(

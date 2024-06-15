@@ -7,13 +7,13 @@ import { paths } from "./shared/routes";
 import "./index.css";
 import Home from "./routes/home";
 import Playlist from "./routes/playlist";
+import MainSectionWrapper from "./components/MainSectionWrapper";
 
 const router = createBrowserRouter([
   {
     path: paths.LOGIN,
     element: <Login />,
   },
-
   {
     path: paths.HOME,
     element: <Root />,
@@ -22,10 +22,13 @@ const router = createBrowserRouter([
         path: paths.HOME,
         element: <Home />,
       },
-
       {
         path: paths.PLAYLIST,
         element: <Playlist />,
+      },
+      {
+        path: "/:category", // Dynamic route for course categories
+        element: <MainSectionWrapper />, // Use a wrapper to handle fetching data
       },
     ],
   },

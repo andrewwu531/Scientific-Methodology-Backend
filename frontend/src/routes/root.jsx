@@ -1,47 +1,43 @@
-import SectionContainer from "../components/SectionContainer";
 import { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import SectionContainer from "../components/SectionContainer";
 import Sidebar from "../components/Sidebar";
 import MainSection from "../components/MainContents/MainSection";
 import NavBar from "../components/Navbar";
 
 export default function Root() {
-  const [selectedCategory, setSelectedCategory] = useState("uni_guide");
+  const { category } = useParams();
+  const [selectedCategory, setSelectedCategory] = useState(
+    category || "uni_guide"
+  );
   const [courseData, setCourseData] = useState(null);
   const [categoryData, setCategoryData] = useState(null);
   const [selectedVideo, setSelectedVideo] = useState(null);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (category) {
+      setSelectedCategory(category);
+    }
+  }, [category]);
 
   useEffect(() => {
     fetch(`http://127.0.0.1:8000/api/courses/`)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response for Course Data was not ok");
-        }
-        return response.json();
-      })
+      .then((response) => response.json())
       .then((data) => {
         const selectedData = data.find(
           (course) => course.course_url === selectedCategory
         );
-        console.log("Fetched course data:", selectedData); // Log the fetched data
         setCourseData(selectedData);
       })
       .catch((error) => console.error("Error fetching course data:", error));
   }, [selectedCategory]);
 
   useEffect(() => {
-    console.log("Selected category:", selectedCategory); // Log selected category
     if (selectedCategory) {
       fetch(`http://127.0.0.1:8000/api/${selectedCategory}/`)
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error("Network response was not ok");
-          }
-          return response.json();
-        })
-        .then((data) => {
-          console.log("Fetched data:", data); // Log the fetched data
-          setCategoryData(data);
-        })
+        .then((response) => response.json())
+        .then((data) => setCategoryData(data))
         .catch((error) =>
           console.error("Error fetching category data:", error)
         );
@@ -49,11 +45,8 @@ export default function Root() {
   }, [selectedCategory]);
 
   const handleCourseSelect = (course_url) => {
-    if (course_url === selectedCategory && selectedVideo) {
-      setSelectedVideo(null); // Reset selected video if same category is clicked
-    } else {
-      setSelectedCategory(course_url);
-    }
+    setSelectedCategory(course_url);
+    navigate(`/${course_url}`);
   };
 
   return (
