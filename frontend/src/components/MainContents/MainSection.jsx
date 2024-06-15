@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Footer from "../../components/Footer/Footer";
 import {
   Accordion,
@@ -18,7 +18,7 @@ export default function MainSection({
   const backendURL = "http://localhost:8000"; // URL of your Django server
 
   const [open, setOpen] = useState(null);
-  const [videoDurations, setVideoDurations] = useState({});
+  const videoRefs = useRef({}); // Object to store refs for each video element
 
   useEffect(() => {
     if (categoryData && categoryData.length > 0) {
@@ -36,25 +36,37 @@ export default function MainSection({
     }
   }, [categoryData, setSelectedVideo]);
 
-  const handleDurationLoaded = (videoId, duration) => {
-    setVideoDurations((prevDurations) => ({
-      ...prevDurations,
-      [videoId]: duration,
-    }));
-  };
+  useEffect(() => {
+    const handleSeek = (e) => {
+      const video = e.target;
+      const rect = video.getBoundingClientRect();
+      const clickX = e.clientX - rect.left;
+      const width = rect.width;
+      const clickTime = (clickX / width) * video.duration;
+      video.currentTime = clickTime;
+      video.play(); // Ensure video plays from the clicked time
+    };
+
+    Object.keys(videoRefs.current).forEach((key) => {
+      const video = videoRefs.current[key];
+      if (video) {
+        video.addEventListener("click", handleSeek);
+      }
+    });
+
+    return () => {
+      Object.keys(videoRefs.current).forEach((key) => {
+        const video = videoRefs.current[key];
+        if (video) {
+          video.removeEventListener("click", handleSeek);
+        }
+      });
+    };
+  }, [categoryData, selectedVideo]);
 
   const handleVideoClick = (video, value) => {
     setSelectedVideo(video);
     setOpen(open === value ? null : value);
-  };
-
-  const formatDuration = (duration) => {
-    if (isNaN(duration) || duration === undefined) {
-      return "0:00";
-    }
-    const minutes = Math.floor(duration / 60);
-    const seconds = Math.floor(duration % 60);
-    return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
   };
 
   // Ensure categoryData is not null or undefined
@@ -147,10 +159,11 @@ export default function MainSection({
                   <AccordionBody className="text-xs">
                     {open === video.video_series_name + video.video_episode && (
                       <div className="pt-4 pl-8 text-neutral-300">
-                        <div className="h-100 mr-60">
+                        <div className="relative h-100 mr-60">
                           <video
                             controls
                             className="object-cover w-full h-full rounded-lg"
+                            ref={(el) => (videoRefs.current[video.pk] = el)} // Store ref in the videoRefs object
                           >
                             <source
                               src={`${backendURL}/${video.video_video}`}
