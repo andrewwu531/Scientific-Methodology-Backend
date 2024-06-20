@@ -30,10 +30,31 @@ def populate_course_muscle_building():
                 },
                 {
                     'faq_question_num': '2',
-                    'faq_question': 'How easy is the diet',
-                    'faq_answer': """Our professional team designed the diet carefully in a way that 
-                                    keeps in mind of long-term sustainability in terms taste, cost, 
-                                    cooking complexity and time.""",
+                    'faq_question': 'Before & After Bodybuilding Transformations',
+                    'faq_answer': """With over 10 year practical training experience, I have achieved
+                                    remarkable results for all my clients acorss the globe. You can find the 
+                                    success stories of my clients in weightlifting.co.uk.""",
+                },
+                {
+                    'faq_question_num': '3',
+                    'faq_question': 'How Easy Is The Diet?',
+                    'faq_answer': """Our professional team has carefully designed the dieting and weightligting 
+                                    programmes in a way that promotes long term sustainability in terms of taste, cost, 
+                                    cooking time and complexity.""",
+                },
+                {
+                    'faq_question_num': '4',
+                    'faq_question': 'How This Programme Stands Out from Other Leading Courses?',
+                    'faq_answer': """Our team has put significant effort to create a programme that is complete,
+                                    accurate and easy to consume. We do not just tell you what to do. We present
+                                    each nutrition and weightlifting concept in a way that contains and explains
+                                    all the key information.""",
+                },
+                {
+                    'faq_question_num': '5',
+                    'faq_question': 'I Have A Question I Want To Ask',
+                    'faq_answer': """If you would like to contact us regarding further questions or feedback,
+                                    please get in touch with us through the Customer Support channel in the website.""",
                 },
             ],
             'videos': [

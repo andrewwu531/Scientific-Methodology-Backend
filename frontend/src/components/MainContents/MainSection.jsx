@@ -9,6 +9,25 @@ import {
 import FAQAccordion from "../FAQAccordion";
 import VideoDurationComponent from "../VideoDurationComponent"; // Adjust the import path accordingly
 
+function Icon({ id, open }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth={2}
+      stroke="currentColor"
+      className={`${open ? "rotate-180" : ""} h-5 w-5 transition-transform`}
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+      />
+    </svg>
+  );
+}
+
 export default function MainSection({
   categoryData,
   courseData,
@@ -182,7 +201,7 @@ export default function MainSection({
         ))}
       </div>
       <div>
-        <FAQAccordion />
+        <FAQAccordion course_url={courseData.course_url} />
         <Footer />
       </div>
     </div>
@@ -213,25 +232,6 @@ MainSection.propTypes = {
   selectedVideo: PropTypes.object,
   setSelectedVideo: PropTypes.func.isRequired,
 };
-
-function Icon({ id, open }) {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      strokeWidth={2}
-      stroke="currentColor"
-      className={`${open ? "rotate-180" : ""} h-5 w-5 transition-transform`}
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-      />
-    </svg>
-  );
-}
 
 Icon.propTypes = {
   id: PropTypes.string.isRequired,

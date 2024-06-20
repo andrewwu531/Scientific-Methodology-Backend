@@ -1,9 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Accordion,
   AccordionHeader,
   AccordionBody,
-  Button,
 } from "@material-tailwind/react";
 import PropTypes from "prop-types";
 import RegisterButton from "./Buttons/RegisterButton";
@@ -28,50 +27,25 @@ function Icon({ id, open }) {
   );
 }
 
-export default function NutritionCourseAccordion() {
-  const [open, setOpen] = React.useState(0);
+export default function FAQAccordion({ course_url }) {
+  const [open, setOpen] = useState(0);
+  const [faqs, setFaqs] = useState([]);
+
+  useEffect(() => {
+    fetch(`http://127.0.0.1:8000/api/faq/${course_url}/`)
+      .then((response) => response.json())
+      .then((data) => {
+        // Sort FAQs by faq_question_num before setting the state
+        const sortedFaqs = data.sort(
+          (a, b) => a.faq_question_num - b.faq_question_num
+        );
+        console.log("sortedFQAs, ", sortedFaqs);
+        setFaqs(sortedFaqs);
+      })
+      .catch((error) => console.error("Error fetching category data:", error));
+  }, [course_url]);
 
   const handleOpen = (value) => setOpen(open === value ? 0 : value);
-
-  const data = [
-    {
-      title: "Q1 - Qualifications & Experience",
-      contentType: "text",
-      content:
-        "With a 1st class masters degree in Biology at the University of Glasgow, I possessed the theoretical background in sport nutrition and mechanisms. \
-         Throughout my 10 year professional career, I have trained over 10k bodybuilders and athletics to achieve optimal sport performance.",
-      pk: "1",
-    },
-    {
-      title: "Q2 - Before & After Bodybuilding Transformation",
-      contentType: "text",
-      content: "Hi",
-      pk: "2",
-    },
-    {
-      title: "Q3 - How Easy Is The Diet?",
-      contentType: "text",
-      content: "It is very easy!",
-      pk: "3",
-    },
-    {
-      title:
-        "Q4 - How This Programme Stands Out From The Other Leading Courses?",
-      contentType: "text",
-      content:
-        "With a 1st class masters degree in Biology at the University of Glasgow, I possessed the theoretical background in sport nutrition and mechanisms.\
-        Throughout my 10 year professional career, I have trained over 10k bodybuilders and athletics to achieve optimal sport performance.",
-      pk: "4",
-    },
-    {
-      title: "Q5 - Social Media",
-      contentType: "text",
-      content:
-        "With a 1st class masters degree in Biology at the University of Glasgow, I possessed the theoretical background \
-        in sport nutrition and mechanisms. Throughout my 10 year professional career, I have trained over 10k bodybuilders and athletics to achieve optimal sport performance.",
-      pk: "5",
-    },
-  ];
 
   const renderContent = (contentType, content) => {
     switch (contentType) {
@@ -95,7 +69,7 @@ export default function NutritionCourseAccordion() {
 
   return (
     <div
-      className="flex flex-col items-center justify-center pt-4 bg-neutral-900 mx-atuo"
+      className="flex flex-col items-center justify-center pt-4 mx-auto bg-neutral-900"
       style={{ marginBottom: "10vh" }}
     >
       <div
@@ -106,24 +80,28 @@ export default function NutritionCourseAccordion() {
       </div>
 
       <div style={{ width: "50vw" }}>
-        {data.map(({ title, content, contentType, pk }) => (
-          <Accordion
-            key={title}
-            value={title}
-            open={open === pk}
-            icon={<Icon id={pk} open={pk} />}
-          >
-            <AccordionHeader
-              onClick={() => handleOpen(pk)}
-              className="mb-4 space-x-10 font-bold no-underline border-0 px-7 bg-black-1 text-md text-neutral-300"
+        {faqs.length === 0 ? (
+          <p className="text-neutral-300">No FAQs available.</p>
+        ) : (
+          faqs.map(({ faq_question_num, faq_answer, faq_question }) => (
+            <Accordion
+              key={faq_question_num}
+              value={faq_question}
+              open={open === faq_question}
+              icon={<Icon id={faq_question} open={open === faq_question} />}
             >
-              {title}
-            </AccordionHeader>
-            <AccordionBody className="text-xs">
-              {renderContent(contentType, content)}
-            </AccordionBody>
-          </Accordion>
-        ))}
+              <AccordionHeader
+                onClick={() => handleOpen(faq_question)}
+                className="mb-4 space-x-10 font-bold no-underline border-0 px-7 bg-black-1 text-md text-neutral-300"
+              >
+                Q{faq_question_num} - {faq_question}
+              </AccordionHeader>
+              <AccordionBody className="text-xs">
+                {renderContent("text", faq_answer)}
+              </AccordionBody>
+            </Accordion>
+          ))
+        )}
       </div>
 
       <div className="mt-12 ">
@@ -135,7 +113,11 @@ export default function NutritionCourseAccordion() {
   );
 }
 
+FAQAccordion.propTypes = {
+  course_url: PropTypes.string.isRequired,
+};
+
 Icon.propTypes = {
   id: PropTypes.string.isRequired,
-  open: PropTypes.string.isRequired,
+  open: PropTypes.bool.isRequired,
 };

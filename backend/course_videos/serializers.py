@@ -24,14 +24,11 @@ class VideosSerializer(serializers.ModelSerializer):
         return obj.course_url.course_url
     
 class FAQsSerializer(serializers.ModelSerializer):
+    course_url = serializers.SerializerMethodField()  # Use SerializerMethodField
+
     class Meta:
         model = FAQs
         fields = ('pk', 'course_url', 'faq_question_num', 'faq_question', 'faq_answer')
 
     def get_course_url(self, obj):
-        return obj.course_url.course_url
-
-
-
-
-
+        return obj.course_url.course_url  # Return the string course_url
