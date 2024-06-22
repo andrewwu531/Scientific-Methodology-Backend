@@ -4,6 +4,7 @@ import SectionContainer from "../components/SectionContainer";
 import Sidebar from "../components/Sidebar";
 import MainSection from "../components/MainContents/MainSection";
 import NavBar from "../components/Navbar";
+import LoginSection from "../components/LoginSection";
 
 export default function Root() {
   const { category } = useParams();
@@ -11,6 +12,8 @@ export default function Root() {
   const [courseData, setCourseData] = useState(null);
   const [categoryData, setCategoryData] = useState(null);
   const [selectedVideo, setSelectedVideo] = useState(null);
+  const [showLogin, setShowLogin] = useState(false); // State for showing login section
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // State for user login status
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -55,7 +58,7 @@ export default function Root() {
 
   return (
     <div className="h-screen">
-      <NavBar />
+      <NavBar setShowLogin={setShowLogin} isLoggedIn={isLoggedIn} />
       <div className="h-[80vh] min-w-[50rem] grid overflow-hidden grid-cols-[min-content_auto] gap-y-2 p-1.5 bg-black-2">
         <Sidebar
           onCourseSelect={handleCourseSelect}
@@ -67,6 +70,7 @@ export default function Root() {
             courseData={courseData}
             selectedVideo={selectedVideo}
             setSelectedVideo={setSelectedVideo}
+            setShowLogin={setShowLogin} // Pass setShowLogin to MainSection
           />
         </SectionContainer>
       </div>
@@ -83,6 +87,12 @@ export default function Root() {
           </span>
         </p>
       </aside>
+      {showLogin && (
+        <LoginSection
+          setShowLogin={setShowLogin}
+          setIsLoggedIn={setIsLoggedIn}
+        />
+      )}
     </div>
   );
 }

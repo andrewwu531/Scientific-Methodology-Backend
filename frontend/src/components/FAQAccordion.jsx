@@ -27,9 +27,13 @@ function Icon({ id, open }) {
   );
 }
 
-export default function FAQAccordion({ course_url }) {
+export default function FAQAccordion({ course_url, setShowLogin }) {
   const [open, setOpen] = useState(0);
   const [faqs, setFaqs] = useState([]);
+
+  const handleClick = () => {
+    setShowLogin(true);
+  };
 
   useEffect(() => {
     fetch(`http://127.0.0.1:8000/api/faq/${course_url}/`)
@@ -105,9 +109,12 @@ export default function FAQAccordion({ course_url }) {
       </div>
 
       <div className="mt-12 ">
-        <RegisterButton href={routes.LOGIN} className="px-6 py-3">
+        <button
+          onClick={handleClick}
+          className="justify-center px-6 py-3 text-base font-bold text-black bg-yellow-400 rounded-lg hover:scale-105"
+        >
           Register/ Log In
-        </RegisterButton>
+        </button>
       </div>
     </div>
   );
@@ -115,6 +122,7 @@ export default function FAQAccordion({ course_url }) {
 
 FAQAccordion.propTypes = {
   course_url: PropTypes.string.isRequired,
+  setShowLogin: PropTypes.func.isRequired, // Add prop type for setShowLogin
 };
 
 Icon.propTypes = {

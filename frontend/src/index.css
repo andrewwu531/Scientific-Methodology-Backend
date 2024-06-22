@@ -45,3 +45,29 @@
 .scrollbar-thin::-webkit-scrollbar-thumb:hover {
   border-radius: 8px;
 }
+
+@keyframes slide-in {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-out {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+.animate-slide-in {
+  animation: slide-in 1s forwards;
+}
+
+.animate-slide-out {
+  animation: slide-out 1s forwards;
+}

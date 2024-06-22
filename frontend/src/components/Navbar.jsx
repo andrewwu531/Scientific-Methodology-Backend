@@ -1,8 +1,13 @@
+import PropTypes from "prop-types";
 import FlatButton from "./Buttons/FlatButton";
 import RegisterButton from "./Buttons/RegisterButton";
 import { routes } from "../shared/routes";
 
-export default function Navbar() {
+export default function Navbar({ setShowLogin, isLoggedIn }) {
+  const handleClick = () => {
+    setShowLogin(true);
+  };
+
   return (
     <nav className="bg-black flex justify-between px-8 pt-1.5 h-[10vh]">
       <div className="flex flex-row justify-start">
@@ -23,11 +28,25 @@ export default function Navbar() {
           </FlatButton>
         </li>
         <li>
-          <RegisterButton href={routes.LOGIN} className="px-6 py-3">
-            Register/ Log In
-          </RegisterButton>
+          {isLoggedIn ? (
+            <RegisterButton href={routes.PROFILE} className="px-6 py-3">
+              My Profile
+            </RegisterButton>
+          ) : (
+            <button
+              onClick={handleClick}
+              className="justify-center px-6 py-3 text-base font-bold text-black bg-yellow-400 rounded-lg hover:scale-105"
+            >
+              Register/ Log In
+            </button>
+          )}
         </li>
       </ul>
     </nav>
   );
 }
+
+Navbar.propTypes = {
+  setShowLogin: PropTypes.func.isRequired,
+  isLoggedIn: PropTypes.bool.isRequired,
+};

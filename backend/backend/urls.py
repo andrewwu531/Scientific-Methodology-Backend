@@ -15,6 +15,8 @@ urlpatterns = [
     path('api/courses/', course_videos_views.CourseListCreateView.as_view(), name="courses"),
     path('api/<str:course_url>/', course_videos_views.get_course_videos, name='get_course_videos'),
     path('api/faq/<str:course_url>/', course_videos_views.get_course_faqs, name='get_course_faqs'),
+    path('api/login/', course_videos_views.login_view, name='login'),
+    path('api/register/', course_videos_views.register_view, name='register'),
 ]
 
 if settings.DEBUG:

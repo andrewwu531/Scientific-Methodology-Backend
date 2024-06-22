@@ -33,9 +33,9 @@ export default function MainSection({
   courseData,
   selectedVideo,
   setSelectedVideo,
+  setShowLogin, // Add setShowLogin prop
 }) {
   const backendURL = "http://localhost:8000"; // URL of your Django server
-
   const [open, setOpen] = useState(null);
   const videoRefs = useRef({}); // Object to store refs for each video element
 
@@ -84,8 +84,13 @@ export default function MainSection({
   }, [categoryData, selectedVideo]);
 
   const handleVideoClick = (video, value) => {
-    setSelectedVideo(video);
-    setOpen(open === value ? null : value);
+    if (video.video_subscription_type !== "1") {
+      // Check if the video is not free
+      setShowLogin(true);
+    } else {
+      setSelectedVideo(video);
+      setOpen(open === value ? null : value);
+    }
   };
 
   // Ensure categoryData is not null or undefined
@@ -201,7 +206,10 @@ export default function MainSection({
         ))}
       </div>
       <div>
-        <FAQAccordion course_url={courseData.course_url} />
+        <FAQAccordion
+          course_url={courseData.course_url}
+          setShowLogin={setShowLogin}
+        />
         <Footer />
       </div>
     </div>
@@ -231,6 +239,7 @@ MainSection.propTypes = {
   ).isRequired,
   selectedVideo: PropTypes.object,
   setSelectedVideo: PropTypes.func.isRequired,
+  setShowLogin: PropTypes.func.isRequired, // Add prop type for setShowLogin
 };
 
 Icon.propTypes = {
