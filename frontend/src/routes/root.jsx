@@ -7,13 +7,17 @@ import NavBar from "../components/Navbar";
 
 export default function Root() {
   const { category } = useParams();
-  const [selectedCategory, setSelectedCategory] = useState(
-    category || "uni_guide"
-  );
+  const [selectedCategory, setSelectedCategory] = useState(category);
   const [courseData, setCourseData] = useState(null);
   const [categoryData, setCategoryData] = useState(null);
   const [selectedVideo, setSelectedVideo] = useState(null);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!category) {
+      navigate("/muscle_building");
+    }
+  }, [category, navigate]);
 
   useEffect(() => {
     if (category) {
@@ -69,8 +73,8 @@ export default function Root() {
       <aside className="flex items-center justify-between col-span-2 px-4 py-3 bg-gradient-to-r from-accent-1 to-accent-2">
         <p className="pl-3">
           <span className="block text-base tracking-wider ">
-            We are M. Our mission is to provide the highest standard programmes
-            for all through AI and qualified experts,
+            We are M. Our mission is to provide the highest standard educational
+            programmes for all through AI and qualified experts,
           </span>
           <span className="text-base tracking-wider">
             from boosting your academic performance, general knowledge and
