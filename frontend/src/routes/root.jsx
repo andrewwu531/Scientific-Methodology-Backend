@@ -59,7 +59,7 @@ export default function Root() {
   return (
     <div className="h-screen">
       <NavBar setShowLogin={setShowLogin} isLoggedIn={isLoggedIn} />
-      <div className="h-[80vh] min-w-[50rem] grid overflow-hidden grid-cols-[min-content_auto] gap-y-2 p-1.5 bg-black-2">
+      <div className="h-[80vh] min-w-[50rem] grid overflow-hidden grid-cols-[min-content_auto] gap-y-2 p-1.5 bg-neutral-950">
         <Sidebar
           onCourseSelect={handleCourseSelect}
           setSelectedCategory={setSelectedCategory}
