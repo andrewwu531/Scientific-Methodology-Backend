@@ -108,10 +108,10 @@ export default function FAQAccordion({ course_url, setShowLogin }) {
         )}
       </div>
 
-      <div className="mt-12 ">
+      <div className="mt-10 ">
         <button
           onClick={handleClick}
-          className="justify-center px-6 py-3 text-base font-bold text-black bg-yellow-400 rounded-lg hover:scale-105"
+          className="justify-center px-9 py-3.5 text-base font-bold text-black bg-yellow-400 rounded-lg hover:scale-105"
         >
           Register/ Log In
         </button>
