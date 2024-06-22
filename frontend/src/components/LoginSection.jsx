@@ -7,16 +7,16 @@ export default function LoginSection({ setShowLogin, setIsLoggedIn }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const [isRegistering, setIsRegistering] = useState(false); // State to toggle between login and register
+  const [isLoggingIn, setIsLoggingIn] = useState(false); // State to toggle between login and register
   const [isHidden, setIsHidden] = useState(false); // State to handle login container visibility
 
   const overlayRef = useRef(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const url = isRegistering
-      ? "http://127.0.0.1:8000/api/register/"
-      : "http://127.0.0.1:8000/api/login/";
+    const url = isLoggingIn
+      ? "http://127.0.0.1:8000/api/login/"
+      : "http://127.0.0.1:8000/api/register/";
     try {
       const response = await axios.post(url, {
         email: email,
@@ -111,17 +111,17 @@ export default function LoginSection({ setShowLogin, setIsLoggedIn }) {
                 type="submit"
                 className="w-[12rem] py-2.5 text-base font-bold text-black bg-yellow-400 rounded-xl hover:scale-105"
               >
-                {isRegistering ? "Register" : "Log In"}
+                {isLoggingIn ? "Log In" : "Register"}
               </button>
               <div className="mt-4 text-center">
                 <button
                   type="button"
-                  onClick={() => setIsRegistering(!isRegistering)}
+                  onClick={() => setIsLoggingIn(!isLoggingIn)}
                   className="text-xs text-neutral-200"
                 >
-                  {isRegistering
-                    ? "Already have an account? Log In"
-                    : "Don’t have an account? Register"}
+                  {isLoggingIn
+                    ? "Don’t have an account? Register"
+                    : "Already have an account? Log In"}
                 </button>
               </div>
             </div>
