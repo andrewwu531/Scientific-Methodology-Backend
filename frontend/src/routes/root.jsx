@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import SectionContainer from "../components/SectionContainer";
 import Sidebar from "../components/Sidebar";
 import MainSection from "../components/MainContents/MainSection";
-import NavBar from "../components/Navbar";
+import NavBar from "../components/NavBar";
 import LoginSection from "../components/LoginSection";
 
 export default function Root() {
@@ -42,7 +42,7 @@ export default function Root() {
 
   useEffect(() => {
     if (selectedCategory) {
-      fetch(`http://127.0.0.1:8000/api/${selectedCategory}/`)
+      fetch(`http://127.0.0.1:8000/api/course/${selectedCategory}/`)
         .then((response) => response.json())
         .then((data) => setCategoryData(data))
         .catch((error) =>
@@ -58,7 +58,11 @@ export default function Root() {
 
   return (
     <div className="h-screen">
-      <NavBar setShowLogin={setShowLogin} isLoggedIn={isLoggedIn} />
+      <NavBar
+        setShowLogin={setShowLogin}
+        isLoggedIn={isLoggedIn}
+        setIsLoggedIn={setIsLoggedIn}
+      />
       <div className="h-[80vh] min-w-[50rem] grid overflow-hidden grid-cols-[min-content_auto] gap-y-2 p-1.5 bg-neutral-950">
         <Sidebar
           onCourseSelect={handleCourseSelect}

@@ -1,9 +1,35 @@
 import PropTypes from "prop-types";
+import { useNavigate } from "react-router-dom";
 import FlatButton from "./Buttons/FlatButton";
 import RegisterButton from "./Buttons/RegisterButton";
 import { routes } from "../shared/routes";
+import axios from "axios";
 
-export default function Navbar({ setShowLogin, isLoggedIn }) {
+export default function NavBar({ setShowLogin, isLoggedIn, setIsLoggedIn }) {
+  const navigate = useNavigate();
+
+  const handleSignOut = async () => {
+    try {
+      const response = await axios.post(
+        "http://127.0.0.1:8000/api/logout/",
+        {},
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      if (response.data.success) {
+        setIsLoggedIn(false);
+        navigate("/"); // Redirect to home or login page
+      } else {
+        console.error("Failed to log out");
+      }
+    } catch (error) {
+      console.error("An error occurred during sign out:", error);
+    }
+  };
+
   const handleClick = () => {
     setShowLogin(true);
   };
@@ -22,16 +48,21 @@ export default function Navbar({ setShowLogin, isLoggedIn }) {
         <li>
           <FlatButton
             href="#"
-            className="text-base font-bold text-neutral-300 hover:text-white hover:scale-105"
+            className={`text-base font-bold ${isLoggedIn ? "text-transparent" : "text-neutral-300"} hover:text-white hover:scale-105`}
           >
-            Try for Free
+            {isLoggedIn ? "" : "Try for Free"}
           </FlatButton>
         </li>
         <li>
           {isLoggedIn ? (
-            <RegisterButton href={routes.PROFILE} className="px-6 py-3">
-              My Profile
-            </RegisterButton>
+            <>
+              <button
+                onClick={handleSignOut}
+                className="justify-center px-6 py-2.5 text-base font-bold text-black bg-yellow-400 rounded-lg hover:scale-105"
+              >
+                Sign Out
+              </button>
+            </>
           ) : (
             <button
               onClick={handleClick}
@@ -46,7 +77,8 @@ export default function Navbar({ setShowLogin, isLoggedIn }) {
   );
 }
 
-Navbar.propTypes = {
+NavBar.propTypes = {
   setShowLogin: PropTypes.func.isRequired,
   isLoggedIn: PropTypes.bool.isRequired,
+  setIsLoggedIn: PropTypes.func.isRequired,
 };

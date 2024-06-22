@@ -7,7 +7,7 @@ export default function LoginSection({ setShowLogin, setIsLoggedIn }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const [isLoggingIn, setIsLoggingIn] = useState(false); // State to toggle between login and register
+  const [isLoggingIn, setIsLoggingIn] = useState(true); // State to toggle between login and register
   const [isHidden, setIsHidden] = useState(false); // State to handle login container visibility
 
   const overlayRef = useRef(null);
@@ -18,10 +18,18 @@ export default function LoginSection({ setShowLogin, setIsLoggedIn }) {
       ? "http://127.0.0.1:8000/api/login/"
       : "http://127.0.0.1:8000/api/register/";
     try {
-      const response = await axios.post(url, {
-        email: email,
-        password: password,
-      });
+      const response = await axios.post(
+        url,
+        {
+          email: email,
+          password: password,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
       if (response.data.success) {
         setIsLoggedIn(true);
         handleClose(); // Ensure login section closes upon success
@@ -29,7 +37,11 @@ export default function LoginSection({ setShowLogin, setIsLoggedIn }) {
         setError(response.data.error);
       }
     } catch (error) {
-      setError("An error occurred. Please try again.");
+      if (error.response && error.response.data && error.response.data.error) {
+        setError(error.response.data.error);
+      } else {
+        setError("An error occurred. Please try again.");
+      }
     }
   };
 
@@ -101,7 +113,7 @@ export default function LoginSection({ setShowLogin, setIsLoggedIn }) {
                 id="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="px-3.5 py-2.5 mb-2 rounded focus:outline-none focus:ring-0"
+                className="w-full px-3.5 py-2.5 mb-2 text-sm rounded focus:outline-none focus:ring-0"
                 required
               />
             </div>
