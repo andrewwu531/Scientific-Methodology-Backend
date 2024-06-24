@@ -98,7 +98,7 @@ export default function FAQAccordion({ course_url, setShowLogin, isLoggedIn }) {
               >
                 Q{faq_question_num} - {faq_question}
               </AccordionHeader>
-              <AccordionBody className="text-xs">
+              <AccordionBody className=" text-neutral-300">
                 {renderContent("text", faq_answer)}
               </AccordionBody>
             </Accordion>

@@ -59,7 +59,7 @@ def login_view(request):
                 login(request, user)
                 return JsonResponse({"success": True})
             else:
-                return JsonResponse({"success": False, "error": "Login credentials do not exist!"})
+                return JsonResponse({"success": False, "error": "Incorrect login credentials!"})
         except json.JSONDecodeError:
             return JsonResponse({"error": "Invalid JSON"}, status=400)
     return JsonResponse({"error": "Invalid request method"}, status=405)
