@@ -72,10 +72,7 @@ export default function FAQAccordion({ course_url, setShowLogin }) {
   };
 
   return (
-    <div
-      className="flex flex-col items-center justify-center pt-4 mx-auto bg-neutral-900"
-      style={{ marginBottom: "10vh" }}
-    >
+    <div className="flex flex-col items-center justify-center pt-4 mx-auto bg-neutral-900">
       <div
         className="flex justify-center pt-10 pb-4 text-4xl font-bold text-center text-neutral-300"
         style={{ marginBottom: "3vh" }}

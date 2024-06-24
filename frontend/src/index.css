@@ -16,19 +16,17 @@
   /* width */
   ::-webkit-scrollbar {
     width: 6.5px;
-    border-radius: 8px;
   }
 
   /* Track */
   ::-webkit-scrollbar-track {
-    @apply bg-zinc-800;
-    border-radius: 8px;
+    @apply bg-zinc-900;
   }
 
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    @apply bg-white;
-    border-radius: 8px;
+    @apply bg-zinc-300;
+    border-radius: 6px;
   }
 }
 
@@ -38,12 +36,11 @@
 }
 
 .scrollbar-thin::-webkit-scrollbar-thumb {
-  background-color: #ffffff;
-  border-radius: 8px;
+  @apply bg-zinc-300;
+  border-radius: 6px;
 }
 
 .scrollbar-thin::-webkit-scrollbar-thumb:hover {
-  border-radius: 8px;
 }
 /* Add this CSS for background overlay and animation */
 .overlay {

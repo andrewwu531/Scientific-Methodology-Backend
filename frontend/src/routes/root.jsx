@@ -68,7 +68,7 @@ export default function Root() {
           onCourseSelect={handleCourseSelect}
           setSelectedCategory={setSelectedCategory}
         />
-        <SectionContainer className="overflow-auto bg-neutral-900">
+        <SectionContainer className="overflow-auto">
           <MainSection
             categoryData={categoryData}
             courseData={courseData}
@@ -81,8 +81,8 @@ export default function Root() {
       <aside className="flex items-center justify-between col-span-2 px-4 py-3 bg-gradient-to-r from-accent-1 to-accent-2">
         <p className="pl-3">
           <span className="block text-base tracking-wider ">
-            We are M. Our mission is to provide the highest standard educational
-            programmes for all through AI and qualified experts,
+            We are WAVE-R. Our mission is to provide the highest standard
+            educational programmes for all through AI and qualified experts,
           </span>
           <span className="text-base tracking-wider">
             from boosting your academic performance, general knowledge and

@@ -108,7 +108,7 @@ export default function MainSection({
 
   return (
     <div>
-      <div className="flex flex-col pb-16 pl-8 overflow-auto pt-7 scrollbar-thin scrollbar-thumb-rounded bg-black-1 scrollbar-thumb-gray-800 scrollbar-thumb-hover-gray-600">
+      <div className="flex flex-col pb-16 pl-8 overflow-auto pt-7 scrollbar-thin bg-black-1 scrollbar-thumb-gray-800 scrollbar-thumb-hover-gray-600">
         <div className="pb-6 text-2xl font-bold text-neutral-100">
           {courseData.course_title}
         </div>

@@ -4,6 +4,8 @@ import PropTypes from "prop-types";
 import SectionContainer from "./SectionContainer";
 import VerticalCard from "./Cards/VerticalCard";
 import FlatButton from "./Buttons/FlatButton";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBrain } from "@fortawesome/free-solid-svg-icons"; // Use this if you have access to Pro icons
 
 const [minWidth, maxWidth, defaultWidth] = [32, 400, 400];
 
@@ -160,19 +162,20 @@ export default function Sidebar({ onCourseSelect, setSelectedCategory }) {
         style={{ width: `${width / 16}rem` }}
       >
         <SectionContainer>
-          <div className="flex flex-col overflow-auto h-[70vh] scrollbar-thin scrollbar-thumb-rounded scrollbar-thumb-gray-800 scrollbar-thumb-hover-gray-600">
+          <div className="flex flex-col overflow-auto h-[70vh] rounded-t-xl scrollbar-thin scrollbar-thumb-rounded scrollbar-thumb-gray-800 scrollbar-thumb-hover-gray-600">
             <VerticalCard className="flex flex-col items-start gap-3 p-3.5 pb-5 rounded-lg bg-black-1">
               {categories.map((category) => (
                 <div key={category.title}>
-                  <p className="pt-2 pb-3 pl-2 text-base font-bold text-white">
+                  <p className="pt-3 pb-4 pl-2.5 text-base font-bold text-neutral-100">
                     {category.title}
                   </p>
-                  <div className="flex flex-wrap gap-2.5 mb-3">
+
+                  <div className="flex flex-wrap gap-2.5 mb-3 pl-1">
                     {category.items.map((item, index) => (
                       <button
                         type="button"
                         key={index}
-                        className={`px-4 py-2 pt-2.5 text-tiny text-neutral-100 text-sans font-regular 
+                        className={`px-4 py-2 pt-2.5 text-tiny text-neutral-200 text-sans font-regular 
                         text-sm bg-zinc-800 justify-center hover:scale-105 rounded-full
                         ${item.border ? "border-2 border-yellow-400" : ""}`}
                         onClick={() => handleCourseSelect(item.course_url)}

@@ -37,8 +37,8 @@ export default function NavBar({ setShowLogin, isLoggedIn, setIsLoggedIn }) {
   return (
     <nav className="bg-black flex justify-between px-8 pt-1.5 h-[10vh]">
       <div className="flex flex-row justify-start">
-        <div className="flex flex-col gap-2 pt-4 text-3xl font-bold ">M</div>
-        <div className="flex gap-2 pl-12 text-sm font-bold pt-9 text-neutral-300">
+        <div className="flex flex-col pt-5 pl-2 text-3xl font-bold">WAVE-R</div>
+        <div className="flex gap-2 pl-10 text-sm font-bold pt-9 text-neutral-300">
           | &nbsp; Academics &nbsp; | &nbsp; Language &nbsp; | &nbsp; Lifestyle
           &nbsp; | &nbsp; Career &nbsp; | &nbsp; Personal Development &nbsp; |
         </div>
