@@ -98,3 +98,19 @@
 .animate-fade-out {
   animation: fade-out 0.5s forwards;
 }
+
+.image-border {
+  position: relative;
+  padding-left: 2rem; /* Adjust this value based on the width of your image border */
+}
+
+.image-border::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 1rem; /* Adjust this value based on the width of your image border */
+  background-image: url("./static/images/login.png");
+  background-size: cover;
+}

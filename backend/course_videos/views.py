@@ -45,16 +45,17 @@ def login_view(request):
             email = data.get("email")
             password = data.get("password")
             if not email or not password:
-                return JsonResponse({"success": False, "error": "Both email address and password are required"}, status=400)
+                return JsonResponse({"success": False, "error": "Both email address and password are required!"}, status=400)
             user = authenticate(request, username=email, password=password)
             if user is not None:
                 login(request, user)
                 return JsonResponse({"success": True})
             else:
-                return JsonResponse({"success": False, "error": "Invalid login credentials"})
+                return JsonResponse({"success": False, "error": "Login credentials do not exist!"})
         except json.JSONDecodeError:
             return JsonResponse({"error": "Invalid JSON"}, status=400)
     return JsonResponse({"error": "Invalid request method"}, status=405)
+
 
 @csrf_exempt
 def register_view(request):
@@ -64,12 +65,19 @@ def register_view(request):
             email = data.get("email")
             password = data.get("password")
             logger.debug(f"Received registration request with email: {email}")
+
             if not email or not password:
                 logger.error("Email and password are required")
-                return JsonResponse({"success": False, "error": "Email and password are required"}, status=400)
+                return JsonResponse({"success": False, "error": "Both email address and password are required!"}, status=400)
+
+            if len(password) <= 7:
+                logger.error("Password length must exceed 7 characters!")
+                return JsonResponse({"success": False, "error": "Password length must exceed 7 characters!"}, status=400)
+
             if User.objects.filter(username=email).exists():
                 logger.error("Email already registered")
-                return JsonResponse({"success": False, "error": "Email already registered"}, status=400)
+                return JsonResponse({"success": False, "error": "This email has already been registered!"}, status=400)
+
             try:
                 user = User.objects.create_user(username=email, email=email, password=password)
                 user.save()
@@ -78,8 +86,11 @@ def register_view(request):
             except Exception as e:
                 logger.error(f"Error creating user: {e}")
                 return JsonResponse({"success": False, "error": "Internal server error: " + str(e)}, status=500)
+
         except json.JSONDecodeError:
+            logger.error("Invalid JSON format")
             return JsonResponse({"error": "Invalid JSON"}, status=400)
+    
     logger.error("Invalid request method")
     return JsonResponse({"error": "Invalid request method"}, status=405)
 

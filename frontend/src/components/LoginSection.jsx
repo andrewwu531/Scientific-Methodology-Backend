@@ -86,7 +86,7 @@ export default function LoginSection({ setShowLogin, setIsLoggedIn }) {
           />
         </div>
 
-        <div className="flex flex-col items-center pt-[14%] flex-1">
+        <div className="flex flex-col items-center pt-[17%] flex-1">
           <form onSubmit={handleSubmit}>
             <div className="mb-4">
               <label htmlFor="email" className="block mb-1 text-sm font-bold ">
@@ -118,11 +118,6 @@ export default function LoginSection({ setShowLogin, setIsLoggedIn }) {
               />
             </div>
             <div className="flex flex-col items-center pt-2">
-              {error && (
-                <div className="items-start flex-1 mb-3 text-sm text-red-500">
-                  {error}
-                </div>
-              )}
               <button
                 type="submit"
                 className="w-[12rem] py-2.5 text-base font-bold text-black bg-yellow-400 rounded-xl hover:scale-105"
@@ -139,6 +134,9 @@ export default function LoginSection({ setShowLogin, setIsLoggedIn }) {
                     ? "Don’t have an account? Register"
                     : "Already have an account? Log In"}
                 </button>
+                {error && (
+                  <div className="mt-2 text-[0.8rem] text-red-500">{error}</div>
+                )}
               </div>
             </div>
           </form>

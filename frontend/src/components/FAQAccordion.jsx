@@ -5,8 +5,6 @@ import {
   AccordionBody,
 } from "@material-tailwind/react";
 import PropTypes from "prop-types";
-import RegisterButton from "./Buttons/RegisterButton";
-import { routes } from "../shared/routes";
 
 function Icon({ id, open }) {
   return (
@@ -27,7 +25,7 @@ function Icon({ id, open }) {
   );
 }
 
-export default function FAQAccordion({ course_url, setShowLogin }) {
+export default function FAQAccordion({ course_url, setShowLogin, isLoggedIn }) {
   const [open, setOpen] = useState(0);
   const [faqs, setFaqs] = useState([]);
 
@@ -72,7 +70,10 @@ export default function FAQAccordion({ course_url, setShowLogin }) {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center pt-4 mx-auto bg-neutral-900">
+    <div
+      className={`flex flex-col items-center justify-center pt-4 mx-auto bg-neutral-900
+                      ${isLoggedIn ? "pb-12" : ""}`}
+    >
       <div
         className="flex justify-center pt-10 pb-4 text-4xl font-bold text-center text-neutral-300"
         style={{ marginBottom: "3vh" }}
@@ -105,21 +106,24 @@ export default function FAQAccordion({ course_url, setShowLogin }) {
         )}
       </div>
 
-      <div className="mt-10 ">
-        <button
-          onClick={handleClick}
-          className="justify-center px-9 py-3.5 text-base font-bold text-black bg-yellow-400 rounded-lg hover:scale-105"
-        >
-          Register/ Log In
-        </button>
-      </div>
+      {!isLoggedIn && (
+        <div className="mt-10">
+          <button
+            onClick={handleClick}
+            className="justify-center px-9 py-3.5 text-base font-bold text-black bg-yellow-400 rounded-lg hover:scale-105"
+          >
+            Register/ Log In
+          </button>
+        </div>
+      )}
     </div>
   );
 }
 
 FAQAccordion.propTypes = {
   course_url: PropTypes.string.isRequired,
-  setShowLogin: PropTypes.func.isRequired, // Add prop type for setShowLogin
+  setShowLogin: PropTypes.func.isRequired,
+  isLoggedIn: PropTypes.bool.isRequired,
 };
 
 Icon.propTypes = {

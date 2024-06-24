@@ -37,20 +37,22 @@ export default function NavBar({ setShowLogin, isLoggedIn, setIsLoggedIn }) {
   return (
     <nav className="bg-neutral-950 flex justify-between px-8 pt-2.5 h-[10vh]">
       <div className="flex flex-row justify-start">
-        <div className="flex flex-col pt-4 pl-3 text-3xl font-bold">WAVE-R</div>
+        <div className="flex flex-col pt-4 pl-3 text-3xl font-bold ">
+          WAVE-R
+        </div>
         <div className="flex gap-2 pl-10 text-sm font-bold pt-9 text-neutral-300">
           | &nbsp; Academics &nbsp; | &nbsp; Language &nbsp; | &nbsp; Lifestyle
           &nbsp; | &nbsp; Career &nbsp; | &nbsp; Personal Development &nbsp; |
         </div>
       </div>
 
-      <ul role="menu" className="flex items-center pt-1 gap-7">
+      <ul role="menu" className="flex items-center gap-6 pt-1">
         <li>
           <FlatButton
-            href="#"
-            className={`text-base font-bold ${isLoggedIn ? "text-transparent" : "text-neutral-300"} hover:text-white hover:scale-105`}
+            className={`text-base font-bold text-neutral-300 hover:text-white hover:scal-105
+                                  ${isLoggedIn ? "pt-0.5" : "gap-1"}`}
           >
-            {isLoggedIn ? "" : "Try for Free"}
+            {isLoggedIn ? "Member Zone" : "Try for Free"}
           </FlatButton>
         </li>
         <li>
@@ -58,9 +60,10 @@ export default function NavBar({ setShowLogin, isLoggedIn, setIsLoggedIn }) {
             <>
               <button
                 onClick={handleSignOut}
-                className="justify-center px-6 py-2.5 text-base font-bold text-black bg-yellow-400 rounded-lg hover:scale-105"
+                className="justify-center px-6 py-2.5 text-base font-bold  rounded-lg hover:scale-105
+                          text-black bg-yellow-400"
               >
-                Sign Out
+                Account Logout
               </button>
             </>
           ) : (

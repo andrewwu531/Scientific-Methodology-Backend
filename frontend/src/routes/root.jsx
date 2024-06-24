@@ -75,6 +75,7 @@ export default function Root() {
             selectedVideo={selectedVideo}
             setSelectedVideo={setSelectedVideo}
             setShowLogin={setShowLogin} // Pass setShowLogin to MainSection
+            isLoggedIn={isLoggedIn}
           />
         </SectionContainer>
       </div>

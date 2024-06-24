@@ -6,6 +6,7 @@ import VerticalCard from "./Cards/VerticalCard";
 import FlatButton from "./Buttons/FlatButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBrain } from "@fortawesome/free-solid-svg-icons"; // Use this if you have access to Pro icons
+import ButtonImage from "../static/images/login.png";
 
 const [minWidth, maxWidth, defaultWidth] = [32, 400, 400];
 
@@ -176,8 +177,8 @@ export default function Sidebar({ onCourseSelect, setSelectedCategory }) {
                         type="button"
                         key={index}
                         className={`px-4 py-2 pt-2.5 text-tiny text-neutral-200 text-sans font-regular 
-                        text-sm bg-zinc-800 justify-center hover:scale-105 rounded-full
-                        ${item.border ? "border-2 border-yellow-400" : ""}`}
+                                     text-sm bg-zinc-800 justify-center hover:scale-105 rounded-2xl
+                                      ${item.border ? "border-2 border-yellow-400" : ""}`}
                         onClick={() => handleCourseSelect(item.course_url)}
                       >
                         {item.text}

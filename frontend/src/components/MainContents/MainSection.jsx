@@ -33,7 +33,8 @@ export default function MainSection({
   courseData,
   selectedVideo,
   setSelectedVideo,
-  setShowLogin, // Add setShowLogin prop
+  setShowLogin,
+  isLoggedIn,
 }) {
   const backendURL = "http://localhost:8000"; // URL of your Django server
   const [open, setOpen] = useState(null);
@@ -131,7 +132,7 @@ export default function MainSection({
                   className={`flex flex-row items-center justify-between pt-1.5 mr-8 cursor-pointer bg-neutral-900
                     ${index === 0 ? "pt-3 rounded-tl-md rounded-tr-md" : ""}
                     ${index === seriesMap[seriesName].length - 1 ? "pb-3 rounded-bl-md rounded-br-md" : ""}
-                    ${selectedVideo && selectedVideo.pk === video.pk ? "text-yellow-400" : ""}`}
+                    ${selectedVideo && selectedVideo.pk === video.pk ? "text-yellow-400 " : ""}`}
                   onClick={() =>
                     handleVideoClick(
                       video,
@@ -149,7 +150,7 @@ export default function MainSection({
                     </div>
                     <div
                       className={`px-5 py-1 font-sans text-small 
-                        ${selectedVideo && selectedVideo.pk === video.pk ? "text-yellow-400" : "text-neutral-300"}
+                        ${selectedVideo && selectedVideo.pk === video.pk ? "text-yellow-400 " : "text-neutral-300"}
                         ${index === 0 ? "rounded-tl-md rounded-tr-md" : ""}`}
                     >
                       {`S${video.video_series}`} <span>&nbsp;</span>
@@ -158,8 +159,8 @@ export default function MainSection({
                     </div>
                     <div className="flex flex-row items-center ml-auto">
                       <div
-                        className={`w-32 mr-7 h-0.5 bg-green-600 rounded-full 
-                         ${selectedVideo && selectedVideo.pk === video.pk ? "bg-yellow-400" : "bg-green-600 "}`}
+                        className={`w-32 mr-7 h-0.5 rounded-full 
+                         ${selectedVideo && selectedVideo.pk === video.pk ? "bg-yellow-400 " : "bg-green-500"}`}
                       ></div>
                       <div className="text-sm mr-7">{video.video_duration}</div>
                     </div>
@@ -209,6 +210,7 @@ export default function MainSection({
         <FAQAccordion
           course_url={courseData.course_url}
           setShowLogin={setShowLogin}
+          isLoggedIn={isLoggedIn}
         />
         <Footer />
       </div>
@@ -240,6 +242,7 @@ MainSection.propTypes = {
   selectedVideo: PropTypes.object,
   setSelectedVideo: PropTypes.func.isRequired,
   setShowLogin: PropTypes.func.isRequired, // Add prop type for setShowLogin
+  isLoggedIn: PropTypes.func.isRequired,
 };
 
 Icon.propTypes = {
