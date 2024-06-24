@@ -63,7 +63,7 @@ export default function Root() {
         isLoggedIn={isLoggedIn}
         setIsLoggedIn={setIsLoggedIn}
       />
-      <div className="h-[80vh] min-w-[50rem] grid overflow-hidden grid-cols-[min-content_auto] gap-y-2 p-1.5 bg-neutral-950">
+      <div className="h-[80vh] min-w-[50rem] grid overflow-hidden grid-cols-[min-content_auto] gap-y-2 p-2 bg-neutral-950">
         <Sidebar
           onCourseSelect={handleCourseSelect}
           setSelectedCategory={setSelectedCategory}

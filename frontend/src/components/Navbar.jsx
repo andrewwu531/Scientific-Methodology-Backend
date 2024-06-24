@@ -35,16 +35,16 @@ export default function NavBar({ setShowLogin, isLoggedIn, setIsLoggedIn }) {
   };
 
   return (
-    <nav className="bg-black flex justify-between px-8 pt-1.5 h-[10vh]">
+    <nav className="bg-neutral-950 flex justify-between px-8 pt-2.5 h-[10vh]">
       <div className="flex flex-row justify-start">
-        <div className="flex flex-col pt-5 pl-2 text-3xl font-bold">WAVE-R</div>
+        <div className="flex flex-col pt-4 pl-3 text-3xl font-bold">WAVE-R</div>
         <div className="flex gap-2 pl-10 text-sm font-bold pt-9 text-neutral-300">
           | &nbsp; Academics &nbsp; | &nbsp; Language &nbsp; | &nbsp; Lifestyle
           &nbsp; | &nbsp; Career &nbsp; | &nbsp; Personal Development &nbsp; |
         </div>
       </div>
 
-      <ul role="menu" className="flex items-center gap-7">
+      <ul role="menu" className="flex items-center pt-1 gap-7">
         <li>
           <FlatButton
             href="#"
