@@ -1,3 +1,4 @@
+# backend/urls.py
 from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
@@ -5,7 +6,6 @@ from django.conf.urls.static import static
 from rest_framework import routers
 from course_videos import views as course_videos_views
 from member import views as member_views
-
 
 router = routers.DefaultRouter()
 
@@ -18,9 +18,10 @@ urlpatterns = [
     path('api/login/', course_videos_views.login_view, name='login'),
     path('api/register/', course_videos_views.register_view, name='register'),
     path('api/logout/', course_videos_views.logout_view, name='logout'),
-
     path('api/members/', member_views.MemberListCreateView.as_view(), name='members-list'),
     path('api/members/<int:pk>/', member_views.MemberDetailView.as_view(), name='member-details'),
+    path('api/password-reset/', course_videos_views.password_reset_request, name='password_reset_request'),
+    path('api/reset-password/<uidb64>/<token>/', course_videos_views.password_reset_confirm, name='password_reset_confirm'),
 ]
 
 if settings.DEBUG:

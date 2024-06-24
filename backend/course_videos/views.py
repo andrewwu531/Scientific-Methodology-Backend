@@ -1,16 +1,24 @@
 import logging
 import json
 from django.views.decorators.csrf import csrf_exempt
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.http import JsonResponse
 from django.contrib.auth.models import User
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+from django.shortcuts import render, get_object_or_404
 from rest_framework import generics
 from .serializers import CourseSerializer, VideosSerializer, FAQsSerializer
+from django.utils.encoding import force_bytes, force_str
 from .models import Course, Videos, FAQs
-from django.contrib.auth import logout
+from django.core.mail import send_mail
+from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+from django.template.loader import render_to_string
+from django.contrib.auth.tokens import default_token_generator
+from django.template.exceptions import TemplateDoesNotExist
+from django.contrib.auth import get_user_model
 
+User = get_user_model()
 logger = logging.getLogger(__name__)
 
 class CourseListCreateView(generics.ListCreateAPIView):
@@ -64,36 +72,70 @@ def register_view(request):
             data = json.loads(request.body)
             email = data.get("email")
             password = data.get("password")
-            logger.debug(f"Received registration request with email: {email}")
-
             if not email or not password:
-                logger.error("Email and password are required")
                 return JsonResponse({"success": False, "error": "Both email address and password are required!"}, status=400)
 
             if len(password) <= 7:
-                logger.error("Password length must exceed 7 characters!")
                 return JsonResponse({"success": False, "error": "Password length must exceed 7 characters!"}, status=400)
 
             if User.objects.filter(username=email).exists():
-                logger.error("Email already registered")
                 return JsonResponse({"success": False, "error": "This email has already been registered!"}, status=400)
 
-            try:
-                user = User.objects.create_user(username=email, email=email, password=password)
-                user.save()
-                logger.info("User created successfully")
-                return JsonResponse({"success": True})
-            except Exception as e:
-                logger.error(f"Error creating user: {e}")
-                return JsonResponse({"success": False, "error": "Internal server error: " + str(e)}, status=500)
+            user = User.objects.create_user(username=email, email=email, password=password)
+            user.save()
+            return JsonResponse({"success": True})
 
         except json.JSONDecodeError:
-            logger.error("Invalid JSON format")
             return JsonResponse({"error": "Invalid JSON"}, status=400)
-    
-    logger.error("Invalid request method")
     return JsonResponse({"error": "Invalid request method"}, status=405)
 
+@csrf_exempt
+def password_reset_request(request):
+    if request.method == "POST":
+        try:
+            data = json.loads(request.body)
+            email = data.get("email")
+            if not email:
+                return JsonResponse({"success": False, "error": "Email address is required!"}, status=400)
+            user = User.objects.get(email=email)
+            token = default_token_generator.make_token(user)
+            uid = urlsafe_base64_encode(force_bytes(user.pk))
+            password_reset_link = f"http://127.0.0.1:8000/reset-password/{uid}/{token}/"
+
+            subject = "Password Reset Requested"
+            message = render_to_string('password_reset_email.html', {
+                'user': user,
+                'password_reset_link': password_reset_link,
+            })
+            send_mail(subject, message, 'andrewwu0531@outlook.com', [user.email])
+
+            return JsonResponse({"success": True, "message": "Password reset email sent!"})
+        except User.DoesNotExist:
+            return JsonResponse({"success": False, "error": "User with this email does not exist!"}, status=400)
+        except json.JSONDecodeError:
+            return JsonResponse({"error": "Invalid JSON"}, status=400)
+    return JsonResponse({"error": "Invalid request method"}, status=405)
+
+def password_reset_confirm(request, uidb64, token):
+    if request.method == "POST":
+        try:
+            data = json.loads(request.body)
+            password = data.get("password")
+            if not password or len(password) <= 7:
+                return JsonResponse({"success": False, "error": "Password must be longer than 7 characters!"}, status=400)
+            
+            uid = force_str(urlsafe_base64_decode(uidb64))
+            user = get_object_or_404(User, pk=uid)
+
+            if default_token_generator.check_token(user, token):
+                user.set_password(password)
+                user.save()
+                return JsonResponse({"success": True, "message": "Password reset successful!"})
+            else:
+                return JsonResponse({"success": False, "error": "Invalid token!"}, status=400)
+        except json.JSONDecodeError:
+            return JsonResponse({"error": "Invalid JSON"}, status=400)
+    return render(request, "password_reset_confirm.html", {"uidb64": uidb64, "token": token})
 
 @csrf_exempt
 def logout_view(request):

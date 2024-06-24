@@ -4,6 +4,7 @@ from django.dispatch import receiver
 import os
 from moviepy.editor import VideoFileClip
 
+
 class Course(models.Model):
     class Course_Category(models.TextChoices):
         ALL = "1", "Academics_Language_Learning"

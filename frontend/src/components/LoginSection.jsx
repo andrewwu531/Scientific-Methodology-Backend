@@ -9,11 +9,17 @@ export default function LoginSection({ setShowLogin, setIsLoggedIn }) {
   const [error, setError] = useState("");
   const [isLoggingIn, setIsLoggingIn] = useState(true); // State to toggle between login and register
   const [isHidden, setIsHidden] = useState(false); // State to handle login container visibility
+  const [isForgotPassword, setIsForgotPassword] = useState(false); // State to toggle forgotten password view
 
   const overlayRef = useRef(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (isForgotPassword) {
+      handlePasswordReset();
+      return;
+    }
+
     const url = isLoggingIn
       ? "http://127.0.0.1:8000/api/login/"
       : "http://127.0.0.1:8000/api/register/";
@@ -33,6 +39,31 @@ export default function LoginSection({ setShowLogin, setIsLoggedIn }) {
       if (response.data.success) {
         setIsLoggedIn(true);
         handleClose(); // Ensure login section closes upon success
+      } else {
+        setError(response.data.error);
+      }
+    } catch (error) {
+      if (error.response && error.response.data && error.response.data.error) {
+        setError(error.response.data.error);
+      } else {
+        setError("An error occurred. Please try again.");
+      }
+    }
+  };
+
+  const handlePasswordReset = async () => {
+    try {
+      const response = await axios.post(
+        "http://127.0.0.1:8000/api/password-reset/",
+        { email: email },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      if (response.data.success) {
+        setError("Password reset link sent to your email.");
       } else {
         setError(response.data.error);
       }
@@ -86,7 +117,10 @@ export default function LoginSection({ setShowLogin, setIsLoggedIn }) {
           />
         </div>
 
-        <div className="flex flex-col items-center pt-[17%] flex-1">
+        <div
+          className={`flex flex-col items-center pt-[17%] flex-1
+                          ${isForgotPassword ? "pt-40" : ""} `}
+        >
           <form onSubmit={handleSubmit}>
             <div className="mb-4">
               <label htmlFor="email" className="block mb-1 text-sm font-bold ">
@@ -101,39 +135,63 @@ export default function LoginSection({ setShowLogin, setIsLoggedIn }) {
                 required
               />
             </div>
-            <div className="mb-2">
-              <label
-                htmlFor="password"
-                className="block mb-1 text-sm font-bold"
-              >
-                Password
-              </label>
-              <input
-                type="password"
-                id="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className="w-[16rem] px-3.5 py-2.5 text-sm rounded focus:outline-none focus:ring-0"
-                required
-              />
-            </div>
+            {!isForgotPassword && (
+              <div className="mb-2">
+                <div className="flex items-center justify-between mb-1">
+                  <label htmlFor="password" className="text-sm font-bold">
+                    Password
+                  </label>
+                  <button
+                    type="button"
+                    onClick={() => setIsForgotPassword(!isForgotPassword)}
+                    className={`text-xs text-neutral-200 ${isForgotPassword ? "" : "underline"}`}
+                  >
+                    {isForgotPassword
+                      ? "Back to Login"
+                      : "Forgot your password?"}
+                  </button>
+                </div>
+                <input
+                  type="password"
+                  id="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="w-[16rem] px-3.5 py-2.5 text-sm rounded focus:outline-none focus:ring-0"
+                  required
+                />
+              </div>
+            )}
             <div className="flex flex-col items-center pt-2">
               <button
                 type="submit"
                 className="w-[12rem] py-2.5 text-base font-bold text-black bg-yellow-400 rounded-xl hover:scale-105"
               >
-                {isLoggingIn ? "Log In" : "Register"}
+                {isForgotPassword
+                  ? "Reset Password"
+                  : isLoggingIn
+                    ? "Log In"
+                    : "Register"}
               </button>
               <div className="mt-4 text-center">
-                <button
-                  type="button"
-                  onClick={() => setIsLoggingIn(!isLoggingIn)}
-                  className="text-xs text-neutral-200"
-                >
-                  {isLoggingIn
-                    ? "Don’t have an account? Register"
-                    : "Already have an account? Log In"}
-                </button>
+                {!isForgotPassword && (
+                  <button
+                    type="button"
+                    onClick={() => setIsLoggingIn(!isLoggingIn)}
+                    className="text-xs text-neutral-200"
+                  >
+                    {isLoggingIn ? (
+                      <>
+                        Don’t have an account?{" "}
+                        <span className="underline">Register</span>
+                      </>
+                    ) : (
+                      <>
+                        Already have an account?{" "}
+                        <span className="underline">Log In</span>
+                      </>
+                    )}
+                  </button>
+                )}
                 {error && (
                   <div className="mt-2 text-[0.8rem] text-red-500">{error}</div>
                 )}
