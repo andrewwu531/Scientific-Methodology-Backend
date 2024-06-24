@@ -1,10 +1,11 @@
-from django.shortcuts import render
-from rest_framework import viewsets
-from .serializers import MemberSerializer
+from rest_framework import generics
 from .models import Member
+from .serializers import MemberSerializer
 
-# Create your views here.
-
-class MemberView(viewsets.ModelViewSet):
-    serializer_class = MemberSerializer
+class MemberListCreateView(generics.ListCreateAPIView):
     queryset = Member.objects.all()
+    serializer_class = MemberSerializer
+
+class MemberDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Member.objects.all()
+    serializer_class = MemberSerializer

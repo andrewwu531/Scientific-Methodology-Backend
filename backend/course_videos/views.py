@@ -45,13 +45,13 @@ def login_view(request):
             email = data.get("email")
             password = data.get("password")
             if not email or not password:
-                return JsonResponse({"success": False, "error": "Email and password are required"}, status=400)
+                return JsonResponse({"success": False, "error": "Both email address and password are required"}, status=400)
             user = authenticate(request, username=email, password=password)
             if user is not None:
                 login(request, user)
                 return JsonResponse({"success": True})
             else:
-                return JsonResponse({"success": False, "error": "Invalid credentials"})
+                return JsonResponse({"success": False, "error": "Invalid login credentials"})
         except json.JSONDecodeError:
             return JsonResponse({"error": "Invalid JSON"}, status=400)
     return JsonResponse({"error": "Invalid request method"}, status=405)

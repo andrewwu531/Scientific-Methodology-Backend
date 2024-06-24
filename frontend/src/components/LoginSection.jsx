@@ -76,7 +76,7 @@ export default function LoginSection({ setShowLogin, setIsLoggedIn }) {
       onClick={handleOverlayClick}
     >
       <div
-        className={`login-container flex flex-row h-[70vh] w-[48rem] rounded-xl bg-neutral-900 ${isHidden ? "hidden" : ""}`}
+        className={`login-container flex flex-row h-[70vh] w-[47rem] rounded-xl bg-neutral-900 ${isHidden ? "hidden" : ""}`}
       >
         <div>
           <img
@@ -97,11 +97,11 @@ export default function LoginSection({ setShowLogin, setIsLoggedIn }) {
                 id="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full px-3.5 py-2.5 text-sm rounded focus:outline-none focus:ring-0"
+                className="w-[16rem] px-3.5 py-2.5 text-sm rounded focus:outline-none focus:ring-0"
                 required
               />
             </div>
-            <div className="mb-4">
+            <div className="mb-2">
               <label
                 htmlFor="password"
                 className="block mb-1 text-sm font-bold"
@@ -113,12 +113,16 @@ export default function LoginSection({ setShowLogin, setIsLoggedIn }) {
                 id="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full px-3.5 py-2.5 mb-2 text-sm rounded focus:outline-none focus:ring-0"
+                className="w-[16rem] px-3.5 py-2.5 text-sm rounded focus:outline-none focus:ring-0"
                 required
               />
             </div>
-            <div className="flex flex-col items-center flex-1">
-              {error && <div className="mb-4 text-red-500">{error}</div>}
+            <div className="flex flex-col items-center pt-2">
+              {error && (
+                <div className="items-start flex-1 mb-3 text-sm text-red-500">
+                  {error}
+                </div>
+              )}
               <button
                 type="submit"
                 className="w-[12rem] py-2.5 text-base font-bold text-black bg-yellow-400 rounded-xl hover:scale-105"

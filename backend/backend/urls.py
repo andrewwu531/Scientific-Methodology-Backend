@@ -6,8 +6,8 @@ from rest_framework import routers
 from course_videos import views as course_videos_views
 from member import views as member_views
 
+
 router = routers.DefaultRouter()
-router.register(r'member', member_views.MemberView, 'member')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -18,6 +18,9 @@ urlpatterns = [
     path('api/login/', course_videos_views.login_view, name='login'),
     path('api/register/', course_videos_views.register_view, name='register'),
     path('api/logout/', course_videos_views.logout_view, name='logout'),
+
+    path('api/members/', member_views.MemberListCreateView.as_view(), name='members-list'),
+    path('api/members/<int:pk>/', member_views.MemberDetailView.as_view(), name='member-details'),
 ]
 
 if settings.DEBUG:

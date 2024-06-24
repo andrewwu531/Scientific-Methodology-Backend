@@ -1,10 +1,10 @@
 from django.db import models
 
-# Create your models here.
-
 class Member(models.Model):
-    member_full_name = models.CharField(max_length=50)
-    member_email_address = models.CharField(max_length=100)
+    email_address = models.EmailField(unique=True, default="error@example.com")
+    recurring_subscription = models.BooleanField(default=False)
+    payment_dates = models.JSONField(default=list)
+    monthly_courses_duration = models.JSONField(default=dict)
 
-    def _str_(self):
-        return self.member_full_name
+    def __str__(self):
+        return self.email_address
