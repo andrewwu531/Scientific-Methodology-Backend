@@ -6,7 +6,7 @@ class CourseSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Course
-        fields = ('course_url', 'course_name', 'course_category', 'course_title', 'course_banner')
+        fields = ('course_url', 'course_author', 'course_category', 'course_title', 'course_banner')
     
     def get_course_banner(self, obj):
         return obj.course_banner.url

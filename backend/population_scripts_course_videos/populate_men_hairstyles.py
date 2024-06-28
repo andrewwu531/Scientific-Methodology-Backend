@@ -10,17 +10,17 @@ django.setup()
 
 from course_videos.models import Course, Videos, FAQs
 
-base_path = 'Business_English'
+base_path = 'Men_Hairstyling'
 
 # change 1) base_path 2) 2x populate_course_xx 3) course_url & course_category & course_title 4) populate phrases
 
-def populate_course_business_english():
+def populate_course_men_hairstyling():
 
     data = {
-        'Callum Hardwick': {
-            'course_url': 'business_english',
+        'Schwarzkopf': {
+            'course_url': 'men_hairstyling',
             'course_category': Course.Course_Category.ALL,
-            'course_title': 'Business English for the Professional World',
+            'course_title': 'The Schwarzkopf Men Hairstyling Course',
             'course_banner': f'{base_path}/Course_Banner/Muscle_Building_Course_Banner.jpg',
             'faqs': [
                 {
@@ -223,7 +223,7 @@ def populate_course_business_english():
         for faq_data in course_data['faqs']:
             add_faq(course_url=course, **faq_data)
 
-    print('Completed Business English population script...')
+    print('Completed Men Hairstyling population script...')
 
 def add_video(course_url, video_title, video_subscription_type, video_series_name, 
               video_series, video_episode, video_icon, video_video):
@@ -272,4 +272,5 @@ def add_course(course_author, course_url, course_category, course_title, course_
 
 # Start execution here!
 if __name__ == '__main__':
-    populate_course_business_english()
+    populate_course_men_hairstyling()
+

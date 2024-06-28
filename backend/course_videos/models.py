@@ -7,13 +7,13 @@ from moviepy.editor import VideoFileClip
 
 class Course(models.Model):
     class Course_Category(models.TextChoices):
-        ALL = "1", "Academics_Language_Learning"
+        ALL = "1", "Academics & Language Learning"
         HL = "2", "Health & Lifestyle"
         SE = "3", "Social & Entertainment"
         CF = "4", "Career & Finance"
 
     course_url = models.CharField(max_length=20)
-    course_name = models.CharField(max_length=100, default="default_course_name")
+    course_author = models.CharField(max_length=100, default="default_course_author")
     course_category = models.CharField(max_length=2, choices=Course_Category.choices, default=Course_Category.ALL)
     course_title = models.CharField(max_length=100, default="default_title")
     course_banner = models.ImageField(upload_to='Muscle_Building/Course_Banner', null=True, default='Muscle_Building/Course_Banner/Muscle_Building_Course_Banner_1.jpg')

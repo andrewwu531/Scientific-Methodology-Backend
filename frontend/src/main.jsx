@@ -20,10 +20,10 @@ function PasswordResetWrapper() {
 }
 
 const router = createBrowserRouter([
-  {
-    path: paths.LOGIN,
-    element: <Login />,
-  },
+  // {
+  //   path: paths.LOGIN,
+  //   element: <Login />,
+  // },
   {
     path: paths.HOME,
     element: <Root />,
@@ -31,14 +31,6 @@ const router = createBrowserRouter([
       {
         path: paths.HOME,
         element: <Home />,
-      },
-      {
-        path: paths.PLAYLIST,
-        element: <Playlist />,
-      },
-      {
-        path: "/:category", // Dynamic route for course categories
-        element: <MainSectionWrapper />, // Use a wrapper to handle fetching data
       },
     ],
   },

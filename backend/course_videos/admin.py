@@ -2,7 +2,7 @@ from django.contrib import admin
 from .models import Course, Videos, FAQs
 
 class CourseAdmin(admin.ModelAdmin):
-    list_display = ('pk', 'course_url', 'course_name', 'course_category', 'course_title', 'course_banner')
+    list_display = ('pk', 'course_url', 'course_author', 'course_category', 'course_title', 'course_banner')
 
 class VideosAdmin(admin.ModelAdmin):
     list_display = ('pk', 'get_course_url', 'video_title', 'video_subscription_type', 'video_series_name' 

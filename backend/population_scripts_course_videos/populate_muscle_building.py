@@ -10,15 +10,18 @@ django.setup()
 
 from course_videos.models import Course, Videos, FAQs
 
+base_path = 'Muscle_Building'
+
+# change 1) base_path 2) 2x populate_course_xx 3) course_url & course_category & course_title 4) populate phrases
+
 def populate_course_muscle_building():
-    essays_directory = 'video_essays_docs/Muscle_Building'
 
     data = {
-        'Muscle Building': {
+        'Stewart McDonald': {
             'course_url': 'muscle_building',
             'course_category': Course.Course_Category.HL,
             'course_title': 'The Science of Shredded Muscle Building',
-            'course_banner': 'Muscle_Building/Course_Banner/Muscle_Building_Course_Banner.jpg',
+            'course_banner': f'{base_path}/Course_Banner/Muscle_Building_Course_Banner.jpg',
             'faqs': [
                 {
                     'faq_question_num': '1',
@@ -64,8 +67,8 @@ def populate_course_muscle_building():
                     'video_series_name': 'Introduction',
                     'video_series': '1',
                     'video_episode': '1',
-                    'video_icon': 'Muscle_Building/Video_Icon/Muscle_Building_Video_Icon_1_1.jpg',
-                    'video_video': 'Muscle_Building/Video_Video/Muscle_Building_Video_Video_1_1.mp4',
+                    'video_icon': f'{base_path}/Video_Icon/Muscle_Building_Video_Icon_1_1.jpg',
+                    'video_video': f'{base_path}/Video_Video/Muscle_Building_Video_Video_1_1.mp4',
                 },
                 {
                     'video_title': 'Before & After Bodybuilding Transformations',
@@ -73,8 +76,8 @@ def populate_course_muscle_building():
                     'video_series_name': 'Introduction',
                     'video_series': '1',
                     'video_episode': '2',
-                    'video_icon': 'Muscle_Building/Video_Icon/Muscle_Building_Video_Icon_1_2.jpg',
-                    'video_video': 'Muscle_Building/Video_Video/Muscle_Building_Video_Video_1_2.mp4',
+                    'video_icon': f'{base_path}/Video_Icon/Muscle_Building_Video_Icon_1_2.jpg',
+                    'video_video': f'{base_path}/Video_Video/Muscle_Building_Video_Video_1_2.mp4',
                 },
                 {
                     'video_title': 'How Easy Is The Diet',
@@ -82,8 +85,8 @@ def populate_course_muscle_building():
                     'video_series_name': 'Introduction',
                     'video_series': '1',
                     'video_episode': '3',
-                    'video_icon': 'Muscle_Building/Video_Icon/Muscle_Building_Video_Icon_1_3.jpg',
-                    'video_video': 'Muscle_Building/Video_Video/Muscle_Building_Video_Video_1_3.mp4',
+                    'video_icon': f'{base_path}/Video_Icon/Muscle_Building_Video_Icon_1_3.jpg',
+                    'video_video': f'{base_path}/Video_Video/Muscle_Building_Video_Video_1_3.mp4',
                 },
                 {
                     'video_title': 'How This Programme Stands Out From Other Leading Courses',
@@ -91,8 +94,8 @@ def populate_course_muscle_building():
                     'video_series_name': 'Introduction',
                     'video_series': '1',
                     'video_episode': '4',
-                    'video_icon': 'Muscle_Building/Video_Icon/Muscle_Building_Video_Icon_1_4.jpg',
-                    'video_video': 'Muscle_Building/Video_Video/Muscle_Building_Video_Video_1_4.mp4',
+                    'video_icon': f'{base_path}/Video_Icon/Muscle_Building_Video_Icon_1_4.jpg',
+                    'video_video': f'{base_path}/Video_Video/Muscle_Building_Video_Video_1_4.mp4',
                 },
                 {
                     'video_title': 'Social Media',
@@ -100,8 +103,8 @@ def populate_course_muscle_building():
                     'video_series_name': 'Introduction',
                     'video_series': '1',
                     'video_episode': '5',
-                    'video_icon': 'Muscle_Building/Video_Icon/Muscle_Building_Video_Icon_1_5.jpg',
-                    'video_video': 'Muscle_Building/Video_Video/Muscle_Building_Video_Video_1_5.mp4',
+                    'video_icon': f'{base_path}/Video_Icon/Muscle_Building_Video_Icon_1_5.jpg',
+                    'video_video': f'{base_path}/Video_Video/Muscle_Building_Video_Video_1_5.mp4',
                 },
                 {
                     'video_title': 'Bodybuilding is 80% diet and 20% workout',
@@ -109,8 +112,8 @@ def populate_course_muscle_building():
                     'video_series_name': 'Nutrition Theory',
                     'video_series': '2',
                     'video_episode': '1',
-                    'video_icon': 'Muscle_Building/Video_Icon/Muscle_Building_Video_Icon_2_1.jpg',
-                    'video_video': 'Muscle_Building/Video_Video/Muscle_Building_Video_Video_2_1.mp4',
+                    'video_icon': f'{base_path}/Video_Icon/Muscle_Building_Video_Icon_2_1.jpg',
+                    'video_video': f'{base_path}/Video_Video/Muscle_Building_Video_Video_2_1.mp4',
                 },
                 {
                     'video_title': 'Why the medium calories, medium carbs, low fat and high protein diet',
@@ -118,8 +121,8 @@ def populate_course_muscle_building():
                     'video_series_name': 'Nutrition Theory',
                     'video_series': '2',
                     'video_episode': '2',
-                    'video_icon': 'Muscle_Building/Video_Icon/Muscle_Building_Video_Icon_2_2.jpg',
-                    'video_video': 'Muscle_Building/Video_Video/Muscle_Building_Video_Video_2_2.mp4',
+                    'video_icon': f'{base_path}/Video_Icon/Muscle_Building_Video_Icon_2_2.jpg',
+                    'video_video': f'{base_path}/Video_Video/Muscle_Building_Video_Video_2_2.mp4',
                 },
                 {
                     'video_title': 'Calculating your personalised recommended calories, protein, carbohydrates and fat intake',
@@ -127,8 +130,8 @@ def populate_course_muscle_building():
                     'video_series_name': 'Nutrition Theory',
                     'video_series': '2',
                     'video_episode': '3',
-                    'video_icon': 'Muscle_Building/Video_Icon/Muscle_Building_Video_Icon_2_3.jpg',
-                    'video_video': 'Muscle_Building/Video_Video/Muscle_Building_Video_Video_2_3.mp4',
+                    'video_icon': f'{base_path}/Video_Icon/Muscle_Building_Video_Icon_2_3.jpg',
+                    'video_video': f'{base_path}/Video_Video/Muscle_Building_Video_Video_2_3.mp4',
                 },
                 {
                     'video_title': 'The importance of food choices: meat, pasta, veg, sauce and oil',
@@ -136,8 +139,8 @@ def populate_course_muscle_building():
                     'video_series_name': 'Nutrition Theory',
                     'video_series': '2',
                     'video_episode': '4',
-                    'video_icon': 'Muscle_Building/Video_Icon/Muscle_Building_Video_Icon_2_4.jpg',
-                    'video_video': 'Muscle_Building/Video_Video/Muscle_Building_Video_Video_2_4.mp4',
+                    'video_icon': f'{base_path}/Video_Icon/Muscle_Building_Video_Icon_2_4.jpg',
+                    'video_video': f'{base_path}/Video_Video/Muscle_Building_Video_Video_2_4.mp4',
                 },
                 {
                     'video_title': 'Carb cycling & the front-heavy approach dieting',
@@ -145,8 +148,8 @@ def populate_course_muscle_building():
                     'video_series_name': 'Nutrition Theory',
                     'video_series': '2',
                     'video_episode': '5',
-                    'video_icon': 'Muscle_Building/Video_Icon/Muscle_Building_Video_Icon_2_5.jpg',
-                    'video_video': 'Muscle_Building/Video_Video/Muscle_Building_Video_Video_2_5.mp4',
+                    'video_icon': f'{base_path}/Video_Icon/Muscle_Building_Video_Icon_2_5.jpg',
+                    'video_video': f'{base_path}/Video_Video/Muscle_Building_Video_Video_2_5.mp4',
                 },
                 {
                     'video_title': 'Sarcoplasmic vs Myofibrillar Hypertrophy',
@@ -154,8 +157,8 @@ def populate_course_muscle_building():
                     'video_series_name': 'Weightlifting Mechanisms',
                     'video_series': '3',
                     'video_episode': '1',
-                    'video_icon': 'Muscle_Building/Video_Icon/Muscle_Building_Video_Icon_3_1.jpg',
-                    'video_video': 'Muscle_Building/Video_Video/Muscle_Building_Video_Video_3_1.mp4',
+                    'video_icon': f'{base_path}/Video_Icon/Muscle_Building_Video_Icon_3_1.jpg',
+                    'video_video': f'{base_path}/Video_Video/Muscle_Building_Video_Video_3_1.mp4',
                 },
                 {
                     'video_title': 'Powerlifting vs Bodybuilding',
@@ -163,8 +166,8 @@ def populate_course_muscle_building():
                     'video_series_name': 'Weightlifting Mechanisms',
                     'video_series': '3',
                     'video_episode': '2',
-                    'video_icon': 'Muscle_Building/Video_Icon/Muscle_Building_Video_Icon_3_2.jpg',
-                    'video_video': 'Muscle_Building/Video_Video/Muscle_Building_Video_Video_3_2.mp4',
+                    'video_icon': f'{base_path}/Video_Icon/Muscle_Building_Video_Icon_3_2.jpg',
+                    'video_video': f'{base_path}/Video_Video/Muscle_Building_Video_Video_3_2.mp4',
                 },
                 {
                     'video_title': 'Tempo: The Concentric & Eccentric Motions',
@@ -172,8 +175,8 @@ def populate_course_muscle_building():
                     'video_series_name': 'Weightlifting Mechanisms',
                     'video_series': '3',
                     'video_episode': '3',
-                    'video_icon': 'Muscle_Building/Video_Icon/Muscle_Building_Video_Icon_3_3.jpg',
-                    'video_video': 'Muscle_Building/Video_Video/Muscle_Building_Video_Video_3_3.mp4',
+                    'video_icon': f'{base_path}/Video_Icon/Muscle_Building_Video_Icon_3_3.jpg',
+                    'video_video': f'{base_path}/Video_Video/Muscle_Building_Video_Video_3_3.mp4',
                 },
                 {
                     'video_title': 'The Range of Motion',
@@ -181,8 +184,8 @@ def populate_course_muscle_building():
                     'video_series_name': 'Weightlifting Mechanisms',
                     'video_series': '3',
                     'video_episode': '4',
-                    'video_icon': 'Muscle_Building/Video_Icon/Muscle_Building_Video_Icon_3_4.jpg',
-                    'video_video': 'Muscle_Building/Video_Video/Muscle_Building_Video_Video_3_4.mp4',
+                    'video_icon': f'{base_path}/Video_Icon/Muscle_Building_Video_Icon_3_4.jpg',
+                    'video_video': f'{base_path}/Video_Video/Muscle_Building_Video_Video_3_4.mp4',
                 },
                 {
                     'video_title': 'Other Weightlifting Techniques',
@@ -190,8 +193,8 @@ def populate_course_muscle_building():
                     'video_series_name': 'Weightlifting Mechanisms',
                     'video_series': '3',
                     'video_episode': '5',
-                    'video_icon': 'Muscle_Building/Video_Icon/Muscle_Building_Video_Icon_3_5.jpg',
-                    'video_video': 'Muscle_Building/Video_Video/Muscle_Building_Video_Video_3_5.mp4',
+                    'video_icon': f'{base_path}/Video_Icon/Muscle_Building_Video_Icon_3_5.jpg',
+                    'video_video': f'{base_path}/Video_Video/Muscle_Building_Video_Video_3_5.mp4',
                 },
                 {
                     'video_title': 'A Sample Workout Drill',
@@ -199,16 +202,16 @@ def populate_course_muscle_building():
                     'video_series_name': 'Weightlifting Mechanisms',
                     'video_series': '3',
                     'video_episode': '6',
-                    'video_icon': 'Muscle_Building/Video_Icon/Muscle_Building_Video_Icon_3_6.jpg',
-                    'video_video': 'Muscle_Building/Video_Video/Muscle_Building_Video_Video_3_6.mp4',
+                    'video_icon': f'{base_path}/Video_Icon/Muscle_Building_Video_Icon_3_6.jpg',
+                    'video_video': f'{base_path}/Video_Video/Muscle_Building_Video_Video_3_6.mp4',
                 }
             ]
         }
     }
 
-    for course_name, course_data in data.items():
+    for course_author, course_data in data.items():
         course = add_course(
-            course_name=course_name,
+            course_author=course_author,
             course_url=course_data['course_url'],
             course_category=course_data['course_category'],
             course_title=course_data['course_title'],
@@ -220,7 +223,7 @@ def populate_course_muscle_building():
         for faq_data in course_data['faqs']:
             add_faq(course_url=course, **faq_data)
 
-    print('Starting Project M Muscle Building population script...')
+    print('Completed Muscle Building population script...')
 
 def add_video(course_url, video_title, video_subscription_type, video_series_name, 
               video_series, video_episode, video_icon, video_video):
@@ -258,9 +261,9 @@ def add_faq(course_url, faq_question_num, faq_question, faq_answer):
     return f
 
 
-def add_course(course_name, course_url, course_category, course_title, course_banner):
+def add_course(course_author, course_url, course_category, course_title, course_banner):
     c = Course.objects.get_or_create(course_url=course_url)[0]
-    c.course_name = course_name
+    c.course_author = course_author
     c.course_category = course_category
     c.course_title = course_title
     c.course_banner = course_banner

@@ -35,32 +35,32 @@ export default function NavBar({ setShowLogin, isLoggedIn, setIsLoggedIn }) {
   };
 
   return (
-    <nav className="bg-neutral-950 flex justify-between px-8 pt-2.5 h-[10vh]">
+    <nav className=" flex justify-between px-8 pt-2.5 h-[11vh]  fixed top-0 left-0 z-50 w-full p-4 bg-black shadow-lg">
       <div className="flex flex-row justify-start">
-        <div className="flex flex-col pt-4 pl-3 text-3xl font-bold ">
-          WAVE-R
+        <div className="flex flex-col pt-5 pl-3 text-2xl font-bold ">
+          Mentorship
         </div>
-        <div className="flex gap-2 pl-10 text-sm font-bold pt-9 text-neutral-300">
+        {/* <div className="flex gap-2 pl-10 text-sm font-bold pt-9 text-neutral-300">
           | &nbsp; Academics &nbsp; | &nbsp; Language &nbsp; | &nbsp; Lifestyle
           &nbsp; | &nbsp; Career &nbsp; | &nbsp; Personal Development &nbsp; |
-        </div>
+        </div> */}
       </div>
 
       <ul role="menu" className="flex items-center gap-6 pt-1">
-        <li>
+        {/* <li>
           <FlatButton
             className={`text-base font-bold text-neutral-300 hover:text-white hover:scal-105
                                   ${isLoggedIn ? "pt-0.5" : "gap-1"}`}
           >
             {isLoggedIn ? "Member Zone" : "Try for Free"}
           </FlatButton>
-        </li>
+        </li> */}
         <li>
           {isLoggedIn ? (
             <>
               <button
                 onClick={handleSignOut}
-                className="justify-center px-6 py-2.5 text-base font-bold  rounded-lg hover:scale-105
+                className="justify-center px-6 py-2.5 text-base pt-2 font-bold  rounded-lg hover:scale-105
                           text-black bg-yellow-400"
               >
                 Account Logout
@@ -69,7 +69,7 @@ export default function NavBar({ setShowLogin, isLoggedIn, setIsLoggedIn }) {
           ) : (
             <button
               onClick={handleClick}
-              className="justify-center px-6 py-2.5 text-base font-bold text-black bg-yellow-400 rounded-lg hover:scale-105"
+              className="justify-center px-6 py-2.5 text-md font-bold text-black mt-2 bg-btn-1 rounded-lg hover:scale-105"
             >
               Register/ Log In
             </button>

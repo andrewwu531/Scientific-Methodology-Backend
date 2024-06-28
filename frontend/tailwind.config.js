@@ -21,6 +21,11 @@ export default {
         "black-4": "#100c08",
         "button-1": "#3B3939",
         "gray-1": "#E5E4E2",
+        "btn-1": "#7D3C98",
+        "btn-2": "#800020",
+        "btn-3": "#154734",
+        "btn-4": "#4169E1",
+        "btn-5": "#333333",
       },
       fontFamily: {
         sans: ["Inter", "sans-serif"],
@@ -29,6 +34,15 @@ export default {
         tiny: "0.88rem", // This is the custom font size between text-xs and text-sm
         small: "0.95rem",
         medium: "1.1rem",
+      },
+      animation: {
+        "infinite-scroll": "infinite-scroll 25s linear infinite",
+      },
+      keyframes: {
+        "infinite-scroll": {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(-100%)" },
+        },
       },
     },
   },
