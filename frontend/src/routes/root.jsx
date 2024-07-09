@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import NavBar from "../components/NavBar";
-import CourseCarousel from "../components/CourseCarousel";
+import CourseCarousel1 from "../components/CourseCarousel1";
 import LoginSection from "../components/LoginSection";
 import LandingPageSummary from "../components/LandingPageSummary";
 
@@ -18,7 +18,7 @@ export default function Root() {
 
       <LandingPageSummary />
 
-      <CourseCarousel isLoggedIn={isLoggedIn} />
+      <CourseCarousel1 isLoggedIn={isLoggedIn} />
 
       {showLogin && (
         <LoginSection

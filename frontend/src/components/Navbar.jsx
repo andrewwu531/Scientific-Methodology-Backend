@@ -4,6 +4,7 @@ import FlatButton from "./Buttons/FlatButton";
 import RegisterButton from "./Buttons/RegisterButton";
 import { routes } from "../shared/routes";
 import axios from "axios";
+import NavbarDropdown from "./NavbarDropDown";
 
 export default function NavBar({ setShowLogin, isLoggedIn, setIsLoggedIn }) {
   const navigate = useNavigate();
@@ -35,18 +36,17 @@ export default function NavBar({ setShowLogin, isLoggedIn, setIsLoggedIn }) {
   };
 
   return (
-    <nav className=" flex justify-between  pt-2.5 h-[11vh] fixed top-0 left-0 z-50 w-full p-4 bg-black shadow-lg">
-      <div className="flex flex-row justify-start">
-        <div className="flex flex-col pt-5 pl-24 text-2xl font-bold ">
-          Specialists
+    <nav className=" flex justify-between h-[10vh] fixed top-0 left-0 z-50 w-full bg-black shadow-lg">
+      <div className="flex flex-row justify-start pt-4">
+        <div className="flex flex-col pt-1 text-3xl font-bold pl-36 text-neutral-200">
+          Mentorship
         </div>
-        {/* <div className="flex gap-2 pl-10 text-sm font-bold pt-9 text-neutral-300">
-          | &nbsp; Academics &nbsp; | &nbsp; Language &nbsp; | &nbsp; Lifestyle
-          &nbsp; | &nbsp; Career &nbsp; | &nbsp; Personal Development &nbsp; |
-        </div> */}
+        <div className="pl-8">
+          <NavbarDropdown />
+        </div>
       </div>
 
-      <ul role="menu" className="flex items-center gap-6 pt-1 pr-24">
+      <ul role="menu" className="flex items-center gap-6 pr-24">
         {/* <li>
           <FlatButton
             className={`text-base font-bold text-neutral-300 hover:text-white hover:scal-105
@@ -60,7 +60,7 @@ export default function NavBar({ setShowLogin, isLoggedIn, setIsLoggedIn }) {
             <>
               <button
                 onClick={handleSignOut}
-                className="justify-center px-6 py-2.5 text-base pt-2 font-bold  rounded-lg hover:scale-105
+                className="justify-center px-6 py-2.5 text-base font-bold  rounded-lg hover:scale-105
                           text-black bg-yellow-400"
               >
                 Account Logout
@@ -69,7 +69,7 @@ export default function NavBar({ setShowLogin, isLoggedIn, setIsLoggedIn }) {
           ) : (
             <button
               onClick={handleClick}
-              className="justify-center px-6 py-2.5 text-md font-bold text-black mt-2 bg-yellow-500 rounded-lg hover:scale-105"
+              className="justify-center px-8 py-2.5 text-md font-bold text-black  bg-yellow-500 rounded-lg hover:scale-105"
             >
               Register/ Log In
             </button>

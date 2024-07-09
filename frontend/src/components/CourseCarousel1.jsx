@@ -60,25 +60,24 @@ const CourseCarousel = () => {
   }, []);
 
   return (
-    <div className="flex flex-col w-full overflow-hidden mt-[10vh] bg-black pt-2 mb-10 relative px-[7vw]">
-      <div className="flex flex-wrap justify-center gap-3 mb-14">
+    <div className="flex flex-row w-full overflow-hidden mt-[10vh] bg-black mb-10  px-[8vw]">
+      <div className="flex flex-wrap justify-start w-[20vw]">
         {categories.map((category) => (
           <button
             key={category.name}
-            className="flex items-center px-4 py-2 rounded-lg bg-neutral-950 text-neutral-200 hover:bg-neutral-800 focus:outline-none focus:ring-2 focus:ring-yellow-600"
+            className="flex items-center justify-center w-full h-[14vh] rounded-lg bg-neutral-950 text-neutral-200 hover:bg-neutral-800 focus:outline-none focus:ring-2 focus:ring-yellow-600"
           >
-            <span className="mr-2">{category.icon}</span>
+            <span className="mr-3">{category.icon}</span>
             {category.name}
           </button>
         ))}
       </div>
-      {/* <div className="mb-6 font-sans text-4xl">Trending Now</div> */}
-      <div className="grid grid-cols-1 px-[2vw] gap-x-3.5 gap-y-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+      <div className="grid pl-[4vw] gap-x-3.5 gap-y-10 grid-cols-3">
         {courses.map((course) => {
           return (
             <div
               key={course.id}
-              className="w-full h-[52vh] relative course-card overflow-hidden group"
+              className="w-[18vw] h-[52vh] relative course-card overflow-hidden group"
             >
               <div className="relative w-full h-full overflow-hidden rounded-lg ">
                 <img
@@ -87,35 +86,14 @@ const CourseCarousel = () => {
                   className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
                 />
                 <div className="absolute top-0 left-0 w-full h-full bg-opacity-100 bg-gradient-to-b from-transparent via-transparent to-black"></div>
-                {/* <div className="absolute top-0 left-0 w-full h-full bg-opacity-100 bg-gradient-to-t from-transparent via-transparent to-black"></div> */}
-                {/* <div className="absolute bottom-0 w-full transition-opacity duration-300 opacity-0 h-1/2 bg-gradient-to-t from-black to-transparent group-hover:opacity-100">
-                  <div className="p-4 text-white">{course.additional_text}</div>
-                </div> */}
               </div>
-              {/* <div
-                className="absolute w-full pt-32 text-4xl text-center text-white transform translate-y-1/2 px-7 bottom-1/2"
-                style={{
-                  fontFamily: font.family,
-                  fontSize: font.size,
-                  fontWeight: font.weight,
-                }}
-              >
-                {course.course_author}
-              </div> */}
-              {/* <div className="absolute bottom-1/2 w-full h-0.5 bg-white"></div> */}
               <div className="absolute bottom-0 w-full h-[8.5vh] mb-3 text-center text-neutral-200 text-base font-bold ">
                 {course.course_title}
               </div>
-              {/* <div className="absolute bottom-0 w-full h-[5vh] mb-3 text-center text-white font-bold px-5">
-                {course.course_author}
-              </div> */}
             </div>
           );
         })}
       </div>
-      <button className="flex flex-2 items-center justify-center mt-[10vh] w-[12vw] px-6 py-3 text-md font-bold text-black bg-yellow-500 rounded-lg hover:scale-105">
-        Explore Library
-      </button>
     </div>
   );
 };
