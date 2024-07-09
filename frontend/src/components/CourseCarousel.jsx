@@ -33,6 +33,23 @@ const CourseCarousel = () => {
     { family: "'Cabin', sans-serif", size: "3rem" },
   ];
 
+  const categories = [
+    { name: "Trending Now", icon: "⭐" },
+    { name: "Academic Excellence", icon: "🎓" },
+    { name: "English Language Learning", icon: "📚" },
+    { name: "Entrepreneurship & Investing", icon: "💼" },
+    { name: "Sports & Athletics", icon: "🏅" },
+    { name: "Business English", icon: "📝" },
+    { name: "Science & Technology", icon: "🔬" },
+    { name: "Film & TV", icon: "🎬" },
+    { name: "Health & Wellness", icon: "😊" },
+    { name: "Community & Government", icon: "🏛️" },
+    { name: "Food & Drink", icon: "🍽️" },
+    { name: "Music & Culture", icon: "🎵" },
+    { name: "Outdoor Adventures & Events", icon: "🏞️" },
+    { name: "Acting & Performing Arts", icon: "🎭" },
+  ];
+
   useEffect(() => {
     fetch(`${backendURL}/api/courses/`)
       .then((response) => response.json())
@@ -43,7 +60,18 @@ const CourseCarousel = () => {
   }, []);
 
   return (
-    <div className="flex flex-col w-full overflow-hidden mt-[10vh] bg-black mb-80 relative px-[12vw]">
+    <div className="flex flex-col w-full overflow-hidden mt-[3vh] bg-black pt-2 mb-10 relative px-[12vw]">
+      <div className="flex flex-wrap justify-center gap-4 mb-20">
+        {categories.map((category) => (
+          <button
+            key={category.name}
+            className="flex items-center px-4 py-2 rounded-lg bg-neutral-950 text-neutral-200 hover:bg-neutral-800 focus:outline-none focus:ring-1 focus:ring-orange-600"
+          >
+            <span className="mr-2">{category.icon}</span>
+            {category.name}
+          </button>
+        ))}
+      </div>
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {courses.map((course, index) => {
           const font = fonts[index % fonts.length];

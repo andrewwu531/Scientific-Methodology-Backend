@@ -44,16 +44,16 @@ export default function LandingPageSummary() {
 
   return (
     <div className="flex pt-[12vh] px-[10vw] h-screen">
-      <div className="flex flex-col pt-[10vh]">
-        <div className="w-3/4 text-6xl font-bold">
+      <div className="flex flex-col pt-[14vh]">
+        <div className="w-3/4 text-5xl font-bold">
           Expert-Led Programmes Designed to Beat Traditional Learning
         </div>
-        <div className="w-3/4 text-xl mt-[5vh]">
+        <div className="w-3/4 text-xl mt-[4vh]">
           Invest In Your Personal Growth Through Our Network of World-Class
           Mentors
         </div>
-        <button className="mt-[6vh] w-[13vw] px-6 py-3.5 text-md font-bold text-black bg-orange-600 rounded-lg hover:scale-105">
-          Explore Library
+        <button className="mt-[10vh] w-[13vw] px-6 py-3.5 text-md font-bold text-black bg-orange-600 rounded-lg hover:scale-105">
+          Explore Our Library
         </button>
       </div>
 
