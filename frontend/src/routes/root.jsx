@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import NavBar from "../components/NavBar";
 import CourseCarousel from "../components/CourseCarousel";
 import LoginSection from "../components/LoginSection";
+import LandingPageSummary from "../components/LandingPageSummary";
 
 export default function Root() {
   const [showLogin, setShowLogin] = useState(false); // State for showing login section
@@ -14,6 +15,8 @@ export default function Root() {
         isLoggedIn={isLoggedIn}
         setIsLoggedIn={setIsLoggedIn}
       />
+
+      <LandingPageSummary />
 
       <CourseCarousel isLoggedIn={isLoggedIn} />
 

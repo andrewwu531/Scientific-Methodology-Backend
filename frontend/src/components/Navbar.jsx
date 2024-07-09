@@ -69,7 +69,7 @@ export default function NavBar({ setShowLogin, isLoggedIn, setIsLoggedIn }) {
           ) : (
             <button
               onClick={handleClick}
-              className="justify-center px-6 py-2.5 text-md font-bold text-black mt-2 bg-btn-1 rounded-lg hover:scale-105"
+              className="justify-center px-6 py-2.5 text-md font-bold text-black mt-2 bg-yellow-500 rounded-lg hover:scale-105"
             >
               Register/ Log In
             </button>
