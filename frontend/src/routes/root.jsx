@@ -3,6 +3,7 @@ import NavBar from "../components/NavBar";
 import CourseCarousel1 from "../components/CourseCarousel1";
 import LoginSection from "../components/LoginSection";
 import LandingPageSummary from "../components/LandingPageSummary";
+import CoursesSection from "../components/CoursesSection";
 
 export default function Root() {
   const [showLogin, setShowLogin] = useState(false); // State for showing login section
@@ -17,6 +18,8 @@ export default function Root() {
       />
 
       <LandingPageSummary />
+
+      <CoursesSection />
 
       <CourseCarousel1 isLoggedIn={isLoggedIn} />
 

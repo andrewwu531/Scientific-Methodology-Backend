@@ -1,93 +1,119 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import landingImage from "../static/images/landing_bg.png";
-import landingImage2 from "../static/images/login.png";
+import landingImage0 from "../static/images/landing0.jpg";
+import landingImage1 from "../static/images/landing1.jpg";
+import landingImage2 from "../static/images/landing2.jpg";
+import landingImage3 from "../static/images/landing3.jpg";
+import landingImage4 from "../static/images/landing4.jpg";
+import landingImage5 from "../static/images/landing5.jpg";
+import landingImage6 from "../static/images/landing6.jpg";
+import landingImage7 from "../static/images/landing7.jpg";
+import landingImage8 from "../static/images/landing8.jpg";
+import landingImage9 from "../static/images/landing9.jpg";
+import landingImage10 from "../static/images/landing10.jpg";
+import landingImage11 from "../static/images/landing11.jpg";
 
 export default function LandingPageSummary() {
+  const [courseBanners, setCourseBanners] = useState([]);
   const containerRef = useRef(null);
+
+  useEffect(() => {
+    const banners = [
+      landingImage0,
+      landingImage1,
+      landingImage2,
+      landingImage3,
+      landingImage4,
+      landingImage5,
+      landingImage6,
+      landingImage7,
+      landingImage8,
+      landingImage9,
+      landingImage10,
+      landingImage11,
+    ];
+    setCourseBanners(banners);
+  }, []);
 
   useEffect(() => {
     const container = containerRef.current;
     let pos = 0;
-    const speed = 1.1;
-    const imgHeight = 2000; // Adjust based on the actual height of the image
+    const speedLeft = 1;
+    const speedRight = 1.7;
 
     const moveContainer = () => {
-      if (container) {
-        const column = container.querySelector(".column");
+      const leftColumn = container.querySelector(".left-column");
+      const rightColumn = container.querySelector(".right-column");
 
-        if (column) {
-          pos += speed;
-
-          if (pos >= imgHeight) {
-            // Reset position to create a seamless loop
-            pos = 0;
-            column.appendChild(column.firstElementChild);
-            column.style.transform = `translateY(0px)`;
-          } else {
-            column.style.transform = `translateY(-${pos}px)`;
-          }
-        }
-
-        requestAnimationFrame(moveContainer);
+      if (pos > leftColumn.scrollHeight / 2) {
+        pos = 0;
       }
+      pos += 1;
+
+      leftColumn.style.transform = `translateY(-${pos * speedLeft}px)`;
+      rightColumn.style.transform = `translateY(-${pos * speedRight}px)`;
+
+      requestAnimationFrame(moveContainer);
     };
 
     moveContainer();
-  }, []);
+  }, [courseBanners]);
 
-  // Create a list of image elements to fill the column
-  const images = [];
-  for (let i = 0; i < 10; i++) {
-    images.push(
-      <img
-        key={i}
-        src={landingImage2}
-        alt={`Course Banner ${i}`}
-        className="w-[33vw]"
-      />
-    );
-  }
+  const firstColumnBanners = courseBanners.slice(0, 6);
+  const secondColumnBanners = courseBanners.slice(6, 12);
 
   return (
-    <div className="flex pt-[12vh] px-[18vw] h-screen bg-black">
-      {/* Background Image */}
-      <div
-        className="absolute top-40 z-20 w-[65vw] h-[100vh] bg-center bg-cover"
-        style={{
-          backgroundImage: `url(${landingImage})`,
-          transform: "scale(0.5)",
-          transformOrigin: "top left",
-          left: "-13vw",
-        }}
-      ></div>
+    <div className="flex pt-[12vh] px-[12vw] h-screen bg-black">
       <div className="flex flex-row">
-        <div className="flex flex-col pt-[14vh] w-[25vw] ml-12 mr-24">
-          <div className="z-40 pb-5 text-5xl font-bold text-neutral-200">
+        <div className="flex flex-col pt-[7vh] w-[30vw] pl-16">
+          <div className="z-40 w-3/4 pb-5 text-5xl font-bold text-neutral-200">
             Expert-Led Programmes Designed to Beat Traditional Learning
           </div>
-          <div className="z-40 text-xl mt-[4vh] text-neutral-300">
+          <div className="z-40 w-3/4 text-xl mt-[3vh] text-neutral-300">
             Invest In Your Personal Growth Through Our Network of World-Renowned
             Mentors
           </div>
-          {/* <button className="mt-[6vh] w-[12vw] px-6 py-3 text-md font-bold text-black bg-yellow-500 rounded-lg hover:scale-105">
-            Explore Library
-          </button> */}
-          {/* <button className="mt-[6vh] w-[12vw] px-6 py-3 text-md font-bold text-white bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 rounded-lg hover:scale-105">
-            Explore Library
-          </button> */}
-          <button className="mt-[6vh] w-[12vw] px-6 py-3 text-md font-bold  text-yellow-500 border border-yellow-500 rounded-lg hover:bg-yellow-500 hover:text-black">
+          <button className="mt-12 w-[14vw] px-12 py-3 text-md font-bold text-yellow-500 border border-yellow-500 rounded-lg hover:bg-yellow-500 hover:text-black">
             Explore Library
           </button>
         </div>
 
-        <div className="z-10 w-[40vw] h-full overflow-hidden">
+        <div className="z-10 w-[40vw] h-full overflow-hidden pl-10">
           <div className="relative w-full h-full">
+            {/* Scrolling Content */}
             <div
               ref={containerRef}
-              className="absolute flex flex-col animate-scroll"
+              className="absolute flex flex-col space-x-5 animate-scroll"
               style={{ transform: "translateY(0px)" }}
             >
-              <div className="flex flex-col column">{images}</div>
+              <div className="flex space-x-5">
+                <div className="flex flex-col space-y-4 left-column">
+                  {firstColumnBanners
+                    .concat(firstColumnBanners)
+                    .map((banner, index) => (
+                      <img
+                        key={index}
+                        src={banner}
+                        alt={`Course Banner ${index}`}
+                        className="w-[28vw] rounded-lg"
+                        style={{ marginBottom: "7px" }}
+                      />
+                    ))}
+                </div>
+                <div className="flex flex-col space-y-4 right-column">
+                  {secondColumnBanners
+                    .concat(secondColumnBanners)
+                    .map((banner, index) => (
+                      <img
+                        key={index}
+                        src={banner}
+                        alt={`Course Banner ${index}`}
+                        className="w-[28vw] rounded-lg"
+                        style={{ marginBottom: "7px" }}
+                      />
+                    ))}
+                </div>
+              </div>
             </div>
 
             {/* Top Gradient Overlay */}
