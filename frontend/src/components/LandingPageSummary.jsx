@@ -81,15 +81,15 @@ export default function LandingPageSummary() {
       <div className="flex flex-row">
         <div className="flex flex-col pt-[10vh] w-[45vw]">
           <div className="flex flex-row space-x-7">
-            <img src={logo} alt={"logo"} className="w-32 h-32" />
-            <p
+            {/* <img src={logo} alt={"logo"} className="w-32 h-32" /> */}
+            {/* <p
               className="w-1/2 mt-3 text-5xl font-bold text-neutral-200"
               style={{ lineHeight: 1.1 }}
             >
               Independent Education
-            </p>
+            </p> */}
           </div>
-          <div className="z-40 ml-5 text-xl mt-[1.5vh] text-neutral-300">
+          <div className="z-40 text-5xl font-bold mt-[3vh] text-neutral-300 w-4/5">
             Top-Performing Outcome with Top-Performing Mentors
           </div>
           <div className="grid grid-cols-2 mt-[5vh] gap-y-2 gap-x-3 mr-[5vw]">

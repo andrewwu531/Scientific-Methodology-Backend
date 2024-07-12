@@ -48,8 +48,12 @@ export default function NavBar({ setShowLogin, isLoggedIn, setIsLoggedIn }) {
 
   return (
     <nav className="flex justify-between items-center h-[11vh] fixed top-0 left-0 z-50 w-full bg-black shadow-lg px-8">
-      <div className="flex items-center">
-        {showLogo && <img src={logo} alt="logo" className="w-10 h-10 mr-4" />}
+      <div className="flex items-center justify-start space-x-0.5">
+        <img src={logo} alt="logo" className="w-10 h-10 mr-4" />
+        <div className="flex flex-col mt-1 leading-tight">
+          <div>Independent</div>
+          <div>Education</div>
+        </div>
       </div>
       <div className="flex items-center space-x-5">
         <NavbarDropdown />
