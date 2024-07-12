@@ -21,7 +21,7 @@ export default function Root() {
 
       <CoursesSection />
 
-      <CourseCarousel1 isLoggedIn={isLoggedIn} />
+      {/* <CourseCarousel1 isLoggedIn={isLoggedIn} /> */}
 
       {showLogin && (
         <LoginSection

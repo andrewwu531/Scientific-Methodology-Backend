@@ -20,14 +20,14 @@ export default function LandingPageSummary() {
   const categories = [
     { name: "Academics", icon: "🎓" },
     { name: "English Language", icon: "📚" },
-    { name: "Sports", icon: "🏅" },
     { name: "Business English", icon: "📝" },
+    { name: "General Knowledge", icon: "🎬" },
     { name: "Professional Knowledge", icon: "🔬" },
-    { name: "Film, TV & Comedy", icon: "🎬" },
+    { name: "Sports", icon: "🏅" },
     { name: "Health & Wellness", icon: "😊" },
-    { name: "Community & Government", icon: "🏛️" },
     { name: "Food & Drink", icon: "🍽️" },
     { name: "Hair, Beauty & Fashion", icon: "🕶️" },
+    { name: "CV & Interview Techniques", icon: "🏛️" },
     { name: "Entrepreneurship & Investing", icon: "💼" },
   ];
 
@@ -77,16 +77,15 @@ export default function LandingPageSummary() {
   const secondColumnBanners = courseBanners.slice(6, 12);
 
   return (
-    <div className="flex pt-[8vh] px-[6vw] h-screen bg-black">
+    <div className="flex pt-[5vh] px-[6vw] h-screen bg-black">
       <div className="flex flex-row">
         <div className="flex flex-col pt-[9vh] w-[42vw]">
           <div className="z-40 w-1/2 text-5xl font-bold text-neutral-200">
             Independent Education
           </div>
-          {/* <div className="z-40 w-3/4 text-xl mt-[2vh] text-neutral-300">
-            Invest In Your Personal Growth Through Our Network of World-Renowned
-            Experts in:
-          </div> */}
+          <div className="z-40 w-1/2 text-xl mt-[2vh] text-neutral-300">
+            Top-Performing Outcome with Top-Performing Mentors
+          </div>
           <div className="grid grid-cols-2 mt-[4vh] gap-y-2 gap-x-3 mr-[5vw]">
             {categories.map((category) => (
               <button
