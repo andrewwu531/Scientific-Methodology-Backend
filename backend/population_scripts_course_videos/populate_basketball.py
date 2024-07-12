@@ -17,10 +17,10 @@ base_path = 'Basketball'
 def populate_course_basketball():
 
     data = {
-        'Stephen Curry': {
-            'course_url': 'basketball',
-            'course_category': Course.Course_Category.SE,
-            'course_title': 'The hidden book in NBA',
+        'Mark Cuban': {
+            'course_url': 'mark_cuban',
+            'course_category': Course.Course_Category.EI,
+            'course_title': 'Win Big in Business',
             'course_banner': f'{base_path}/Course_Banner/Muscle_Building_Course_Banner.jpg',
             'faqs': [
                 {

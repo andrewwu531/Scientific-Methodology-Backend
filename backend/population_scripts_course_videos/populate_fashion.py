@@ -17,9 +17,9 @@ base_path = 'Fashion'
 def populate_course_fashion():
 
     data = {
-        'Christina Warran': {
-            'course_url': 'fashion',
-            'course_category': Course.Course_Category.ALL,
+        'Amy Poehler': {
+            'course_url': 'amy_poehler',
+            'course_category': Course.Course_Category.HWF,
             'course_title': 'Expressing your Identity through Fashion',
             'course_banner': f'{base_path}/Course_Banner/Muscle_Building_Course_Banner.jpg',
             'faqs': [

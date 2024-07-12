@@ -38,10 +38,10 @@ export default function NavBar({ setShowLogin, isLoggedIn, setIsLoggedIn }) {
   return (
     <nav className=" flex justify-between h-[10vh] fixed top-0 left-0 z-50 w-full bg-black shadow-lg">
       <div className="flex flex-row justify-start pt-4">
-        <div className="flex flex-col pt-1 text-3xl font-bold pl-36 text-neutral-200">
+        {/* <div className="flex flex-col pt-3 pl-24 text-xl font-bold text-neutral-200">
           Mentorship
-        </div>
-        <div className="pl-8">
+        </div> */}
+        <div className="pl-[5vw] pt-0.5">
           <NavbarDropdown />
         </div>
       </div>

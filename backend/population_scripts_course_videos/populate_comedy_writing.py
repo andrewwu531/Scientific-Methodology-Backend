@@ -18,9 +18,9 @@ def populate_course_comedy_writing():
 
     data = {
         'Kevin Hart': {
-            'course_url': 'comedy_writing',
-            'course_category': Course.Course_Category.ALL,
-            'course_title': 'Improving your Sense of Humour through Comedy Writing',
+            'course_url': 'kevin_hart',
+            'course_category': Course.Course_Category.ELL,
+            'course_title': 'Using Humour to Make Your Mark',
             'course_banner': f'{base_path}/Course_Banner/Muscle_Building_Course_Banner.jpg',
             'faqs': [
                 {

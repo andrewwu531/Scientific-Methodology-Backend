@@ -18,9 +18,9 @@ def populate_course_meal_recipes():
 
     data = {
         'Gordon Ramsey': {
-            'course_url': 'meal_recipes',
-            'course_category': Course.Course_Category.ALL,
-            'course_title': 'The Cookbook of Mr Gordon Ramsey',
+            'course_url': 'gordon_ramsey',
+            'course_category': Course.Course_Category.FD,
+            'course_title': 'The Golden Cookbook of Mr Gordon Ramsey',
             'course_banner': f'{base_path}/Course_Banner/Muscle_Building_Course_Banner.jpg',
             'faqs': [
                 {

@@ -18,10 +18,10 @@ export default function NavbarDropdown() {
       <button
         id="multiLevelDropdownButton"
         onClick={toggleDropdown}
-        className="text-neutral-200 bg-neutral-900 hover:bg-neutral-950 font-body rounded-lg text-lg px-7 py-2.5 text-center inline-flex items-center"
+        className="inline-flex items-center px-6 py-3 text-center rounded-lg text-neutral-200 bg-neutral-900 hover:bg-neutral-950 font-body text-md"
         type="button"
       >
-        Course Catalogue{" "}
+        Discover{" "}
         <svg
           className="w-2.5 h-2.5 ms-3"
           aria-hidden="true"

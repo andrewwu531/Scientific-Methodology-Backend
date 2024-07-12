@@ -17,10 +17,10 @@ base_path = 'English_Pronunciation'
 def populate_course_english_pronunciation():
 
     data = {
-        'Emily Stand': {
-            'course_url': 'english_pronunciation',
-            'course_category': Course.Course_Category.ALL,
-            'course_title': 'The Standard English Pronunciation Course',
+        'Jay Shetty': {
+            'course_url': 'jay_shetty',
+            'course_category': Course.Course_Category.EI,
+            'course_title': 'Navigating Change',
             'course_banner': f'{base_path}/Course_Banner/Muscle_Building_Course_Banner.jpg',
             'faqs': [
                 {

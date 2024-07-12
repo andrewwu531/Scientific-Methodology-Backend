@@ -17,10 +17,10 @@ base_path = 'Business_English'
 def populate_course_business_english():
 
     data = {
-        'Callum Hardwick': {
-            'course_url': 'business_english',
-            'course_category': Course.Course_Category.ALL,
-            'course_title': 'Business English for the Professional World',
+        'Michael Lewis': {
+            'course_url': 'michael_lewis',
+            'course_category': Course.Course_Category.BE,
+            'course_title': 'Learning Business English for the Professional World',
             'course_banner': f'{base_path}/Course_Banner/Muscle_Building_Course_Banner.jpg',
             'faqs': [
                 {

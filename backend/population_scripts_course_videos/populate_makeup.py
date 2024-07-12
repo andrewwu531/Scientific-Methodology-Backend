@@ -17,10 +17,10 @@ base_path = 'Makeup'
 def populate_course_makeup():
 
     data = {
-        'Estee Lauder': {
-            'course_url': 'makeup',
-            'course_category': Course.Course_Category.ALL,
-            'course_title': 'The Estee Lauder Makeup Course',
+        'Marc Jacobs': {
+            'course_url': 'marc_jacobs',
+            'course_category': Course.Course_Category.HWF,
+            'course_title': 'The Estee Lauder Fashion Design Course',
             'course_banner': f'{base_path}/Course_Banner/Muscle_Building_Course_Banner.jpg',
             'faqs': [
                 {

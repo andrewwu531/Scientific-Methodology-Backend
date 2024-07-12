@@ -17,10 +17,10 @@ base_path = 'Football'
 def populate_course_football():
 
     data = {
-        'Lionel Messi': {
-            'course_url': 'football',
-            'course_category': Course.Course_Category.ALL,
-            'course_title': 'The Lionel Messi Football Course',
+        'Wayne Gretzky': {
+            'course_url': 'wayne_gretzky',
+            'course_category': Course.Course_Category.SA,
+            'course_title': 'The Professional Football Course',
             'course_banner': f'{base_path}/Course_Banner/Muscle_Building_Course_Banner.jpg',
             'faqs': [
                 {

@@ -17,10 +17,10 @@ base_path = 'Accents'
 def populate_course_accents():
 
     data = {
-        'Natalia Forrest': {
-            'course_url': 'accents',
-            'course_category': Course.Course_Category.ALL,
-            'course_title': 'Unlock your full potential through confident speaking',
+        'José Andrés': {
+            'course_url': 'josé_andrés',
+            'course_category': Course.Course_Category.FD,
+            'course_title': 'Exploring Spanish Cuisine with José Andrés',
             'course_banner': f'{base_path}/Course_Banner/Muscle_Building_Course_Banner.jpg',
             'faqs': [
                 {

@@ -17,6 +17,20 @@ export default function LandingPageSummary() {
   const [courseBanners, setCourseBanners] = useState([]);
   const containerRef = useRef(null);
 
+  const categories = [
+    { name: "Academics", icon: "🎓" },
+    { name: "English Language", icon: "📚" },
+    { name: "Sports", icon: "🏅" },
+    { name: "Business English", icon: "📝" },
+    { name: "Professional Knowledge", icon: "🔬" },
+    { name: "Film, TV & Comedy", icon: "🎬" },
+    { name: "Health & Wellness", icon: "😊" },
+    { name: "Community & Government", icon: "🏛️" },
+    { name: "Food & Drink", icon: "🍽️" },
+    { name: "Hair, Beauty & Fashion", icon: "🕶️" },
+    { name: "Entrepreneurship & Investing", icon: "💼" },
+  ];
+
   useEffect(() => {
     const banners = [
       landingImage0,
@@ -63,22 +77,30 @@ export default function LandingPageSummary() {
   const secondColumnBanners = courseBanners.slice(6, 12);
 
   return (
-    <div className="flex pt-[12vh] px-[6vw] h-screen bg-black">
+    <div className="flex pt-[8vh] px-[6vw] h-screen bg-black">
       <div className="flex flex-row">
-        <div className="flex flex-col pt-[7vh] w-[30vw] pl-16">
-          <div className="z-40 w-3/4 pb-5 text-5xl font-bold text-neutral-200">
-            Expert-Led Programmes Designed to Beat Traditional Learning
+        <div className="flex flex-col pt-[9vh] w-[42vw]">
+          <div className="z-40 w-1/2 text-5xl font-bold text-neutral-200">
+            Independent Education
           </div>
-          <div className="z-40 w-3/4 text-xl mt-[3vh] text-neutral-300">
+          {/* <div className="z-40 w-3/4 text-xl mt-[2vh] text-neutral-300">
             Invest In Your Personal Growth Through Our Network of World-Renowned
-            Mentors
+            Experts in:
+          </div> */}
+          <div className="grid grid-cols-2 mt-[4vh] gap-y-2 gap-x-3 mr-[5vw]">
+            {categories.map((category) => (
+              <button
+                key={category.name}
+                className="flex items-center text-md justify-start w-full h-[9vh] pl-4 rounded-lg bg-neutral-950 text-neutral-200 hover:bg-neutral-800"
+              >
+                <span className="mr-3 ">{category.icon}</span>
+                {category.name}
+              </button>
+            ))}
           </div>
-          <button className="mt-12 w-[14vw] px-12 py-3 text-md font-bold text-yellow-500 border border-yellow-500 rounded-lg hover:bg-yellow-500 hover:text-black">
-            Explore Library
-          </button>
         </div>
 
-        <div className="z-10 w-[55vw] h-full overflow-hidden pl-12">
+        <div className="z-10 w-[43vw] h-full overflow-hidden">
           <div className="relative w-full h-full">
             {/* Scrolling Content */}
             <div

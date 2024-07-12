@@ -21,11 +21,12 @@ def populate_course_martial_arts():
     essays_directory = 'video_essays_docs/Martial_Arts'
 
     data = {
-        'Martial Arts': {
-            'course_url': 'martial_arts',
-            'course_category': Course.Course_Category.SE,
-            'course_title': 'The Black Belt Path by Mike Tyson',
+        'Simone Biles': {
+            'course_url': 'simone_biles',
+            'course_category': Course.Course_Category.SA,
+            'course_title': 'The Black Belt Roadmap',
             'course_banner': 'Martial_Arts/Course_Banner/Muscle_Building_Course_Banner.jpg',
+            
             'videos': [
                 {
                     'video_title': 'Accents Qualifications & Professional Career',
