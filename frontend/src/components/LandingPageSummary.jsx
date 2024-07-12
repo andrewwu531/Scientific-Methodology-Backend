@@ -92,7 +92,7 @@ export default function LandingPageSummary() {
           <div className="z-40 ml-5 text-xl mt-[1.5vh] text-neutral-300">
             Top-Performing Outcome with Top-Performing Mentors
           </div>
-          <div className="grid grid-cols-2 mt-[6vh] gap-y-2 gap-x-3 mr-[5vw]">
+          <div className="grid grid-cols-2 mt-[5vh] gap-y-2 gap-x-3 mr-[5vw]">
             {categories.map((category) => (
               <button
                 key={category.name}

@@ -18,7 +18,7 @@ export default function NavbarDropdown() {
       <button
         id="multiLevelDropdownButton"
         onClick={toggleDropdown}
-        className="inline-flex items-center px-6 py-3 text-center rounded-lg text-neutral-200 bg-neutral-900 hover:bg-neutral-950 font-body text-md"
+        className="inline-flex items-center px-6 py-3 mt-1 text-center rounded-lg text-neutral-200 bg-neutral-900 hover:bg-neutral-950 font-body text-md"
         type="button"
       >
         Explore{" "}
