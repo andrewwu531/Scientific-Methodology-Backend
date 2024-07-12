@@ -63,7 +63,7 @@ export default function LandingPageSummary() {
   const secondColumnBanners = courseBanners.slice(6, 12);
 
   return (
-    <div className="flex pt-[12vh] px-[12vw] h-screen bg-black">
+    <div className="flex pt-[12vh] px-[6vw] h-screen bg-black">
       <div className="flex flex-row">
         <div className="flex flex-col pt-[7vh] w-[30vw] pl-16">
           <div className="z-40 w-3/4 pb-5 text-5xl font-bold text-neutral-200">
@@ -78,7 +78,7 @@ export default function LandingPageSummary() {
           </button>
         </div>
 
-        <div className="z-10 w-[40vw] h-full overflow-hidden pl-10">
+        <div className="z-10 w-[55vw] h-full overflow-hidden pl-12">
           <div className="relative w-full h-full">
             {/* Scrolling Content */}
             <div
