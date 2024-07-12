@@ -1,110 +1,93 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import landingImage from "../static/images/landing_bg.png";
+import landingImage2 from "../static/images/login.png";
 
 export default function LandingPageSummary() {
-  const [courseBanners, setCourseBanners] = useState([]);
   const containerRef = useRef(null);
-  const backendURL = "http://localhost:8000";
-
-  useEffect(() => {
-    fetch(`${backendURL}/api/courses/`)
-      .then((response) => response.json())
-      .then((data) => {
-        const banners = data.map((course) => course.course_banner);
-        setCourseBanners(banners);
-      })
-      .catch((error) => console.error("Error fetching course data:", error));
-  }, []);
 
   useEffect(() => {
     const container = containerRef.current;
     let pos = 0;
-    const speedLeft = 0.8;
-    const speedRight = 1.5;
+    const speed = 1.1;
+    const imgHeight = 2000; // Adjust based on the actual height of the image
 
     const moveContainer = () => {
-      const leftColumn = container.querySelector(".left-column");
-      const rightColumn = container.querySelector(".right-column");
+      if (container) {
+        const column = container.querySelector(".column");
 
-      if (pos > leftColumn.scrollHeight / 2) {
-        pos = 0;
+        if (column) {
+          pos += speed;
+
+          if (pos >= imgHeight) {
+            // Reset position to create a seamless loop
+            pos = 0;
+            column.appendChild(column.firstElementChild);
+            column.style.transform = `translateY(0px)`;
+          } else {
+            column.style.transform = `translateY(-${pos}px)`;
+          }
+        }
+
+        requestAnimationFrame(moveContainer);
       }
-      pos += 1;
-
-      leftColumn.style.transform = `translateY(-${pos * speedLeft}px)`;
-      rightColumn.style.transform = `translateY(-${pos * speedRight}px)`;
-
-      requestAnimationFrame(moveContainer);
     };
 
     moveContainer();
-  }, [courseBanners]);
+  }, []);
 
-  const firstColumnBanners = courseBanners.slice(0, 5);
-  const secondColumnBanners = courseBanners.slice(5, 10);
+  // Create a list of image elements to fill the column
+  const images = [];
+  for (let i = 0; i < 10; i++) {
+    images.push(
+      <img
+        key={i}
+        src={landingImage2}
+        alt={`Course Banner ${i}`}
+        className="w-[33vw]"
+      />
+    );
+  }
 
   return (
-    <div className="flex pt-[12vh] px-[15vw] h-screen bg-black">
+    <div className="flex pt-[12vh] px-[18vw] h-screen bg-black">
       {/* Background Image */}
       <div
-        className="absolute top-52 z-20 w-[70vw] h-[100vh] bg-center bg-cover"
+        className="absolute top-40 z-20 w-[65vw] h-[100vh] bg-center bg-cover"
         style={{
           backgroundImage: `url(${landingImage})`,
           transform: "scale(0.5)",
           transformOrigin: "top left",
-          left: "-16vw",
+          left: "-13vw",
         }}
       ></div>
       <div className="flex flex-row">
-        <div className="flex flex-col pt-[10vh] w-[30vw] pl-10">
-          <div className="z-40 w-3/4 pb-5 text-5xl font-bold text-neutral-200">
+        <div className="flex flex-col pt-[14vh] w-[25vw] ml-12 mr-24">
+          <div className="z-40 pb-5 text-5xl font-bold text-neutral-200">
             Expert-Led Programmes Designed to Beat Traditional Learning
           </div>
-          <div className="z-40 w-3/4 text-xl mt-[4vh] text-neutral-300">
-            Invest In Your Personal Growth Through Our Network of World-Class
+          <div className="z-40 text-xl mt-[4vh] text-neutral-300">
+            Invest In Your Personal Growth Through Our Network of World-Renowned
             Mentors
           </div>
-          <button className="mt-[6vh] w-[12vw] px-6 py-3 text-md font-bold text-black bg-yellow-500 rounded-lg hover:scale-105">
+          {/* <button className="mt-[6vh] w-[12vw] px-6 py-3 text-md font-bold text-black bg-yellow-500 rounded-lg hover:scale-105">
+            Explore Library
+          </button> */}
+          {/* <button className="mt-[6vh] w-[12vw] px-6 py-3 text-md font-bold text-white bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 rounded-lg hover:scale-105">
+            Explore Library
+          </button> */}
+          <button className="mt-[6vh] w-[12vw] px-6 py-3 text-md font-bold  text-yellow-500 border border-yellow-500 rounded-lg hover:bg-yellow-500 hover:text-black">
             Explore Library
           </button>
         </div>
 
         <div className="z-10 w-[40vw] h-full overflow-hidden">
           <div className="relative w-full h-full">
-            {/* Scrolling Content */}
             <div
               ref={containerRef}
-              className="absolute flex flex-col space-x-5 animate-scroll"
+              className="absolute flex flex-col animate-scroll"
               style={{ transform: "translateY(0px)" }}
             >
-              <div className="flex space-x-5">
-                <div className="flex flex-col space-y-4 left-column">
-                  {firstColumnBanners
-                    .concat(firstColumnBanners)
-                    .map((banner, index) => (
-                      <img
-                        key={index}
-                        src={`${backendURL}${banner}`}
-                        alt={`Course Banner ${index}`}
-                        className="w-[28vw] rounded-lg"
-                        style={{ marginBottom: "7px" }}
-                      />
-                    ))}
-                </div>
-                <div className="flex flex-col space-y-4 right-column">
-                  {secondColumnBanners
-                    .concat(secondColumnBanners)
-                    .map((banner, index) => (
-                      <img
-                        key={index}
-                        src={`${backendURL}${banner}`}
-                        alt={`Course Banner ${index}`}
-                        className="w-[28vw] rounded-lg"
-                        style={{ marginBottom: "7px" }}
-                      />
-                    ))}
-                </div>
-              </div>
+              <div className="flex flex-col column">{images}</div>
             </div>
 
             {/* Top Gradient Overlay */}

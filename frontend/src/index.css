@@ -131,3 +131,11 @@
   );
   pointer-events: none;
 }
+
+.neon-effect {
+  box-shadow:
+    0 0 5px yellow,
+    0 0 10px yellow,
+    0 0 15px yellow,
+    0 0 20px yellow;
+}
