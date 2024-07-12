@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-import landingImage from "../static/images/landing_bg.png";
 import landingImage0 from "../static/images/landing0.jpg";
 import landingImage1 from "../static/images/landing1.jpg";
 import landingImage2 from "../static/images/landing2.jpg";
@@ -12,6 +11,7 @@ import landingImage8 from "../static/images/landing8.jpg";
 import landingImage9 from "../static/images/landing9.jpg";
 import landingImage10 from "../static/images/landing10.jpg";
 import landingImage11 from "../static/images/landing11.jpg";
+import logo from "../static/images/logo111.jpg";
 
 export default function LandingPageSummary() {
   const [courseBanners, setCourseBanners] = useState([]);
@@ -77,16 +77,22 @@ export default function LandingPageSummary() {
   const secondColumnBanners = courseBanners.slice(6, 12);
 
   return (
-    <div className="flex pt-[5vh] px-[6vw] h-screen bg-black">
+    <div className="flex px-[6vw] h-screen bg-black">
       <div className="flex flex-row">
-        <div className="flex flex-col pt-[9vh] w-[42vw]">
-          <div className="z-40 w-1/2 text-5xl font-bold text-neutral-200">
-            Independent Education
+        <div className="flex flex-col pt-[10vh] w-[45vw]">
+          <div className="flex flex-row space-x-7">
+            <img src={logo} alt={"logo"} className="w-32 h-32" />
+            <p
+              className="w-1/2 mt-3 text-5xl font-bold text-neutral-200"
+              style={{ lineHeight: 1.1 }}
+            >
+              Independent Education
+            </p>
           </div>
-          <div className="z-40 w-1/2 text-xl mt-[2vh] text-neutral-300">
+          <div className="z-40 ml-5 text-xl mt-[1.5vh] text-neutral-300">
             Top-Performing Outcome with Top-Performing Mentors
           </div>
-          <div className="grid grid-cols-2 mt-[4vh] gap-y-2 gap-x-3 mr-[5vw]">
+          <div className="grid grid-cols-2 mt-[6vh] gap-y-2 gap-x-3 mr-[5vw]">
             {categories.map((category) => (
               <button
                 key={category.name}
@@ -99,7 +105,7 @@ export default function LandingPageSummary() {
           </div>
         </div>
 
-        <div className="z-10 w-[43vw] h-full overflow-hidden">
+        <div className="z-10 w-[40vw] h-[90vh] overflow-hidden mt-20">
           <div className="relative w-full h-full">
             {/* Scrolling Content */}
             <div

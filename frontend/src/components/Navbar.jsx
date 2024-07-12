@@ -36,12 +36,12 @@ export default function NavBar({ setShowLogin, isLoggedIn, setIsLoggedIn }) {
   };
 
   return (
-    <nav className=" flex justify-between h-[10vh] fixed top-0 left-0 z-50 w-full bg-black shadow-lg">
+    <nav className=" flex justify-end space-x-5 h-[11vh] fixed top-0 left-0 z-50 w-full bg-black shadow-lg">
       <div className="flex flex-row justify-start pt-4">
         {/* <div className="flex flex-col pt-3 pl-24 text-xl font-bold text-neutral-200">
           Mentorship
         </div> */}
-        <div className="pl-[5vw] pt-0.5">
+        <div className="pt-0.5">
           <NavbarDropdown />
         </div>
       </div>
@@ -69,10 +69,23 @@ export default function NavBar({ setShowLogin, isLoggedIn, setIsLoggedIn }) {
           ) : (
             <button
               onClick={handleClick}
-              className=" mt-2 w-[12vw] px-6 py-3 text-md font-bold  text-yellow-500 border border-yellow-500 rounded-lg hover:bg-yellow-500 hover:text-black"
+              className="relative mt-1 w-[12vw] px-6 py-3 text-md font-bold text-neutral-300 bg-black rounded-lg overflow-hidden"
             >
-              Register/ Log In
+              <span className="relative z-10">Register/ Log In</span>
+              <div
+                className="absolute inset-0 rounded-lg"
+                style={{
+                  background: "linear-gradient(to right, #DFFF00, #ADD8E6)", // Smooth gradient from yellow-green to light blue
+                }}
+              ></div>
+              <div className="absolute inset-0 bg-black rounded-lg m-[1px]"></div>
             </button>
+            // <button
+            //   onClick={handleClick}
+            //   className=" mt-2 w-[12vw] px-6 py-3 text-md font-bold  text-green-500 border border-green-500 rounded-lg hover:bg-yellow-500 hover:text-black"
+            // >
+            //   Register/ Log In
+            // </button>
           )}
         </li>
       </ul>

@@ -21,7 +21,7 @@ export default function NavbarDropdown() {
         className="inline-flex items-center px-6 py-3 text-center rounded-lg text-neutral-200 bg-neutral-900 hover:bg-neutral-950 font-body text-md"
         type="button"
       >
-        Discover{" "}
+        Explore{" "}
         <svg
           className="w-2.5 h-2.5 ms-3"
           aria-hidden="true"

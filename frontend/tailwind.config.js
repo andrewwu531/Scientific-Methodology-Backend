@@ -26,6 +26,8 @@ export default {
         "btn-3": "#154734",
         "btn-4": "#4169E1",
         "btn-5": "#333333",
+        "light-yellow-green": "#DFFF00",
+        "light-blue": "#ADD8E6",
       },
       fontFamily: {
         sans: ["Inter", "sans-serif"],
