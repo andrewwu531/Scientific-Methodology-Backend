@@ -29,10 +29,12 @@ const CoursesSection = () => {
   }, []);
 
   return (
-    <div className="flex mt-[20vh] ml-[6vw]">
-      <div className="w-1/4 p-4 text-white bg-black">
-        <h2 className="text-red-500">All</h2>
-        <ul className="mt-4 text-xl">
+    <div className="flex mt-[5vh] mx-[10vw]">
+      <div className="text-white bg-black ">
+        <h2 className="mt-4 font-sans text-lg font-bold text-yellow-400">
+          All Programmes
+        </h2>
+        <ul className="mt-2 font-sans text-lg font-bold text-neutral-200">
           {categories.map((category) => (
             <li key={category.name} className="mt-3">
               {category.name}
@@ -40,7 +42,7 @@ const CoursesSection = () => {
           ))}
         </ul>
       </div>
-      <div className="grid grid-cols-3 gap-x-4 gap-y-4">
+      <div className="grid grid-cols-3 gap-x-4 gap-y-4 ml-[3vw]">
         {courses.map((course) => {
           return (
             <div

@@ -4,6 +4,7 @@ import CourseCarousel1 from "../components/CourseCarousel1";
 import LoginSection from "../components/LoginSection";
 import LandingPageSummary from "../components/LandingPageSummary";
 import CoursesSection from "../components/CoursesSection";
+import LandingPageMission from "../components/LandingPageMission";
 
 export default function Root() {
   const [showLogin, setShowLogin] = useState(false); // State for showing login section
@@ -18,6 +19,8 @@ export default function Root() {
       />
 
       <LandingPageSummary />
+
+      <LandingPageMission />
 
       <CoursesSection />
 
