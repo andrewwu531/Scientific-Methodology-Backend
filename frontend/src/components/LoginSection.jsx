@@ -103,17 +103,17 @@ export default function LoginSection({ setShowLogin, setIsLoggedIn }) {
     <div
       ref={overlayRef}
       id="login-overlay"
-      className="overlay pt-[7%]"
+      className="overlay pt-[10vh]"
       onClick={handleOverlayClick}
     >
       <div
-        className={`login-container flex flex-row h-[70vh] w-[47rem] rounded-xl bg-neutral-900 ${isHidden ? "hidden" : ""}`}
+        className={`login-container flex flex-row h-[80vh] w-[70rem] rounded-lg bg-neutral-950 ${isHidden ? "hidden" : ""}`}
       >
         <div>
           <img
             src={loginImage}
             alt="Login"
-            className="rounded-l-xl h-[70vh] w-[24rem]"
+            className="rounded-l-lg h-full w-[30vw]"
           />
         </div>
 
@@ -131,7 +131,7 @@ export default function LoginSection({ setShowLogin, setIsLoggedIn }) {
                 id="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-[16rem] px-3.5 py-2.5 text-sm rounded focus:outline-none focus:ring-0"
+                className="w-[16rem] px-3.5 py-2.5 text-sm rounded focus:outline-none focus:ring-0 bg-neutral-950"
                 required
               />
             </div>
@@ -156,7 +156,7 @@ export default function LoginSection({ setShowLogin, setIsLoggedIn }) {
                   id="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="w-[16rem] px-3.5 py-2.5 text-sm rounded focus:outline-none focus:ring-0"
+                  className="w-[16rem] px-3.5 py-2.5 text-sm rounded focus:outline-none focus:ring-0 bg-neutral-950"
                   required
                 />
               </div>

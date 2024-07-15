@@ -96,7 +96,7 @@ export default function LandingPageSummary() {
             {categories.map((category) => (
               <button
                 key={category.name}
-                className="flex items-center text-md justify-start w-full h-[9vh] pl-4 rounded-lg bg-neutral-950 text-neutral-200 hover:bg-neutral-800"
+                className="flex items-center text-md justify-start w-full h-[9vh] pl-4 rounded-xl bg-neutral-950 text-neutral-200 hover:bg-neutral-800"
               >
                 <span className="mr-3">{category.icon}</span>
                 <div className="text-md">{category.name}</div>

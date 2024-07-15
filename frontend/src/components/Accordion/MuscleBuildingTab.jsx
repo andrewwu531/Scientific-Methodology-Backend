@@ -91,7 +91,7 @@ export default function NutritionCourseAccordion() {
           >
             <AccordionHeader
               onClick={() => handleOpen(pk)}
-              className="space-x-12 font-bold no-underline border-none px-7 text-md text-neutral-300 bg-neutral-950"
+              className="px-10 py-4 font-bold no-underline border-none text-md text-neutral-300 bg-neutral-950"
             >
               {title}
             </AccordionHeader>
