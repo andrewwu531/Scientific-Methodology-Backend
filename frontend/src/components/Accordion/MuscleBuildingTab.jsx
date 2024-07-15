@@ -1,178 +1,118 @@
 import React from "react";
 import {
-  Tabs,
-  TabsHeader,
-  TabsBody,
-  Tab,
-  TabPanel,
+  Accordion,
+  AccordionHeader,
+  AccordionBody,
   Button,
 } from "@material-tailwind/react";
+import PropTypes from "prop-types";
+import RegisterButton from "../Buttons/RegisterButton";
+import { routes } from "../../shared/routes";
 
-export default function UnderlineTabs() {
-  const [activeTab, setActiveTab] = React.useState(
-    "programme 1: Nutrition & Weightlifting"
+function Icon({ id, open }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      strokeWidth={2}
+      stroke="currentColor"
+      className={`${id === open ? "rotate-180" : ""} h-5 w-5 transition-transform`}
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+      />
+    </svg>
   );
+}
+
+export default function NutritionCourseAccordion() {
+  const [open, setOpen] = React.useState(0);
+
+  const handleOpen = (value) => setOpen(open === value ? 0 : value);
+
   const data = [
     {
-      label: "Programme 1: Nutrition & Weightlifting",
-      value: "programme 1: Nutrition & Weightlifting",
-      url: "/weightlifting-course",
-      button: "Nutrition & Weightlifting",
-      descriptions: [
-        {
-          header: "Nutrition",
-          points: [
-            "1.1. Bodybuilding is 80% dieting & 20% workout",
-            "1.2. Why the medium calories, high protein, medium carbohydrate & low fat diet",
-            "1.3. Calculating your personalised recommended calories, protein, carbohydrate & fat intake",
-            "1.4. The importance of food choices (meat, pasta, sauce, vegs, oil... )",
-            "1.5. Carb cycling & the front heavy approach dieting",
-            "1.6. Practical recipes & cooking appliances",
-          ],
-        },
-        // {
-        //   header: "Weightlifting",
-        //   points: [
-        //     "2.1. Muscle Types & Training Methods",
-        //     "2.2. Weightlifting Techniques",
-        //     "2.3. A Practical Gym Session",
-        //     "2.4. HIIT & Calisthenics & Plyometric",
-        //   ],
-        // },
-      ],
+      title: "Q1 - Qualifications & Experience",
+      contentType: "text",
+      content:
+        "With a 1st class masters degree in Biology at the University of Glasgow, I possessed the theoretical background in sport nutrition and mechanisms. \
+         Throughout my 10 year professional career, I have trained over 10k bodybuilders and athletics to achieve optimal sport performance.",
+      pk: "1",
     },
     {
-      label: "Programme 2: 100+ Topic-Based Journals with Videos",
-      value: "programme 2: 100+ Topic-Based Journals with Videos",
-      url: "/english-course",
-      button: "English Language",
-      descriptions: [
-        {
-          header: "Social Knowledge Accelerator",
-          points: [
-            "1.1. Why writing life journals & summaries are important to improve your social English",
-            "1.2. The 100+ journals & summaries with analysis",
-            "1.3. Topics that we cover (life experience, travel, comedy, TV & films, facts...)",
-            "1.4. Speak confidently and natively with momentum through our expert articles and speaking programme",
-            "1.5. Introducing our proofreading service",
-          ],
-        },
-      ],
+      title: "Q2 - Before & After Bodybuilding Transformation",
+      contentType: "text",
+      content: "Hi",
+      pk: "2",
     },
     {
-      label: "Programme 3: The English Pronunciation & Speaking Course",
-      value: "programme 3: The English Pronunciation & Speaking Course",
-      url: "/english-course",
-      button: "English Language",
-      descriptions: [
-        {
-          header: "The English Speaking Course",
-          points: [
-            "1.1. The standard English pronunciation course",
-            "1.2. Speaking style and patterns",
-            "1.3. Acquiring the confident voice through positive psychology",
-            "1.4. Positive body language & expressions",
-          ],
-        },
-      ],
+      title: "Q3 - How Easy Is The Diet?",
+      contentType: "text",
+      content: "It is very easy!",
+      pk: "3",
     },
-    // {
-    //   label: "Programme 4: The English Writing Course",
-    //   value: "programme 4: The English Writing Course",
-    //   url: "/english-course",
-    //   button: "English Language",
-    //   descriptions: [
-    //     {
-    //       header: "The English Writing Course",
-    //       points: [
-    //         "1.1. Why emotional tapping & sense of humour important",
-    //         "1.2. Comedy writing principles",
-    //         "1.3. Storytelling principles",
-    //         "1.4. 40+ word-by-word comedy show scripts with analysis",
-    //       ],
-    //     },
-    //   ],
-    // },
-    // {
-    //   label: "Programme 5: The Mastermind Psychology Course",
-    //   value: "programme 5: The Mastermind Psychology Course",
-    //   url: "/english-course",
-    //   button: "English Language",
-    //   descriptions: [
-    //     {
-    //       header: "Nurture Your Mind",
-    //       points: [
-    //         "1.1. Positive mind",
-    //         "1.2. Positive habits",
-    //         "1.3. Positive personality & traits",
-    //         "1.4. Self-awareness",
-    //         "1.5. Positive way of thinking",
-    //       ],
-    //     },
-    //   ],
-    // },
+    {
+      title:
+        "Q4 - How This Programme Stands Out From The Other Leading Courses?",
+      contentType: "text",
+      content: "",
+      pk: "4",
+    },
+    {
+      title: "Q5 - Social Media",
+      contentType: "text",
+      content: "Good",
+      pk: "5",
+    },
   ];
 
+  const renderContent = (contentType, content) => {
+    return (
+      <p className="mb-10 text-xl mt-7 mx-14 text-neutral-200">{content}</p>
+    );
+  };
+
   return (
-    <div className="bg-gray-150">
-      <div
-        className="flex items-start justify-center mx-auto xl:max-w-6xl lg:max-w-5xl"
-        style={{ marginTop: "15vh", marginBottom: "7vh" }}
-      >
-        <Tabs value={activeTab}>
-          <TabsHeader
-            className="bg-transparent border-b rounded-none border-blue-gray-50"
-            indicatorProps={{
-              className:
-                "bg-transparent border-b-2 border-gray-700 h-20 shadow-none rounded-none top-3",
-            }}
-          >
-            {data.map(({ label, value }) => (
-              <Tab
-                key={value}
-                value={value}
-                onClick={() => setActiveTab(value)}
-                className={activeTab === value ? "text-gray-900" : ""}
-              >
-                <div className="font-medium">{label}</div>
-              </Tab>
-            ))}
-          </TabsHeader>
-
-          <TabsBody>
-            {data.map(({ value, descriptions, button }) => (
-              <TabPanel key={value} value={value}>
-                {descriptions.map((description, index) => (
-                  <div className="ml-10" key={index}>
-                    <h3 className="py-10 font-semibold text-black pb-30">
-                      {description.header}
-                    </h3>
-                    {description.points.map((point, pointIndex) => (
-                      <li className="mb-3 ml-8 font-normal" key={pointIndex}>
-                        {point}
-                      </li>
-                    ))}
-                  </div>
-                ))}
-
-                <div
-                  className="flex items-center justify-center"
-                  style={{ paddingTop: "6vh" }}
-                >
-                  <Button
-                    size="lg"
-                    color="white"
-                    className="flex items-center justify-center gap-4 px-10 py-4"
-                  >
-                    <div>Check out our {button} course </div>
-                    <div> {">>>"} </div>
-                  </Button>
-                </div>
-              </TabPanel>
-            ))}
-          </TabsBody>
-        </Tabs>
+    <div className="flex flex-col items-center justify-center mx-auto bg-black">
+      <div className="flex justify-center pt-7 text-4xl font-bold text-center text-neutral-200 mb-[5vh]">
+        Frequently Asked Questions
       </div>
+
+      <div style={{ width: "55vw" }}>
+        {data.map(({ title, content, contentType, pk }) => (
+          <Accordion
+            key={title}
+            value={title}
+            open={open === pk}
+            icon={<Icon id={pk} open={pk} />}
+            className="mb-4 bg-black"
+          >
+            <AccordionHeader
+              onClick={() => handleOpen(pk)}
+              className="space-x-12 font-bold no-underline border-none px-7 text-md text-neutral-300 bg-neutral-950"
+            >
+              {title}
+            </AccordionHeader>
+            <AccordionBody>{renderContent(contentType, content)}</AccordionBody>
+          </Accordion>
+        ))}
+      </div>
+
+      {/* <div className="mt-[6vh]">
+        <button
+          href={routes.LOGIN}
+          className="px-10 py-3.5 font-sans text-lg font-bold text-black bg-yellow-500 rounded-lg"
+        >
+          Register/ Log In
+        </button>{" "}
+      </div> */}
     </div>
   );
 }
+
+Icon.propTypes = {
+  id: PropTypes.string.isRequired,
+  open: PropTypes.string.isRequired,
+};

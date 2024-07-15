@@ -30,32 +30,32 @@ const CoursesSection = () => {
 
   return (
     <div className="flex mt-[5vh] mx-[10vw]">
-      <div className="text-white bg-black ">
-        <h2 className="mt-4 font-sans text-lg font-bold text-yellow-400">
-          All Programmes
-        </h2>
-        <ul className="mt-2 font-sans text-lg font-bold text-neutral-200">
-          {categories.map((category) => (
-            <li key={category.name} className="mt-3">
-              {category.name}
-            </li>
-          ))}
-        </ul>
-      </div>
       <div className="grid grid-cols-3 gap-x-4 gap-y-4 ml-[3vw]">
         {courses.map((course) => {
           return (
             <div
               key={course.id}
-              className="w-[19vw] h-[70vh] relative course-card overflow-hidden group "
+              className="w-full h-[60vh] relative course-card overflow-hidden group bg-neutral-950 rounded-lg shadow-lg"
             >
-              <div className="relative w-full h-full overflow-hidden rounded-lg">
+              <div className="relative w-full overflow-hidden rounded-t-lg h-2/3">
                 <img
                   src={`${backendURL}/static${course.course_banner}`}
                   alt={course.course_title}
-                  className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105 rounded-xl"
+                  className="object-cover object-top w-full h-full transition-transform duration-300 group-hover:scale-105"
                 />
-                {/* <div className="absolute top-0 left-0 w-full h-full bg-opacity-100 bg-gradient-to-b from-transparent via-transparent to-black"></div> */}
+              </div>
+              <div className="flex flex-col justify-between p-4 h-1/3">
+                <div>
+                  <h3 className="font-bold text-md text-neutral-100">
+                    {course.course_title}
+                  </h3>
+                </div>
+                <div className="flex items-center justify-between">
+                  <button className="underline text-neutral-200 hover:underline">
+                    View Details
+                  </button>
+                  <div className="flex space-x-2 ">{course.course_author}</div>
+                </div>
               </div>
             </div>
           );

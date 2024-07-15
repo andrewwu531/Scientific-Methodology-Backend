@@ -18,7 +18,7 @@ export default function LandingPageSummary() {
   const containerRef = useRef(null);
 
   const categories = [
-    { name: "Academics", icon: "🎓" },
+    { name: "Academic Excellence", icon: "🎓" },
     { name: "English Language", icon: "📚" },
     { name: "Business English", icon: "📝" },
     { name: "General Knowledge", icon: "🎬" },
@@ -98,8 +98,8 @@ export default function LandingPageSummary() {
                 key={category.name}
                 className="flex items-center text-md justify-start w-full h-[9vh] pl-4 rounded-lg bg-neutral-950 text-neutral-200 hover:bg-neutral-800"
               >
-                <span className="mr-3 ">{category.icon}</span>
-                {category.name}
+                <span className="mr-3">{category.icon}</span>
+                <div className="text-md">{category.name}</div>
               </button>
             ))}
           </div>

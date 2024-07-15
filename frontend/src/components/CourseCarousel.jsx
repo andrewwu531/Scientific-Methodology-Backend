@@ -1,54 +1,25 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const CourseCarousel = () => {
-  const [courses, setCourses] = useState([]);
-
-  const backendURL = "http://localhost:8000";
-
-  const fonts = [
-    { family: "'Times New Roman', serif", size: "2rem", weight: "bold" },
-    { family: "'Montserrat', sans-serif", size: "3rem" },
-    { family: "'Roboto Slab', serif", size: "2rem", weight: "bold" },
-    { family: "'Open Sans', sans-serif", size: "3rem" },
-    { family: "'Lato', sans-serif", size: "2rem", weight: "bold" },
-    { family: "'Merriweather', serif", size: "3rem" },
-    { family: "'Oswald', sans-serif", size: "2rem", weight: "bold" },
-    {
-      family: "'Source Sans Pro', sans-serif",
-      size: "2rem",
-      weight: "bold",
-    },
-    { family: "'Raleway', sans-serif", size: "2rem", weight: "bold" },
-    { family: "'Nunito', sans-serif", size: "3rem" },
-    { family: "'PT Serif', serif", size: "2rem", weight: "bold" },
-    { family: "'Quicksand', sans-serif", size: "3rem" },
-    { family: "'Crimson Text', serif", size: "2rem", weight: "bold" },
-    { family: "'Roboto', sans-serif", size: "3rem" },
-    { family: "'Poppins', sans-serif", size: "2rem", weight: "bold" },
-    { family: "'Arimo', sans-serif", size: "3rem" },
-    { family: "'Ubuntu', sans-serif", size: "2rem", weight: "bold" },
-    { family: "'Karla', sans-serif", size: "2rem", weight: "bold" },
-    { family: "'Droid Serif', serif", size: "2rem", weight: "bold" },
-    { family: "'Cabin', sans-serif", size: "3rem" },
-  ];
-
+export default function CourseCarousel() {
   const categories = [
     { name: "Trending Now", icon: "⭐" },
     { name: "Academic Excellence", icon: "🎓" },
-    { name: "English Language Learning", icon: "📚" },
-    { name: "Entrepreneurship & Investing", icon: "💼" },
-    { name: "Sports & Athletics", icon: "🏅" },
+    { name: "English Language", icon: "📚" },
     { name: "Business English", icon: "📝" },
-    { name: "Science & Technology", icon: "🔬" },
-    { name: "Film & TV", icon: "🎬" },
+    { name: "General Knowledge", icon: "🎬" },
+    { name: "Professional Knowledge", icon: "🔬" },
+    { name: "Sports", icon: "🏅" },
     { name: "Health & Wellness", icon: "😊" },
-    { name: "Community & Government", icon: "🏛️" },
     { name: "Food & Drink", icon: "🍽️" },
-    { name: "Music & Culture", icon: "🎵" },
-    { name: "Outdoor Adventures & Events", icon: "🏞️" },
-    { name: "Acting & Performing Arts", icon: "🎭" },
+    { name: "Hair, Beauty & Fashion", icon: "🕶️" },
+    { name: "CV & Interview Techniques", icon: "🏛️" },
+    { name: "Entrepreneurship & Investing", icon: "💼" },
   ];
+
+  const [courses, setCourses] = useState([]);
+
+  const backendURL = "http://localhost:8000";
 
   useEffect(() => {
     fetch(`${backendURL}/api/courses/`)
@@ -60,64 +31,53 @@ const CourseCarousel = () => {
   }, []);
 
   return (
-    <div className="flex flex-col w-full overflow-hidden mt-[10vh] bg-black pt-2 mb-10 relative px-[7vw]">
-      <div className="flex flex-wrap justify-center gap-3 mb-14">
-        {categories.map((category) => (
-          <button
-            key={category.name}
-            className="flex items-center px-4 py-2 rounded-lg bg-neutral-950 text-neutral-200 hover:bg-neutral-800 focus:outline-none focus:ring-2 focus:ring-yellow-600"
-          >
-            <span className="mr-2">{category.icon}</span>
-            {category.name}
-          </button>
-        ))}
+    <div>
+      <div className="flex flex-col w-full overflow-hidden mt-[4vh] bg-black relative px-[11vw]">
+        <div className="flex flex-wrap justify-center gap-3 mb-14">
+          {categories.map((category) => (
+            <button
+              key={category.name}
+              className="flex items-center py-3.5 rounded-xl px-10 bg-neutral-950 text-neutral-200 hover:bg-neutral-800 focus:outline-none focus:ring-2 focus:ring-yellow-600"
+            >
+              <span className="mr-2">{category.icon}</span>
+              {category.name}
+            </button>
+          ))}
+        </div>
       </div>
-      {/* <div className="mb-6 font-sans text-4xl">Trending Now</div> */}
-      <div className="grid grid-cols-1 px-[2vw] gap-x-3.5 gap-y-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+      <div className="grid grid-cols-3 px-[10vw] gap-x-5 gap-y-10 mb-24">
         {courses.map((course) => {
           return (
             <div
               key={course.id}
-              className="w-full h-[52vh] relative course-card overflow-hidden group"
+              className="flex flex-col w-full h-[58vh] relative course-card overflow-hidden group"
             >
-              <div className="relative w-full h-full overflow-hidden rounded-lg ">
+              <div className="relative w-full h-full mb-4 overflow-hidden rounded-md">
                 <img
                   src={`${backendURL}/${course.course_banner}`}
                   alt={course.course_title}
-                  className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
+                  className="object-cover object-top w-full h-full transition-transform duration-300 group-hover:scale-105"
                 />
                 <div className="absolute top-0 left-0 w-full h-full bg-opacity-100 bg-gradient-to-b from-transparent via-transparent to-black"></div>
-                {/* <div className="absolute top-0 left-0 w-full h-full bg-opacity-100 bg-gradient-to-t from-transparent via-transparent to-black"></div> */}
-                {/* <div className="absolute bottom-0 w-full transition-opacity duration-300 opacity-0 h-1/2 bg-gradient-to-t from-black to-transparent group-hover:opacity-100">
-                  <div className="p-4 text-white">{course.additional_text}</div>
-                </div> */}
               </div>
-              {/* <div
-                className="absolute w-full pt-32 text-4xl text-center text-white transform translate-y-1/2 px-7 bottom-1/2"
-                style={{
-                  fontFamily: font.family,
-                  fontSize: font.size,
-                  fontWeight: font.weight,
-                }}
-              >
-                {course.course_author}
-              </div> */}
-              {/* <div className="absolute bottom-1/2 w-full h-0.5 bg-white"></div> */}
-              <div className="absolute bottom-0 w-full h-[8.5vh] mb-3 text-center text-neutral-200 text-base font-bold ">
-                {course.course_title}
+
+              <div className="flex flex-col">
+                <div className="pl-[1vw] flex justify-start bottom-0 w-full h-[12vh] mt-[2vh] text-neutral-200 text-lg font-bold ">
+                  {course.course_title}
+                </div>
+                <div className="flex flex-row items-center">
+                  <div className="w-full pl-[1vw] text-neutral-100 font-bold ">
+                    {course.course_author}
+                  </div>
+                  <button className="px-10 py-3 mx-2 text-lg text-black bg-yellow-500 rounded-full hover:bg-blue-800">
+                    ▶
+                  </button>
+                </div>
               </div>
-              {/* <div className="absolute bottom-0 w-full h-[5vh] mb-3 text-center text-white font-bold px-5">
-                {course.course_author}
-              </div> */}
             </div>
           );
         })}
       </div>
-      <button className="flex flex-2 items-center justify-center mt-[10vh] w-[12vw] px-6 py-3 text-md font-bold text-black bg-yellow-500 rounded-lg hover:scale-105">
-        Explore Library
-      </button>
     </div>
   );
-};
-
-export default CourseCarousel;
+}

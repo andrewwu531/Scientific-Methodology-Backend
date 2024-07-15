@@ -3,16 +3,16 @@ import FlatButton from "../Buttons/FlatButton";
 export default function FooterList({ title, links }) {
   return (
     <ul className="flex flex-col gap-2">
-      <li className="font-bold">{title}</li>
+      <li className="mb-2 text-xl font-bold">{title}</li>
 
       {links.map((link) => (
         <li key={link}>
-          <FlatButton
+          <button
             href="#"
-            className="text-neutral-400 hover:text-white hover:underline hover:underline-offset-1"
+            className="text-md focus:outline-white whitespace-nowrap text-neutral-300 hover:text-white hover:underline hover:underline-offset-1"
           >
             {link}
-          </FlatButton>
+          </button>
         </li>
       ))}
     </ul>

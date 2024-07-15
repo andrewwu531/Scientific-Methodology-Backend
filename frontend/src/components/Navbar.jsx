@@ -47,10 +47,10 @@ export default function NavBar({ setShowLogin, isLoggedIn, setIsLoggedIn }) {
   }, []);
 
   return (
-    <nav className="flex justify-between items-center h-[11vh] fixed top-0 left-0 z-50 w-full bg-black shadow-lg px-8">
-      <div className="flex items-center justify-start mt-2 space-x-1">
-        <img src={logo} alt="logo" className="w-10 h-10 mt-1 mr-2.5" />
-        <div className="flex flex-col mt-2 leading-tight text-md">
+    <nav className="flex justify-between items-center h-[12vh] left-0 w-full bg-black shadow-lg px-8">
+      <div className="flex items-center justify-start mt-1 space-x-1">
+        <img src={logo} alt="logo" className="w-10 h-10  mr-2.5" />
+        <div className="flex flex-col leading-tight text-md">
           <div>Independent</div>
           <div>Education</div>
         </div>

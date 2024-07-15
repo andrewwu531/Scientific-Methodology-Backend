@@ -5,21 +5,27 @@ import {
   faFacebook,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
-// import FooterList from "./FooterList";
+import FooterList from "./FooterList";
 
-// const companyLinks = ["About", "Jobs", "For the record"];
+const companyLinks = ["Mission", "Legal", "Privacy"];
 
-// const communityLinks = ["Advertising", "Investors", "Vendors"];
+const communityLinks = [
+  "For Artists",
+  "Developers",
+  "Advertising",
+  "Investors",
+  "Vendors",
+];
 
-// const usefulLinks = ["Support", "Free Mobile App"];
+const usefulLinks = ["Support", "Free Mobile App"];
 
 const socialIcons = [faInstagram, faTwitter, faFacebook];
 
 export default function Footer() {
   return (
-    <footer className="flex flex-col px-12 pt-5 pb-12 gap-7 bg-neutral-900">
-      <p className="flex justify-end pr-5 text-md text-neutral-400">
-        &copy; &nbsp;2024 &nbsp;M
+    <footer className="flex flex-col mb-12 mt-16 gap-9 mx-[12vw]">
+      <p className="flex justify-end pr-5 text-md text-neutral-300">
+        &copy; 2024
       </p>
     </footer>
   );
