@@ -107,13 +107,13 @@ export default function LoginSection({ setShowLogin, setIsLoggedIn }) {
       onClick={handleOverlayClick}
     >
       <div
-        className={`login-container flex flex-row h-[80vh] w-[70rem] rounded-lg bg-neutral-950 ${isHidden ? "hidden" : ""}`}
+        className={`login-container flex flex-row h-[80vh] w-[55rem] rounded-lg bg-neutral-950 ${isHidden ? "hidden" : ""}`}
       >
         <div>
           <img
             src={loginImage}
             alt="Login"
-            className="rounded-l-lg h-full w-[30vw]"
+            className="rounded-l-lg h-full w-[27.5vw]"
           />
         </div>
 
@@ -131,7 +131,7 @@ export default function LoginSection({ setShowLogin, setIsLoggedIn }) {
                 id="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-[16rem] px-3.5 py-2.5 text-sm rounded focus:outline-none focus:ring-0 bg-neutral-950"
+                className="w-[16rem] px-3.5 py-2.5 text-sm rounded focus:outline-none focus:ring-0 focus:bg-neutral-950 bg-neutral-950"
                 required
               />
             </div>
@@ -161,7 +161,7 @@ export default function LoginSection({ setShowLogin, setIsLoggedIn }) {
                 />
               </div>
             )}
-            <div className="flex flex-col items-center pt-2">
+            <div className="flex flex-col items-center pt-6">
               <button
                 type="submit"
                 className="w-[12rem] py-2.5 text-base font-bold text-black bg-yellow-400 rounded-xl hover:scale-105"
