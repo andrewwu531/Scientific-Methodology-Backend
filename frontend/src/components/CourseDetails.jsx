@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import NavBar from "../components/Navbar";
@@ -70,11 +70,11 @@ export default function CourseDetail() {
       <div className="fixed top-0 z-30 w-full ">
         <NavBar />
       </div>
-      <div className="flex flex-col pt-[13.5vh] pb-[8vh]">
-        <div className="relative flex justify-center w-full mb-4">
+      <div className="flex flex-col pt-[11vh] pb-[8vh]">
+        <div className="relative flex justify-center w-full">
           <div className="absolute left-0 z-50 w-full h-full bg-opacity-100 top-5 bg-gradient-to-b from-transparent via-transparent to-black"></div>
 
-          <div className="relative z-10 w-[24vw] h-[70vh] overflow-hidden">
+          <div className="relative z-10 w-[24vw] h-[65vh] overflow-hidden">
             <img
               src={`${backendURL}/${course.course_banner}`}
               alt={course.course_title}
@@ -89,7 +89,7 @@ export default function CourseDetail() {
             />
           </div>
           <div
-            className="relative z-10 w-[24vw] h-[70vh] overflow-hidden"
+            className="relative z-10 w-[24vw] h-[65vh] overflow-hidden"
             style={{ marginLeft: "-1vw" }}
           >
             <img
@@ -100,22 +100,26 @@ export default function CourseDetail() {
           </div>
         </div>
 
-        <div className="flex justify-center w-full px-[10vw]">
+        <div className="flex justify-center">
           <div className="flex flex-col space-y-2 w-[20vw] text-center text-neutral-200">
-            <h2 className="mb-8 text-3xl font-bold">{course.course_title}</h2>
-            <p className="font-bold text-md pb-[1vh] ">
-              {course.course_author}
-            </p>
-            <button className="py-2 text-xl text-black bg-purple-800 rounded-3xl">
-              ▶
-            </button>
+            <h2 className="z-50 mb-8 text-3xl font-bold">
+              {course.course_title}
+            </h2>
+            <div className="flex flex-row items-center justify-between pl-3">
+              <p className="font-bold text-md pt-2 pb-[1vh]">
+                {course.course_author}
+              </p>
+              <button className="py-2 text-xl text-black bg-purple-800 px-11 rounded-3xl">
+                ▶
+              </button>
+            </div>
           </div>
         </div>
 
         <div className="mx-[18vw] mt-[12vh]">
           {Object.keys(seriesGroupedVideos).map((seriesName, index) => (
             <div key={seriesName} className="mb-14">
-              <h3 className="flex items-center justify-center mb-4 text-2xl font-bold text-neutral-200">
+              <h3 className="flex items-center justify-center mb-5 text-2xl font-bold text-neutral-200">
                 Series {index + 1}: {seriesName}
               </h3>
               {seriesGroupedVideos[seriesName].map((video) => (
