@@ -74,6 +74,14 @@
   opacity: 0; /* Hide login container */
 }
 
+.bg-radial-gradient {
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.5),
+    transparent 40%
+  );
+}
+
 @keyframes fade-in {
   from {
     opacity: 0;

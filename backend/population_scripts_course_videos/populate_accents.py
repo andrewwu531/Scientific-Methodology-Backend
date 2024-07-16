@@ -21,10 +21,9 @@ def populate_course_accents():
             'course_url': 'josé_andrés',
             'course_category': Course.Course_Category.FD,
             'course_title': 'Exploring Spanish Life and its Cuisine',
-            'course_description': """José Andrés, a Spanish culinary chef, will be showing you the region's most-loved
+            'course_descriptions': """José Andrés, a Spanish culinary chef, will be showcasing you the region's most-loved
                                      ingredients, sauces and dishes.""",
             'course_banner': f'{base_path}/Course_Banner/Muscle_Building_Course_Banner.jpg',
-            'course_main_banner': f'{base_path}/Course_Banner/Muscle_Building_Course_Banner.jpg',
             'faqs': [
                 {
                     'faq_question_num': '1',
@@ -218,7 +217,7 @@ def populate_course_accents():
             course_url=course_data['course_url'],
             course_category=course_data['course_category'],
             course_title=course_data['course_title'],
-            course_description=course_data['course_description'],
+            course_descriptions=course_data['course_descriptions'],
             course_banner=course_data['course_banner']
         )
         for video_data in course_data['videos']:
@@ -265,11 +264,12 @@ def add_faq(course_url, faq_question_num, faq_question, faq_answer):
     return f
 
 
-def add_course(course_author, course_url, course_category, course_title, course_banner):
+def add_course(course_author, course_url, course_category, course_title, course_descriptions, course_banner):
     c = Course.objects.get_or_create(course_url=course_url)[0]
     c.course_author = course_author
     c.course_category = course_category
     c.course_title = course_title
+    c.course_descriptions = course_descriptions
     c.course_banner = course_banner
     c.save()
     return c

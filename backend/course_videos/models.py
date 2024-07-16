@@ -26,8 +26,6 @@ class Course(models.Model):
     course_title = models.CharField(max_length=100, default="default_title")
     course_descriptions = models.CharField(max_length=1000, default="default_descriptions")
     course_banner = models.ImageField(upload_to='Muscle_Building/Course_Banner', null=True, default='Muscle_Building/Course_Banner/Muscle_Building_Course_Banner_1.jpg')
-    course_main_banner = models.ImageField(upload_to='Muscle_Building/Course_Main_Banner', null=True, default='Muscle_Building/Course_Main_Banner/Muscle_Building_Course_Banner_1.jpg')
-
 
     def __str__(self):
         return self.course_url
