@@ -67,25 +67,25 @@ export default function CourseDetail() {
 
   return (
     <div className="bg-black">
-      <div className="fixed top-0 z-30 w-full ">
+      <div className="fixed top-0 z-50 w-full ">
         <NavBar />
       </div>
       <div className="flex flex-col pt-[11vh] pb-[8vh]">
         <div className="relative flex justify-center w-full">
-          <div className="absolute left-0 z-50 w-full h-full bg-opacity-100 top-5 bg-gradient-to-b from-transparent via-transparent to-black"></div>
+          <div className="absolute top-0 left-0 z-40 w-full h-full bg-opacity-100 bg-gradient-to-b from-transparent via-transparent to-black"></div>
 
           <div className="relative z-10 w-[24vw] h-[65vh] overflow-hidden">
             <img
               src={`${backendURL}/${course.course_banner}`}
               alt={course.course_title}
-              className="ml-10 object-cover w-full h-full mt-[12vh] rounded-xl transition-transform duration-300 "
+              className="ml-10 object-cover object-top w-full h-full mt-[12vh] rounded-xl transition-transform duration-300 "
             />
           </div>
           <div className="relative z-20 w-[33vw] h-[70vh] overflow-hidden">
             <img
               src={`${backendURL}/${course.course_banner}`}
               alt={course.course_title}
-              className="object-cover w-full h-full transition-transform duration-300 rounded-t-xl "
+              className="object-cover object-top w-full h-full transition-transform duration-300 rounded-t-xl "
             />
           </div>
           <div
@@ -95,7 +95,7 @@ export default function CourseDetail() {
             <img
               src={`${backendURL}/${course.course_banner}`}
               alt={course.course_title}
-              className="object-cover w-full h-full mt-[12vh] rounded-xl transition-transform duration-300 "
+              className="object-cover object-top w-full h-full mt-[12vh] rounded-xl transition-transform duration-300 "
             />
           </div>
         </div>
