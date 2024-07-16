@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import NavBar from "../components/Navbar";
+import FooterBar from "../components/FooterBar";
 
 export default function CourseDetail() {
   const { courseUrl } = useParams();
@@ -9,6 +10,7 @@ export default function CourseDetail() {
   const [videos, setVideos] = useState([]);
   const [currentVideo, setCurrentVideo] = useState(null);
   const [openAccordion, setOpenAccordion] = useState(null);
+  const [highlightedVideos, setHighlightedVideos] = useState({});
   const backendURL = "http://localhost:8000";
 
   useEffect(() => {
@@ -28,6 +30,16 @@ export default function CourseDetail() {
       .get(`${backendURL}/api/course/${courseUrl}/`)
       .then((response) => {
         setVideos(response.data);
+
+        // Set the initial highlighted videos
+        const initialHighlighted = response.data.reduce((acc, video) => {
+          if (video.video_episode === "1") {
+            acc[video.video_series_name] = video.pk;
+          }
+          return acc;
+        }, {});
+        setHighlightedVideos(initialHighlighted);
+
         const initialVideo = response.data.find(
           (video) => video.video_series === "1" && video.video_episode === "1"
         );
@@ -43,11 +55,33 @@ export default function CourseDetail() {
     }
   }, [currentVideo]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+      const scrolledPercentage =
+        (scrollPosition / (documentHeight - windowHeight)) * 100;
+      setShowFooter(scrolledPercentage > 25);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   if (!course || !currentVideo) {
     return <div>Loading...</div>;
   }
 
   const handleVideoClick = (video, seriesName) => {
+    setHighlightedVideos((prev) => ({
+      ...prev,
+      [seriesName]: video.pk,
+    }));
+
     if (openAccordion === `${seriesName}-${video.pk}`) {
       setOpenAccordion(null);
     } else {
@@ -132,29 +166,31 @@ export default function CourseDetail() {
                   <div
                     onClick={() => handleVideoClick(video, seriesName)}
                     className={`p-2 mb-2.5 rounded-lg cursor-pointer ${
-                      openAccordion === `${seriesName}-${video.pk}`
-                        ? "bg-purple-900"
-                        : currentVideo.pk === video.pk
-                          ? "bg-purple-900"
-                          : "bg-neutral-950 hover:bg-neutral-700"
+                      highlightedVideos[seriesName] === video.pk
+                        ? "bg-purple-900 "
+                        : "bg-neutral-950 hover:bg-neutral-700"
                     }`}
                   >
                     <div className="flex flex-row items-center justify-between py-2">
-                      <div className="flex flex-row items-center ml-[1vw] space-x-5">
+                      <div className="flex flex-row items-center ml-[1vw] space-x-6">
                         <img
                           src={`${backendURL}${video.video_icon}`}
                           alt={course.course_title}
-                          className="object-cover object-top w-8 h-8 ml-3 transition-transform duration-300 rounded-full group-hover:scale-105"
+                          className="object-cover object-top w-8 h-8 ml-3 transition-transform duration-300 rounded-md group-hover:scale-105"
                         />
-                        <p className="font-sans text-md">{video.video_title}</p>
+                        <p className="text-md font-body text-neutral-200">
+                          {video.video_title}
+                        </p>
                       </div>
                       <div className="mr-[2vw]">
-                        <p className="text-sm">{video.video_duration}</p>
+                        <p className="text-sm text-neutral-200">
+                          {video.video_duration}
+                        </p>
                       </div>
                     </div>
                   </div>
                   {openAccordion === `${seriesName}-${video.pk}` && (
-                    <div className="p-2 mt-4 rounded-lg bg-neutral-800">
+                    <div className="p-2 mt-2 mb-2 rounded-lg bg-neutral-800">
                       <div className="relative h-100">
                         <video
                           key={currentVideo.pk} // Adding key to ensure video component re-renders
