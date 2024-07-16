@@ -19,8 +19,10 @@ def populate_course_comedy_writing():
     data = {
         'Kevin Hart': {
             'course_url': 'kevin_hart',
-            'course_category': Course.Course_Category.ELL,
+            'course_category': Course.Course_Category.PK,
             'course_title': 'Using Humour to Make Your Mark',
+            'course_descriptions': """World-Famous Comedian Demonstrates the Art of Comedy
+                                    """,
             'course_banner': f'{base_path}/Course_Banner/Muscle_Building_Course_Banner.jpg',
             'faqs': [
                 {
@@ -215,6 +217,7 @@ def populate_course_comedy_writing():
             course_url=course_data['course_url'],
             course_category=course_data['course_category'],
             course_title=course_data['course_title'],
+            course_descriptions=course_data['course_descriptions'],
             course_banner=course_data['course_banner']
         )
         for video_data in course_data['videos']:
@@ -261,11 +264,12 @@ def add_faq(course_url, faq_question_num, faq_question, faq_answer):
     return f
 
 
-def add_course(course_author, course_url, course_category, course_title, course_banner):
+def add_course(course_author, course_url, course_category, course_title, course_descriptions, course_banner):
     c = Course.objects.get_or_create(course_url=course_url)[0]
     c.course_author = course_author
     c.course_category = course_category
     c.course_title = course_title
+    c.course_descriptions = course_descriptions
     c.course_banner = course_banner
     c.save()
     return c

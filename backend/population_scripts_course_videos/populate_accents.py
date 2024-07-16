@@ -17,12 +17,12 @@ base_path = 'Accents'
 def populate_course_accents():
 
     data = {
-        'José Andrés': {
-            'course_url': 'josé_andrés',
+        'José Diaz': {
+            'course_url': 'josé_diaz',
             'course_category': Course.Course_Category.FD,
-            'course_title': 'Exploring Spanish Life and its Cuisine',
-            'course_descriptions': """José Andrés, a Spanish culinary chef, will be showcasing you the region's most-loved
-                                     ingredients, sauces and dishes.""",
+            'course_title': 'Exploring Spanish Life & Culture through the Regional Cuisine',
+            'course_descriptions': """Spanish Michelin-Starred Chef Showcases You the Local's Most-Loved
+                                     Ingredients, Spices and Dishes""",
             'course_banner': f'{base_path}/Course_Banner/Muscle_Building_Course_Banner.jpg',
             'faqs': [
                 {

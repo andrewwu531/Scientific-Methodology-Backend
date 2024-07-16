@@ -17,10 +17,13 @@ base_path = 'English_Pronunciation'
 def populate_course_english_pronunciation():
 
     data = {
-        'Jay Shetty': {
-            'course_url': 'jay_shetty',
-            'course_category': Course.Course_Category.EI,
-            'course_title': 'Navigating Change',
+        'Lesley Claire': {
+            'course_url': 'lesley_claire',
+            'course_category': Course.Course_Category.EL,
+            'course_title': 'Establish Competence through English Pronunciation Skills',
+            'course_descriptions': """Second-Language Speech & Language Specialist Teaches
+                                        You the Standard English Pronunciation 
+                                    """,
             'course_banner': f'{base_path}/Course_Banner/Muscle_Building_Course_Banner.jpg',
             'faqs': [
                 {
@@ -215,6 +218,7 @@ def populate_course_english_pronunciation():
             course_url=course_data['course_url'],
             course_category=course_data['course_category'],
             course_title=course_data['course_title'],
+            course_descriptions=course_data['course_descriptions'],
             course_banner=course_data['course_banner']
         )
         for video_data in course_data['videos']:
@@ -261,11 +265,12 @@ def add_faq(course_url, faq_question_num, faq_question, faq_answer):
     return f
 
 
-def add_course(course_author, course_url, course_category, course_title, course_banner):
+def add_course(course_author, course_url, course_category, course_title, course_descriptions, course_banner):
     c = Course.objects.get_or_create(course_url=course_url)[0]
     c.course_author = course_author
     c.course_category = course_category
     c.course_title = course_title
+    c.course_descriptions = course_descriptions
     c.course_banner = course_banner
     c.save()
     return c

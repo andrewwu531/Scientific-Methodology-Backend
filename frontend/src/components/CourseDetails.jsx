@@ -105,7 +105,7 @@ export default function CourseDetail() {
         </div>
 
         <div className="flex flex-col items-center justify-center space-y-4">
-          <h2 className="z-50 mx-auto text-3xl font-bold text-center w-96 mt-[-8vh]">
+          <h2 className="z-50 mx-auto text-3xl font-bold text-center w-96 mt-[-6vh]">
             {course.course_title}
           </h2>
           <p className="w-[35vw] text-center mx-auto text-neutral-200">

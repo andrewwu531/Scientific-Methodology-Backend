@@ -25,7 +25,7 @@ if __name__ == '__main__':
     populate_course_business_english()
     populate_course_comedy_writing()
     populate_course_english_pronunciation()
-    populate_course_fashion()
+    # populate_course_fashion()
     # populate_course_football()
     # populate_course_makeup()
     # populate_course_meal_recipes()
