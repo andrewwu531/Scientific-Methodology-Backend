@@ -7,6 +7,7 @@ export default function CourseDetail() {
   const [course, setCourse] = useState(null);
   const [videos, setVideos] = useState([]);
   const [currentVideo, setCurrentVideo] = useState(null);
+  const [openAccordion, setOpenAccordion] = useState(null);
   const backendURL = "http://localhost:8000";
 
   useEffect(() => {
@@ -27,9 +28,10 @@ export default function CourseDetail() {
       .then((response) => {
         setVideos(response.data);
         const initialVideo = response.data.find(
-          (video) => video.video_episode === "1"
+          (video) => video.video_series === "1" && video.video_episode === "1"
         );
         setCurrentVideo(initialVideo);
+        setOpenAccordion(`Series 1-${initialVideo.pk}`);
       })
       .catch((error) => console.error("Error fetching course videos:", error));
   }, [courseUrl]);
@@ -44,8 +46,13 @@ export default function CourseDetail() {
     return <div>Loading...</div>;
   }
 
-  const handleVideoClick = (video) => {
-    setCurrentVideo(video);
+  const handleVideoClick = (video, seriesName) => {
+    if (openAccordion === `${seriesName}-${video.pk}`) {
+      setOpenAccordion(null);
+    } else {
+      setCurrentVideo(video);
+      setOpenAccordion(`${seriesName}-${video.pk}`);
+    }
   };
 
   // Group videos by series
@@ -59,57 +66,75 @@ export default function CourseDetail() {
 
   return (
     <div className="flex flex-col">
-      <img
-        src={`${backendURL}${course.course_banner}`}
-        alt={course.course_title}
-        className="object-cover object-top w-[50vw] transition-transform duration-300 h-[60vh] group-hover:scale-105"
-      />
-      <div className="flex flex-row w-full p-8 space-x-9">
-        {/* Left Section: Video List */}
-        <div className="w-1/3">
-          {Object.keys(seriesGroupedVideos).map((seriesName) => (
-            <div key={seriesName} className="mb-6">
-              <h3 className="mb-2 text-xl font-bold">{seriesName}</h3>
-              {seriesGroupedVideos[seriesName].map((video) => (
+      <div className="flex flex-row">
+        <img
+          src={`${backendURL}${course.course_banner}`}
+          alt={course.course_title}
+          className="object-cover object-top w-[56vw] transition-transform duration-300 h-[60vh] group-hover:scale-105"
+        />
+        <div className="w-[44vw] text-4xl font-bold pt-[8vh] pl-[5vw]">
+          {course.course_title}
+          <p className="text-xl font-medium text-neutral-400">
+            {course.course_category}
+          </p>
+        </div>
+      </div>
+
+      <div className="mx-[18vw] mt-[10vh]">
+        {Object.keys(seriesGroupedVideos).map((seriesName, index) => (
+          <div key={seriesName} className="mb-14">
+            <h3 className="flex items-center justify-center mb-4 text-2xl font-bold">
+              Series {index + 1}: {seriesName}
+            </h3>
+            {seriesGroupedVideos[seriesName].map((video) => (
+              <div key={video.pk}>
                 <div
-                  key={video.pk}
-                  onClick={() => handleVideoClick(video)}
-                  className={`p-2 mb-2 rounded-md cursor-pointer ${
-                    currentVideo.pk === video.pk
-                      ? "bg-gray-700"
-                      : "bg-gray-800 hover:bg-gray-700"
+                  onClick={() => handleVideoClick(video, seriesName)}
+                  className={`p-2 mb-2 rounded-lg cursor-pointer ${
+                    openAccordion === `${seriesName}-${video.pk}`
+                      ? "bg-purple-900"
+                      : currentVideo.pk === video.pk
+                        ? "bg-purple-900"
+                        : "bg-neutral-900 hover:bg-neutral-700"
                   }`}
                 >
-                  <p className="text-lg font-bold">{video.video_title}</p>
-                  <p className="text-sm">{video.video_duration}</p>
+                  <div className="flex flex-row items-center justify-between py-2">
+                    <div className="flex flex-row items-center ml-[1vw] space-x-4">
+                      <img
+                        src={`${backendURL}${video.video_icon}`}
+                        alt={course.course_title}
+                        className="object-cover object-top w-8 h-8 ml-3 transition-transform duration-300 rounded-full group-hover:scale-105"
+                      />
+                      <p className="font-sans text-small">
+                        {video.video_title}
+                      </p>
+                    </div>
+                    <div className="mr-[2vw]">
+                      <p className="text-sm">{video.video_duration}</p>
+                    </div>
+                  </div>
                 </div>
-              ))}
-            </div>
-          ))}
-        </div>
-        {/* Right Section: Current Video */}
-        <div className="w-2/3 pr-4">
-          <h1 className="mb-2 text-2xl font-bold">
-            {currentVideo.video_title}
-          </h1>
-          <h2 className="mb-4 text-xl">{course.course_title}</h2>
-          <p className="mb-2">Series: {currentVideo.video_series}</p>
-          <p className="mb-2">Episode: {currentVideo.video_episode}</p>
-          <p className="mb-2">Duration: {currentVideo.video_duration}</p>
-          <div className="relative h-100 mr-60">
-            <video
-              key={currentVideo.pk} // Adding key to ensure video component re-renders
-              controls
-              className="object-cover w-full h-full rounded-lg"
-            >
-              <source
-                src={`${backendURL}${currentVideo.video_video}`}
-                type="video/mp4"
-              />
-              Your browser does not support the video tag.
-            </video>
+                {openAccordion === `${seriesName}-${video.pk}` && (
+                  <div className="p-2 mt-4 rounded-lg bg-neutral-800">
+                    <div className="relative h-100">
+                      <video
+                        key={currentVideo.pk} // Adding key to ensure video component re-renders
+                        controls
+                        className="object-cover w-full h-full rounded-lg"
+                      >
+                        <source
+                          src={`${backendURL}${currentVideo.video_video}`}
+                          type="video/mp4"
+                        />
+                        Your browser does not support the video tag.
+                      </video>
+                    </div>
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
-        </div>
+        ))}
       </div>
     </div>
   );
