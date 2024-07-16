@@ -35,27 +35,16 @@ export default function NavBar({ setShowLogin, isLoggedIn, setIsLoggedIn }) {
     setShowLogin(true);
   };
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      const triggerPosition = window.innerHeight / 7;
-      setShowLogo(scrollPosition > triggerPosition);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
-    <nav className="flex justify-between items-center h-[12vh] left-0 w-full bg-black shadow-lg px-8">
-      <div className="flex items-center justify-start mt-1 space-x-1">
-        <img src={logo} alt="logo" className="w-10 h-10  mr-2.5" />
+    <nav className="flex justify-between items-center h-[10vh] left-0 w-full bg-black shadow-lg px-8">
+      <div className="flex items-center justify-start mt-2.5 space-x-1">
+        <img src={logo} alt="logo" className="w-10 h-10 mr-2.5" />
         <div className="flex flex-col leading-tight text-md">
           <div>Independent</div>
           <div>Education</div>
         </div>
       </div>
-      <div className="flex items-center space-x-4">
+      <div className="flex items-center mt-1 space-x-4">
         <NavbarDropdown />
         <ul role="menu" className="flex items-center gap-6">
           {isLoggedIn ? (

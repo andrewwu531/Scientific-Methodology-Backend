@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import PropTypes from "prop-types";
 
-export default function CourseCarousel() {
+export default function CourseCarousel({
+  currentCategory,
+  setCurrentCategory,
+}) {
   const categories = [
     { name: "Trending Now", icon: "⭐" },
     { name: "Academic Excellence", icon: "🎓" },
@@ -18,23 +22,26 @@ export default function CourseCarousel() {
   ];
 
   const [courses, setCourses] = useState([]);
-  const [currentCategory, setCurrentCategory] = useState("Trending Now");
 
   const backendURL = "http://localhost:8000";
 
   useEffect(() => {
-    fetch(`${backendURL}/api/courses/`)
-      .then((response) => response.json())
-      .then((data) => {
-        setCourses(data);
+    axios
+      .get(`${backendURL}/api/courses/`)
+      .then((response) => {
+        setCourses(response.data);
       })
       .catch((error) => console.error("Error fetching course data:", error));
   }, []);
 
-  const handleCategoryClick = (category) => {
-    setCurrentCategory(category);
-    // Fetch courses based on selected category
-  };
+  const filteredCourses =
+    currentCategory === "Trending Now"
+      ? courses
+      : courses.filter(
+          (course) =>
+            categories[parseInt(course.course_category) - 1].name ===
+            currentCategory
+        );
 
   return (
     <div>
@@ -43,29 +50,28 @@ export default function CourseCarousel() {
           {categories.map((category) => (
             <button
               key={category.name}
-              onClick={() => handleCategoryClick(category.name)}
-              className={`flex items-center py-3.5 rounded-xl px-10 text-neutral-200 hover:bg-neutral-800 ${
+              onClick={() => setCurrentCategory(category.name)}
+              className={`flex items-center py-3.5 rounded-xl px-10 text-neutral-200  ${
                 currentCategory === category.name
-                  ? "bg-purple-900"
-                  : "bg-neutral-950"
+                  ? "bg-purple-950 "
+                  : "bg-neutral-950 hover:bg-neutral-800"
               }`}
             >
               <span className="mr-2">{category.icon}</span>
-              {category.name}
+              <div className="font-sans text-md">{category.name}</div>
             </button>
           ))}
         </div>
       </div>
       <div className="flex flex-row ml-[8vw] space-x-4">
-        {/* <div className="mt-1 text-2xl">⭐</div> */}
-        <div className="text-4xl mb-[5vh] font-bold"> Trending Now</div>
+        <div className="text-4xl mb-[4vh] font-bold">{currentCategory}</div>
       </div>
       <div className="grid grid-cols-3 px-[10vw] gap-x-5 gap-y-10 mb-24">
-        {courses.map((course) => {
+        {filteredCourses.map((course) => {
           return (
             <div
-              key={course.id}
-              className="flex flex-col w-full h-[58vh] relative course-card overflow-hidden group"
+              key={course.course_url}
+              className="flex flex-col w-full h-[55vh] relative course-card overflow-hidden group"
             >
               <div className="relative w-full h-full mb-4 overflow-hidden rounded-md">
                 <img
@@ -84,7 +90,7 @@ export default function CourseCarousel() {
                   <div className="w-full pl-[1vw] text-neutral-100 font-bold ">
                     {course.course_author}
                   </div>
-                  <button className="py-2 mx-2 mr-6 text-xl text-black bg-purple-900 rounded-full px-9 hover:bg-blue-800">
+                  <button className="py-2 mx-2 mr-6 text-xl text-black bg-purple-800 rounded-full px-9 hover:bg-purple-600">
                     ▶
                   </button>
                 </div>
@@ -96,3 +102,8 @@ export default function CourseCarousel() {
     </div>
   );
 }
+
+CourseCarousel.propTypes = {
+  currentCategory: PropTypes.string.isRequired,
+  setCurrentCategory: PropTypes.func.isRequired,
+};

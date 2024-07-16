@@ -20,8 +20,11 @@ def populate_course_accents():
         'José Andrés': {
             'course_url': 'josé_andrés',
             'course_category': Course.Course_Category.FD,
-            'course_title': 'Exploring Spanish Cuisine with José Andrés',
+            'course_title': 'Exploring Spanish Life and its Cuisine',
+            'course_description': """José Andrés, a Spanish culinary chef, will be showing you the region's most-loved
+                                     ingredients, sauces and dishes.""",
             'course_banner': f'{base_path}/Course_Banner/Muscle_Building_Course_Banner.jpg',
+            'course_main_banner': f'{base_path}/Course_Banner/Muscle_Building_Course_Banner.jpg',
             'faqs': [
                 {
                     'faq_question_num': '1',
@@ -215,6 +218,7 @@ def populate_course_accents():
             course_url=course_data['course_url'],
             course_category=course_data['course_category'],
             course_title=course_data['course_title'],
+            course_description=course_data['course_description'],
             course_banner=course_data['course_banner']
         )
         for video_data in course_data['videos']:

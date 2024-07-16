@@ -12,30 +12,7 @@ import FAQ from "../components/Accordion/MuscleBuildingTab";
 export default function Root() {
   const [showLogin, setShowLogin] = useState(false); // State for showing login section
   const [isLoggedIn, setIsLoggedIn] = useState(false); // State for user login status
-  const [isMissionSticky, setIsMissionSticky] = useState(false); // State for sticky LandingPageMission
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const summaryHeight =
-        document.getElementById("landingPageSummary").offsetHeight;
-      const missionHeight =
-        document.getElementById("landingPageMission").offsetHeight;
-
-      if (
-        window.scrollY > summaryHeight &&
-        window.scrollY < summaryHeight + missionHeight
-      ) {
-        setIsMissionSticky(true);
-      } else {
-        setIsMissionSticky(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  const [currentCategory, setCurrentCategory] = useState("Trending Now"); // State for current category
 
   return (
     <div className="flex flex-col bg-black">
@@ -50,9 +27,10 @@ export default function Root() {
       <LandingPageSummary />
       <LandingPageMission />
 
-      {/* <TableOfContents /> */}
-
-      <CourseCarousel />
+      <CourseCarousel
+        currentCategory={currentCategory}
+        setCurrentCategory={setCurrentCategory}
+      />
       <FAQ />
       <Footer />
 

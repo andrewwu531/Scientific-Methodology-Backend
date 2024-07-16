@@ -79,20 +79,11 @@ export default function LandingPageSummary() {
   return (
     <div className="flex px-[6vw] h-screen bg-black">
       <div className="flex flex-row">
-        <div className="flex flex-col pt-[10vh] w-[45vw]">
-          <div className="flex flex-row space-x-7">
-            {/* <img src={logo} alt={"logo"} className="w-32 h-32" /> */}
-            {/* <p
-              className="w-1/2 mt-3 text-5xl font-bold text-neutral-200"
-              style={{ lineHeight: 1.1 }}
-            >
-              Independent Education
-            </p> */}
-          </div>
+        <div className="flex flex-col pt-[10.5vh] w-[46vw]">
           <div className="z-40 text-5xl font-bold mt-[3vh] text-neutral-200 w-4/5">
             Top-Performing Outcome with Top-Performing Mentors
           </div>
-          <div className="grid grid-cols-2 mt-[5vh] gap-y-2 gap-x-3 mr-[5vw]">
+          <div className="grid grid-cols-2 mt-[4.5vh] gap-y-2 gap-x-2 mr-[4vw]">
             {categories.map((category) => (
               <button
                 key={category.name}
