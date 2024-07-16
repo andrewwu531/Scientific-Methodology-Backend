@@ -18,6 +18,7 @@ export default function CourseCarousel() {
   ];
 
   const [courses, setCourses] = useState([]);
+  const [currentCategory, setCurrentCategory] = useState("Trending Now");
 
   const backendURL = "http://localhost:8000";
 
@@ -30,20 +31,34 @@ export default function CourseCarousel() {
       .catch((error) => console.error("Error fetching course data:", error));
   }, []);
 
+  const handleCategoryClick = (category) => {
+    setCurrentCategory(category);
+    // Fetch courses based on selected category
+  };
+
   return (
     <div>
       <div className="flex flex-col w-full overflow-hidden mt-[4vh] bg-black relative px-[11vw]">
-        <div className="flex flex-wrap justify-center gap-3 mb-14">
+        <div className="flex flex-wrap justify-center gap-3 mb-9">
           {categories.map((category) => (
             <button
               key={category.name}
-              className="flex items-center py-3.5 rounded-xl px-10 bg-neutral-950 text-neutral-200 hover:bg-neutral-800 focus:outline-none focus:ring-2 focus:ring-yellow-600"
+              onClick={() => handleCategoryClick(category.name)}
+              className={`flex items-center py-3.5 rounded-xl px-10 text-neutral-200 hover:bg-neutral-800 ${
+                currentCategory === category.name
+                  ? "bg-purple-900"
+                  : "bg-neutral-950"
+              }`}
             >
               <span className="mr-2">{category.icon}</span>
               {category.name}
             </button>
           ))}
         </div>
+      </div>
+      <div className="flex flex-row ml-[8vw] space-x-4">
+        {/* <div className="mt-1 text-2xl">⭐</div> */}
+        <div className="text-4xl mb-[5vh] font-bold"> Trending Now</div>
       </div>
       <div className="grid grid-cols-3 px-[10vw] gap-x-5 gap-y-10 mb-24">
         {courses.map((course) => {
@@ -69,7 +84,7 @@ export default function CourseCarousel() {
                   <div className="w-full pl-[1vw] text-neutral-100 font-bold ">
                     {course.course_author}
                   </div>
-                  <button className="px-10 py-3 mx-2 text-lg text-black bg-yellow-500 rounded-full hover:bg-blue-800">
+                  <button className="py-2 mx-2 mr-6 text-xl text-black bg-purple-900 rounded-full px-9 hover:bg-blue-800">
                     ▶
                   </button>
                 </div>

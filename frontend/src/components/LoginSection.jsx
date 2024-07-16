@@ -107,13 +107,13 @@ export default function LoginSection({ setShowLogin, setIsLoggedIn }) {
       onClick={handleOverlayClick}
     >
       <div
-        className={`login-container flex flex-row h-[80vh] w-[55rem] rounded-lg bg-neutral-950 ${isHidden ? "hidden" : ""}`}
+        className={`login-container flex flex-row h-[80vh] w-[55vw] rounded-lg bg-neutral-950 ${isHidden ? "hidden" : ""}`}
       >
         <div>
           <img
             src={loginImage}
             alt="Login"
-            className="rounded-l-lg h-full w-[27.5vw]"
+            className="rounded-l-lg h-full w-[27vw]"
           />
         </div>
 
@@ -164,7 +164,7 @@ export default function LoginSection({ setShowLogin, setIsLoggedIn }) {
             <div className="flex flex-col items-center pt-6">
               <button
                 type="submit"
-                className="w-[12rem] py-2.5 text-base font-bold text-black bg-yellow-400 rounded-xl hover:scale-105"
+                className="w-[12rem] py-2.5 text-base font-bold text-black bg-yellow-500 rounded-xl hover:scale-105"
               >
                 {isForgotPassword
                   ? "Reset Password"

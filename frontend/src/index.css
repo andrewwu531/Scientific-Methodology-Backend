@@ -59,7 +59,7 @@
 }
 
 .overlay.faded {
-  background: rgba(0, 0, 0, 0.9); /* Background faded by 10% */
+  background: rgba(0, 0, 0, 0.98); /* Background faded by 10% */
 }
 
 .login-container {
