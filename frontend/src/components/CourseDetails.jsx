@@ -183,7 +183,7 @@ export default function CourseDetail() {
                         </p>
                       </div>
                       <div className="mr-[2vw]">
-                        <p className="text-sm text-neutral-200">
+                        <p className="text-md text-neutral-200">
                           {video.video_duration}
                         </p>
                       </div>

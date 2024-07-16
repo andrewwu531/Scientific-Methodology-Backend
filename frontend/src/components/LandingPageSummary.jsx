@@ -85,13 +85,13 @@ export default function LandingPageSummary() {
           </div>
           <div className="grid grid-cols-2 mt-[4.5vh] gap-y-2 gap-x-2 mr-[4vw]">
             {categories.map((category) => (
-              <button
+              <div
                 key={category.name}
-                className="flex items-center text-md justify-start w-full h-[9vh] pl-4 rounded-xl bg-neutral-950 text-neutral-200 hover:bg-neutral-800"
+                className="flex items-center text-md justify-start w-full h-[9vh] pl-4 rounded-xl bg-neutral-950 text-neutral-200 "
               >
                 <span className="mr-3">{category.icon}</span>
                 <div className="text-md">{category.name}</div>
-              </button>
+              </div>
             ))}
           </div>
         </div>
