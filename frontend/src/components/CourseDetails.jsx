@@ -81,7 +81,7 @@ export default function CourseDetail() {
               className="ml-10 object-cover object-top w-full h-full mt-[12vh] rounded-xl transition-transform duration-300 "
             />
           </div>
-          <div className="relative z-20 w-[33vw] h-[70vh] overflow-hidden">
+          <div className="relative z-20 w-[33vw] h-[65vh] overflow-hidden">
             <img
               src={`${backendURL}/${course.course_banner}`}
               alt={course.course_title}

@@ -52,12 +52,12 @@ export default function CourseCarousel({
   return (
     <div>
       <div className="flex flex-col w-full overflow-hidden mt-[4vh] bg-black relative px-[11vw]">
-        <div className="flex flex-wrap justify-center gap-3 mb-9">
+        <div className="flex flex-wrap justify-center gap-2 mb-12">
           {categories.map((category) => (
             <button
               key={category.name}
               onClick={() => setCurrentCategory(category.name)}
-              className={`flex items-center py-3.5 rounded-xl px-10 text-neutral-200  ${
+              className={`flex items-center py-3.5 rounded-xl px-11 text-neutral-200  ${
                 currentCategory === category.name
                   ? "bg-purple-950 "
                   : "bg-neutral-950 hover:bg-neutral-800"
@@ -70,7 +70,7 @@ export default function CourseCarousel({
         </div>
       </div>
       <div className="flex flex-row ml-[8vw] space-x-4">
-        <div className="text-4xl mb-[4vh] font-bold">{currentCategory}</div>
+        <div className="text-4xl mb-[3vh] font-bold">{currentCategory}</div>
       </div>
       <div className="grid grid-cols-3 px-[10vw] gap-x-5 gap-y-10 mb-24">
         {filteredCourses.map((course) => {

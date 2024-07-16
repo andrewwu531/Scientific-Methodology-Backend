@@ -135,10 +135,10 @@ export default function LandingPageSummary() {
             </div>
 
             {/* Top Gradient Overlay */}
-            <div className="absolute top-0 left-0 w-full h-[15%] bg-gradient-to-b from-neutral-950 via-transparent to-transparent pointer-events-none z-10"></div>
+            <div className="absolute top-0 left-0 w-full h-[13%] bg-gradient-to-b from-neutral-950 via-transparent to-transparent pointer-events-none z-10"></div>
 
             {/* Bottom Gradient Overlay */}
-            <div className="absolute bottom-0 left-0 w-full h-[15%] bg-gradient-to-t from-neutral-950 via-transparent to-transparent pointer-events-none z-10"></div>
+            <div className="absolute bottom-0 left-0 w-full h-[15%] bg-gradient-to-t from-black via-transparent to-transparent pointer-events-none z-10"></div>
           </div>
         </div>
       </div>

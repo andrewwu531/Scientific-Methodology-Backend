@@ -51,9 +51,16 @@ export default function NavBar({ setShowLogin, isLoggedIn, setIsLoggedIn }) {
             <li>
               <button
                 onClick={handleSignOut}
-                className="justify-center px-6 py-2.5 text-base font-bold rounded-lg hover:scale-105 text-black bg-yellow-400"
+                className="relative mt-1 w-[12vw] px-6 py-3 text-md font-bold text-neutral-300 bg-black rounded-lg overflow-hidden"
               >
-                Account Logout
+                <span className="relative z-10">Account Signout</span>
+                <div
+                  className="absolute inset-0 rounded-lg"
+                  style={{
+                    background: "linear-gradient(to right, #FDE68A, #60A5FA)", // Smooth gradient from yellow-300 to blue-400
+                  }}
+                ></div>
+                <div className="absolute inset-0 bg-black rounded-lg m-[1px]"></div>
               </button>
             </li>
           ) : (
