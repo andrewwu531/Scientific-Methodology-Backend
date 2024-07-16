@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import PropTypes from "prop-types";
+import { useNavigate } from "react-router-dom";
 
 export default function CourseCarousel({
   currentCategory,
@@ -22,6 +23,7 @@ export default function CourseCarousel({
   ];
 
   const [courses, setCourses] = useState([]);
+  const navigate = useNavigate();
 
   const backendURL = "http://localhost:8000";
 
@@ -42,6 +44,10 @@ export default function CourseCarousel({
             categories[parseInt(course.course_category) - 1].name ===
             currentCategory
         );
+
+  const handleCourseClick = (courseUrl) => {
+    navigate(`/${courseUrl}`);
+  };
 
   return (
     <div>
@@ -72,6 +78,7 @@ export default function CourseCarousel({
             <div
               key={course.course_url}
               className="flex flex-col w-full h-[55vh] relative course-card overflow-hidden group"
+              onClick={() => handleCourseClick(course.course_url)}
             >
               <div className="relative w-full h-full mb-4 overflow-hidden rounded-md">
                 <img

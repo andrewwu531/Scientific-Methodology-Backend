@@ -13,6 +13,7 @@ import Home from "./routes/home";
 import Playlist from "./routes/playlist";
 import MainSectionWrapper from "./components/MainSectionWrapper";
 import PasswordResetForm from "./components/PasswordResetForm"; // Import the PasswordResetForm component
+import CourseDetail from "./components/CourseDetails"; // Import the CourseDetail component
 
 function PasswordResetWrapper() {
   const { uidb64, token } = useParams();
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
   {
     path: "/reset-password/:uidb64/:token", // Password reset route
     element: <PasswordResetWrapper />,
+  },
+  {
+    path: "/:courseUrl", // Course detail route
+    element: <CourseDetail />,
   },
 ]);
 
