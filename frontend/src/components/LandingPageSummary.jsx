@@ -77,68 +77,72 @@ export default function LandingPageSummary() {
   const secondColumnBanners = courseBanners.slice(6, 12);
 
   return (
-    <div className="flex px-[6vw] h-screen bg-black">
-      <div className="flex flex-row">
-        <div className="flex flex-col pt-[10.5vh] w-[46vw]">
-          <div className="z-40 xl:text-5xl text-4xl xl:font-bold font-extrabold mt-[3vh] text-neutral-200 w-4/5">
-            Top-Performing Outcome with Top-Performing Mentors
-          </div>
-          <div className="grid grid-cols-2 mt-[4.5vh] xl:gap-2 gap-1.5 xl:mr-[4vw] mr-[6vw]">
-            {categories.map((category) => (
-              <div
-                key={category.name}
-                className="flex items-center text-md justify-start w-full h-[9vh] pl-4 rounded-xl bg-neutral-950 text-neutral-200 "
-              >
-                <span className="mr-3">{category.icon}</span>
-                <div className="text-md">{category.name}</div>
+    <div>
+      <div className="hidden md:block">
+        <div className="flex px-[6vw] h-screen bg-black">
+          <div className="flex flex-row">
+            <div className="flex flex-col pt-[10.5vh] w-[46vw]">
+              <div className="z-40 xl:text-5xl text-4xl xl:font-bold font-extrabold mt-[3vh] text-neutral-200 w-4/5">
+                Top-Performing Outcome with Top-Performing Mentors
               </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="z-10 w-[40vw] h-[90vh] overflow-hidden mt-20">
-          <div className="relative w-full h-full">
-            {/* Scrolling Content */}
-            <div
-              ref={containerRef}
-              className="absolute flex flex-col space-x-5 animate-scroll"
-              style={{ transform: "translateY(0px)" }}
-            >
-              <div className="flex space-x-5">
-                <div className="flex flex-col space-y-4 left-column">
-                  {firstColumnBanners
-                    .concat(firstColumnBanners)
-                    .map((banner, index) => (
-                      <img
-                        key={index}
-                        src={banner}
-                        alt={`Course Banner ${index}`}
-                        className="w-[28vw] rounded-lg"
-                        style={{ marginBottom: "7px" }}
-                      />
-                    ))}
-                </div>
-                <div className="flex flex-col space-y-4 right-column">
-                  {secondColumnBanners
-                    .concat(secondColumnBanners)
-                    .map((banner, index) => (
-                      <img
-                        key={index}
-                        src={banner}
-                        alt={`Course Banner ${index}`}
-                        className="w-[28vw] rounded-lg"
-                        style={{ marginBottom: "7px" }}
-                      />
-                    ))}
-                </div>
+              <div className="grid grid-cols-2 mt-[4.5vh] xl:gap-2 gap-1.5 xl:mr-[4vw] mr-[6vw]">
+                {categories.map((category) => (
+                  <div
+                    key={category.name}
+                    className="flex items-center text-md justify-start w-full h-[9vh] pl-4 rounded-xl bg-neutral-950 text-neutral-200 "
+                  >
+                    <span className="mr-3">{category.icon}</span>
+                    <div className="text-md">{category.name}</div>
+                  </div>
+                ))}
               </div>
             </div>
 
-            {/* Top Gradient Overlay */}
-            <div className="absolute top-0 left-0 w-full h-[13%] bg-gradient-to-b from-neutral-950 via-transparent to-transparent pointer-events-none z-10"></div>
+            <div className="z-10 w-[40vw] h-[90vh] overflow-hidden mt-20">
+              <div className="relative w-full h-full">
+                {/* Scrolling Content */}
+                <div
+                  ref={containerRef}
+                  className="absolute flex flex-col space-x-5 animate-scroll"
+                  style={{ transform: "translateY(0px)" }}
+                >
+                  <div className="flex space-x-5">
+                    <div className="flex flex-col space-y-4 left-column">
+                      {firstColumnBanners
+                        .concat(firstColumnBanners)
+                        .map((banner, index) => (
+                          <img
+                            key={index}
+                            src={banner}
+                            alt={`Course Banner ${index}`}
+                            className="w-[28vw] rounded-lg"
+                            style={{ marginBottom: "7px" }}
+                          />
+                        ))}
+                    </div>
+                    <div className="flex flex-col space-y-4 right-column">
+                      {secondColumnBanners
+                        .concat(secondColumnBanners)
+                        .map((banner, index) => (
+                          <img
+                            key={index}
+                            src={banner}
+                            alt={`Course Banner ${index}`}
+                            className="w-[28vw] rounded-lg"
+                            style={{ marginBottom: "7px" }}
+                          />
+                        ))}
+                    </div>
+                  </div>
+                </div>
 
-            {/* Bottom Gradient Overlay */}
-            <div className="absolute bottom-0 left-0 w-full h-[15%] bg-gradient-to-t from-black via-transparent to-transparent pointer-events-none z-10"></div>
+                {/* Top Gradient Overlay */}
+                <div className="absolute top-0 left-0 w-full h-[13%] bg-gradient-to-b from-neutral-950 via-transparent to-transparent pointer-events-none z-10"></div>
+
+                {/* Bottom Gradient Overlay */}
+                <div className="absolute bottom-0 left-0 w-full h-[15%] bg-gradient-to-t from-black via-transparent to-transparent pointer-events-none z-10"></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
