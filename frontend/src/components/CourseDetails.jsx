@@ -1,19 +1,34 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import PropTypes from "prop-types";
 import FooterBar from "../components/FooterBar";
 
-export default function CourseDetail({ backendURL }) {
+export default function CourseDetail({ backendURL, userEmail }) {
   const { courseUrl } = useParams();
+  const navigate = useNavigate();
   const [course, setCourse] = useState(null);
   const [videos, setVideos] = useState([]);
   const [currentVideo, setCurrentVideo] = useState(null);
   const [openAccordion, setOpenAccordion] = useState(null);
   const [highlightedVideos, setHighlightedVideos] = useState({});
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
-    // Fetch course details
+    if (userEmail) {
+      axios
+        .get(`${backendURL}/api/members/`)
+        .then((response) => {
+          const userData = response.data.find(
+            (user) => user.email_address === userEmail
+          );
+          setUser(userData);
+        })
+        .catch((error) => console.error("Error fetching user data:", error));
+    }
+  }, [userEmail, backendURL]);
+
+  useEffect(() => {
     axios
       .get(`${backendURL}/api/courses/`)
       .then((response) => {
@@ -24,13 +39,11 @@ export default function CourseDetail({ backendURL }) {
       })
       .catch((error) => console.error("Error fetching course data:", error));
 
-    // Fetch course videos
     axios
       .get(`${backendURL}/api/course/${courseUrl}/`)
       .then((response) => {
         setVideos(response.data);
 
-        // Set the initial highlighted videos
         const initialHighlighted = response.data.reduce((acc, video) => {
           if (video.video_episode === "1") {
             acc[video.video_series_name] = video.pk;
@@ -59,6 +72,16 @@ export default function CourseDetail({ backendURL }) {
   }
 
   const handleVideoClick = (video, seriesName) => {
+    if (video.video_subscription_type === "2") {
+      if (!userEmail) {
+        navigate("/login");
+        return;
+      } else if (user && user.subscription_status === "1") {
+        navigate("/payment-portal");
+        return;
+      }
+    }
+
     setHighlightedVideos((prev) => ({
       ...prev,
       [seriesName]: video.pk,
@@ -72,7 +95,6 @@ export default function CourseDetail({ backendURL }) {
     }
   };
 
-  // Group videos by series
   const seriesGroupedVideos = videos.reduce((acc, video) => {
     if (!acc[video.video_series_name]) {
       acc[video.video_series_name] = [];
@@ -196,4 +218,5 @@ export default function CourseDetail({ backendURL }) {
 
 CourseDetail.propTypes = {
   backendURL: PropTypes.string.isRequired,
+  userEmail: PropTypes.string.isRequired,
 };

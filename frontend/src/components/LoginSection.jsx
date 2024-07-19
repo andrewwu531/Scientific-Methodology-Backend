@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import PropTypes from "prop-types";
+import { useNavigate } from "react-router-dom";
 import landingImage0 from "../static/images/landing0.jpg";
 import landingImage1 from "../static/images/landing1.jpg";
 import landingImage2 from "../static/images/landing2.jpg";
@@ -13,7 +14,6 @@ import landingImage8 from "../static/images/landing8.jpg";
 import landingImage9 from "../static/images/landing9.jpg";
 import landingImage10 from "../static/images/landing10.jpg";
 import landingImage11 from "../static/images/landing11.jpg";
-import { useNavigate } from "react-router-dom";
 
 export default function LoginSection({ setIsLoggedIn }) {
   const [email, setEmail] = useState("");
@@ -92,6 +92,7 @@ export default function LoginSection({ setIsLoggedIn }) {
       );
       if (response.data.success) {
         setIsLoggedIn(true);
+        localStorage.setItem("userEmail", email);
         navigate("/");
       } else {
         setError(response.data.error);
@@ -136,7 +137,6 @@ export default function LoginSection({ setIsLoggedIn }) {
     <div className="flex flex-row h-screen bg-black rounded-lg">
       <div className="z-10 w-[52vw] h-[88vh] pl-[9vw] overflow-hidden mt-20">
         <div className="relative w-full h-full">
-          {/* Scrolling Content */}
           <div
             ref={containerRef}
             className="absolute flex flex-col space-x-5 animate-scroll"
@@ -171,11 +171,7 @@ export default function LoginSection({ setIsLoggedIn }) {
               </div>
             </div>
           </div>
-
-          {/* Top Gradient Overlay */}
           <div className="absolute top-0 left-0 w-full h-[13%] bg-gradient-to-b from-neutral-950 via-transparent to-transparent pointer-events-none z-10"></div>
-
-          {/* Bottom Gradient Overlay */}
           <div className="absolute bottom-0 left-0 w-full h-[15%] bg-gradient-to-t from-black via-transparent to-transparent pointer-events-none z-10"></div>
         </div>
       </div>

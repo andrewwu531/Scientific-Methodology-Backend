@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import {
   createBrowserRouter,
@@ -23,6 +23,15 @@ function PasswordResetWrapper() {
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userEmail, setUserEmail] = useState("");
+
+  useEffect(() => {
+    const email = localStorage.getItem("userEmail");
+    if (email) {
+      setUserEmail(email);
+      setIsLoggedIn(true);
+    }
+  }, []);
 
   const router = createBrowserRouter([
     {
@@ -45,7 +54,12 @@ const App = () => {
         },
         {
           path: "/:courseUrl",
-          element: <CourseDetail backendURL="http://localhost:8000" />, // Pass necessary props
+          element: (
+            <CourseDetail
+              backendURL="http://localhost:8000"
+              userEmail={userEmail}
+            />
+          ), // Pass necessary props
         },
         {
           path: paths.LOGIN,
