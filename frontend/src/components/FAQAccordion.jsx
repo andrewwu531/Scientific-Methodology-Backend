@@ -71,7 +71,7 @@ export default function FAQAccordion({ course_url, setShowLogin, isLoggedIn }) {
 
   return (
     <div
-      className={`flex flex-col items-center justify-center pt-4 mx-auto bg-neutral-900
+      className={`flex flex-col items-center justify-center pt-4 mx-auto 
                       ${isLoggedIn ? "pb-12" : ""}`}
     >
       <div

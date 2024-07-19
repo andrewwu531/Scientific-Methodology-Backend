@@ -57,7 +57,7 @@ export default function CourseCarousel() {
               onClick={() => setCurrentCategory(category.name)}
               className={`flex items-center py-3.5 rounded-xl px-11 text-neutral-200  ${
                 currentCategory === category.name
-                  ? "bg-purple-950 "
+                  ? "bg-purple-900 "
                   : "bg-neutral-950 hover:bg-neutral-800"
               }`}
             >
@@ -70,7 +70,7 @@ export default function CourseCarousel() {
       <div className="flex flex-row ml-[8vw] space-x-4">
         <div className="text-4xl mb-[3vh] font-bold">{currentCategory}</div>
       </div>
-      <div className="grid grid-cols-3 px-[10vw] gap-x-5 gap-y-10 mb-24">
+      <div className="grid xl:grid-cols-3 grid-cols-2 px-[10vw] gap-x-5 gap-y-10 mb-24">
         {filteredCourses.map((course) => {
           return (
             <div

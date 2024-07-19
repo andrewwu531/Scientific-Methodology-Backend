@@ -139,26 +139,26 @@ export default function NavBar({
   );
 
   return (
-    <nav className="flex justify-between items-center h-[10vh] left-0 w-full bg-black shadow-lg px-8">
+    <nav className="flex justify-between items-center h-[10vh] left-0 w-full bg-black shadow-lg pl-8 pr-11">
       <div
         className="flex items-center justify-start mt-2.5 space-x-1 cursor-pointer"
         onClick={handleLogoClick}
       >
         <img src={logo} alt="logo" className="w-10 h-10 mr-2.5" />
-        <div className="flex flex-col leading-tight text-md">
+        <div className="flex flex-col leading-tight text-medium">
           <div>Upper</div>
           <div>Performance</div>
         </div>
       </div>
       <div className="flex items-center mt-1">
-        <ul role="menu" className="relative flex items-center gap-3.5">
+        <ul role="menu" className="relative flex items-center gap-3">
           <li className="relative" ref={dropdownRef}>
             <button
               onClick={() => setShowCategories(!showCategories)}
               className="relative py-3 mt-1 overflow-hidden font-bold bg-black rounded-lg px-7 text-md text-neutral-300"
             >
               <span className="relative z-10 flex items-center pl-2">
-                Explore <FiChevronDown className="ml-1 text-xl " />
+                Explore <FiChevronDown className="ml-1 text-xl font-bold " />
               </span>
               <div className="absolute inset-0 border rounded-lg border-neutral-100"></div>
               <div className="absolute inset-0 bg-black rounded-lg m-[1px]"></div>
@@ -218,7 +218,7 @@ export default function NavBar({
             <li>
               <button
                 onClick={handleSignOut}
-                className="relative mt-1 w-[12vw] px-6 py-3 text-md font-bold text-neutral-300 bg-black rounded-lg overflow-hidden"
+                className="relative mt-1 w-[12vw] px-6 py-3.5 text-md font-bold text-neutral-300 bg-black rounded-lg overflow-hidden"
               >
                 <span className="relative z-10">Account Signout</span>
                 <div
@@ -234,7 +234,7 @@ export default function NavBar({
             <li>
               <button
                 onClick={handleClick}
-                className="relative mt-1 w-[12vw] px-6 py-3 text-md font-bold text-neutral-300 bg-black rounded-lg overflow-hidden"
+                className="relative mt-1 w-[12vw]  px-6 py-3.5 text-md font-bold text-neutral-300 bg-black rounded-lg overflow-hidden"
               >
                 <span className="relative z-10">Register/ Log In</span>
                 <div

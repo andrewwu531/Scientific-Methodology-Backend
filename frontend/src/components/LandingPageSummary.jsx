@@ -80,10 +80,10 @@ export default function LandingPageSummary() {
     <div className="flex px-[6vw] h-screen bg-black">
       <div className="flex flex-row">
         <div className="flex flex-col pt-[10.5vh] w-[46vw]">
-          <div className="z-40 text-5xl font-bold mt-[3vh] text-neutral-200 w-4/5">
+          <div className="z-40 xl:text-5xl text-4xl xl:font-bold font-extrabold mt-[3vh] text-neutral-200 w-4/5">
             Top-Performing Outcome with Top-Performing Mentors
           </div>
-          <div className="grid grid-cols-2 mt-[4.5vh] gap-y-2 gap-x-2 mr-[4vw]">
+          <div className="grid grid-cols-2 mt-[4.5vh] xl:gap-2 gap-1.5 xl:mr-[4vw] mr-[6vw]">
             {categories.map((category) => (
               <div
                 key={category.name}
