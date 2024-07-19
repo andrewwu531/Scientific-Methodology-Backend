@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import NavBar from "../components/Navbar";
 import FooterBar from "../components/FooterBar";
 
 export default function CourseDetail() {
@@ -101,10 +100,6 @@ export default function CourseDetail() {
 
   return (
     <div className="relative bg-black">
-      <div className="fixed top-0 z-50 w-full">
-        <NavBar />
-      </div>
-
       <div className="relative flex flex-col pt-[11vh] pb-[8vh] z-10">
         <div className="relative flex justify-center w-full">
           <div className="absolute top-0 left-0 z-40 w-full h-full bg-opacity-100 bg-gradient-to-b from-transparent via-transparent to-black"></div>

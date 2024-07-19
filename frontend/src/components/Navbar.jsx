@@ -32,7 +32,7 @@ export default function NavBar({ setShowLogin, isLoggedIn, setIsLoggedIn }) {
   };
 
   const handleClick = () => {
-    setShowLogin(true);
+    navigate("/login");
   };
 
   return (

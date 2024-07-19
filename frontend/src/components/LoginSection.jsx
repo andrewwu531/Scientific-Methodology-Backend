@@ -2,6 +2,19 @@ import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import PropTypes from "prop-types";
 import loginImage from "../static/images/login.png";
+import landingImage0 from "../static/images/landing0.jpg";
+import landingImage1 from "../static/images/landing1.jpg";
+import landingImage2 from "../static/images/landing2.jpg";
+import landingImage3 from "../static/images/landing3.jpg";
+import landingImage4 from "../static/images/landing4.jpg";
+import landingImage5 from "../static/images/landing5.jpg";
+import landingImage6 from "../static/images/landing6.jpg";
+import landingImage7 from "../static/images/landing7.jpg";
+import landingImage8 from "../static/images/landing8.jpg";
+import landingImage9 from "../static/images/landing9.jpg";
+import landingImage10 from "../static/images/landing10.jpg";
+import landingImage11 from "../static/images/landing11.jpg";
+import logo from "../static/images/logo111.jpg";
 
 export default function LoginSection({ setShowLogin, setIsLoggedIn }) {
   const [email, setEmail] = useState("");
@@ -10,8 +23,64 @@ export default function LoginSection({ setShowLogin, setIsLoggedIn }) {
   const [isLoggingIn, setIsLoggingIn] = useState(true); // State to toggle between login and register
   const [isHidden, setIsHidden] = useState(false); // State to handle login container visibility
   const [isForgotPassword, setIsForgotPassword] = useState(false); // State to toggle forgotten password view
+  const [courseBanners, setCourseBanners] = useState([]);
+  const containerRef = useRef(null);
 
-  const overlayRef = useRef(null);
+  const categories = [
+    { name: "Academic Excellence", icon: "🎓" },
+    { name: "English Language", icon: "📚" },
+    { name: "Business English", icon: "📝" },
+    { name: "General Knowledge", icon: "🎬" },
+    { name: "Professional Knowledge", icon: "🔬" },
+    { name: "Sports", icon: "🏅" },
+    { name: "Health & Wellness", icon: "😊" },
+    { name: "Food & Drink", icon: "🍽️" },
+    { name: "Hair, Beauty & Fashion", icon: "🕶️" },
+    { name: "CV & Interview Techniques", icon: "🏛️" },
+    { name: "Entrepreneurship & Investing", icon: "💼" },
+  ];
+
+  useEffect(() => {
+    const banners = [
+      landingImage0,
+      landingImage1,
+      landingImage2,
+      landingImage3,
+      landingImage4,
+      landingImage5,
+      landingImage6,
+      landingImage7,
+      landingImage8,
+      landingImage9,
+      landingImage10,
+      landingImage11,
+    ];
+    setCourseBanners(banners);
+  }, []);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    let pos = 0;
+    const speedLeft = 1;
+    const speedRight = 1.7;
+
+    const moveContainer = () => {
+      const leftColumn = container.querySelector(".left-column");
+      const rightColumn = container.querySelector(".right-column");
+
+      if (pos <= leftColumn.scrollHeight / 2) {
+        pos += 1;
+        leftColumn.style.transform = `translateY(-${pos * speedLeft}px)`;
+        rightColumn.style.transform = `translateY(-${pos * speedRight}px)`;
+        requestAnimationFrame(moveContainer);
+      }
+    };
+
+    moveContainer();
+  }, [courseBanners]);
+
+  const firstColumnBanners = courseBanners.slice(0, 6);
+  const secondColumnBanners = courseBanners.slice(6, 12);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -76,129 +145,137 @@ export default function LoginSection({ setShowLogin, setIsLoggedIn }) {
     }
   };
 
-  const handleClose = () => {
-    setIsHidden(true); // Hide login container
-    const overlay = overlayRef.current;
-    overlay.classList.remove("faded"); // Remove fade from background
-    setTimeout(() => {
-      setShowLogin(false);
-    }, 500); // Match the duration of the fade-out animation
-  };
-
-  const handleOverlayClick = (e) => {
-    if (e.target === overlayRef.current) {
-      handleClose();
-    }
-  };
-
-  useEffect(() => {
-    const overlay = overlayRef.current;
-    if (overlay) {
-      overlay.classList.add("faded"); // Add fade to background
-    }
-    setIsHidden(false); // Show login container
-  }, []);
-
   return (
-    <div
-      ref={overlayRef}
-      id="login-overlay"
-      className="overlay pt-[10vh]"
-      onClick={handleOverlayClick}
-    >
+    <div className="flex flex-row h-screen bg-black rounded-lg">
+      <div className="z-10 w-[52vw] h-[88vh] pl-[9vw] overflow-hidden mt-20">
+        <div className="relative w-full h-full">
+          {/* Scrolling Content */}
+          <div
+            ref={containerRef}
+            className="absolute flex flex-col space-x-5 animate-scroll"
+            style={{ transform: "translateY(0px)" }}
+          >
+            <div className="flex space-x-5">
+              <div className="flex flex-col space-y-4 left-column">
+                {firstColumnBanners
+                  .concat(firstColumnBanners)
+                  .map((banner, index) => (
+                    <img
+                      key={index}
+                      src={banner}
+                      alt={`Course Banner ${index}`}
+                      className="w-[28vw] rounded-lg"
+                      style={{ marginBottom: "7px" }}
+                    />
+                  ))}
+              </div>
+              <div className="flex flex-col space-y-4 right-column">
+                {secondColumnBanners
+                  .concat(secondColumnBanners)
+                  .map((banner, index) => (
+                    <img
+                      key={index}
+                      src={banner}
+                      alt={`Course Banner ${index}`}
+                      className="w-[28vw] rounded-lg"
+                      style={{ marginBottom: "7px" }}
+                    />
+                  ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Top Gradient Overlay */}
+          <div className="absolute top-0 left-0 w-full h-[13%] bg-gradient-to-b from-neutral-950 via-transparent to-transparent pointer-events-none z-10"></div>
+
+          {/* Bottom Gradient Overlay */}
+          <div className="absolute bottom-0 left-0 w-full h-[15%] bg-gradient-to-t from-black via-transparent to-transparent pointer-events-none z-10"></div>
+        </div>
+      </div>
+
       <div
-        className={`login-container flex flex-row h-[80vh] w-[53vw] rounded-lg bg-neutral-950 ${isHidden ? "hidden" : ""}`}
+        className={`flex flex-col items-center pt-[10vh] flex-1  
+                            ${isForgotPassword ? "pt-40" : ""} `}
       >
-        <div>
-          <img
-            src={loginImage}
-            alt="Login"
-            className="rounded-l-lg h-full w-[26vw]"
-          />
+        <div className="flex justify-center text-center items-center leading-tight flex-col px-[12.5vw] pt-[10vh] mb-[7vh] font-extrabold text-3xl text-neutral-200">
+          Your Personal Growth and Success Matters To Us
         </div>
 
-        <div
-          className={`flex flex-col items-center pt-[20vh] flex-1
-                          ${isForgotPassword ? "pt-40" : ""} `}
-        >
-          <form onSubmit={handleSubmit}>
-            <div className="mb-4">
-              <label htmlFor="email" className="block mb-1 text-sm font-bold ">
-                Email
-              </label>
+        <form onSubmit={handleSubmit}>
+          <div className="mb-4">
+            <label htmlFor="email" className="block mb-1 text-sm font-bold ">
+              Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="w-[16rem] px-3.5 py-2.5 text-sm rounded focus:outline-none focus:ring-0 focus:bg-neutral-950 bg-neutral-950"
+              required
+            />
+          </div>
+          {!isForgotPassword && (
+            <div className="mb-2">
+              <div className="flex items-center justify-between mb-1">
+                <label htmlFor="password" className="text-sm font-bold">
+                  Password
+                </label>
+                <button
+                  type="button"
+                  onClick={() => setIsForgotPassword(!isForgotPassword)}
+                  className={`text-xs text-neutral-200 ${isForgotPassword ? "" : "underline"}`}
+                >
+                  {isForgotPassword ? "Back to Login" : "Forgot your password?"}
+                </button>
+              </div>
               <input
-                type="email"
-                id="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="w-[16rem] px-3.5 py-2.5 text-sm rounded focus:outline-none focus:ring-0 focus:bg-neutral-950 bg-neutral-950"
+                type="password"
+                id="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="w-[16rem] px-3.5 py-2.5 text-sm rounded focus:outline-none focus:ring-0 bg-neutral-950"
                 required
               />
             </div>
-            {!isForgotPassword && (
-              <div className="mb-2">
-                <div className="flex items-center justify-between mb-1">
-                  <label htmlFor="password" className="text-sm font-bold">
-                    Password
-                  </label>
-                  <button
-                    type="button"
-                    onClick={() => setIsForgotPassword(!isForgotPassword)}
-                    className={`text-xs text-neutral-200 ${isForgotPassword ? "" : "underline"}`}
-                  >
-                    {isForgotPassword
-                      ? "Back to Login"
-                      : "Forgot your password?"}
-                  </button>
-                </div>
-                <input
-                  type="password"
-                  id="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  className="w-[16rem] px-3.5 py-2.5 text-sm rounded focus:outline-none focus:ring-0 bg-neutral-950"
-                  required
-                />
-              </div>
-            )}
-            <div className="flex flex-col items-center pt-20">
-              <button
-                type="submit"
-                className="w-[12rem] py-2.5 text-base font-bold text-black bg-purple-900 rounded-xl hover:scale-105"
-              >
-                {isForgotPassword
-                  ? "Reset Password"
-                  : isLoggingIn
-                    ? "Log In"
-                    : "Register"}
-              </button>
-              <div className="mt-4 text-center">
-                {!isForgotPassword && (
-                  <button
-                    type="button"
-                    onClick={() => setIsLoggingIn(!isLoggingIn)}
-                    className="text-xs text-neutral-200"
-                  >
-                    {isLoggingIn ? (
-                      <>
-                        Don’t have an account?{" "}
-                        <span className="underline">Register</span>
-                      </>
-                    ) : (
-                      <>
-                        Already have an account?{" "}
-                        <span className="underline">Log In</span>
-                      </>
-                    )}
-                  </button>
-                )}
-                {error && (
-                  <div className="mt-2 text-[0.8rem] text-red-500">{error}</div>
-                )}
-              </div>
+          )}
+          <div className="flex flex-col items-center pt-16">
+            <button
+              type="submit"
+              className="w-[12rem] py-2.5 text-base font-bold text-black bg-purple-900 rounded-xl hover:scale-105"
+            >
+              {isForgotPassword
+                ? "Reset Password"
+                : isLoggingIn
+                  ? "Log In"
+                  : "Register"}
+            </button>
+            <div className="mt-4 text-center">
+              {!isForgotPassword && (
+                <button
+                  type="button"
+                  onClick={() => setIsLoggingIn(!isLoggingIn)}
+                  className="text-xs text-neutral-200"
+                >
+                  {isLoggingIn ? (
+                    <>
+                      Don’t have an account?{" "}
+                      <span className="underline">Register</span>
+                    </>
+                  ) : (
+                    <>
+                      Already have an account?{" "}
+                      <span className="underline">Log In</span>
+                    </>
+                  )}
+                </button>
+              )}
+              {error && (
+                <div className="mt-2 text-[0.8rem] text-red-500">{error}</div>
+              )}
             </div>
-          </form>
-        </div>
+          </div>
+        </form>
       </div>
     </div>
   );
