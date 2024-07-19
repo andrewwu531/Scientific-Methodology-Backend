@@ -142,12 +142,12 @@ export default function FAQ() {
             ))}
           </div>
           <div className="mt-[3vh]">
-            <button
+            {/* <button
               onClick={handleClick}
               className="px-8 py-3.5 font-sans font-bold text-black bg-purple-900 rounded-lg text-md"
             >
               Register/ Log In
-            </button>{" "}
+            </button>{" "} */}
           </div>
         </div>
       </div>
