@@ -4,7 +4,7 @@ import axios from "axios";
 import PropTypes from "prop-types";
 import FooterBar from "../components/FooterBar";
 
-export default function CourseDetail({ backendURL, userEmail }) {
+export default function CourseDetail({ user, backendURL, userEmail }) {
   const { courseUrl } = useParams();
   const navigate = useNavigate();
   const [course, setCourse] = useState(null);
@@ -12,21 +12,6 @@ export default function CourseDetail({ backendURL, userEmail }) {
   const [currentVideo, setCurrentVideo] = useState(null);
   const [openAccordion, setOpenAccordion] = useState(null);
   const [highlightedVideos, setHighlightedVideos] = useState({});
-  const [user, setUser] = useState(null);
-
-  useEffect(() => {
-    if (userEmail) {
-      axios
-        .get(`${backendURL}/api/members/`)
-        .then((response) => {
-          const userData = response.data.find(
-            (user) => user.email_address === userEmail
-          );
-          setUser(userData);
-        })
-        .catch((error) => console.error("Error fetching user data:", error));
-    }
-  }, [userEmail, backendURL]);
 
   useEffect(() => {
     axios
@@ -38,6 +23,8 @@ export default function CourseDetail({ backendURL, userEmail }) {
         setCourse(courseData);
       })
       .catch((error) => console.error("Error fetching course data:", error));
+    console.log("User status:", user);
+    console.log("User Email status:", userEmail);
 
     axios
       .get(`${backendURL}/api/course/${courseUrl}/`)
@@ -76,7 +63,7 @@ export default function CourseDetail({ backendURL, userEmail }) {
       if (!userEmail) {
         navigate("/login");
         return;
-      } else if (user && user.subscription_status === "1") {
+      } else if (userEmail && user.subscription_status === "1") {
         navigate("/payment-portal");
         return;
       }
@@ -193,7 +180,7 @@ export default function CourseDetail({ backendURL, userEmail }) {
                     <div className="p-2 mt-2 mb-2 rounded-lg bg-neutral-800">
                       <div className="relative h-100">
                         <video
-                          key={currentVideo.pk} // Adding key to ensure video component re-renders
+                          key={currentVideo.pk}
                           controls
                           className="object-cover w-full h-full rounded-lg"
                         >
@@ -217,6 +204,7 @@ export default function CourseDetail({ backendURL, userEmail }) {
 }
 
 CourseDetail.propTypes = {
+  user: PropTypes.object,
   backendURL: PropTypes.string.isRequired,
-  userEmail: PropTypes.string.isRequired,
+  userEmail: PropTypes.string,
 };

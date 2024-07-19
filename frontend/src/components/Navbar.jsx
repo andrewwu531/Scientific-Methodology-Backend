@@ -6,7 +6,12 @@ import NavbarDropdown from "./NavbarDropdown";
 import { FiChevronDown } from "react-icons/fi";
 import logo from "../static/images/logo111.jpg";
 
-export default function NavBar({ isLoggedIn, setIsLoggedIn }) {
+export default function NavBar({
+  setUser,
+  setUserEmail,
+  isLoggedIn,
+  setIsLoggedIn,
+}) {
   const navigate = useNavigate();
   const [showCategories, setShowCategories] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -32,10 +37,10 @@ export default function NavBar({ isLoggedIn, setIsLoggedIn }) {
     "Entrepreneurship & Investing": "11",
   };
 
-  const reverseCategoryMap = Object.entries(categoryMap).reduce(
-    (acc, [key, value]) => ({ ...acc, [value]: key }),
-    {}
-  );
+  // const reverseCategoryMap = Object.entries(categoryMap).reduce(
+  //   (acc, [key, value]) => ({ ...acc, [value]: key }),
+  //   {}
+  // );
 
   const categories = [
     { name: "Academic Excellence", icon: "🎓" },
@@ -74,6 +79,10 @@ export default function NavBar({ isLoggedIn, setIsLoggedIn }) {
       if (response.data.success) {
         setIsLoggedIn(false);
         localStorage.removeItem("userEmail");
+        setUser(null);
+        setUserEmail(null);
+        console.log("Logged Out/ Register Successfully", setUserEmail);
+        console.log("Logged Out/ Register Successfully", setUser);
         navigate("/"); // Redirect to home or login page
       } else {
         console.error("Failed to log out");
@@ -245,6 +254,8 @@ export default function NavBar({ isLoggedIn, setIsLoggedIn }) {
 }
 
 NavBar.propTypes = {
+  setUser: PropTypes.func,
+  setUserEmail: PropTypes.func.isRequired,
   isLoggedIn: PropTypes.bool.isRequired,
   setIsLoggedIn: PropTypes.func.isRequired,
 };

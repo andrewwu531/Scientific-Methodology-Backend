@@ -14,8 +14,9 @@ import landingImage8 from "../static/images/landing8.jpg";
 import landingImage9 from "../static/images/landing9.jpg";
 import landingImage10 from "../static/images/landing10.jpg";
 import landingImage11 from "../static/images/landing11.jpg";
+import { User } from "react-feather";
 
-export default function LoginSection({ setIsLoggedIn }) {
+export default function LoginSection({ setUserEmail, setUser, setIsLoggedIn }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -93,6 +94,10 @@ export default function LoginSection({ setIsLoggedIn }) {
       if (response.data.success) {
         setIsLoggedIn(true);
         localStorage.setItem("userEmail", email);
+        setUserEmail(email);
+        setUser(User);
+        console.log("Logged In/ Register Successfully", setUserEmail);
+        console.log("Logged In/ Register Successfully", setUser);
         navigate("/");
       } else {
         setError(response.data.error);
@@ -265,5 +270,7 @@ export default function LoginSection({ setIsLoggedIn }) {
 }
 
 LoginSection.propTypes = {
+  setUserEmail: PropTypes.func,
+  setUser: PropTypes.func,
   setIsLoggedIn: PropTypes.func.isRequired,
 };

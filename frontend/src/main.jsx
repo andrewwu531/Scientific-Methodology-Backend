@@ -5,8 +5,9 @@ import {
   RouterProvider,
   useParams,
 } from "react-router-dom";
+import axios from "axios";
 import Root from "./routes/root";
-import Login from "./components/LoginSection";
+import LoginSection from "./components/LoginSection";
 import { paths } from "./shared/routes";
 import "./index.css";
 import Home from "./routes/home";
@@ -23,7 +24,9 @@ function PasswordResetWrapper() {
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userEmail, setUserEmail] = useState("");
+  const [userEmail, setUserEmail] = useState(null);
+  const [user, setUser] = useState(null);
+  const backendURL = "http://localhost:8000";
 
   useEffect(() => {
     const email = localStorage.getItem("userEmail");
@@ -33,10 +36,31 @@ const App = () => {
     }
   }, []);
 
+  useEffect(() => {
+    if (userEmail) {
+      axios
+        .get(`${backendURL}/api/members/`)
+        .then((response) => {
+          const userData = response.data.find(
+            (user) => user.email_address === userEmail
+          );
+          setUser(userData);
+        })
+        .catch((error) => console.error("Error fetching user data:", error));
+    }
+  }, [userEmail]);
+
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Layout isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />,
+      element: (
+        <Layout
+          setUserEmail={setUserEmail}
+          setUser={setUser}
+          isLoggedIn={isLoggedIn}
+          setIsLoggedIn={setIsLoggedIn}
+        />
+      ),
       children: [
         {
           path: paths.HOME,
@@ -56,14 +80,21 @@ const App = () => {
           path: "/:courseUrl",
           element: (
             <CourseDetail
-              backendURL="http://localhost:8000"
+              backendURL={backendURL}
+              user={user}
               userEmail={userEmail}
             />
           ), // Pass necessary props
         },
         {
           path: paths.LOGIN,
-          element: <Login setIsLoggedIn={setIsLoggedIn} />, // Pass necessary props
+          element: (
+            <LoginSection
+              setUserEmail={setUserEmail}
+              setUser={setUser}
+              setIsLoggedIn={setIsLoggedIn}
+            />
+          ), // Pass necessary props
         },
       ],
     },
