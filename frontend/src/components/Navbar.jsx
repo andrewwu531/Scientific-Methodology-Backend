@@ -22,7 +22,6 @@ export default function NavBar({
 
   const backendURL = "http://localhost:8000";
 
-  // Map category names to numbers and vice versa
   const categoryMap = {
     "Academic Excellence": "1",
     "English Language": "2",
@@ -36,11 +35,6 @@ export default function NavBar({
     "CV & Interview Techniques": "10",
     "Entrepreneurship & Investing": "11",
   };
-
-  // const reverseCategoryMap = Object.entries(categoryMap).reduce(
-  //   (acc, [key, value]) => ({ ...acc, [value]: key }),
-  //   {}
-  // );
 
   const categories = [
     { name: "Academic Excellence", icon: "🎓" },
@@ -83,7 +77,7 @@ export default function NavBar({
         setUserEmail(null);
         console.log("Logged Out/ Register Successfully", setUserEmail);
         console.log("Logged Out/ Register Successfully", setUser);
-        navigate("/"); // Redirect to home or login page
+        navigate("/");
       } else {
         console.error("Failed to log out");
       }
