@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import PropTypes from "prop-types";
-import loginImage from "../static/images/login.png";
 import landingImage0 from "../static/images/landing0.jpg";
 import landingImage1 from "../static/images/landing1.jpg";
 import landingImage2 from "../static/images/landing2.jpg";
@@ -14,31 +13,17 @@ import landingImage8 from "../static/images/landing8.jpg";
 import landingImage9 from "../static/images/landing9.jpg";
 import landingImage10 from "../static/images/landing10.jpg";
 import landingImage11 from "../static/images/landing11.jpg";
-import logo from "../static/images/logo111.jpg";
+import { useNavigate } from "react-router-dom";
 
-export default function LoginSection({ setShowLogin, setIsLoggedIn }) {
+export default function LoginSection({ setIsLoggedIn }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [isLoggingIn, setIsLoggingIn] = useState(true); // State to toggle between login and register
-  const [isHidden, setIsHidden] = useState(false); // State to handle login container visibility
   const [isForgotPassword, setIsForgotPassword] = useState(false); // State to toggle forgotten password view
   const [courseBanners, setCourseBanners] = useState([]);
   const containerRef = useRef(null);
-
-  const categories = [
-    { name: "Academic Excellence", icon: "🎓" },
-    { name: "English Language", icon: "📚" },
-    { name: "Business English", icon: "📝" },
-    { name: "General Knowledge", icon: "🎬" },
-    { name: "Professional Knowledge", icon: "🔬" },
-    { name: "Sports", icon: "🏅" },
-    { name: "Health & Wellness", icon: "😊" },
-    { name: "Food & Drink", icon: "🍽️" },
-    { name: "Hair, Beauty & Fashion", icon: "🕶️" },
-    { name: "CV & Interview Techniques", icon: "🏛️" },
-    { name: "Entrepreneurship & Investing", icon: "💼" },
-  ];
+  const navigate = useNavigate();
 
   useEffect(() => {
     const banners = [
@@ -107,11 +92,12 @@ export default function LoginSection({ setShowLogin, setIsLoggedIn }) {
       );
       if (response.data.success) {
         setIsLoggedIn(true);
-        handleClose(); // Ensure login section closes upon success
+        navigate("/");
       } else {
         setError(response.data.error);
       }
     } catch (error) {
+      console.error("Error during login/register:", error);
       if (error.response && error.response.data && error.response.data.error) {
         setError(error.response.data.error);
       } else {
@@ -137,6 +123,7 @@ export default function LoginSection({ setShowLogin, setIsLoggedIn }) {
         setError(response.data.error);
       }
     } catch (error) {
+      console.error("Error during password reset:", error);
       if (error.response && error.response.data && error.response.data.error) {
         setError(error.response.data.error);
       } else {
@@ -282,6 +269,5 @@ export default function LoginSection({ setShowLogin, setIsLoggedIn }) {
 }
 
 LoginSection.propTypes = {
-  setShowLogin: PropTypes.func.isRequired,
   setIsLoggedIn: PropTypes.func.isRequired,
 };

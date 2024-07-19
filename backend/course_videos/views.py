@@ -69,9 +69,12 @@ def login_view(request):
 def register_view(request):
     if request.method == "POST":
         try:
+            logger.info("Register view called")
             data = json.loads(request.body)
             email = data.get("email")
             password = data.get("password")
+            logger.info(f"Data received: email={email}, password={password}")
+            
             if not email or not password:
                 return JsonResponse({"success": False, "error": "Both email address and password are required!"}, status=400)
 
@@ -85,8 +88,12 @@ def register_view(request):
             user.save()
             return JsonResponse({"success": True})
 
-        except json.JSONDecodeError:
+        except json.JSONDecodeError as e:
+            logger.error(f"JSON decode error: {e}")
             return JsonResponse({"error": "Invalid JSON"}, status=400)
+        except Exception as e:
+            logger.error(f"Unexpected error: {e}")
+            return JsonResponse({"error": "Internal server error"}, status=500)
     return JsonResponse({"error": "Invalid request method"}, status=405)
 
 @csrf_exempt

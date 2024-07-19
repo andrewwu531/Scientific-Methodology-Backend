@@ -3,10 +3,7 @@ import axios from "axios";
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 
-export default function CourseCarousel({
-  currentCategory,
-  setCurrentCategory,
-}) {
+export default function CourseCarousel() {
   const categories = [
     { name: "Trending Now", icon: "⭐" },
     { name: "Academic Excellence", icon: "🎓" },
@@ -22,6 +19,7 @@ export default function CourseCarousel({
     { name: "Entrepreneurship & Investing", icon: "💼" },
   ];
 
+  const [currentCategory, setCurrentCategory] = useState("Trending Now");
   const [courses, setCourses] = useState([]);
   const navigate = useNavigate();
 
@@ -109,8 +107,3 @@ export default function CourseCarousel({
     </div>
   );
 }
-
-CourseCarousel.propTypes = {
-  currentCategory: PropTypes.string.isRequired,
-  setCurrentCategory: PropTypes.func.isRequired,
-};

@@ -1,16 +1,16 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import PropTypes from "prop-types";
 import FooterBar from "../components/FooterBar";
 
-export default function CourseDetail() {
+export default function CourseDetail({ backendURL }) {
   const { courseUrl } = useParams();
   const [course, setCourse] = useState(null);
   const [videos, setVideos] = useState([]);
   const [currentVideo, setCurrentVideo] = useState(null);
   const [openAccordion, setOpenAccordion] = useState(null);
   const [highlightedVideos, setHighlightedVideos] = useState({});
-  const backendURL = "http://localhost:8000";
 
   useEffect(() => {
     // Fetch course details
@@ -46,30 +46,13 @@ export default function CourseDetail() {
         setOpenAccordion(`Series 1-${initialVideo.pk}`);
       })
       .catch((error) => console.error("Error fetching course videos:", error));
-  }, [courseUrl]);
+  }, [courseUrl, backendURL]);
 
   useEffect(() => {
     if (currentVideo) {
       console.log("Current video updated:", currentVideo);
     }
   }, [currentVideo]);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      const windowHeight = window.innerHeight;
-      const documentHeight = document.documentElement.scrollHeight;
-      const scrolledPercentage =
-        (scrollPosition / (documentHeight - windowHeight)) * 100;
-      setShowFooter(scrolledPercentage > 25);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
 
   if (!course || !currentVideo) {
     return <div>Loading...</div>;
@@ -210,3 +193,7 @@ export default function CourseDetail() {
     </div>
   );
 }
+
+CourseDetail.propTypes = {
+  backendURL: PropTypes.string.isRequired,
+};

@@ -5,8 +5,7 @@ import axios from "axios";
 import NavbarDropdown from "./NavbarDropdown";
 import logo from "../static/images/logo111.jpg";
 
-export default function NavBar({ setShowLogin, isLoggedIn, setIsLoggedIn }) {
-  const [showLogo, setShowLogo] = useState(false);
+export default function NavBar({ isLoggedIn, setIsLoggedIn }) {
   const navigate = useNavigate();
 
   const handleSignOut = async () => {
@@ -87,7 +86,6 @@ export default function NavBar({ setShowLogin, isLoggedIn, setIsLoggedIn }) {
 }
 
 NavBar.propTypes = {
-  setShowLogin: PropTypes.func.isRequired,
   isLoggedIn: PropTypes.bool.isRequired,
   setIsLoggedIn: PropTypes.func.isRequired,
 };
