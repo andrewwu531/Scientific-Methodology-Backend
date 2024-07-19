@@ -6,6 +6,7 @@ import {
   Button,
 } from "@material-tailwind/react";
 import PropTypes from "prop-types";
+import { useNavigate } from "react-router-dom";
 
 function Icon({ id, open }) {
   return (
@@ -27,6 +28,7 @@ function Icon({ id, open }) {
 
 export default function FAQ() {
   const [open, setOpen] = React.useState(0);
+  const navigate = useNavigate();
 
   const handleOpen = (value) => setOpen(open === value ? 0 : value);
 
@@ -69,7 +71,7 @@ export default function FAQ() {
   const renderContent = (contentType, content) => {
     return (
       <p
-        className="mb-10 text-xl mt-7 mx-14 text-neutral-200"
+        className="mx-10 mt-4 text-lg md:mt-6 mb-7 md:mb-10 text-neutral-200"
         style={{ whiteSpace: "pre-line" }}
       >
         {content}
@@ -77,40 +79,78 @@ export default function FAQ() {
     );
   };
 
+  const handleClick = () => {
+    navigate("/login");
+  };
+
   return (
-    <div className="flex flex-col items-center justify-center mx-auto bg-black">
-      <div className="flex justify-center pt-7 text-4xl font-bold text-center text-neutral-200 mb-[5vh]">
-        Frequently Asked Questions
-      </div>
+    <div>
+      <div className="hidden md:block">
+        <div className="flex flex-col items-center justify-center mx-auto bg-black">
+          <div className="flex justify-center pt-7 text-4xl font-bold text-center text-neutral-200 mb-[5vh]">
+            Frequently Asked Questions
+          </div>
 
-      <div style={{ width: "55vw" }}>
-        {data.map(({ title, content, contentType, pk }) => (
-          <Accordion
-            key={title}
-            value={title}
-            open={open === pk}
-            icon={<Icon id={pk} open={pk} />}
-            className="mb-4 bg-black"
-          >
-            <AccordionHeader
-              onClick={() => handleOpen(pk)}
-              className="px-10 py-4 text-lg font-bold no-underline border-none text-start text-neutral-200 bg-neutral-950"
+          <div style={{ width: "55vw" }}>
+            {data.map(({ title, content, contentType, pk }) => (
+              <Accordion
+                key={title}
+                value={title}
+                open={open === pk}
+                icon={<Icon id={pk} open={pk} />}
+                className="mb-4 bg-black"
+              >
+                <AccordionHeader
+                  onClick={() => handleOpen(pk)}
+                  className="px-10 py-4 text-lg font-bold no-underline border-none text-start text-neutral-200 bg-neutral-950"
+                >
+                  {title}
+                </AccordionHeader>
+                <AccordionBody>
+                  {renderContent(contentType, content)}
+                </AccordionBody>
+              </Accordion>
+            ))}
+          </div>
+        </div>
+      </div>
+      <div className="block md:hidden">
+        <div className="flex flex-col items-center justify-center mx-auto bg-black">
+          <div className="flex justify-center pt-7 text-2xl font-bold text-center text-neutral-200 mb-[2vh]">
+            Frequently Asked Questions
+          </div>
+
+          <div style={{ width: "85vw" }}>
+            {data.map(({ title, content, contentType, pk }) => (
+              <Accordion
+                key={title}
+                value={title}
+                open={open === pk}
+                icon={<Icon id={pk} open={pk} />}
+                className="mb-2 bg-black"
+              >
+                <AccordionHeader
+                  onClick={() => handleOpen(pk)}
+                  className="py-4 font-bold no-underline border-none text-md px-9 text-start text-neutral-200 bg-neutral-950"
+                >
+                  {title}
+                </AccordionHeader>
+                <AccordionBody>
+                  {renderContent(contentType, content)}
+                </AccordionBody>
+              </Accordion>
+            ))}
+          </div>
+          <div className="mt-[3vh]">
+            <button
+              onClick={handleClick}
+              className="px-8 py-3.5 font-sans font-bold text-black bg-purple-900 rounded-lg text-md"
             >
-              {title}
-            </AccordionHeader>
-            <AccordionBody>{renderContent(contentType, content)}</AccordionBody>
-          </Accordion>
-        ))}
+              Register/ Log In
+            </button>{" "}
+          </div>
+        </div>
       </div>
-
-      {/* <div className="mt-[6vh]">
-        <button
-          href={routes.LOGIN}
-          className="px-10 py-3.5 font-sans text-lg font-bold text-black bg-yellow-500 rounded-lg"
-        >
-          Register/ Log In
-        </button>{" "}
-      </div> */}
     </div>
   );
 }

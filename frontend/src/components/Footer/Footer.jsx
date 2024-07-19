@@ -23,8 +23,8 @@ const socialIcons = [faInstagram, faTwitter, faFacebook];
 
 export default function Footer() {
   return (
-    <footer className="flex flex-col mb-12 mt-16 gap-9 mx-[5vw]">
-      <p className="flex justify-end pr-5 text-md text-neutral-300">
+    <footer className="flex flex-col mb-5 md:mb-12 md:mt-12 mt-6 gap-9 mx-[5vw]">
+      <p className="flex justify-end pr-5 font-bold md:text-md text-neutral-300">
         &copy; 2024
       </p>
     </footer>
