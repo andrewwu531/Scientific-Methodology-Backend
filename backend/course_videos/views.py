@@ -17,6 +17,8 @@ from django.template.loader import render_to_string
 from django.contrib.auth.tokens import default_token_generator
 from django.template.exceptions import TemplateDoesNotExist
 from django.contrib.auth import get_user_model
+from member.models import Member, CustomUser
+
 
 User = get_user_model()
 logger = logging.getLogger(__name__)
@@ -65,6 +67,7 @@ def login_view(request):
     return JsonResponse({"error": "Invalid request method"}, status=405)
 
 
+# course_videos/views.py
 @csrf_exempt
 def register_view(request):
     if request.method == "POST":
@@ -74,27 +77,32 @@ def register_view(request):
             email = data.get("email")
             password = data.get("password")
             logger.info(f"Data received: email={email}, password={password}")
-            
+
             if not email or not password:
                 return JsonResponse({"success": False, "error": "Both email address and password are required!"}, status=400)
 
             if len(password) <= 7:
                 return JsonResponse({"success": False, "error": "Password length must exceed 7 characters!"}, status=400)
 
-            if User.objects.filter(username=email).exists():
+            if CustomUser.objects.filter(username=email).exists():
                 return JsonResponse({"success": False, "error": "This email has already been registered!"}, status=400)
 
-            user = User.objects.create_user(username=email, email=email, password=password)
+            user = CustomUser.objects.create_user(username=email, email=email, password=password)
             user.save()
+
+            # Create a corresponding Member record
+            Member.objects.create(email_address=email)
+
             return JsonResponse({"success": True})
 
         except json.JSONDecodeError as e:
             logger.error(f"JSON decode error: {e}")
             return JsonResponse({"error": "Invalid JSON"}, status=400)
         except Exception as e:
-            logger.error(f"Unexpected error: {e}")
+            logger.error(f"Unexpected error: {e}", exc_info=True)  # Add exc_info=True to log stack trace
             return JsonResponse({"error": "Internal server error"}, status=500)
     return JsonResponse({"error": "Invalid request method"}, status=405)
+
 
 @csrf_exempt
 def password_reset_request(request):

@@ -5,7 +5,7 @@ from .models import Member, CustomUser
 from .forms import CustomUserCreationForm, CustomUserChangeForm
 
 class MemberAdmin(admin.ModelAdmin):
-    list_display = ('pk', 'email_address', 'recurring_subscription', 'payment_dates', 'monthly_courses_duration')
+    list_display = ('pk', 'email_address', 'subscription_status', 'payment_date')
 
 class CustomUserAdmin(UserAdmin):
     add_form = CustomUserCreationForm

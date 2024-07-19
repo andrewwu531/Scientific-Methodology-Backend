@@ -4,4 +4,4 @@ from .models import Member
 class MemberSerializer(serializers.ModelSerializer):
     class Meta:
         model = Member
-        fields = ('pk', 'email_address', 'recurring_subscription','payment_dates', 'monthly_courses_duration')
+        fields = ('pk', 'email_address', 'subscription_status','payment_date')

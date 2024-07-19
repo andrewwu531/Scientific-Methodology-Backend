@@ -43,7 +43,7 @@ class Videos(models.Model):
     class Video_Subscription_Type(models.TextChoices):
         FREE = "1", "Free"
         BASIC = "2", "Basic"
-        PREMIUM = "3", "Premium"
+      
 
     course_url = models.ForeignKey(Course, on_delete=models.CASCADE)
     video_title = models.CharField(max_length=100, default="default_title")
