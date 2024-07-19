@@ -139,131 +139,237 @@ export default function LoginSection({ setUserEmail, setUser, setIsLoggedIn }) {
   };
 
   return (
-    <div className="flex flex-row h-screen bg-black rounded-lg">
-      <div className="z-10 w-[52vw] h-[88vh] pl-[9vw] overflow-hidden mt-20">
-        <div className="relative w-full h-full">
-          <div
-            ref={containerRef}
-            className="absolute flex flex-col space-x-5 animate-scroll"
-            style={{ transform: "translateY(0px)" }}
-          >
-            <div className="flex space-x-5">
-              <div className="flex flex-col space-y-4 left-column">
-                {firstColumnBanners
-                  .concat(firstColumnBanners)
-                  .map((banner, index) => (
-                    <img
-                      key={index}
-                      src={banner}
-                      alt={`Course Banner ${index}`}
-                      className="w-[28vw] rounded-lg"
-                      style={{ marginBottom: "7px" }}
-                    />
-                  ))}
+    <div>
+      <div className="hidden md:block">
+        <div className="flex flex-row h-screen bg-black rounded-lg">
+          <div className="z-10 w-[52vw] h-[88vh] pl-[9vw] overflow-hidden mt-20">
+            <div className="relative w-full h-full">
+              <div
+                ref={containerRef}
+                className="absolute flex flex-col space-x-5 animate-scroll"
+                style={{ transform: "translateY(0px)" }}
+              >
+                <div className="flex space-x-5">
+                  <div className="flex flex-col space-y-4 left-column">
+                    {firstColumnBanners
+                      .concat(firstColumnBanners)
+                      .map((banner, index) => (
+                        <img
+                          key={index}
+                          src={banner}
+                          alt={`Course Banner ${index}`}
+                          className="w-[28vw] rounded-lg"
+                          style={{ marginBottom: "7px" }}
+                        />
+                      ))}
+                  </div>
+                  <div className="flex flex-col space-y-4 right-column">
+                    {secondColumnBanners
+                      .concat(secondColumnBanners)
+                      .map((banner, index) => (
+                        <img
+                          key={index}
+                          src={banner}
+                          alt={`Course Banner ${index}`}
+                          className="w-[28vw] rounded-lg"
+                          style={{ marginBottom: "7px" }}
+                        />
+                      ))}
+                  </div>
+                </div>
               </div>
-              <div className="flex flex-col space-y-4 right-column">
-                {secondColumnBanners
-                  .concat(secondColumnBanners)
-                  .map((banner, index) => (
-                    <img
-                      key={index}
-                      src={banner}
-                      alt={`Course Banner ${index}`}
-                      className="w-[28vw] rounded-lg"
-                      style={{ marginBottom: "7px" }}
-                    />
-                  ))}
-              </div>
+              <div className="absolute top-0 left-0 w-full h-[13%] bg-gradient-to-b from-neutral-950 via-transparent to-transparent pointer-events-none z-10"></div>
+              <div className="absolute bottom-0 left-0 w-full h-[15%] bg-gradient-to-t from-black via-transparent to-transparent pointer-events-none z-10"></div>
             </div>
           </div>
-          <div className="absolute top-0 left-0 w-full h-[13%] bg-gradient-to-b from-neutral-950 via-transparent to-transparent pointer-events-none z-10"></div>
-          <div className="absolute bottom-0 left-0 w-full h-[15%] bg-gradient-to-t from-black via-transparent to-transparent pointer-events-none z-10"></div>
+
+          <div
+            className={`flex flex-col items-center pt-[10vh] flex-1  
+                                ${isForgotPassword ? "pt-40" : ""} `}
+          >
+            <div className="flex justify-center text-center items-center leading-tight flex-col px-[12.5vw] pt-[10vh] mb-[7vh] font-extrabold text-3xl text-neutral-200">
+              Your Personal Growth and Success Matters To Us
+            </div>
+
+            <form onSubmit={handleSubmit}>
+              <div className="mb-4">
+                <label
+                  htmlFor="email"
+                  className="block mb-1 text-sm font-bold "
+                >
+                  Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="w-[16rem] px-3.5 py-2.5 text-sm rounded focus:outline-none focus:ring-0 focus:bg-neutral-950 bg-neutral-950"
+                  required
+                />
+              </div>
+              {!isForgotPassword && (
+                <div className="mb-2">
+                  <div className="flex items-center justify-between mb-1">
+                    <label htmlFor="password" className="text-sm font-bold">
+                      Password
+                    </label>
+                    <button
+                      type="button"
+                      onClick={() => setIsForgotPassword(!isForgotPassword)}
+                      className={`text-xs text-neutral-200 ${isForgotPassword ? "" : "underline"}`}
+                    >
+                      {isForgotPassword
+                        ? "Back to Login"
+                        : "Forgot your password?"}
+                    </button>
+                  </div>
+                  <input
+                    type="password"
+                    id="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    className="w-[16rem] px-3.5 py-2.5 text-sm rounded focus:outline-none focus:ring-0 bg-neutral-950"
+                    required
+                  />
+                </div>
+              )}
+              <div className="flex flex-col items-center pt-16">
+                <button
+                  type="submit"
+                  className="w-[12rem] py-2.5 text-base font-bold text-black bg-purple-900 rounded-xl hover:scale-105"
+                >
+                  {isForgotPassword
+                    ? "Reset Password"
+                    : isLoggingIn
+                      ? "Log In"
+                      : "Register"}
+                </button>
+                <div className="mt-4 text-center">
+                  {!isForgotPassword && (
+                    <button
+                      type="button"
+                      onClick={() => setIsLoggingIn(!isLoggingIn)}
+                      className="text-xs text-neutral-200"
+                    >
+                      {isLoggingIn ? (
+                        <>
+                          Don’t have an account?{" "}
+                          <span className="underline">Register</span>
+                        </>
+                      ) : (
+                        <>
+                          Already have an account?{" "}
+                          <span className="underline">Log In</span>
+                        </>
+                      )}
+                    </button>
+                  )}
+                  {error && (
+                    <div className="mt-2 text-[0.8rem] text-red-500">
+                      {error}
+                    </div>
+                  )}
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
+      <div className="block md:hidden">
+        <div className="flex flex-row h-screen bg-black rounded-lg">
+          <div
+            className={`flex flex-col items-center pt-[10vh] flex-1  
+                                ${isForgotPassword ? "pt-40" : ""} `}
+          >
+            <div className="flex justify-center text-center items-center leading-tight flex-col px-[12.5vw] pt-[10vh] mb-[7vh] font-extrabold text-3xl text-neutral-200">
+              Your Personal Growth and Success Matters To Us
+            </div>
 
-      <div
-        className={`flex flex-col items-center pt-[10vh] flex-1  
-                            ${isForgotPassword ? "pt-40" : ""} `}
-      >
-        <div className="flex justify-center text-center items-center leading-tight flex-col px-[12.5vw] pt-[10vh] mb-[7vh] font-extrabold text-3xl text-neutral-200">
-          Your Personal Growth and Success Matters To Us
-        </div>
-
-        <form onSubmit={handleSubmit}>
-          <div className="mb-4">
-            <label htmlFor="email" className="block mb-1 text-sm font-bold ">
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="w-[16rem] px-3.5 py-2.5 text-sm rounded focus:outline-none focus:ring-0 focus:bg-neutral-950 bg-neutral-950"
-              required
-            />
-          </div>
-          {!isForgotPassword && (
-            <div className="mb-2">
-              <div className="flex items-center justify-between mb-1">
-                <label htmlFor="password" className="text-sm font-bold">
-                  Password
+            <form onSubmit={handleSubmit}>
+              <div className="mb-4">
+                <label
+                  htmlFor="email"
+                  className="block mb-1 text-sm font-bold "
+                >
+                  Email
                 </label>
-                <button
-                  type="button"
-                  onClick={() => setIsForgotPassword(!isForgotPassword)}
-                  className={`text-xs text-neutral-200 ${isForgotPassword ? "" : "underline"}`}
-                >
-                  {isForgotPassword ? "Back to Login" : "Forgot your password?"}
-                </button>
+                <input
+                  type="email"
+                  id="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="w-[16rem] px-3.5 py-2.5 text-sm rounded focus:outline-none focus:ring-0 focus:bg-neutral-950 bg-neutral-950"
+                  required
+                />
               </div>
-              <input
-                type="password"
-                id="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className="w-[16rem] px-3.5 py-2.5 text-sm rounded focus:outline-none focus:ring-0 bg-neutral-950"
-                required
-              />
-            </div>
-          )}
-          <div className="flex flex-col items-center pt-16">
-            <button
-              type="submit"
-              className="w-[12rem] py-2.5 text-base font-bold text-black bg-purple-900 rounded-xl hover:scale-105"
-            >
-              {isForgotPassword
-                ? "Reset Password"
-                : isLoggingIn
-                  ? "Log In"
-                  : "Register"}
-            </button>
-            <div className="mt-4 text-center">
               {!isForgotPassword && (
+                <div className="mb-2">
+                  <div className="flex items-center justify-between mb-1">
+                    <label htmlFor="password" className="text-sm font-bold">
+                      Password
+                    </label>
+                    <button
+                      type="button"
+                      onClick={() => setIsForgotPassword(!isForgotPassword)}
+                      className={`text-xs text-neutral-200 ${isForgotPassword ? "" : "underline"}`}
+                    >
+                      {isForgotPassword
+                        ? "Back to Login"
+                        : "Forgot your password?"}
+                    </button>
+                  </div>
+                  <input
+                    type="password"
+                    id="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    className="w-[16rem] px-3.5 py-2.5 text-sm rounded focus:outline-none focus:ring-0 bg-neutral-950"
+                    required
+                  />
+                </div>
+              )}
+              <div className="flex flex-col items-center pt-16">
                 <button
-                  type="button"
-                  onClick={() => setIsLoggingIn(!isLoggingIn)}
-                  className="text-xs text-neutral-200"
+                  type="submit"
+                  className="w-[12rem] py-2.5 text-base font-bold text-black bg-purple-900 rounded-xl hover:scale-105"
                 >
-                  {isLoggingIn ? (
-                    <>
-                      Don’t have an account?{" "}
-                      <span className="underline">Register</span>
-                    </>
-                  ) : (
-                    <>
-                      Already have an account?{" "}
-                      <span className="underline">Log In</span>
-                    </>
-                  )}
+                  {isForgotPassword
+                    ? "Reset Password"
+                    : isLoggingIn
+                      ? "Log In"
+                      : "Register"}
                 </button>
-              )}
-              {error && (
-                <div className="mt-2 text-[0.8rem] text-red-500">{error}</div>
-              )}
-            </div>
+                <div className="mt-4 text-center">
+                  {!isForgotPassword && (
+                    <button
+                      type="button"
+                      onClick={() => setIsLoggingIn(!isLoggingIn)}
+                      className="text-xs text-neutral-200"
+                    >
+                      {isLoggingIn ? (
+                        <>
+                          Don’t have an account?{" "}
+                          <span className="underline">Register</span>
+                        </>
+                      ) : (
+                        <>
+                          Already have an account?{" "}
+                          <span className="underline">Log In</span>
+                        </>
+                      )}
+                    </button>
+                  )}
+                  {error && (
+                    <div className="mt-2 text-[0.8rem] text-red-500">
+                      {error}
+                    </div>
+                  )}
+                </div>
+              </div>
+            </form>
           </div>
-        </form>
+        </div>
       </div>
     </div>
   );

@@ -212,7 +212,7 @@ export default function NavBar({
             <li>
               <button
                 onClick={handleSignOut}
-                className="relative mt-1 w-[12vw] px-6 py-3.5 text-md font-bold text-neutral-300 bg-black rounded-lg overflow-hidden"
+                className="relative mt-1 md:w-[12vw] w-[32vw] py-2.5 px-2 md:[px-1] md:px-6 md:py-3.5  md:text-base text-sm md:font-bold  text-neutral-300 bg-black rounded-lg overflow-hidden"
               >
                 <span className="relative z-10">Account Signout</span>
                 <div
