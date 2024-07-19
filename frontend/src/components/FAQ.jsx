@@ -49,14 +49,14 @@ export default function FAQ() {
     {
       title: "Q3 - Customer Support",
       contentType: "text",
-      content: `If you have any questions or feedback regarding Upper Performance, feel free to contact us at upper_performance@gmail.com. We are here to help and value your input!`,
+      content: `If you have any questions or feedback regarding Upper Performance, feel free to contact us at upper_performance@gmail.com. We are keen to help you resolve any issues that you encountered and also highly appreciate your input!`,
       pk: "3",
     },
     {
       title: "Q4 - Your Monthly Subscription",
       contentType: "text",
-      content: `At Upper Performance, we pride ourselves on delivering high-quality and affordable educational content. Our monthly subscription is priced at £24.99, and you have the flexibility to cancel at any time. 
-                \nTo cancel, simply log in to your account and click [here]. You will receive a confirmation email indicating that the recurring payment has been cancelled and providing the last date you will have access to our member services.`,
+      content: `At Upper Performance, we pride ourselves on delivering high-quality and affordable educational content. Our monthly subscription is priced at £24.99, and you will have the flexibility to cancel your membership at any time. 
+                \nTo cancel your membership, you simply log into your account and click [here]. You will receive a confirmation email which denotes the cancellation of the recurring payment and the last date that you will have access to our member services.`,
     },
     {
       title: "Q5 - Legal & Privacy Statements",
