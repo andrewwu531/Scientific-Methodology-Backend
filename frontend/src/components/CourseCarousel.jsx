@@ -12,7 +12,7 @@ export default function CourseCarousel() {
     { name: "General Knowledge", icon: "🎬" },
     { name: "Professional Knowledge", icon: "🔬" },
     { name: "Sports", icon: "🏅" },
-    { name: "Health & Wellness", icon: "😊" },
+    { name: "Psychology & Mindset", icon: "😊" },
     { name: "Food & Drink", icon: "🍽️" },
     { name: "Hair, Beauty & Fashion", icon: "🕶️" },
     { name: "CV & Interview Techniques", icon: "🏛️" },

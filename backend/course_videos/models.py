@@ -13,7 +13,7 @@ class Course(models.Model):
         GK = "4", "General Knowledge"
         PK = "5", "Professional Knowledge"
         S = "6", "Sports"
-        HW = "7", "Health & Wellness"
+        HW = "7", "Psychology & Mindset"
         FD = "8", "Food & Drinks"
         HBF = "9", "Health, Beauty & Fashion"
         CVIT = "10", "CV & Interview Techniques"

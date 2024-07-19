@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import NavbarDropdown from "./NavbarDropdown";
+import { FiChevronDown } from "react-icons/fi";
 import logo from "../static/images/logo111.jpg";
 
 export default function NavBar({ isLoggedIn, setIsLoggedIn }) {
@@ -12,6 +13,7 @@ export default function NavBar({ isLoggedIn, setIsLoggedIn }) {
   const [courses, setCourses] = useState([]);
   const [submenuTop, setSubmenuTop] = useState(0);
   const categoryRefs = useRef([]);
+  const dropdownRef = useRef(null);
 
   const backendURL = "http://localhost:8000";
 
@@ -23,7 +25,7 @@ export default function NavBar({ isLoggedIn, setIsLoggedIn }) {
     "General Knowledge": "4",
     "Professional Knowledge": "5",
     Sports: "6",
-    "Health & Wellness": "7",
+    "Psychology & Wellness": "7",
     "Food & Drink": "8",
     "Hair, Beauty & Fashion": "9",
     "CV & Interview Techniques": "10",
@@ -42,7 +44,7 @@ export default function NavBar({ isLoggedIn, setIsLoggedIn }) {
     { name: "General Knowledge", icon: "🎬" },
     { name: "Professional Knowledge", icon: "🔬" },
     { name: "Sports", icon: "🏅" },
-    { name: "Health & Wellness", icon: "😊" },
+    { name: "Psychology & Mindset", icon: "😊" },
     { name: "Food & Drink", icon: "🍽️" },
     { name: "Hair, Beauty & Fashion", icon: "🕶️" },
     { name: "CV & Interview Techniques", icon: "🏛️" },
@@ -95,11 +97,36 @@ export default function NavBar({ isLoggedIn, setIsLoggedIn }) {
   };
 
   const handleCourseClick = (course) => {
+    setShowCategories(false);
+    setSelectedCategory(null);
     navigate(`/${course.course_url}`);
   };
 
+  const handleOutsideClick = (event) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      setShowCategories(false);
+      setSelectedCategory(null);
+    }
+  };
+
+  useEffect(() => {
+    if (showCategories || selectedCategory) {
+      document.addEventListener("mousedown", handleOutsideClick);
+    } else {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, [showCategories, selectedCategory]);
+
   const filteredCourses = courses.filter(
     (course) => course.course_category === selectedCategory
+  );
+
+  const categoryIndex = categories.findIndex(
+    (cat) => categoryMap[cat.name] === selectedCategory
   );
 
   return (
@@ -110,29 +137,25 @@ export default function NavBar({ isLoggedIn, setIsLoggedIn }) {
       >
         <img src={logo} alt="logo" className="w-10 h-10 mr-2.5" />
         <div className="flex flex-col leading-tight text-md">
-          <div>Growth</div>
-          <div>Engineering</div>
+          <div>Upper</div>
+          <div>Performance</div>
         </div>
       </div>
-      <div className="flex items-center mt-1 space-x-4">
-        <NavbarDropdown />
-        <ul role="menu" className="relative flex items-center gap-6">
-          <li className="relative">
+      <div className="flex items-center mt-1">
+        <ul role="menu" className="relative flex items-center gap-3.5">
+          <li className="relative" ref={dropdownRef}>
             <button
               onClick={() => setShowCategories(!showCategories)}
-              className="relative mt-1 w-[12vw] px-6 py-3 text-md font-bold text-neutral-300 bg-black rounded-lg overflow-hidden"
+              className="relative py-3 mt-1 overflow-hidden font-bold bg-black rounded-lg px-7 text-md text-neutral-300"
             >
-              <span className="relative z-10">Explore</span>
-              <div
-                className="absolute inset-0 rounded-lg"
-                style={{
-                  background: "linear-gradient(to right, #FDE68A, #60A5FA)", // Smooth gradient from yellow-300 to blue-400
-                }}
-              ></div>
+              <span className="relative z-10 flex items-center pl-2">
+                Explore <FiChevronDown className="ml-1 text-xl " />
+              </span>
+              <div className="absolute inset-0 border rounded-lg border-neutral-100"></div>
               <div className="absolute inset-0 bg-black rounded-lg m-[1px]"></div>
             </button>
             {showCategories && (
-              <div className="absolute bg-black text-white mt-3 py-3 px-1 rounded-lg shadow-lg w-[22vw] -left-[10vw]">
+              <div className="absolute bg-black text-neutral-100 mt-3 py-3 px-1 rounded-lg shadow-lg w-[22vw] -left-[10vw]">
                 <ul>
                   {categories.map((category, index) => (
                     <li
@@ -150,7 +173,11 @@ export default function NavBar({ isLoggedIn, setIsLoggedIn }) {
             )}
             {selectedCategory && (
               <div
-                className="absolute bg-black text-white mt-3 mr-5 rounded-md shadow-lg w-[22vw] -left-[32vw]"
+                className={`absolute bg-black mr-5 rounded-md shadow-lg w-[23vw] -left-[33vw]  ${
+                  categoryIndex >= categories.length - 5
+                    ? "-mt-[9vh]"
+                    : "mt-[9vh]"
+                }`}
                 style={{ top: submenuTop }}
               >
                 <ul>
@@ -158,16 +185,16 @@ export default function NavBar({ isLoggedIn, setIsLoggedIn }) {
                     <li
                       key={course.course_url}
                       onClick={() => handleCourseClick(course)}
-                      className="flex flex-col items-center px-4 py-2 cursor-pointer hover:rounded-lg hover:bg-neutral-900"
+                      className="flex flex-col items-start pl-[1.5vw] justify-start pt-3 pb-2 cursor-pointer hover:rounded-lg hover:bg-neutral-900"
                     >
-                      <div className="flex flex-row m-2">
+                      <div className="flex flex-row justify-start m-2">
                         <img
                           src={`${backendURL}/${course.course_banner}`}
                           alt={course.course_title}
-                          className="object-cover w-10 h-10 mt-2 mr-6 rounded"
+                          className="object-cover w-10 h-10 mt-2 mr-4 rounded"
                         />
                         <div>
-                          <div className="w-[13vw] text-sm font-bold text-gray-400">
+                          <div className="w-[13vw] text-small text-neutral-100">
                             {course.course_title}
                           </div>
                         </div>
