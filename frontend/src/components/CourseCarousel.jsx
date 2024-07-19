@@ -39,7 +39,7 @@ export default function CourseCarousel() {
       ? courses
       : courses.filter(
           (course) =>
-            categories[parseInt(course.course_category) - 1].name ===
+            categories[parseInt(course.course_category)].name ===
             currentCategory
         );
 

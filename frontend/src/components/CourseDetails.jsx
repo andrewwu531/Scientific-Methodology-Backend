@@ -68,7 +68,7 @@ export default function CourseDetail({ backendURL, userEmail }) {
   }, [currentVideo]);
 
   if (!course || !currentVideo) {
-    return <div>Loading...</div>;
+    return <div className="bg-black"> </div>;
   }
 
   const handleVideoClick = (video, seriesName) => {
