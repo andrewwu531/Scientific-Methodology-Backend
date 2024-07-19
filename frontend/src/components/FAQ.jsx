@@ -116,7 +116,7 @@ export default function FAQ() {
       </div>
       <div className="block md:hidden">
         <div className="flex flex-col items-center justify-center mx-auto bg-black">
-          <div className="flex justify-center pt-7 text-2xl font-bold text-center text-neutral-200 mb-[2vh]">
+          <div className="flex justify-center pt-7 text-xl font-bold text-center text-neutral-200 mb-[2vh]">
             Frequently Asked Questions
           </div>
 
@@ -127,7 +127,7 @@ export default function FAQ() {
                 value={title}
                 open={open === pk}
                 icon={<Icon id={pk} open={pk} />}
-                className="mb-2 bg-black"
+                className="mb-2.5 bg-black"
               >
                 <AccordionHeader
                   onClick={() => handleOpen(pk)}

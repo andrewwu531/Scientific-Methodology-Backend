@@ -108,7 +108,7 @@ export default function CourseCarousel() {
       </div>
       <div className="block md:hidden">
         <div className="flex flex-col w-full overflow-hidden mt-[2.5vh] bg-black relative px-[1vw]">
-          <div className="flex flex-wrap justify-center gap-1.5 mb-8">
+          <div className="flex flex-wrap justify-center gap-1.5 mb-10">
             {categories.map((category) => (
               <button
                 key={category.name}
@@ -126,14 +126,14 @@ export default function CourseCarousel() {
           </div>
         </div>
         <div className="flex flex-row ml-[6vw] space-x-4">
-          <div className="text-2xl mb-[1vh] font-bold">{currentCategory}</div>
+          <div className="text-2xl mb-[1.5vh] font-bold">{currentCategory}</div>
         </div>
         <div className="grid grid-cols-2 px-[5vw] gap-x-3 gap-y-3 mb-2">
           {filteredCourses.map((course) => {
             return (
               <div
                 key={course.course_url}
-                className="flex flex-col w-full h-[35vh] relative course-card overflow-hidden group"
+                className="flex flex-col w-full h-[28vh] relative course-card overflow-hidden group"
                 onClick={() => handleCourseClick(course.course_url)}
               >
                 <div className="relative w-full h-full overflow-hidden rounded-md">
@@ -146,14 +146,14 @@ export default function CourseCarousel() {
                 </div>
 
                 <div className="flex flex-col">
-                  <div className="pl-[1vw] flex justify-start bottom-0 w-full h-[8vh]  text-neutral-200 text-sm font-bold ">
+                  <div className="z-20 pl-[1vw] -mt-[3vh] flex justify-start bottom-0 w-full h-[8vh]  text-neutral-200 text-sm font-bold ">
                     {course.course_title}
                   </div>
                   <div className="flex flex-row items-center">
-                    <div className="w-full pl-[1vw] text-neutral-100 font-bold text-sm">
+                    <div className="w-full pl-[1vw] text-neutral-100 font-bold text-xs">
                       {course.course_author}
                     </div>
-                    <button className="px-6 py-2 mx-1 mr-2 text-black bg-purple-800 rounded-full text-md hover:bg-purple-600">
+                    <button className="px-5 py-1.5 mx-1 mr-1 text-black bg-purple-800 rounded-full text-md hover:bg-purple-600">
                       ▶
                     </button>
                   </div>
