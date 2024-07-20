@@ -41,8 +41,15 @@
   border-radius: 6px;
 }
 
-.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+input:-webkit-autofill,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0px 1000px rgb(23 23 23) inset; /* Adjust this color to match bg-neutral-950 */
+  box-shadow: 0 0 0px 1000px rgb(23 23 23) inset; /* Adjust this color to match bg-neutral-950 */
+  -webkit-text-fill-color: #fff; /* Ensure text color is visible */
 }
+
 /* Add this CSS for background overlay and animation */
 .overlay {
   position: fixed;

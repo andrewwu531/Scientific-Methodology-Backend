@@ -187,15 +187,15 @@ export default function LoginSection({ setUserEmail, setUser, setIsLoggedIn }) {
             className={`flex flex-col items-center pt-[10vh] flex-1  
                                 ${isForgotPassword ? "pt-40" : ""} `}
           >
-            <div className="flex justify-center text-center items-center leading-tight flex-col px-[12.5vw] pt-[10vh] mb-[7vh] font-extrabold text-3xl text-neutral-200">
-              Your Personal Growth and Success Matters To Us
+            <div className="flex justify-center text-center items-center leading-tight flex-col px-[10.5vw] pt-[10vh] mb-[6vh] font-extrabold text-4xl text-neutral-200">
+              Your Personal Growth & Success Matters To Us
             </div>
 
             <form onSubmit={handleSubmit}>
               <div className="mb-4">
                 <label
                   htmlFor="email"
-                  className="block mb-1 text-sm font-bold "
+                  className="block mb-1 text-sm font-bold text-neutral-200 "
                 >
                   Email
                 </label>
@@ -204,14 +204,17 @@ export default function LoginSection({ setUserEmail, setUser, setIsLoggedIn }) {
                   id="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-[16rem] px-3.5 py-2.5 text-sm rounded focus:outline-none focus:ring-0 focus:bg-neutral-950 bg-neutral-950"
+                  className="w-[17vw] px-3.5 py-2.5 text-sm rounded-sm focus:outline-none focus:ring-0 focus:bg-neutral-950 bg-neutral-950"
                   required
                 />
               </div>
               {!isForgotPassword && (
-                <div className="mb-2">
+                <div className="mt-1 mb-2">
                   <div className="flex items-center justify-between mb-1">
-                    <label htmlFor="password" className="text-sm font-bold">
+                    <label
+                      htmlFor="password"
+                      className="text-sm font-bold text-neutral-200"
+                    >
                       Password
                     </label>
                     <button
@@ -229,7 +232,7 @@ export default function LoginSection({ setUserEmail, setUser, setIsLoggedIn }) {
                     id="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="w-[16rem] px-3.5 py-2.5 text-sm rounded focus:outline-none focus:ring-0 bg-neutral-950"
+                    className="w-[17vw] px-3.5 py-2.5 text-sm rounded-sm focus:outline-none focus:ring-0 bg-neutral-950"
                     required
                   />
                 </div>
@@ -237,7 +240,7 @@ export default function LoginSection({ setUserEmail, setUser, setIsLoggedIn }) {
               <div className="flex flex-col items-center pt-16">
                 <button
                   type="submit"
-                  className="w-[12rem] py-2.5 text-base font-bold text-black bg-purple-900 rounded-xl hover:scale-105"
+                  className="w-[12rem] py-2.5 text-lg font-bold text-black bg-purple-900 rounded-xl hover:scale-105"
                 >
                   {isForgotPassword
                     ? "Reset Password"
@@ -299,7 +302,7 @@ export default function LoginSection({ setUserEmail, setUser, setIsLoggedIn }) {
                   id="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-[16rem] px-3.5 py-2.5 text-sm rounded focus:outline-none focus:ring-0 focus:bg-neutral-950 bg-neutral-950"
+                  className="w-[16rem] px-3.5 py-2.5 text-sm rounded-sm focus:outline-none focus:ring-0 focus:bg-neutral-950 bg-neutral-950"
                   required
                 />
               </div>
@@ -324,7 +327,7 @@ export default function LoginSection({ setUserEmail, setUser, setIsLoggedIn }) {
                     id="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="w-[16rem] px-3.5 py-2.5 text-sm rounded focus:outline-none focus:ring-0 bg-neutral-950"
+                    className="w-[16rem] px-3.5 py-2.5 text-sm rounded-sm focus:outline-none focus:ring-0 bg-neutral-950"
                     required
                   />
                 </div>
