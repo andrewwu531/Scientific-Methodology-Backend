@@ -20,7 +20,7 @@ export default function LoginSection({ setUserEmail, setUser, setIsLoggedIn }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const [isLoggingIn, setIsLoggingIn] = useState(true); // State to toggle between login and register
+  const [isRegistering, setIsRegistering] = useState(true); // State to toggle between login and register
   const [isForgotPassword, setIsForgotPassword] = useState(false); // State to toggle forgotten password view
   const [courseBanners, setCourseBanners] = useState([]);
   const containerRef = useRef(null);
@@ -75,9 +75,9 @@ export default function LoginSection({ setUserEmail, setUser, setIsLoggedIn }) {
       return;
     }
 
-    const url = isLoggingIn
-      ? "http://127.0.0.1:8000/api/login/"
-      : "http://127.0.0.1:8000/api/register/";
+    const url = isRegistering
+      ? "http://127.0.0.1:8000/api/register/"
+      : "http://127.0.0.1:8000/api/login/";
     try {
       const response = await axios.post(
         url,
@@ -244,26 +244,26 @@ export default function LoginSection({ setUserEmail, setUser, setIsLoggedIn }) {
                 >
                   {isForgotPassword
                     ? "Reset Password"
-                    : isLoggingIn
-                      ? "Log In"
-                      : "Register"}
+                    : isRegistering
+                      ? "Register"
+                      : "Log In"}
                 </button>
                 <div className="mt-4 text-center">
                   {!isForgotPassword && (
                     <button
                       type="button"
-                      onClick={() => setIsLoggingIn(!isLoggingIn)}
+                      onClick={() => setIsRegistering(!isRegistering)}
                       className="text-xs text-neutral-200"
                     >
-                      {isLoggingIn ? (
-                        <>
-                          Don’t have an account?{" "}
-                          <span className="underline">Register</span>
-                        </>
-                      ) : (
+                      {isRegistering ? (
                         <>
                           Already have an account?{" "}
                           <span className="underline">Log In</span>
+                        </>
+                      ) : (
+                        <>
+                          Don’t have an account?{" "}
+                          <span className="underline">Register</span>
                         </>
                       )}
                     </button>
@@ -339,26 +339,26 @@ export default function LoginSection({ setUserEmail, setUser, setIsLoggedIn }) {
                 >
                   {isForgotPassword
                     ? "Reset Password"
-                    : isLoggingIn
-                      ? "Log In"
-                      : "Register"}
+                    : isRegistering
+                      ? "Register"
+                      : "Login"}
                 </button>
                 <div className="mt-4 text-center">
                   {!isForgotPassword && (
                     <button
                       type="button"
-                      onClick={() => setIsLoggingIn(!isLoggingIn)}
+                      onClick={() => setIsRegistering(!isRegistering)}
                       className="text-xs text-neutral-200"
                     >
-                      {isLoggingIn ? (
-                        <>
-                          Don’t have an account?{" "}
-                          <span className="underline">Register</span>
-                        </>
-                      ) : (
+                      {isRegistering ? (
                         <>
                           Already have an account?{" "}
                           <span className="underline">Log In</span>
+                        </>
+                      ) : (
+                        <>
+                          Don’t have an account?{" "}
+                          <span className="underline">Register</span>
                         </>
                       )}
                     </button>
