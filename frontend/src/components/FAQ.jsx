@@ -36,34 +36,34 @@ export default function FAQ() {
     {
       title: "Q1 - Company Mission",
       contentType: "text",
-      content: `Upper Performance was founded with the mission to establish a global knowledge hub, bringing together top-tier, skill-based programmes on a single platform. 
-        \nOur course catalogues are wide-ranging, from mastering the art of High School and University Exams, Soft Skills to English Langauge and General & Professional Knowledge. There are surely some courses here that are relevant to your personal and professional development.
-        \n We hope you found progression and reached new heights of success with Upper Performance!`,
+      content: `Scientific Methodology was founded with the mission to establish a global knowledge hub, bringing together top-tier, skill-based programmes on a single platform. 
+        \nOur course catalogues are wide-ranging, from mastering the art of High School and University Exams, Soft Skills to English Langauge and General & Professional Knowledge. There are surely courses within Scientific Methodology that can accelerate your personal and professional development.
+        \n We hope you found progression and reached new heights of success with Scientific Methodology!`,
       pk: "1",
     },
     {
       title:
-        "Q2 - How Upper Performance Stands Out From The Other Leading Platforms?",
+        "Q2 - How Scientific Methodology Stands Out From The Other Leading Platforms?",
       contentType: "text",
-      content: `Upper Performance distinguishes itself from other leading platforms through our team of expert content creators who are leaders in their respective fields. Our quality team continuously reviews and enhances our course materials and delivery methods to ensure the highest quality video content within our knowledge hub.`,
+      content: `Scientific Methodology distinguishes itself from other leading platforms through our team of content creators who are experts in their respective fields. Our quality team continuously reviews and enhances our course materials and delivery methods to ensure the highest quality video content within our knowledge hub.`,
       pk: "2",
     },
     {
       title: "Q3 - Customer Support",
       contentType: "text",
-      content: `If you have any questions or feedback regarding Upper Performance, feel free to contact us at upper_performance@gmail.com. We are keen to help you resolve any issues that you encountered and also highly appreciate your input!`,
+      content: `If you have any questions or feedback regarding Scientific Methodology, feel free to contact us at scientific_methodology@gmail.com. We are keen to help you resolve any issues that you encountered and also highly appreciate your input!`,
       pk: "3",
     },
     {
       title: "Q4 - Your Monthly Subscription",
       contentType: "text",
-      content: `At Upper Performance, we pride ourselves on delivering high-quality and affordable educational content. Our monthly subscription is priced at £24.99, and you will have the flexibility to cancel your membership at any time. 
+      content: `At Scientific Methodology, we pride ourselves on delivering high-quality and affordable educational content. Our monthly subscription is priced at £24.99, and you will have the flexibility to cancel your membership at any time. 
                 \nTo cancel your membership, you simply log into your account and click [here]. You will receive a confirmation email which denotes the cancellation of the recurring payment and the last date you will have access to our member services.`,
     },
     {
       title: "Q5 - Legal & Privacy Statements",
       contentType: "text",
-      content: `Upper Performance is a registered UK company that complies with all standard legal and privacy regulations. You can view our legal and privacy statement [here].`,
+      content: `Scientific Methodology is a registered UK private limited company that complies with all standard legal and privacy regulations. You can view our legal and privacy statement [here].`,
       pk: "5",
     },
   ];

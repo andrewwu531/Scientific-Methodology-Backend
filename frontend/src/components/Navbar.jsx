@@ -140,8 +140,8 @@ export default function NavBar({
       >
         <img src={logo} alt="logo" className="w-10 h-10 mr-1 md:mr-2.5" />
         <div className="flex flex-col text-sm leading-tight md:text-medium">
-          <div>Upper</div>
-          <div>Performance</div>
+          <div>Scientific</div>
+          <div>Methodology</div>
         </div>
       </div>
       <div className="flex items-center mt-1">
