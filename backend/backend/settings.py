@@ -14,6 +14,7 @@ SECRET_KEY = 'django-insecure-5(&rb0&ftiiij)gne&=dospbyy@a$3iwv^_23e*w91(u&l0zag
 DEBUG = True
 ALLOWED_HOSTS = []
 
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -90,11 +91,12 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CORS_ORIGIN_ALLOW_ALL = True  # This allows all origins; for production, specify allowed origins
+# CORS_ORIGIN_ALLOW_ALL = True  # This allows all origins; for production, specify allowed origins
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
 ]
+CORS_ALLOW_ALL_ORIGINS = True
 
 CSRF_TRUSTED_ORIGINS = ['http://localhost:3000']
 
