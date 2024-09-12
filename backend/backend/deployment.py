@@ -2,7 +2,7 @@ import os
 from .settings import *
 from .settings import BASE_DIR 
 
-ALLOWED_HOSTS = [os.environ['WEBSITE_HOSTNAME']]
+ALLOWED_HOSTS = [os.environ['WEBSITE_HOSTNAME'], 'scientific-methodology-cwafcze9cmg0c4f3.uksouth-01.azurewebsites.net']
 CSRF_TRUSTED_ORIGINS = ['https://'+ os.environ['WEBSITE_HOSTNAME']]
 DEBUG = False
 SECRET_KEY = os.environ['MY_SECRET_KEY']
@@ -45,4 +45,6 @@ DATABASES = {
     }
 }
 
+STATIC_URL = '/static/'
+STATICFILES_STORAGE = 'whitenoise.storages.CompressedStaticFilesStorage'
 STATIC_ROOT = BASE_DIR/'staticfiles'
