@@ -18,10 +18,6 @@ jobs:
     - name: Test SSH connection
       run: ssh -o StrictHostKeyChecking=no ${{ secrets.USERNAME }}@${{ secrets.SSH_HOST }} "echo SSH connection established"
         
-    - name: Prepare server directory
-      run: |
-        ssh -o StrictHostKeyChecking=no ${{ secrets.USERNAME }}@${{ secrets.SSH_HOST }} "sudo mkdir -p /var/www/Scientific-Methodology-Backend && sudo chown -R ${{ secrets.USERNAME }} /var/www/Scientific-Methodology-Backend"
-        
     - name: Clone repository to server
       run: |
-        ssh -o StrictHostKeyChecking=no ${{ secrets.USERNAME }}@${{ secrets.SSH_HOST }} "git clone --branch deploy git@github.com:${{ github.repository }}.git /var/www/Scientific-Methodology-Backend"
+        ssh -o StrictHostKeyChecking=no ${{ secrets.USERNAME }}@${{ secrets.SSH_HOST }} "git pull git@github.com:${{ github.repository }}.git /var/www/Scientific-Methodology-Backend"
