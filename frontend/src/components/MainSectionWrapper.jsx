@@ -9,7 +9,7 @@ function MainSectionWrapper() {
   const [selectedVideo, setSelectedVideo] = useState(null);
 
   useEffect(() => {
-    fetch(`http://20.117.120.95:8000/api/courses/`)
+    fetch(`https://backend.scientific-methodology.com/api/courses/`)
       .then((response) => response.json())
       .then((data) => {
         const selectedData = data.find(
@@ -22,7 +22,7 @@ function MainSectionWrapper() {
 
   useEffect(() => {
     if (category) {
-      fetch(`http://20.117.120.95:8000/api/${category}/`)
+      fetch(`https://backend.scientific-methodology.com/api/${category}/`)
         .then((response) => response.json())
         .then((data) => setCategoryData(data))
         .catch((error) =>

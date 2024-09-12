@@ -52,7 +52,7 @@ export default function Navbar({
 
   useEffect(() => {
     axios
-      .get("http://20.117.120.95:8000/api/courses/")
+      .get("https://backend.scientific-methodology.com/api/courses/")
       .then((response) => {
         setCourses(response.data);
       })
@@ -62,7 +62,7 @@ export default function Navbar({
   const handleSignOut = async () => {
     try {
       const response = await axios.post(
-        "http://20.117.120.95:8000/api/logout/",
+        "https://backend.scientific-methodology.com/api/logout/",
         {},
         {
           headers: {

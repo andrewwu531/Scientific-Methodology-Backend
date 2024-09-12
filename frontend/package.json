@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "proxy": "http://20.117.120.95:8000",
+  "proxy": "https://backend.scientific-methodology.com",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",

@@ -34,7 +34,7 @@ export default function FAQAccordion({ course_url, setShowLogin, isLoggedIn }) {
   };
 
   useEffect(() => {
-    fetch(`http://20.117.120.95:8000/api/faq/${course_url}/`)
+    fetch(`https://backend.scientific-methodology.com/api/faq/${course_url}/`)
       .then((response) => response.json())
       .then((data) => {
         // Sort FAQs by faq_question_num before setting the state

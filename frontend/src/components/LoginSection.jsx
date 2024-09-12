@@ -76,8 +76,8 @@ export default function LoginSection({ setUserEmail, setUser, setIsLoggedIn }) {
     }
 
     const url = isRegistering
-      ? "http://20.117.120.95:8000/api/register/"
-      : "http://20.117.120.95:8000/api/login/";
+      ? "https://backend.scientific-methodology.com/api/register/"
+      : "https://backend.scientific-methodology.com/api/login/";
     try {
       const response = await axios.post(
         url,
@@ -115,7 +115,7 @@ export default function LoginSection({ setUserEmail, setUser, setIsLoggedIn }) {
   const handlePasswordReset = async () => {
     try {
       const response = await axios.post(
-        "http://20.117.120.95:8000/api/password-reset/",
+        "https://backend.scientific-methodology.com/api/password-reset/",
         { email: email },
         {
           headers: {
