@@ -7,6 +7,8 @@ CSRF_TRUSTED_ORIGINS = ['https://'+ os.environ['WEBSITE_HOSTNAME']]
 DEBUG = False
 SECRET_KEY = os.environ['MY_SECRET_KEY']
 
+ENABLE_ORYX_BUILD = True
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenose.middleware.WhiteNoseMiddleware'
