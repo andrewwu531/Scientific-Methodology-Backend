@@ -44,7 +44,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('video_title', models.CharField(default='default_title', max_length=100)),
-                ('video_subscription_type', models.CharField(choices=[('1', 'Free'), ('2', 'Basic'), ('3', 'Premium')], default='1', max_length=2)),
+                ('video_subscription_type', models.CharField(choices=[('1', 'Free'), ('2', 'Basic'), ('3', 'BASIC')], default='1', max_length=2)),
                 ('video_series_name', models.CharField(default='default_series_name', max_length=20)),
                 ('video_series', models.CharField(default='0', max_length=2)),
                 ('video_episode', models.CharField(default='0', max_length=2)),

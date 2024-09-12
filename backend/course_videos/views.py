@@ -158,3 +158,4 @@ def logout_view(request):
         logout(request)
         return JsonResponse({"success": True})
     return JsonResponse({"error": "Invalid request method"}, status=405)
+

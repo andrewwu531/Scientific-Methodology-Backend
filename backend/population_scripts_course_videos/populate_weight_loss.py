@@ -120,7 +120,7 @@ def populate_course_weight_loss():
                 },
                 {
                     'video_title': 'Powerlifting vs Bodybuilding',
-                    'video_subscription_type': Videos.Video_Subscription_Type.PREMIUM,
+                    'video_subscription_type': Videos.Video_Subscription_Type.BASIC,
                     'video_series_name': 'Weightlifting Mechanisms',
                     'video_series': '3',
                     'video_episode': '2',
@@ -129,7 +129,7 @@ def populate_course_weight_loss():
                 },
                 {
                     'video_title': 'Tempo: The Concentric & Eccentric Motions',
-                    'video_subscription_type': Videos.Video_Subscription_Type.PREMIUM,
+                    'video_subscription_type': Videos.Video_Subscription_Type.BASIC,
                     'video_series_name': 'Weightlifting Mechanisms',
                     'video_series': '3',
                     'video_episode': '3',
@@ -138,7 +138,7 @@ def populate_course_weight_loss():
                 },
                 {
                     'video_title': 'The Range of Motion',
-                    'video_subscription_type': Videos.Video_Subscription_Type.PREMIUM,
+                    'video_subscription_type': Videos.Video_Subscription_Type.BASIC,
                     'video_series_name': 'Weightlifting Mechanisms',
                     'video_series': '3',
                     'video_episode': '4',
@@ -147,7 +147,7 @@ def populate_course_weight_loss():
                 },
                 {
                     'video_title': 'Other Weightlifting Techniques',
-                    'video_subscription_type': Videos.Video_Subscription_Type.PREMIUM,
+                    'video_subscription_type': Videos.Video_Subscription_Type.BASIC,
                     'video_series_name': 'Weightlifting Mechanisms',
                     'video_series': '3',
                     'video_episode': '5',
@@ -156,7 +156,7 @@ def populate_course_weight_loss():
                 },
                 {
                     'video_title': 'A Sample Workout Drill',
-                    'video_subscription_type': Videos.Video_Subscription_Type.PREMIUM,
+                    'video_subscription_type': Videos.Video_Subscription_Type.BASIC,
                     'video_series_name': 'Weightlifting Mechanisms',
                     'video_series': '3',
                     'video_episode': '6',
