@@ -17,7 +17,7 @@ jobs:
         
     - name: Test SSH connection
       run: ssh -o StrictHostKeyChecking=no ${{ secrets.USERNAME }}@${{ secrets.SSH_HOST }} "echo SSH connection established"
-        
+
     - name: Clone repository to server
       run: |
-        ssh -o StrictHostKeyChecking=no ${{ secrets.USERNAME }}@${{ secrets.SSH_HOST }} "git pull git@github.com:${{ github.repository }}.git /var/www/Scientific-Methodology-Backend"
+        ssh -o StrictHostKeyChecking=no ${{ secrets.USERNAME }}@${{ secrets.SSH_HOST }} "git clone --branch deploy git@github.com:${{ github.repository }}.git /var/www/Scientific-Methodology-Backend"
