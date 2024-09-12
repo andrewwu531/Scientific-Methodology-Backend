@@ -20,4 +20,5 @@ jobs:
         
     - name: Clone repository to server
       run: |
-        ssh -o StrictHostKeyChecking=no ${{ secrets.USERNAME }}@${{ secrets.SSH_HOST }} "sudo git clone --branch deploy git@github.com:${{ github.repository }} /var/www/backend"
+        ssh -o StrictHostKeyChecking=no ${{ secrets.USERNAME }}@${{ secrets.SSH_HOST }} "sudo mkdir -p /var/www/backend && sudo chown -R ${{ secrets.USERNAME }} /var/www/backend"
+        ssh -o StrictHostKeyChecking=no ${{ secrets.USERNAME }}@${{ secrets.SSH_HOST }} "git clone --branch deploy @github.com:${{ github.repository }} /var/www/backend"
