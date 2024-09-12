@@ -4,6 +4,7 @@ import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+SECRET_KEY = 'AnDreWWuDeploYmEntVaLueJfkSjfslkdfj'
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
@@ -12,7 +13,7 @@ MEDIA_URL = '/media/'
 
 SECRET_KEY = 'django-insecure-5(&rb0&ftiiij)gne&=dospbyy@a$3iwv^_23e*w91(u&l0zag'
 DEBUG = True
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 INSTALLED_APPS = [

@@ -1,17 +1,17 @@
 import os
 from .settings import *
-from .settings import BASE_DIR 
+from .settings import BASE_DIR
 
-ALLOWED_HOSTS = [os.environ['WEBSITE_HOSTNAME'], 'scientific-methodology-cwafcze9cmg0c4f3.uksouth-01.azurewebsites.net']
-CSRF_TRUSTED_ORIGINS = ['https://'+ os.environ['WEBSITE_HOSTNAME']]
+# Add the exact IP address and localhost to ALLOWED_HOSTS
+ALLOWED_HOSTS = ['20.117.120.95', 'localhost', '127.0.0.1']
+
+CSRF_TRUSTED_ORIGINS = ['https://' + os.environ.get('WEBSITE_HOSTNAME', '20.117.120.95')]
 DEBUG = False
 SECRET_KEY = os.environ['MY_SECRET_KEY']
 
-ENABLE_ORYX_BUILD = True
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenose.middleware.WhiteNoseMiddleware'
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # Fixing typo in WhiteNoise
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -21,19 +21,17 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
 ]
 
-# CORS_ALLOWED_ORIGINS = []
-
 STORAGES = {
     "default": {
         "BACKEND": "django.core.files.storage.FileSystemStorage",
     },
     "staticfiles": {
-        "BACKEND": "whitenose.storage.CompressedStaticFilesStorage",
+        "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage",
     },
 }
- 
+
 CONNECTION = os.environ['AZURE_POSTGRESQL_CONNECTIONSTRING']
-CONNECTION_STR = {pair.split('=')[0]:pair.split('=')[1] for pair in CONNECTION.split(' ')}
+CONNECTION_STR = {pair.split('=')[0]: pair.split('=')[1] for pair in CONNECTION.split(' ')}
 
 DATABASES = {
     "default": {
@@ -45,6 +43,4 @@ DATABASES = {
     }
 }
 
-STATIC_URL = '/static/'
-STATICFILES_STORAGE = 'whitenoise.storages.CompressedStaticFilesStorage'
-STATIC_ROOT = BASE_DIR/'staticfiles'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
