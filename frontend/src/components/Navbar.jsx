@@ -6,7 +6,7 @@ import NavbarDropdown from "./NavbarDropdown";
 import { FiChevronDown } from "react-icons/fi";
 import logo from "../static/images/logo111.jpg";
 
-export default function NavBar({
+export default function Navbar({
   setUser,
   setUserEmail,
   isLoggedIn,
@@ -52,7 +52,7 @@ export default function NavBar({
 
   useEffect(() => {
     axios
-      .get("http://127.0.0.1:8000/api/courses/")
+      .get("http://20.117.120.95:8000/api/courses/")
       .then((response) => {
         setCourses(response.data);
       })
@@ -62,7 +62,7 @@ export default function NavBar({
   const handleSignOut = async () => {
     try {
       const response = await axios.post(
-        "http://127.0.0.1:8000/api/logout/",
+        "http://20.117.120.95:8000/api/logout/",
         {},
         {
           headers: {
@@ -247,7 +247,7 @@ export default function NavBar({
   );
 }
 
-NavBar.propTypes = {
+Navbar.propTypes = {
   setUser: PropTypes.func,
   setUserEmail: PropTypes.func.isRequired,
   isLoggedIn: PropTypes.bool.isRequired,

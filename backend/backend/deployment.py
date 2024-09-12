@@ -3,7 +3,7 @@ from .settings import *
 from .settings import BASE_DIR
 
 # Add the exact IP address and localhost to ALLOWED_HOSTS
-ALLOWED_HOSTS = ['20.117.120.95', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['20.117.120.95', 'localhost', '20.117.120.95']
 
 CSRF_TRUSTED_ORIGINS = ['https://' + os.environ.get('WEBSITE_HOSTNAME', '20.117.120.95')]
 DEBUG = False

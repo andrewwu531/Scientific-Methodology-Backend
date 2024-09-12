@@ -76,8 +76,8 @@ export default function LoginSection({ setUserEmail, setUser, setIsLoggedIn }) {
     }
 
     const url = isRegistering
-      ? "http://127.0.0.1:8000/api/register/"
-      : "http://127.0.0.1:8000/api/login/";
+      ? "http://20.117.120.95:8000/api/register/"
+      : "http://20.117.120.95:8000/api/login/";
     try {
       const response = await axios.post(
         url,
@@ -115,7 +115,7 @@ export default function LoginSection({ setUserEmail, setUser, setIsLoggedIn }) {
   const handlePasswordReset = async () => {
     try {
       const response = await axios.post(
-        "http://127.0.0.1:8000/api/password-reset/",
+        "http://20.117.120.95:8000/api/password-reset/",
         { email: email },
         {
           headers: {

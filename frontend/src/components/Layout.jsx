@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Outlet } from "react-router-dom";
-import NavBar from "../components/NavBar";
+import Navbar from "../components/Navbar";
 
 export default function Layout({
   setUser,
@@ -12,7 +12,7 @@ export default function Layout({
   return (
     <div className="flex flex-col bg-black">
       <div className="fixed top-0 z-50 w-full">
-        <NavBar
+        <Navbar
           setUser={setUser}
           setUserEmail={setUserEmail}
           isLoggedIn={isLoggedIn}

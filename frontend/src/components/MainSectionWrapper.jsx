@@ -9,7 +9,7 @@ function MainSectionWrapper() {
   const [selectedVideo, setSelectedVideo] = useState(null);
 
   useEffect(() => {
-    fetch(`http://127.0.0.1:8000/api/courses/`)
+    fetch(`http://20.117.120.95:8000/api/courses/`)
       .then((response) => response.json())
       .then((data) => {
         const selectedData = data.find(
@@ -22,7 +22,7 @@ function MainSectionWrapper() {
 
   useEffect(() => {
     if (category) {
-      fetch(`http://127.0.0.1:8000/api/${category}/`)
+      fetch(`http://20.117.120.95:8000/api/${category}/`)
         .then((response) => response.json())
         .then((data) => setCategoryData(data))
         .catch((error) =>

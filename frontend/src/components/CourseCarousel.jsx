@@ -22,7 +22,7 @@ export default function CourseCarousel() {
   const [currentCategory, setCurrentCategory] = useState("Trending Now");
   const [courses, setCourses] = useState([]);
   const navigate = useNavigate();
-  const backendURL = "http://127.0.0.1:8000";
+  const backendURL = "http://20.117.120.95:8000";
 
   useEffect(() => {
     axios

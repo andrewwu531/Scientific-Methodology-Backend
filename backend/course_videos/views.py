@@ -115,7 +115,7 @@ def password_reset_request(request):
             user = User.objects.get(email=email)
             token = default_token_generator.make_token(user)
             uid = urlsafe_base64_encode(force_bytes(user.pk))
-            password_reset_link = f"http://127.0.0.1:8000/reset-password/{uid}/{token}/"
+            password_reset_link = f"http://20.117.120.95:8000/reset-password/{uid}/{token}/"
 
             subject = "Password Reset Requested"
             message = render_to_string('password_reset_email.html', {

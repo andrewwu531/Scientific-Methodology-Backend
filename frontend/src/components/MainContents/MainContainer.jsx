@@ -9,7 +9,7 @@ export default function MainContainer() {
   useEffect(() => {
     console.log("Selected category:", selectedCategory); // Log selected category
     if (selectedCategory) {
-      fetch(`http://127.0.0.1:8000/api/${selectedCategory}/`)
+      fetch(`http://20.117.120.95:8000/api/${selectedCategory}/`)
         .then((response) => {
           if (!response.ok) {
             throw new Error("Network response was not ok");
