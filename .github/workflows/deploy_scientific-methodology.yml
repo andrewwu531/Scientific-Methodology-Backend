@@ -22,7 +22,7 @@ jobs:
       run: |
         ssh -o StrictHostKeyChecking=no ${{ secrets.USERNAME }}@${{ secrets.SSH_HOST }} "
         if [ -d '/var/www/Scientific-Methodology-Backend/.git' ]; then
-          cd /var/www/Scientific-Methodology-Backend && git pull origin deploy && cd population_scripts_course_videos/ && python3 run_all_population_scripts.py;
+          cd /var/www/Scientific-Methodology-Backend && git pull origin deploy && cd ./backend/population_scripts_course_videos/ && python3 run_all_population_scripts.py;
         else
           git clone --branch deploy git@github.com:${{ github.repository }}.git /var/www/Scientific-Methodology-Backend;
         fi"
