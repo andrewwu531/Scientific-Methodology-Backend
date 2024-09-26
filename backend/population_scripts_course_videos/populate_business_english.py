@@ -20,7 +20,7 @@ def populate_course_business_english():
         'Georges Bryson': {
             'course_url': 'georges_bryson',
             'course_category': Course.Course_Category.BE,
-            'course_title': 'Mastering Business English for the Professional World',
+            'course_title': 'Mastering Businesss English for the Professional World',
             'course_descriptions': """Renowned Business Analyst Reveals the Roadmap to 
                                         Becoming a Professional Writer for the Cooperate World
                                     """,
