@@ -11,15 +11,21 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+
       - name: Set up Python 3.10.12
         uses: actions/setup-python@v4
         with:
           python-version: "3.10.12"
 
+      - name: Ensure pip is installed
+        run: |
+          python3 -m ensurepip --upgrade
+          python3 -m pip install --upgrade pip
+
       - name: Install dependencies
         run: |
-          python3 -m pip install --upgrade pip
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          if [ -f requirements.txt ]; then python3 -m pip install -r requirements.txt; fi
+
       - name: Rsync Deployer
         uses: imajeetyadav/rsync-deployer@1.0.0
         with:
@@ -31,7 +37,7 @@ jobs:
           PORT: 22
           RSYNC_PARAMETERS: ""
           DELETE_OPTION: "false"
-          EXCLUDE_LIST: ".git, .github"
+          EXCLUDE_LIST: ".git, .github, .env, __pycache__"
           DRY_RUN: "false"
 
       - name: Post Deploy
@@ -42,7 +48,12 @@ jobs:
           key: ${{ secrets.DEV_SSH_PRIVATEKEY }}
           port: 22
           script: |
-            cd /var/www/backend/population_scripts_course_videos && python3 run_all_population_scripts.py
+            set -e
+            cd /var/www/backend/population_scripts_course_videos
+            python3 run_all_population_scripts.py > population_log.txt 2>&1
+            echo "Population Script Logs:"
+            cat population_log.txt
             cd /var/www/backend
-            if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+            if [ -f requirements.txt ]; then python3 -m pip install -r requirements.txt; fi
+            sudo systemctl status backend.service || echo "Service not found. Please create backend.service."
             sudo systemctl restart backend.service
