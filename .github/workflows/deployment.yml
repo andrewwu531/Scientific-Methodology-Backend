@@ -17,30 +17,7 @@ jobs:
         with:
           python-version: "3.10.12"
 
-      - name: Ensure pip is installed
-        run: |
-          python3 -m ensurepip --upgrade
-          python3 -m pip install --upgrade pip
-
-      - name: Install dependencies
-        run: |
-          if [ -f requirements.txt ]; then python3 -m pip install -r requirements.txt; fi
-
-      - name: Rsync Deployer
-        uses: imajeetyadav/rsync-deployer@1.0.0
-        with:
-          HOST: ${{ secrets.DEV_SSH_HOST }}
-          USERNAME: ${{ secrets.DEV_USERNAME }}
-          KEY: ${{ secrets.DEV_SSH_PRIVATEKEY }}
-          SOURCE_PATH: "."
-          TARGET_PATH: "/var/www/backend"
-          PORT: 22
-          RSYNC_PARAMETERS: ""
-          DELETE_OPTION: "false"
-          EXCLUDE_LIST: ".git, .github, .env, __pycache__"
-          DRY_RUN: "false"
-
-      - name: Post Deploy
+      - name: Deploy and Run Script
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.DEV_SSH_HOST }}
@@ -48,19 +25,36 @@ jobs:
           key: ${{ secrets.DEV_SSH_PRIVATEKEY }}
           port: 22
           script: |
+            # Navigate to backend directory
             cd /var/www/backend
-            if [ -f requirements.txt ]; then python3 -m pip install -r requirements.txt; fi
+
+            # Ensure Python and pip are up-to-date
             sudo apt-get update -y
-            sudo apt-get install -y python3-pip
-            python3 -m pip install moviepy
+            sudo apt-get install -y python3 python3-pip
+
+            # Install project dependencies
+            if [ -f requirements.txt ]; then
+              python3 -m pip install --upgrade pip
+              python3 -m pip install -r requirements.txt
+            fi
+
+            # Install specific modules if necessary
+            python3 -m pip install moviepy django
+
+            # Navigate to population scripts and run them
             cd /var/www/backend/population_scripts_course_videos
             python3 run_all_population_scripts.py > population_log.txt 2>&1
+
+            # Display script logs
             echo "Population Script Logs:"
             cat population_log.txt
+
+            # Return to backend directory
             cd /var/www/backend
-            if [ -f requirements.txt ]; then python3 -m pip install -r requirements.txt; fi
-            if ! systemctl status backend.service > /dev/null 2>&1; then
-              echo "Service not found. Please create backend.service."
-            else
+
+            # Check and restart backend service
+            if systemctl status backend.service > /dev/null 2>&1; then
               sudo systemctl restart backend.service
-            }
+            else
+              echo "Service not found. Please create backend.service."
+            fi
