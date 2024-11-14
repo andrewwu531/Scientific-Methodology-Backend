@@ -241,7 +241,7 @@ def add_video(course_url, video_title, video_subscription_type, video_series_nam
 
     # Compute video duration in MM:SS format
     base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir, os.pardir))
-    video_path = os.path.join(base_dir, 'backend', 'static', 'media', video_video)
+    video_path = os.path.join(base_dir, 'Scientific-Methodology-Backend', 'static', 'media', video_video)
     try:
         with VideoFileClip(video_path) as clip:
             duration_seconds = int(clip.duration)
