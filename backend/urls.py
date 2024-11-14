@@ -12,6 +12,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
     path('api/courses/', course_videos_views.CourseListCreateView.as_view(), name="courses"),
+    path('api/courses/create/', course_videos_views.CourseCreateView.as_view(), name="create_courses"),
     path('api/course/<str:course_url>/', course_videos_views.get_course_videos, name='get_course_videos'),
     path('api/faq/<str:course_url>/', course_videos_views.get_course_faqs, name='get_course_faqs'),
     path('api/login/', course_videos_views.login_view, name='login'),

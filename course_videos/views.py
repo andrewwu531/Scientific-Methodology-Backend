@@ -1,5 +1,6 @@
 import logging
 import json
+import os
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import authenticate, login, logout
 from django.http import JsonResponse
@@ -23,9 +24,20 @@ from member.models import Member, CustomUser
 User = get_user_model()
 logger = logging.getLogger(__name__)
 
-class CourseListCreateView(generics.ListCreateAPIView):
+class CourseListCreateView(generics.ListAPIView):
     serializer_class = CourseSerializer
     queryset = Course.objects.all()
+
+class CourseCreateView(generics.CreateAPIView):
+    serializer_class = CourseSerializer
+    queryset = Course.objects.all()
+    def post(self, request, *args, **kwargs):
+        
+        serializer = self.serializer_class(data=request.data)
+        if serializer.is_valid():
+           serializer.save()
+           return Response(serializer.data, status=201)
+        return Response(serializer.errors, status=400)
 
 @api_view(['GET'])
 def get_course_videos(request, course_url):
@@ -115,7 +127,8 @@ def password_reset_request(request):
             user = User.objects.get(email=email)
             token = default_token_generator.make_token(user)
             uid = urlsafe_base64_encode(force_bytes(user.pk))
-            password_reset_link = f"https://backend.scientific-methodology.com/reset-password/{uid}/{token}/"
+            reset_link = os.getenv("RESET_URL")
+            password_reset_link = f"{reset_link}/reset-password/{uid}/{token}/"
 
             subject = "Password Reset Requested"
             message = render_to_string('password_reset_email.html', {
