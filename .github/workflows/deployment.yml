@@ -48,7 +48,6 @@ jobs:
           key: ${{ secrets.DEV_SSH_PRIVATEKEY }}
           port: 22
           script: |
-            set -e
             cd /var/www/backend/population_scripts_course_videos
             python3 run_all_population_scripts.py > population_log.txt 2>&1
             echo "Population Script Logs:"
