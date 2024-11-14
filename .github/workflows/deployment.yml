@@ -48,11 +48,19 @@ jobs:
           key: ${{ secrets.DEV_SSH_PRIVATEKEY }}
           port: 22
           script: |
+            cd /var/www/backend
+            if [ -f requirements.txt ]; then python3 -m pip install -r requirements.txt; fi
+            sudo apt-get update -y
+            sudo apt-get install -y python3-pip
+            python3 -m pip install moviepy
             cd /var/www/backend/population_scripts_course_videos
             python3 run_all_population_scripts.py > population_log.txt 2>&1
             echo "Population Script Logs:"
             cat population_log.txt
             cd /var/www/backend
             if [ -f requirements.txt ]; then python3 -m pip install -r requirements.txt; fi
-            sudo systemctl status backend.service || echo "Service not found. Please create backend.service."
-            sudo systemctl restart backend.service
+            if ! systemctl status backend.service > /dev/null 2>&1; then
+              echo "Service not found. Please create backend.service."
+            else
+              sudo systemctl restart backend.service
+            }
